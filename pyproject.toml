@@ -12,6 +12,3 @@ dependencies = [
     "pip",
     "anylogiccloudclient @ https://cloud.anylogic.com/files/api-8.5.0/clients/anylogiccloudclient-8.5.0-py3-none-any.whl#egg=anylogiccloudclient",
 ]
-
-[tool.setuptools.packages.find]
-where = ["cloudclient"]

@@ -4,7 +4,7 @@ __pycache__
 **/config.yml
 **/experiments.yml
 .vscode/settings.json
-cloudclient/Pipfile.lock
-cloudclient/output/**
-cloudclient/cloudclient.egg-info
+**/cloudclient/Pipfile.lock
+**/cloudclient/output/**
+**/cloudclient.egg-info
 .cloudclient
