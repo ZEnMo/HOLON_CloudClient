@@ -33,7 +33,7 @@ pip install https://github.com/ZEnMo/HOLON-cloudclient/archive/main.zip
 ```
 **Via requirements.txt**
 ```
-git+https://github.com/ZEnMo/HOLON-cloudclient@master#egg=cloudclient
+git+https://github.com/ZEnMo/HOLON-cloudclient@main#egg=cloudclient
 ```
 
 ## Starting up
