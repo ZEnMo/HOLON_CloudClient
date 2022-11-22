@@ -20,6 +20,7 @@
 
 webdev_cloud_poc:
   path: ".."
+  query_api: True
   model_name: Base_27okt
   config_file: input/300_gridConnections/db_backboneConfig_300.xlsx
   timestep_hours: 0.25
@@ -42,9 +43,16 @@ webdev_cloud_poc:
   outcomes:
     - anylogic_key: O output runSettings
       human_key: APIOutputRunData
-      write: false
+      writeExcel: False
+      writeJSON: True
       print: false
-    - anylogic_key: O output actorData
-      human_key: APIOutputAgentData
-      write: false
-      print: false
+    - anylogic_key: O total cost data
+      human_key: APIOutputTotalCostData
+      writeExcel: False
+      writeJSON: True
+      print: True
+    #- anylogic_key: O output actorData
+    #  human_key: APIOutputAgentData
+    #  writeExcel: False
+    #  writeJSON: True
+    #  print: false

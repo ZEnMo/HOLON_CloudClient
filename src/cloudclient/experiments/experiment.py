@@ -7,6 +7,7 @@ from .input_json import InputJSON
 class Experiment:
     name: str
     path: Path
+    query_api: bool
     model_name: str
     config_file: str
     timestep_hours: float = 0.25
@@ -20,6 +21,7 @@ class Experiment:
     def __repr__(self):
         return (f"\n\033[4mExperiment {self.name}\033[0m\n" +
             f"Path: {self.path}\n" +
+            f"Query_api: {self.query_api}\n" +
             f"Model: {self.model_name}\n" +
             f"Config: {self.config_file}\n" +
             f"TimeStep_h: {self.timestep_hours}\n"+

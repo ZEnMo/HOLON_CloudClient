@@ -42,6 +42,8 @@ def start_experiment(settings):
 
     # Run experiment in AnyLogic Cloud
     api_experiment = AnyLogicExperiment(experiment)
-    api_experiment.runSimulation()
+    
+    if experiment.query_api:
+        api_experiment.runSimulation()
 
     print("\nDuration: ", api_experiment.duration_s, " seconds\n")

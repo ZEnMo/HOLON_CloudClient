@@ -58,6 +58,7 @@
 
 300_gridConnections_27okt:
   path: ".."
+  query_api: True
   model_name: Base_27okt
   config_file: input/300_gridConnections/db_backboneConfig_300.xlsx
   timestep_hours: 0.25
@@ -80,17 +81,19 @@
   outcomes:
     - anylogic_key: O output runSettings
       human_key: APIOutputRunData
-      write: True
+      writeExcel: False
+      writeJSON: True
       print: True
-    - anylogic_key: O output actorData
-      human_key: APIOutputAgentData
-      write: true
-      print: False
-    # - anylogic_key: O charging profile E vs k W
-    #   human_key: EVChargingProfile
-    #   action: normalise
-    #   write: true
-    #   print: false
+    #- anylogic_key: O output actorData
+    #  human_key: APIOutputAgentData
+    #  writeExcel: False
+    #  writeJSON: True
+    #  print: False
+    - anylogic_key: O total cost data
+      human_key: APIOutputTotalCostData
+      writeExcel: False
+      writeJSON: True
+      print: True
     # - anylogic_key: O output trigger
     #   human_key: OutputTrigger
     #   write: false
