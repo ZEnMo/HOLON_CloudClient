@@ -13,5 +13,11 @@ dependencies = [
     "anylogiccloudclient @ https://cloud.anylogic.com/files/api-8.5.0/clients/anylogiccloudclient-8.5.0-py3-none-any.whl#egg=anylogiccloudclient",
 ]
 
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [tool.setuptools.package-data]
-cloudclient = ["*.yml"]
+config = ["*.yml"]
