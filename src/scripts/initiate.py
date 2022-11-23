@@ -29,7 +29,7 @@ def create_folder(folder_location: str = None, get_api_key: bool = None) -> None
                         raise SystemError(
                             "Option [-tf | --target-folder] is supplied but no value is supplied!"
                         )
-    abs_target = Path().resolve().absolute().__str__() + "\\target_folder"
+    abs_target = (Path().resolve().absolute() / target_folder).__str__() 
     pprint(f"Initiating cloudclient... \t (at {abs_target})")
 
     # make folders
