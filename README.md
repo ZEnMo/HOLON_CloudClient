@@ -23,13 +23,15 @@ git clone https://github.com/ZEnMo/HOLON-cloudclient.git
 cd HOLON-cloudclient
 # CREATE AND ACTIVATE YOUR ENV OF CHOICE
 pip install -e .
+cloudclient_init --target-folder .
 ```
 
 
 ### Production
 **Direct**
 ```bash
-pip install https://github.com/ZEnMo/HOLON-cloudclient/archive/main.zip
+pip install git+https://github.com/ZEnMo/HOLON-cloudclient@main#egg=cloudclient
+cloudclient_init --target-folder folder/for/clouclient/config --get-api-key # asumes "AL_API_KEY" in env vars
 ```
 **Via requirements.txt**
 ```

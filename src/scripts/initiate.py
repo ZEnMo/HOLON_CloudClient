@@ -56,7 +56,7 @@ def create_folder(folder_location: str = None, get_api_key: bool = None) -> None
     pprint("Done!")
 
     if get_api_key is None:
-        if "--get-apikey" in args:
+        if "--get-api-key" in args:
             update_config_yaml(CONFIG_PATH / "config.yml")
         else:
             pprint(
