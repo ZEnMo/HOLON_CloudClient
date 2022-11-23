@@ -9,9 +9,12 @@ ETM_MAPPING = {
     "depreciation_costs_buildings_gas_burner_per_kw": ("BUILDING", "GAS_BURNER"),
     "depreciation_costs_industry_solar_panels_per_kw": ("INDUSTRY", "PHOTOVOLTAIC"),
     "depreciation_costs_industry_gas_burner_per_kw": ("INDUSTRY", "GAS_BURNER"),
+    "depreciation_costs_building_heat_pump_per_kw": ("BUILDING", "HEAT_PUMP"),
+    "depreciation_costs_industry_heat_pump_per_kw": ("INDUSTRY", "HEAT_PUMP"),
     "hourly_price_of_electricity_per_mwh": ("SystemHourlyElectricity", ""),
     "price_of_natural_gas_per_mwh": ("totalMethane", ""),
     "price_of_hydrogen_per_mwh": ("totalHydrogen", ""),
+    "price_of_diesel_per_mwh": ("totalDiesel", ""),
     "electricity_grid_expansion_costs_lv_mv_trafo_per_kw": ("MSLSPeakLoadElectricity_kW", ""),
     "electricity_grid_expansion_costs_mv_hv_trafo_per_kw": ("HSMSPeakLoadElectricity_kW", ""),
     "depreciation_costs_grid_battery_per_mwh": (
@@ -75,6 +78,7 @@ class Category:
             for key, val in ETM_MAPPING.items():
                 if cost_item.match(*val):
                     # NOTE: if etm_key is not available, we set costs to zero
+                    print(key)
                     cost_item.set_price(etm_inputs.get(key, 0))
                     self.total_costs += cost_item.costs
                     break
@@ -86,7 +90,7 @@ class Categories:
     CATEGORIES = {
         "buildings_and_installations": ["BUILDING", "INDUSTRY"],
         "infrastructure": ["HSMSPeakLoadElectricity_kW", "MSLSPeakLoadElectricity_kW"],
-        "flexibility": ["totalBatteryInstalledCapacity_MWh:Grid_battery_10MWh"],
+        "flexibility": ["totalBatteryInstalledCapacity_MWh:Grid_battery_10MWh", "totalBatteryInstalledCapacity_MWh:Grid_battery_7MWh"],
         "energy_production": ["SOLARFARM"],
         "carriers": ["SystemHourlyElectricity", "totalMethane", "totalHydrogen", "totalDiesel"],
     }

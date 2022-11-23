@@ -104,8 +104,8 @@ def holon_config():
                 "etm_key": None,
                 "name": "Grid_battery_10MWh",
                 "category": "STORAGE",
-                "capacityElectricity_kW": 2000.0, # DEZE
-                "storageCapacity_kWh": 10000.0 # deze ook?
+                "capacityElectricity_kW": 2000.0, # DEZE -> J: Nee niet voor storage
+                "storageCapacity_kWh": 10000.0 # deze ook? -> J: dan eerder deze. Maar eigenlijk simpele variant van gebruikscycli o.b.v holon_outputs
             }
             ],
             "category": "GRIDBATTERY" # Met deze
@@ -118,11 +118,14 @@ def etm_output():
         'depreciation_costs_buildings_solar_panels_per_kw': 20,
         'depreciation_costs_solar_farm_per_kw': 21,
         'depreciation_costs_buildings_gas_burner_per_kw': 25,
+        'depreciation_costs_buildings_heat_pump_per_kw': 50,
+        'depreciation_costs_industry_heat_pump_per_kw': 60,
         'depreciation_costs_industry_solar_panels_per_kw': 19,
         'depreciation_costs_industry_gas_burner_per_kw': 30,
         'hourly_price_of_electricity_per_mwh': [1] * 8670,
         'price_of_natural_gas_per_mwh': 20,
         'price_of_hydrogen_per_mwh': 10,
+        'price_of_diesel_per_mwh': 15,
         'electricity_grid_expansion_costs_lv_mv_trafo_per_kw': 5,
         'electricity_grid_expansion_costs_mv_hv_trafo_per_kw': 6,
         'depreciation_costs_grid_battery_per_mwh': 10
