@@ -1,6 +1,6 @@
 from anylogiccloudclient.client.cloud_client import CloudClient
 from cloudclient.experiments.config import config
-from .inputs import Inputs
+from cloudclient.experiments.client.inputs import Inputs
 
 
 class Client(Inputs):

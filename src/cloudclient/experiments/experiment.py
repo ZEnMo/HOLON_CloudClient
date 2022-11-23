@@ -10,6 +10,7 @@ class Experiment:
     query_api: bool
     model_name: str
     config_file: str
+    use_datamodel: bool
     timestep_hours: float = 0.25
     force_uncached: bool = True
     show_progress: bool = False

@@ -26,7 +26,7 @@ class ExperimentSettings:
 
     @classmethod
     def load(cls, path="config/experiments.yml"):
-        path = TOP_FOLDER.parent / path
+        path = TOP_FOLDER / path
         with open(path, "r") as f:
             doc = yaml.load(f, Loader=yaml.FullLoader)
         return cls(doc)
