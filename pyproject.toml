@@ -20,4 +20,4 @@ include-package-data = true
 cloudclient = ["config/*.yml"]
 
 [project.scripts]
-cloudclient_init = "cloudclient.scripts.initiate:create_folder"
+cloudclient_init = "scripts.initiate:create_folder"

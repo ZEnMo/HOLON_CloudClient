@@ -1,11 +1,11 @@
 import os
-import yaml
 import shutil
 import sys
 from pathlib import Path
 
+import yaml
 
-CONFIG_FOLDER = Path(__file__).parent.parent / "config"
+CONFIG_FOLDER = Path(__file__).parent.parent / "cloudclient" / "config"
 
 
 def pprint(prompt):
@@ -66,9 +66,10 @@ def create_folder(folder_location: str = None, get_api_key: bool = None) -> None
 
 def update_config_yaml(config_path: Path) -> None:
 
-    from cloudclient.experiments.config import Config
+    with open(config_path, "r") as f:
+        config = yaml.load(f, Loader=yaml.FullLoader)
 
-    config = Config.load(config_path)
     config["anylogic_cloud"]["api_key"] = os.environ["AL_API_KEY"]
 
-    config.dump(config_path)
+    with open(config_path, "w") as f:
+        yaml.dump(config, f)
