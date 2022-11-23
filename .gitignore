@@ -9,3 +9,4 @@ __pycache__
 **/cloudclient.egg-info
 .cloudclient
 build
+**/config/.cloudclient_location.yml

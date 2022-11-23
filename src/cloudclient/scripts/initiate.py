@@ -72,8 +72,3 @@ def update_config_yaml(config_path: Path) -> None:
     config["anylogic_cloud"]["api_key"] = os.environ["AL_API_KEY"]
 
     config.dump(config_path)
-
-
-if __name__ == "__main__":
-    os.environ["AL_API_KEY"] = "test"
-    create_folder()

@@ -1,7 +1,9 @@
 import yaml
 from pathlib import Path
+from cloudclient.experiments.config import CONFIG_PATH
 
-TOP_FOLDER = Path(__file__).parent
+
+TOP_FOLDER = CONFIG_PATH.parent
 
 
 class ExperimentSettings:
