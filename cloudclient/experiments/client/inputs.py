@@ -28,9 +28,9 @@ class Inputs:
             self._set_config_sheet(input["anylogic_key"], input["file"])
 
     def _set_config_sheet(self, input_name, config_sheet):
-        try:
+        try: 
             self._inputs.set_input(
-                input_name, self.experiment.config_json_for(config_sheet)
+            input_name, self.experiment.config_json_for(config_sheet)
             )
         except StopIteration:
             raise KeyError(f"Input {input_name} is unkown to the model")

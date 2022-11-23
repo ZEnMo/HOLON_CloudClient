@@ -44,6 +44,7 @@ def start_experiment(settings):
     api_experiment = AnyLogicExperiment(experiment)
     
     if experiment.query_api:
+        #api_experiment.client.client.get_model_by_id("277499ea-5bee-48ad-90f8-41ef3ae395e7")
         api_experiment.runSimulation()
 
     print("\nDuration: ", api_experiment.duration_s, " seconds\n")

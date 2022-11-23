@@ -19,4 +19,29 @@ class InputJSON:
             if formatted:
                 outfile.write(json.dumps(json.loads(self.data), indent=2))
             else:
+               outfile.writelines([self.data])
+
+class InputJSONfromJSON:
+    def __init__(self, name, path, sheet_name, file_name):
+        self.write_to_path = path / f"{name}_{sheet_name}.txt"
+        print(path / file_name / name / f"{name}_{sheet_name}.txt")
+        with open(path / file_name / name / f"{name}_{sheet_name}.txt", 'r') as f:
+            
+            mylist = json.load(f)
+            self.data = json.dumps(mylist)
+            #self.data = json.load(f)
+        #self.data = pd.read_excel(path / file_name, sheet_name=sheet_name).to_json(
+        #    orient="records"
+        #)
+
+    def as_json(self, write_result=True):
+        if write_result:
+            self._write()
+        return json.loads(self.data)
+
+    def _write(self, formatted: bool = True):
+        with open(self.write_to_path, "w") as outfile:
+            if formatted:
+                outfile.write(json.dumps(json.loads(self.data), indent=2))
+            else:
                 outfile.writelines([self.data])

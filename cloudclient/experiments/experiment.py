@@ -2,12 +2,14 @@ import random
 from dataclasses import dataclass, field
 from pathlib import Path
 from .input_json import InputJSON
+from .input_json import InputJSONfromJSON
 
 @dataclass
 class Experiment:
     name: str
     path: Path
     query_api: bool
+    config_from_jsons: bool
     model_name: str
     config_file: str
     timestep_hours: float = 0.25
@@ -22,6 +24,7 @@ class Experiment:
         return (f"\n\033[4mExperiment {self.name}\033[0m\n" +
             f"Path: {self.path}\n" +
             f"Query_api: {self.query_api}\n" +
+            f"Config_from_jsons: {self.config_from_jsons}\n" +
             f"Model: {self.model_name}\n" +
             f"Config: {self.config_file}\n" +
             f"TimeStep_h: {self.timestep_hours}\n"+
@@ -36,7 +39,13 @@ class Experiment:
         if self.parallelize:
             yield "P parallelize", self.parallelize
         yield "P import local config jsons", False
+        yield "B add kpi visuals", False
 
     def config_json_for(self, sheet_name):
         '''Returns a JSON containing the config information'''
-        return InputJSON(self.name, self.path, sheet_name, self.config_file).as_json()
+        if(self.config_from_jsons):
+            return InputJSONfromJSON(self.name, self.path, sheet_name, self.config_file).as_json()    
+        else:
+            return InputJSON(self.name, self.path, sheet_name, self.config_file).as_json()      
+
+    
