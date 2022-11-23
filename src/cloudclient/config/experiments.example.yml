@@ -56,27 +56,28 @@
 #     #   write: false
 #     #   print: true
 
-300_gridConnections_27okt:
+technical_debt:
   path: ".."
   query_api: True
-  model_name: Base_27okt
-  config_file: input/300_gridConnections/db_backboneConfig_300.xlsx
+  model_name: Base_21nov
+  config_file: input/mvp.py
   timestep_hours: 0.25
   force_uncached: false
   show_progress: false
   parallelize: true
   log_exceptions: false
+  use_datamodel: true
   inputs:
     - anylogic_key: P actors config JSON
-      file: config_actors
+      file: actors
     - anylogic_key: P grid connection config JSON
-      file: config_gridConnections
+      file: gridconnections
     - anylogic_key: P grid node config JSON
-      file: config_gridNodes
+      file: gridnodes
     - anylogic_key: P energy assets config JSON
-      file: config_energyAssets
+      file: assets
     - anylogic_key: P policies config JSON
-      file: config_policies
+      file: policies
 
   outcomes:
     - anylogic_key: O output runSettings

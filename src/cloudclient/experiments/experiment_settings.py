@@ -1,7 +1,9 @@
 import yaml
 from pathlib import Path
+from cloudclient.experiments.config import CONFIG_PATH
 
-TOP_FOLDER = Path(__file__).parent
+
+TOP_FOLDER = CONFIG_PATH.parent
 
 
 class ExperimentSettings:
@@ -24,7 +26,7 @@ class ExperimentSettings:
 
     @classmethod
     def load(cls, path="config/experiments.yml"):
-        path = TOP_FOLDER.parent / path
+        path = TOP_FOLDER / path
         with open(path, "r") as f:
             doc = yaml.load(f, Loader=yaml.FullLoader)
         return cls(doc)

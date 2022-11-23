@@ -9,7 +9,7 @@ class Inputs:
     @inputs.setter
     def inputs(self, model_name):
         self._inputs = self.client.create_default_inputs(self._version(model_name))
-        self._set_config_sheets()
+        self._set_model_config()
         self._set_extras()
         self._set_local()
 
@@ -23,9 +23,18 @@ class Inputs:
                 + f" Caught CloudError: {e}"
             )
 
-    def _set_config_sheets(self):
-        for input in self.experiment.inputs:
-            self._set_config_sheet(input["anylogic_key"], input["file"])
+    def _set_model_config(self):
+
+        if self.experiment.use_datamodel is True:
+
+            for input in self.experiment.inputs:
+                self._inputs.set_input(
+                    input["anylogic_key"], self.datamodel_payload[input["file"]]
+                )
+
+        else:
+            for input in self.experiment.inputs:
+                self._set_config_sheet(input["anylogic_key"], input["file"])
 
     def _set_config_sheet(self, input_name, config_sheet):
         try:

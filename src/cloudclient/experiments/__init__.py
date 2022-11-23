@@ -31,7 +31,7 @@ def run_one_scenario(experiment_name, inputs):
     # Run experiment in AnyLogic Cloud
     api_experiment = AnyLogicExperiment(experiment)
     outcome = api_experiment.runScenario(inputs)
-    
+
     return outcome
 
 
@@ -42,7 +42,7 @@ def start_experiment(settings):
 
     # Run experiment in AnyLogic Cloud
     api_experiment = AnyLogicExperiment(experiment)
-    
+
     if experiment.query_api:
         api_experiment.runSimulation()
 

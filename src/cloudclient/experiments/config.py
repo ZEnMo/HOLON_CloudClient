@@ -8,8 +8,19 @@ class Config(dict):
 
     @classmethod
     def load(cls, path):
-        with open(path, 'r') as f:
+        with open(path, "r") as f:
             doc = yaml.load(f, Loader=yaml.FullLoader)
         return cls(doc)
 
-config = Config.load(Path(__file__).parent.parent / 'config/config.yml')
+    def dump(self, path):
+        with open(path, "w") as f:
+            yaml.dump(dict(self), f)
+        return None
+
+
+file_path = Config.load(
+    Path(__file__).parent.parent / "config/.cloudclient_location.yml"
+)["file_path"]
+CONFIG_PATH = Path(file_path)
+
+config = Config.load(CONFIG_PATH / "config.yml")
