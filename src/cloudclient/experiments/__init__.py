@@ -19,7 +19,7 @@ def run_one(experiment_name):
     start_experiment(experiments.find(experiment_name))
 
 
-def run_one_scenario(experiment_name, inputs):
+def run_one_scenario(experiment_name, inputs=None):
 
     experiments = ExperimentSettings.load()
     settings = experiments.get(
@@ -30,9 +30,18 @@ def run_one_scenario(experiment_name, inputs):
 
     # Run experiment in AnyLogic Cloud
     api_experiment = AnyLogicExperiment(experiment)
-    outcome = api_experiment.runScenario(inputs)
+    outcome = api_experiment.runScenario(inputs=inputs)
 
     return outcome
+
+
+def prepare_scenario_as_experiment(experiment_name: str) -> AnyLogicExperiment:
+    """Supply the name of the experiment as defined in experiments.yml and get a prepared AnylogicExperiment"""
+    experiments = ExperimentSettings.load()
+    settings = experiments.get(
+        experiment_name, experiments.experiments[experiment_name]
+    )
+    return AnyLogicExperiment(Experiment(**settings))
 
 
 def start_experiment(settings):

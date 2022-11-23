@@ -12,19 +12,19 @@ class AnyLogicExperiment(Outcomes):
         self.client = Client(experiment)
         self.duration_s = 0
 
-    def runScenario(self, inputs):
+    def runScenario(self, inputs=None):
+        if inputs is not None:
+            for anylogic_variable_key, input_value in inputs.items():
 
-        for anylogic_variable_key, input_value in inputs.items():
+                inputs = json.loads(self.client.inputs.get_input(anylogic_variable_key))
+                idx_to_update = next(
+                    idx
+                    for idx, item in enumerate(inputs)
+                    if item["id"] == input_value["id"]
+                )
+                inputs[idx_to_update] = input_value
 
-            inputs = json.loads(self.client.inputs.get_input(anylogic_variable_key))
-            idx_to_update = next(
-                idx
-                for idx, item in enumerate(inputs)
-                if item["id"] == input_value["id"]
-            )
-            inputs[idx_to_update] = input_value
-
-            self.client.inputs.set_input(anylogic_variable_key, json.dumps(inputs))
+                self.client.inputs.set_input(anylogic_variable_key, json.dumps(inputs))
 
         self.outcomes = self.client.run_simulation()
 

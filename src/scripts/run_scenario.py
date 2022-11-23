@@ -2,27 +2,7 @@ from os import sys, path
 
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-RESULT_OPTIONS = [
-    "timeStep_h",
-    "timeStepsElapsed",
-    "modelHoursElapsed_h",
-    "modelStartUpDuration_s",
-    "modelRunDuration_s",
-    "nGridNodes",
-    "nGridConnections",
-    "nEnergyAssets",
-    "nConnectionOwners",
-    "nEnergySuppliers",
-    "nEnergyHolons",
-    "nAdministrativeHolons",
-    "nGridOperators",
-    "nNationalEnergyMarket",
-    "totalElectricityImported_MWh",
-    "totalElectricityExported_MWh",
-]
-
-
-from experiments import run_one_scenario
+from cloudclient.experiments import run_one_scenario
 
 
 def run_scenario_endpoint(
