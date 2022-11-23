@@ -1,7 +1,4 @@
 from anylogiccloudclient.client.cloud_error import CloudError
-import importlib
-from cloudclient.experiments.config import CONFIG_PATH
-import sys
 
 
 class Inputs:
@@ -29,15 +26,6 @@ class Inputs:
     def _set_model_config(self):
 
         if self.experiment.use_datamodel is True:
-            input_path = CONFIG_PATH.parent / self.experiment.config_file
-            module = input_path.stem
-            print(input_path)
-            sys.path.append(str(input_path.parent.absolute()))
-            print(sys.path)
-
-            payload = importlib.import_module(module).payload
-
-            self.datamodel_payload = payload.to_json()
 
             for input in self.experiment.inputs:
                 self._inputs.set_input(
