@@ -92,7 +92,7 @@
         "etm_key": null,
         "name": "Grid_battery_7MWh",
         "capacityElectricity_kW": 1000.0,
-        "storageCapacity_kWh": 0.1
+        "storageCapacity_kWh": 7000.0
       },
       {
         "category": "PRODUCTION",
@@ -142,7 +142,7 @@
         "type": "PHOTOVOLTAIC",
         "etm_key": "Solar panels for building, 0 kWp",
         "name": "Building_solarpanels_0kWp",
-        "capacityElectricity_kW": 0.0
+        "capacityElectricity_kW": 100000.0
       },
       {
         "category": "CONVERSION",
@@ -197,7 +197,7 @@
         "etm_key": null,
         "name": "Grid_battery_10MWh",
         "capacityElectricity_kW": 2000.0,
-        "storageCapacity_kWh": 0.1
+        "storageCapacity_kWh": 10000.0
       }
     ],
     "category": "GRIDBATTERY"

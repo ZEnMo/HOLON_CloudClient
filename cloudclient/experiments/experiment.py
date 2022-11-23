@@ -48,4 +48,5 @@ class Experiment:
         else:
             return InputJSON(self.name, self.path, sheet_name, self.config_file).as_json()      
 
-    
+    def get_experiment():
+        return self    

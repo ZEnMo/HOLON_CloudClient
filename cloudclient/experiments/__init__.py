@@ -3,16 +3,18 @@ import pandas as pd
 from .anylogic_experiment import AnyLogicExperiment
 from .experiment_settings import ExperimentSettings
 from .experiment import Experiment
+from im_sorry import *
+from conftest import *
+import json
+
 
 """TODO: install pandas and check if everything works!"""
-
 
 def run_all():
     """Runs all experiments"""
     experiments = ExperimentSettings.load()
     for experiment_setting in experiments.all():
         start_experiment(experiment_setting)
-
 
 def run_one(experiment_name):
     experiments = ExperimentSettings.load()
@@ -31,7 +33,7 @@ def run_one_scenario(experiment_name, inputs):
     # Run experiment in AnyLogic Cloud
     api_experiment = AnyLogicExperiment(experiment)
     outcome = api_experiment.runScenario(inputs)
-    
+        
     return outcome
 
 
@@ -48,3 +50,40 @@ def start_experiment(settings):
         api_experiment.runSimulation()
 
     print("\nDuration: ", api_experiment.duration_s, " seconds\n")
+    #return api_experiment
+    calculateAreaCosts(api_experiment)
+
+def calculateAreaCosts(api_experiment):
+    experiment_inputs = api_experiment.client.inputs.get_input('P grid connection config JSON')
+    experiment_outputs = api_experiment.outcomes.get('APIOutputTotalCostData')
+    #print('calculate area-costs holon_config', api_experiment.client.inputs.get_input('P grid connection config JSON'))
+    #print('calculate area-costs holon_output', api_experiment.outcomes.get('APIOutputTotalCostData'))
+    
+    #pd.set_option("display.max_rows", 50000)
+    #pd.set_option("display.expand_frame_repr", True)
+    #pd.set_option('display.width', 1000)
+
+    print('calculate area-costs holon_config', experiment_inputs)
+    print('calculate area-costs holon_config', experiment_outputs)
+
+    print(experiment_outputs['APIOutputTotalCostData'])
+    #experiment_outputs = experiment_outputs['APIOutputTotalCostData']
+    experiment_outputs = experiment_outputs['APIOutputTotalCostData'].values.tolist()
+    #experiment_outputs.type()
+    real_inputs = holon_config()
+
+    print('expected type', type(real_inputs))
+    print('offered type', type(experiment_inputs))
+ 
+    print('real inputs ', real_inputs)
+    print('offered inputs ', experiment_inputs)
+
+    #experiment_inputs2 = experiment_inputs.replace("null", "None")  
+    experiment_inputs2 = json.loads(experiment_inputs)
+    print('offered inputs2 ', experiment_inputs2)
+
+
+    # result = calculate_total_costs(etm_output(), holon_config(), holon_output())
+    result = calculate_total_costs(etm_output(), experiment_inputs2, experiment_outputs[0], True)
+    print(result)
+

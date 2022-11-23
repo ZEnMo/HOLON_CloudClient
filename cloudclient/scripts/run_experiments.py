@@ -1,4 +1,8 @@
 from os import sys, path
+from conftest import *
+from im_sorry import *
+
+
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 from experiments import run_all, run_one
@@ -10,3 +14,7 @@ if __name__ == '__main__':
         run_all()
     else:
         run_one(experiment_name)
+
+
+
+#
