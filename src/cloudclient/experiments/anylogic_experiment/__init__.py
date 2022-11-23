@@ -2,7 +2,7 @@ import re
 import time
 import json
 
-from experiments.client import Client
+from cloudclient.experiments.client import Client
 from .outcomes import Outcomes
 
 

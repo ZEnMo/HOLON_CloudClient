@@ -8,3 +8,4 @@ __pycache__
 **/cloudclient/output/**
 **/cloudclient.egg-info
 .cloudclient
+build

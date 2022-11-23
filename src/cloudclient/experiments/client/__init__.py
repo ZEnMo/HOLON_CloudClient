@@ -1,5 +1,5 @@
 from anylogiccloudclient.client.cloud_client import CloudClient
-from experiments.config import config
+from cloudclient.experiments.config import config
 from .inputs import Inputs
 
 
