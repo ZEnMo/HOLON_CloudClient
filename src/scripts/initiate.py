@@ -29,7 +29,7 @@ def create_folder(folder_location: str = None, get_api_key: bool = None) -> None
                         raise SystemError(
                             "Option [-tf | --target-folder] is supplied but no value is supplied!"
                         )
-    abs_target = (Path().resolve().absolute() / target_folder).__str__() 
+    abs_target = (Path().resolve().absolute() / target_folder).__str__()
     pprint(f"Initiating cloudclient... \t (at {abs_target})")
 
     # make folders
@@ -41,14 +41,24 @@ def create_folder(folder_location: str = None, get_api_key: bool = None) -> None
     (BASE_PATH / "ouput").mkdir(exist_ok=True, parents=True)
 
     # move files
-    shutil.copy2(
-        CONFIG_FOLDER / "config.example.yml",
-        CONFIG_PATH / "config.yml",
-    )
-    shutil.copy2(
-        CONFIG_FOLDER / "experiments.example.yml",
-        CONFIG_PATH / "experiments.yml",
-    )
+    config_target = CONFIG_PATH / "config.yml"
+    if not config_target.exists():
+        shutil.copy2(
+            CONFIG_FOLDER / "config.example.yml",
+            config_target,
+        )
+    else:
+        pprint("Config file already exists at provided location, skipping!")
+
+    experiment_target = CONFIG_PATH / "experiments.yml"
+    if not experiment_target.exists():
+        shutil.copy2(
+            CONFIG_FOLDER / "experiments.example.yml",
+            experiment_target,
+        )
+    else:
+        pprint("Experiment file already exists at provided location, skipping!")
+
     # add a pointer to the new top folder
     with open(CONFIG_FOLDER / ".cloudclient_location.yml", "w") as f:
         yaml.dump({"file_path": str(CONFIG_PATH.absolute())}, f)
@@ -60,7 +70,7 @@ def create_folder(folder_location: str = None, get_api_key: bool = None) -> None
             update_config_yaml(CONFIG_PATH / "config.yml")
         else:
             pprint(
-                "No api_key is supplied. Either add it to 'cloudclient/config/config.yml' or get it from OS by adding the [--get-apikey] to the options."
+                "No api_key is supplied. Either add it to 'cloudclient/config/config.yml' or get it from OS by adding the [--get-api-key] to the options."
             )
 
 

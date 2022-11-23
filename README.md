@@ -59,6 +59,7 @@ your experiments there.
   show_progress:  True | False, ?
   parallelize:    True | False, allow the model to run in paralellized mode
   log_exceptions: True | False, log exceptions or not
+  use_datamodel:  True | False, whether to treat the input as a ::cloudclient.datamodel::
   inputs:         list (optional), list the anylogic input key and the file in
                   which to find the inputs for each input
   outcome:        list, name all the outcoems that should be taken from the model.
