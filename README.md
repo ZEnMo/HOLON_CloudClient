@@ -40,20 +40,36 @@ git+https://github.com/ZEnMo/HOLON-cloudclient@main#egg=cloudclient
 
 ## Starting up
 
-Go to the `config` folder and copy the `config.example.yml` file to `config.yml`. Specify
-your secret API key to connect to the AnyLogic Cloud there.
-```bash
-# ~/run_cloud_experiments
-cp ./config/config.example.yml ./config/config.yml
-```
-Go to the `config` folder and copy the `experiments.example.yml` file to `experiments.yml`. Specify
-your experiments there
-```bash
-# ~/run_cloud_experiments
-cp ./config/experiments.example.yml ./config/experiments.yml
-```
+The `cloudclient_init` command that you issued during installation links the `cloudclient` package to your project configuration folder `.cloudclient`. This folder contains the information that is used by the package to run experiments on the AnyLogic private cloud. 
 
-Next define your experiments in the `experiments.yml` file. There is an example there to help you.
+Go to the `config` folder and open `config.yml`. Specify your secret API key to connect to the AnyLogic Cloud there.
+```yaml
+anylogic_cloud:
+  api_key: 7a3563c1-ea1c-41d6-8009-b7abfd93f7ba
+  url: https://engine.holontool.nl
+```
+Go to the `config` folder and open `experiments.yml`. Specify
+your experiments there.
+```yaml
+<experiment_name>:
+  model_name:     name of the anylogic model to connect to
+  config_file:    the excel database file or ::cloudclient.datamodel:: from which to read the config sheets
+  timestep_hours: Float, timestep in hours
+  force_uncached: True | False, force the anylogic model to run in uncached mode
+  show_progress:  True | False, ?
+  parallelize:    True | False, allow the model to run in paralellized mode
+  log_exceptions: True | False, log exceptions or not
+  inputs:         list (optional), list the anylogic input key and the file in
+                  which to find the inputs for each input
+  outcome:        list, name all the outcoems that should be taken from the model.
+                  They become accesible and will be saved under their human_key
+                  Specify if they should be written to a file, or printed out.
+                  Also allows for actions on the data. Currently only normalise is
+                  avaibale. See format below
+                  - anylogic_key: <key>
+                    file: <sheetname> or <datamodel.Payload attribute> to submit to the key
+                    write: True | False
+```
 
 ## Running the module
 
@@ -65,7 +81,6 @@ specifying its name or all experiments by using the keyword `ALL`.
 
 There is also support for pipenv now for the ones that are interested. There is a shortcut to
 run the experiments: `pipenv run experiments {experiment_name}`.
-
 
 
 Happy experimenting!
