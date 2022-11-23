@@ -10,3 +10,4 @@ __pycache__
 .cloudclient
 build
 **/config/.cloudclient_location.yml
+src/cloudclient/config/.cloudclient_location.yml
