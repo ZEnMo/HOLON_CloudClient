@@ -62,14 +62,16 @@ your experiments there.
   use_datamodel:  True | False, whether to treat the input as a ::cloudclient.datamodel::
   inputs:         list (optional), list the anylogic input key and the file in
                   which to find the inputs for each input
+                  See format below
+                  - anylogic_key: <key>
+                    file: <sheetname> or <datamodel.Payload attribute> to submit to the key
+                    write: True | False
+                    
   outcome:        list, name all the outcoems that should be taken from the model.
                   They become accesible and will be saved under their human_key
                   Specify if they should be written to a file, or printed out.
                   Also allows for actions on the data. Currently only normalise is
-                  avaibale. See format below
-                  - anylogic_key: <key>
-                    file: <sheetname> or <datamodel.Payload attribute> to submit to the key
-                    write: True | False
+                  avaibale. 
 ```
 
 ## Running the module
