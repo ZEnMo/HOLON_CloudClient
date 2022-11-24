@@ -23,7 +23,7 @@ class ConversionAsset(EnergyAsset):
 
 
 class VehicleConversionAsset(ConversionAsset):
-    energy_consumption_kwhpkm: float
+    energyConsumption_kWhpkm: float
 
 
 class ElectricCoversionAsset(ConversionAsset):

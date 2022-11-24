@@ -35,7 +35,7 @@ Diesel_Truck = VehicleConversionAsset(
         type= "DIESEL_VEHICLE",
         eta_r= 0.95,
         name= "Diesel_Truck",
-        energy_consumption_kwhpkm = 1.3
+        energyConsumption_kWhpkm = 1.3
 )
 House_gas_burner = ChemicalHeatConversionAsset(
     name="House_gas_burner",

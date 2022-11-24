@@ -4,7 +4,6 @@ from typing import Optional
 
 
 class StorageAssetTypeEnum(Enum):
-    electric_heavy_goods_vehicle = "ELECTRIC_HEAVY_GOODS_VEHICLE"
     electric_vehicle = "ELECTRIC_VEHICLE"
     storage_electric = "STORAGE_ELECTRIC"
     storage_heat = "STORAGE_HEAT"
@@ -34,5 +33,5 @@ class ElectricStorageAsset(StorageAsset):
 
 
 class VehicleElectricStorageAsset(ElectricStorageAsset):
-    energy_consumption_kwhpkm: float
+    energyConsumption_kWhpkm: float
     vehicleScaling: int
