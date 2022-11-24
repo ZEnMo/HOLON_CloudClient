@@ -24,6 +24,7 @@ class ConversionAsset(EnergyAsset):
 
 class VehicleConversionAsset(ConversionAsset):
     energyConsumption_kWhpkm: float
+    vehicleScaling: int
 
 
 class ElectricCoversionAsset(ConversionAsset):

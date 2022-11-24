@@ -32,10 +32,11 @@ House_heatpump_MT_L = TransportHeatConversionAsset(
     ambientTempType="AIR",
 )
 Diesel_Truck = VehicleConversionAsset(
-        type= "DIESEL_VEHICLE",
-        eta_r= 1,
-        name= "Diesel_Truck",
-        energyConsumption_kWhpkm = 3
+    type="DIESEL_VEHICLE",
+    eta_r=1,
+    name="Diesel_Truck",
+    energyConsumption_kWhpkm=3,
+    vehicleScaling=20,
 )
 House_gas_burner = ChemicalHeatConversionAsset(
     name="House_gas_burner",
