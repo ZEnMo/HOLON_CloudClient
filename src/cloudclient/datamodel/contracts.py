@@ -8,6 +8,7 @@ class ContractTypeEnum(Enum):
     dynanmicdayahead = "DYNANMICDAYAHEAD"
     gopacs = "GOPACS"
     nonfirm = "NONFIRM"
+    nodalpricing = "NODALPRICING"
 
 
 class ContractScopeEnum(Enum):

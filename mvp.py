@@ -46,7 +46,7 @@ actors = [
         category="ENERGYHOLON",
         id="hol1",
         parent_actor="sup1",
-        contracts=[Contract(type="GOPACS", contract_scope="GRIDOPERATOR")],
+        contracts=[Contract(type="NODALPRICING", contract_scope="GRIDOPERATOR")],
         nfATO_capacity_kw=900.0,
         nfATO_starttime=18.0,
         nfATO_endtime=7.0,
