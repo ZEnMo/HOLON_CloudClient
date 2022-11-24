@@ -4,6 +4,7 @@ from enum import Enum
 
 class ContractTypeEnum(Enum):
     default = "DEFAULT"
+    variable = "VARIABLE"
     dynanmicdayahead = "DYNANMICDAYAHEAD"
     gopacs = "GOPACS"
     nonfirm = "NONFIRM"

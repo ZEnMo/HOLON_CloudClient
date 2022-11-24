@@ -12,6 +12,7 @@ class ConversionAssetTypeEnum(Enum):
     heat_pump_ground = "HEAT_PUMP_GROUND"
     hydrogen_furnace = "HYDROGEN_FURNACE"
     methane_furnace = "METHANE_FURNACE"
+    diesel_vehicle = "DIESEL_VEHICLE"
 
 
 class ConversionAsset(EnergyAsset):
@@ -19,6 +20,10 @@ class ConversionAsset(EnergyAsset):
     type: ConversionAssetTypeEnum
     eta_r: float
     name: str
+
+
+class VehicleConversionAsset(ConversionAsset):
+    energy_consumption_kwhpkm: float
 
 
 class ElectricCoversionAsset(ConversionAsset):

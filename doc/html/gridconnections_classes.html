@@ -4,6 +4,9 @@
       <div class="mermaid">
     
         classDiagram
+          class BatteryModeEnum {
+            name
+          }
           class BuildingGridConnection {
             category : str
             type
@@ -15,6 +18,9 @@
             category : str
             heating_type
             insulation_label
+          }
+          class ChargingModeEnum {
+            name
           }
           class DistrictHeatingGridConnection {
             category : str
@@ -28,9 +34,14 @@
           }
           class GridConnection {
             assets : Optional[List[EnergyAsset]]
+            battery_mode : Optional[BatteryModeEnum]
             capacity_kw : float
             category : str
+            charging_mode : Optional[ChargingModeEnum]
             id : str
+            nfATO_capacity_kw : Optional[float]
+            nfATO_endtime : Optional[float]
+            nfATO_starttime : Optional[float]
             owner_actor : str
             parent_electric : str
             parent_heat : Optional[str]

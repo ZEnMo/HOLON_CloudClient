@@ -21,3 +21,8 @@ class Actor(BaseModel, extra=Extra.forbid):
     id: str
     parent_actor: str
     contracts : Optional[List[Contract]]
+
+class NonFirmActor(Actor):
+    nfATO_capacity_kw: float
+    nfATO_starttime: float
+    nfATO_endtime: float

@@ -35,3 +35,4 @@ class ElectricStorageAsset(StorageAsset):
 
 class VehicleElectricStorageAsset(ElectricStorageAsset):
     energy_consumption_kwhpkm: float
+    vehicleScaling: int

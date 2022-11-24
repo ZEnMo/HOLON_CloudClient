@@ -96,3 +96,8 @@ Building_solarpanels_5kWp = ElectricProductionAsset(
     type="PHOTOVOLTAIC",
     capacityElectricity_kW=5.0,
 )
+Building_solarpanels_10kWp = ElectricProductionAsset(
+    name="Building_solarpanels_10kWp",
+    type="PHOTOVOLTAIC",
+    capacityElectricity_kW=10.0,
+)

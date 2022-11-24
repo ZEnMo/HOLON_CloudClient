@@ -102,6 +102,16 @@ EV = VehicleElectricStorageAsset(
     stateOfCharge_r=1.0,
     storageCapacity_kWh=50,
     energy_consumption_kwhpkm=0.2,
+    vehicleScaling=1,
+)
+EHGV = VehicleElectricStorageAsset(
+    name="EHGV",
+    type="ELECTRIC_HEAVY_GOODS_VEHICLE",
+    stateOfCharge_r=1.0,
+    storageCapacity_kWh=500,
+    capacityElectricity_kW=100,
+    energy_consumption_kwhpkm=1.3,
+    vehicleScaling=5,
 )
 District_Heating_heat_buffer_HT_S = HeatStorageAsset(
     name="District_Heating_heat_buffer_HT_S",
@@ -146,18 +156,17 @@ Grid_battery_1MW = ElectricStorageAsset(
     stateOfCharge_r=1.0,
     storageCapacity_kWh=1000,
 )
-EHGV = VehicleElectricStorageAsset(
-    name="EHGV",
-    type="ELECTRIC_HEAVY_GOODS_VEHICLE",
-    capacityElectricity_kW=110,
-    stateOfCharge_r=1.0,
-    storageCapacity_kWh=500,
-    energy_consumption_kwhpkm=1,
-)
 Grid_battery_10MWh = ElectricStorageAsset(
     name="Grid_battery_10MWh",
     type="STORAGE_ELECTRIC",
     capacityElectricity_kW=2000,
     stateOfCharge_r=1.0,
     storageCapacity_kWh=10000,
+)
+Grid_battery_7MWh = ElectricStorageAsset(
+    name="Grid_battery_7MWh",
+    type="STORAGE_ELECTRIC",
+    capacityElectricity_kW=1000,
+    stateOfCharge_r=1.0,
+    storageCapacity_kWh=7000,
 )

@@ -8,6 +8,10 @@
       {
         "type": "DEFAULT",
         "contract_scope": "ENERGYHOLON"
+      },
+      {
+        "type": "VARIABLE",
+        "contract_scope": "ENERGYSUPPLIER"
       }
     ]
   },
@@ -20,6 +24,10 @@
       {
         "type": "DEFAULT",
         "contract_scope": "ENERGYHOLON"
+      },
+      {
+        "type": "VARIABLE",
+        "contract_scope": "ENERGYSUPPLIER"
       }
     ]
   },
@@ -64,7 +72,10 @@
         "type": "GOPACS",
         "contract_scope": "GRIDOPERATOR"
       }
-    ]
+    ],
+    "nfATO_capacity_kw": 900.0,
+    "nfATO_starttime": 18.0,
+    "nfATO_endtime": 7.0
   },
   {
     "category": "GRIDOPERATOR",

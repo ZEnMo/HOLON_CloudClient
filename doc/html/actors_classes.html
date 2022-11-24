@@ -14,9 +14,15 @@
           class ActorTypeEnum {
             name
           }
+          class NonFirmActor {
+            nfATO_capacity_kw : float
+            nfATO_endtime : float
+            nfATO_starttime : float
+          }
           class SubTypeEnum {
             name
           }
+          NonFirmActor --|> Actor
           ActorTypeEnum --* Actor : category
   
        </div>

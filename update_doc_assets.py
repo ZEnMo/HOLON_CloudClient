@@ -3,17 +3,12 @@ import os
 from itertools import product
 import shutil
 
-TOPFOLDER = Path(__file__).parent
+TOPFOLDER = Path(__file__).parent / "src"
 DATAMODEL_TOPFOLDER = TOPFOLDER / "cloudclient" / "datamodel"
-DIAGRAM_FOLDER = TOPFOLDER / "doc" / "html"
+DIAGRAM_FOLDER = TOPFOLDER.parent / "doc" / "html"
 DATAMODEL_ASSETS = DATAMODEL_TOPFOLDER / "assets"
 
-topfolder = [
-    "actors.py",
-    "gridconnections.py",
-    "gridnodes.py",
-    "contracts.py"
-]
+topfolder = ["actors.py", "gridconnections.py", "gridnodes.py", "contracts.py"]
 assets = ["consumption.py", "conversion.py", "production.py", "storage.py"]
 
 do_these_please = [
@@ -30,6 +25,7 @@ for base_path, file in do_these_please:
 
 from util import generate_excel
 from mvp import payload
+
 generate_excel(
     payload=payload, file_id="example", path=Path(__file__).parent / "doc" / "assets"
 )

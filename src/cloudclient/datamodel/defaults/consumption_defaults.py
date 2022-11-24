@@ -20,10 +20,10 @@ Industry_steel_heat = HeatConsumptionAsset(
     type="HEAT_DEMAND",
     yearlyDemandHeat_kWh=1000000,
 )
-Industry_other_heat = HeatConsumptionAsset(
-    name="Industry_other_heat",
+Industry_other_heat_demand = HeatConsumptionAsset(
+    name="INDUSTRY_OTHER_HEAT_DEMAND",
     type="HEAT_DEMAND",
-    yearlyDemandHeat_kWh=1000000,
+    yearlyDemandHeat_kWh=600000,
 )
 House_hot_water = HeatConsumptionAsset(
     name="House_hot_water",

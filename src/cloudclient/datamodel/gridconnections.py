@@ -10,6 +10,16 @@ class GridCategoryEnum(Enum):
     industry = "INDUSTRY"
 
 
+class ChargingModeEnum(Enum):
+    max_power = "MAX_POWER"
+    max_spread = "MAX_SPREAD"
+
+
+class BatteryModeEnum(Enum):
+    balance = "BALANCE"
+    price = "PRICE"
+
+
 class GridConnection(BaseModel, extra=Extra.forbid):
     owner_actor: str
     id: str
@@ -18,6 +28,12 @@ class GridConnection(BaseModel, extra=Extra.forbid):
     parent_heat: Optional[str]
     assets: Optional[List[EnergyAsset]]
     category = "GENERIC"
+    # TODO: Technical debt to match AnyLogic
+    charging_mode: Optional[ChargingModeEnum]
+    battery_mode: Optional[BatteryModeEnum]
+    nfATO_capacity_kw: Optional[float]
+    nfATO_starttime: Optional[float]
+    nfATO_endtime: Optional[float]
 
 
 class InsulationLabelEnum(Enum):
