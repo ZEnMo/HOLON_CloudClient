@@ -61,19 +61,7 @@ class Outcomes:
         return path
 
     def _calc_value(self, outputs, outcome):
-        raw_data = json.loads(outputs.value(outcome["anylogic_key"]))
-        # Some special cases to make json_normalize accept the object
-        # if isinstance(raw_data, list) and isinstance(raw_data[0], float):
-        #    raw_data =  [{outcome['human_key']: raw_value} for raw_value in raw_data]
-        # elif isinstance(raw_data, float):
-        #    raw_data = {outcome['human_key']: raw_data}
-
-        raw_data = {outcome["human_key"]: raw_data}
-
-        value = raw_data
-        # value = raw_data
-
+        value = json.loads(outputs.value(outcome["anylogic_key"]))
         if outcome.get("action", "") == "normalise":
             return value / value.sum()
-
         return value
