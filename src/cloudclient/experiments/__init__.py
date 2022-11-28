@@ -47,12 +47,9 @@ def prepare_scenario_as_experiment(experiment_name: str) -> AnyLogicExperiment:
 def start_experiment(settings):
     """Runs one experiments"""
     experiment = Experiment(**settings)
-    print(experiment)
 
     # Run experiment in AnyLogic Cloud
     api_experiment = AnyLogicExperiment(experiment)
 
     if experiment.query_api:
         api_experiment.runSimulation()
-
-    print("\nDuration: ", api_experiment.duration_s, " seconds\n")
