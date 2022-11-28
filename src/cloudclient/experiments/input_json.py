@@ -1,13 +1,9 @@
 import json
-import pandas as pd
 
 
 class InputJSON:
     def __init__(self, name, path, sheet_name, file_name):
         self.write_to_path = path / f"{name}_{sheet_name}.txt"
-        self.data = pd.read_excel(path / file_name, sheet_name=sheet_name).to_json(
-            orient="records"
-        )
 
     def as_json(self, write_result=True):
         if write_result:

@@ -1,10 +1,7 @@
-import pandas as pd
-
 from .anylogic_experiment import AnyLogicExperiment
 from .experiment_settings import ExperimentSettings
 from .experiment import Experiment
 
-"""TODO: install pandas and check if everything works!"""
 
 
 def run_all():
