@@ -70,7 +70,7 @@ class Outcomes:
 
         raw_data = {outcome["human_key"]: raw_data}
 
-        value = json.loads(raw_data)
+        value = raw_data
         # value = raw_data
 
         if outcome.get("action", "") == "normalise":
