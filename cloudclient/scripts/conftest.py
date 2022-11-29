@@ -122,7 +122,7 @@ def etm_output():
         'depreciation_costs_industry_heat_pump_per_kw': 60,
         'depreciation_costs_industry_solar_panels_per_kw': 19,
         'depreciation_costs_industry_gas_burner_per_kw': 30,
-        'hourly_price_of_electricity_per_mwh': [1] * 8670,
+        'hourly_price_of_electricity_per_mwh': [1] * 8760,
         'price_of_natural_gas_per_mwh': 20,
         'price_of_hydrogen_per_mwh': 10,
         'price_of_diesel_per_mwh': 15,

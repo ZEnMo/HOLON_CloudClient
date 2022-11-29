@@ -27,7 +27,7 @@
         "type": "ELECTRICITY_CONSUMPTION_PROFILE",
         "etm_key": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",
         "name": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",
-        "yearlyDemandElectricity_kWh": 600000.0
+        "yearlyDemandElectricity_kWh": 60000000.0
       },
       {
         "category": "STORAGE",
@@ -38,7 +38,7 @@
         "storageCapacity_kWh": 500.0,
         "capacityElectricity_kW": 100.0,
         "energyConsumption_kWhpkm": 1.3,
-        "vehicleScaling": 10.0
+        "vehicleScaling": 0.01
       },
       {
         "category": "STORAGE",
@@ -49,7 +49,7 @@
         "storageCapacity_kWh": 500.0,
         "capacityElectricity_kW": 100.0,
         "energyConsumption_kWhpkm": 1.3,
-        "vehicleScaling": 10.0
+        "vehicleScaling": 0.01
       },
       {
         "category": "STORAGE",
@@ -60,7 +60,7 @@
         "storageCapacity_kWh": 500.0,
         "capacityElectricity_kW": 100.0,
         "energyConsumption_kWhpkm": 1.3,
-        "vehicleScaling": 10.0
+        "vehicleScaling": 0.01
       },
       {
         "category": "STORAGE",
@@ -71,7 +71,7 @@
         "storageCapacity_kWh": 500.0,
         "capacityElectricity_kW": 100.0,
         "energyConsumption_kWhpkm": 1.3,
-        "vehicleScaling": 10.0
+        "vehicleScaling": 0.01
       },
       {
         "category": "STORAGE",
@@ -82,7 +82,7 @@
         "storageCapacity_kWh": 500.0,
         "capacityElectricity_kW": 100.0,
         "energyConsumption_kWhpkm": 1.3,
-        "vehicleScaling": 10.0
+        "vehicleScaling": 0.01
       },
       {
         "category": "CONVERSION",
@@ -91,7 +91,7 @@
         "etm_key": null,
         "name": "Diesel Truck",
         "energyConsumption_kWhpkm": 1.3,
-        "vehicleScaling": 1.0
+        "vehicleScaling": 0.0
       },
       {
         "category": "STORAGE",
@@ -100,14 +100,14 @@
         "etm_key": null,
         "name": "Grid_battery_10MWh",
         "capacityElectricity_kW": 1000.0,
-        "storageCapacity_kWh": 0.1
+        "storageCapacity_kWh": 10000.0
       },
       {
         "category": "PRODUCTION",
         "type": "PHOTOVOLTAIC",
         "etm_key": "Solar panels for building, 0 kWp",
         "name": "Building_solarpanels_0kWp",
-        "capacityElectricity_kW": 0.0
+        "capacityElectricity_kW": 1000.0
       },
       {
         "category": "CONVERSION",
@@ -212,7 +212,7 @@
         "etm_key": null,
         "name": "Grid_battery_10MWh",
         "capacityElectricity_kW": 2000.0,
-        "storageCapacity_kWh": 0.1
+        "storageCapacity_kWh": 10000.0
       }
     ],
     "category": "GRIDBATTERY"

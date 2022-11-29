@@ -68,7 +68,7 @@
     "parent_actor": "sup1",
     "contracts": [
       {
-        "type": "GOPACS",
+        "type": "NODALPRICING",
         "contract_scope": "GRIDOPERATOR"
       }
 	],

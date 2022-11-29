@@ -9,8 +9,6 @@ ETM_MAPPING = {
     "depreciation_costs_buildings_gas_burner_per_kw": ("BUILDING", "GAS_BURNER"),
     "depreciation_costs_industry_solar_panels_per_kw": ("INDUSTRY", "PHOTOVOLTAIC"),
     "depreciation_costs_industry_gas_burner_per_kw": ("INDUSTRY", "GAS_BURNER"),
-    "depreciation_costs_building_heat_pump_per_kw": ("BUILDING", "HEAT_PUMP"),
-    "depreciation_costs_industry_heat_pump_per_kw": ("INDUSTRY", "HEAT_PUMP"),
     "hourly_price_of_electricity_per_mwh": ("SystemHourlyElectricity", ""),
     "price_of_natural_gas_per_mwh": ("totalMethane", ""),
     "price_of_hydrogen_per_mwh": ("totalHydrogen", ""),
@@ -19,14 +17,15 @@ ETM_MAPPING = {
     "electricity_grid_expansion_costs_mv_hv_trafo_per_kw": ("HSMSPeakLoadElectricity_kW", ""),
     "depreciation_costs_grid_battery_per_mwh": (
         "totalBatteryInstalledCapacity_MWh:Grid_battery_10MWh",
-        "totalBatteryInstalledCapacity_MWh:Grid_battery_7MWh",
+        "",
     ),
 }
 
+
 def calculate_total_costs(
-    etm_inputs: dict, holon_config_gridconnections: list, holon_outputs: list, split_costs: bool
+    etm_inputs: dict, holon_config_gridconnections: list, holon_outputs: list
 ) -> float:
-    """Caluculates the costs KPI's - if we need it they can be reported back per category as well"""
+    """Calculates the costs KPI's - if we need it they can be reported back per category as well"""
     categories = Categories()
     categories.add_connections(holon_config_gridconnections)
     categories.add_carriers_and_infra(
@@ -34,10 +33,19 @@ def calculate_total_costs(
     )  # NOTE: is this indeed a list with one dict?
     categories.set_prices(etm_inputs)
 
-    if(split_costs):
-        return categories.split_costs()
-    else:
-        return categories.total_costs()
+    return categories.total_costs()
+
+def calculate_total_costs_split(etm_inputs: dict, holon_config_gridconnections: list, holon_outputs: list
+) -> float:
+    """Calculates the costs KPI's - if we need it they can be reported back per category as well"""
+    categories = Categories()
+    categories.add_connections(holon_config_gridconnections)
+    categories.add_carriers_and_infra(
+        holon_outputs[0]
+    )  # NOTE: is this indeed a list with one dict?
+    categories.set_prices(etm_inputs)
+
+    return categories.split_costs()
 
 
 def format(output):
@@ -49,7 +57,7 @@ def format(output):
     if isinstance(output, list):
         return np.array(output)
     if isinstance(output, dict):
-        return np.array(list(output.values())[:8670])
+        return np.array(list(output.values())[:8760])
     return output
 
 
@@ -78,7 +86,6 @@ class Category:
             for key, val in ETM_MAPPING.items():
                 if cost_item.match(*val):
                     # NOTE: if etm_key is not available, we set costs to zero
-                    print(key)
                     cost_item.set_price(etm_inputs.get(key, 0))
                     self.total_costs += cost_item.costs
                     break
@@ -90,7 +97,7 @@ class Categories:
     CATEGORIES = {
         "buildings_and_installations": ["BUILDING", "INDUSTRY"],
         "infrastructure": ["HSMSPeakLoadElectricity_kW", "MSLSPeakLoadElectricity_kW"],
-        "flexibility": ["totalBatteryInstalledCapacity_MWh:Grid_battery_10MWh", "totalBatteryInstalledCapacity_MWh:Grid_battery_7MWh"],
+        "flexibility": ["totalBatteryInstalledCapacity_MWh:Grid_battery_10MWh"],
         "energy_production": ["SOLARFARM"],
         "carriers": ["SystemHourlyElectricity", "totalMethane", "totalHydrogen", "totalDiesel"],
     }
@@ -114,7 +121,8 @@ class Categories:
     def add_connections(self, gridconnections):
         """"""
         for connection in gridconnections:
-            if not self._category_of(connection): continue
+            if not self._category_of(connection):
+                continue
             self.categories[self._category_of(connection)].add_cost_items(connection)
 
     def add_carriers_and_infra(self, holon_output):
@@ -169,10 +177,7 @@ class CostItem:
         self.cost_item_type = params.get("type", "")
         self.costs = None
 
-        if "storageCapacity_kWh" in params:
-            #print("triggered for storage")
-            self.value = params["storageCapacity_kWh"]
-        elif "capacityElectricity_kW" in params:
+        if "capacityElectricity_kW" in params:
             self.value = params["capacityElectricity_kW"]
         elif "capacityHeat_kW" in params:
             self.value = params["capacityHeat_kW"]
@@ -191,8 +196,9 @@ class CostItem:
         if self.costs is not None:
             return
 
-        self.costs = format(costs) * self.value
-
         # Sum curves to one number
-        if isinstance(self.costs, np.ndarray):
-            self.costs = self.costs.sum()
+        if isinstance(format(costs), np.ndarray):
+            self.costs = np.inner(format(costs), self.value)
+
+        else:
+            self.costs = costs * self.value

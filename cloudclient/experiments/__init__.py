@@ -5,10 +5,18 @@ from .experiment_settings import ExperimentSettings
 from .experiment import Experiment
 from im_sorry import *
 from conftest import *
+import etm_service
+from pathlib import Path
 import json
 
 
 """TODO: install pandas and check if everything works!"""
+ETM_CONFIG_PATH = Path(__file__).resolve().parents[1] / "services"
+ETM_CONFIG_FILE_GET_KPIS = "etm_kpis.config"
+ETM_CONFIG_FILE_COSTS = "etm_costs.config"
+ETM_CONFIG_FILE_SCALING = "etm_scaling.config"
+COSTS_SCENARIO_ID = 2166341  # KEV + 1 MW grid battery | ETM sceanrio on beta
+
 
 def run_all():
     """Runs all experiments"""
@@ -82,8 +90,15 @@ def calculateAreaCosts(api_experiment):
     experiment_inputs2 = json.loads(experiment_inputs)
     print('offered inputs2 ', experiment_inputs2)
 
+    print(COSTS_SCENARIO_ID)
+    print(ETM_CONFIG_PATH)
+    print(ETM_CONFIG_FILE_COSTS)
+    etm_service.retrieve_results(COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_COSTS)
 
+    #print('etm output ', etm_service.retrieve_results(COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_COSTS) )
     # result = calculate_total_costs(etm_output(), holon_config(), holon_output())
-    result = calculate_total_costs(etm_output(), experiment_inputs2, experiment_outputs[0], True)
+    #result = calculate_total_costs(etm_output(), experiment_inputs2, experiment_outputs[0])
+    result = calculate_total_costs_split(etm_output(), experiment_inputs2, experiment_outputs[0])
+    #result = calculate_total_costs( etm_service.retrieve_results(COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_COSTS), experiment_inputs2, experiment_outputs[0])
     print(result)
 
