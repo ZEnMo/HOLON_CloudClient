@@ -24,7 +24,7 @@
       },
       {
         "category": "CONSUMPTION",	
-	"type": "ELECTRICITY_CONSUMPTION_PROFILE",
+	"type": "ELECTRICITY_DEMAND",
         "etm_key": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
         "name": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
         "yearlyDemandElectricity_kWh": 600000.0	
@@ -147,7 +147,7 @@
       },
       {
         "category": "CONSUMPTION",	
-	"type": "ELECTRICITY_CONSUMPTION_PROFILE",
+	"type": "ELECTRICITY_DEMAND",
         "etm_key": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
         "name": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
         "yearlyDemandElectricity_kWh": 600000.0	

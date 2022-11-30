@@ -2,12 +2,12 @@
   {
     "owner_actor": "com1",
     "id": "b1",
-    "capacity_kw": 750.0,
+    "capacity_kw": 1000.0,
     "parent_electric": "E2",
     "parent_heat": null,
     "charging_mode": "MAX_POWER",
     "battery_mode": "BALANCE",
-    "nfATO_capacity_kw": 900.0,
+    "nfATO_capacity_kw": 1000.0,
     "nfATO_starttime": 18.0,
     "nfATO_endtime": 7.0,
     "assets": [
@@ -24,7 +24,7 @@
       },
       {
         "category": "CONSUMPTION",	
-	"type": "ELECTRICITY_CONSUMPTION_PROFILE",
+	"type": "ELECTRICITY_DEMAND",
         "etm_key": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
         "name": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
         "yearlyDemandElectricity_kWh": 600000.0	
@@ -92,7 +92,7 @@
       },
       {
         "category": "CONSUMPTION",	
-	"type": "ELECTRICITY_CONSUMPTION_PROFILE",
+	"type": "ELECTRICITY_DEMAND",
         "etm_key": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
         "name": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
         "yearlyDemandElectricity_kWh": 600000.0	

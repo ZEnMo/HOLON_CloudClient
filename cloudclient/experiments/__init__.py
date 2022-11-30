@@ -1,4 +1,5 @@
 import pandas as pd
+from pandas import json_normalize
 
 from .anylogic_experiment import AnyLogicExperiment
 from .experiment_settings import ExperimentSettings
@@ -8,6 +9,7 @@ from conftest import *
 import etm_service
 from pathlib import Path
 import json
+from anylogic_kpi import calculate_holon_kpis
 
 
 """TODO: install pandas and check if everything works!"""
@@ -15,8 +17,9 @@ ETM_CONFIG_PATH = Path(__file__).resolve().parents[1] / "services"
 ETM_CONFIG_FILE_GET_KPIS = "etm_kpis.config"
 ETM_CONFIG_FILE_COSTS = "etm_costs.config"
 ETM_CONFIG_FILE_SCALING = "etm_scaling.config"
-COSTS_SCENARIO_ID = 2166341  # KEV + 1 MW grid battery | ETM sceanrio on beta
-
+#COSTS_SCENARIO_ID = 2166341  # KEV + 1 MW grid battery | ETM sceanrio on beta
+#COSTS_SCENARIO_ID = 2171115 # standaard NL
+COSTS_SCENARIO_ID = 1661972 # KEV 2030 standaard preset id
 
 def run_all():
     """Runs all experiments"""
@@ -94,11 +97,45 @@ def calculateAreaCosts(api_experiment):
     print(ETM_CONFIG_PATH)
     print(ETM_CONFIG_FILE_COSTS)
     etm_service.retrieve_results(COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_COSTS)
+    
 
     #print('etm output ', etm_service.retrieve_results(COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_COSTS) )
     # result = calculate_total_costs(etm_output(), holon_config(), holon_output())
     #result = calculate_total_costs(etm_output(), experiment_inputs2, experiment_outputs[0])
     result = calculate_total_costs_split(etm_output(), experiment_inputs2, experiment_outputs[0])
+    
     #result = calculate_total_costs( etm_service.retrieve_results(COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_COSTS), experiment_inputs2, experiment_outputs[0])
     print(result)
+    
+    
+    total_cost_data = api_experiment.outcomes.get('APIOutputTotalCostData')
+    print("data  :")
+    total_cost_data = total_cost_data.get("APIOutputTotalCostData")
+    total_cost_data_zero = total_cost_data[0]
+    total_cost_data_zero = total_cost_data_zero[0]
+    #total_cost_data_zero = json.dumps(total_cost_data_zero)
 
+    #print("data zero: ")
+    #print( total_cost_data_zero ) 
+    #total_cost_data_zero = dict.fromkeys(total_cost_data_zero)
+    #print(total_cost_data_zero)
+    #print(total_cost_data_zero['totalSelfSufficiency_fr'])
+    #print(total_cost_data_zero["SystemHourlyElectricityImport_MWh"])
+    #print(total_cost_data.get(""))
+    #holon_output = json_normalize(total_cost_data.get("0")) 
+    
+    #list(total_cost_data["SystemHourlyElectricityImport_MWh"].values())[:8760]
+
+    #print(holon_output)
+    #total_cost_data = pd.DataFrame(api_experiment.outcomes.get('APIOutputTotalCostData'))
+    #etm_service.retrieve_results(COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_SCALING)
+
+    #print(experiment_inputs2)
+
+    kpiresults = calculate_holon_kpis(
+                    total_cost_data=total_cost_data_zero,
+                    etm_data=etm_service.retrieve_results(COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_GET_KPIS), 
+                    gridnode_config = json.loads( api_experiment.client.inputs.get_input('P grid node config JSON') ),
+                )
+    print("gebieds-kpi's: ")
+    print(kpiresults)

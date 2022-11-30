@@ -24,66 +24,11 @@
       },
       {
         "category": "CONSUMPTION",	
-	"type": "ELECTRICITY_CONSUMPTION_PROFILE",
+	"type": "ELECTRICITY_DEMAND",
         "etm_key": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
-        "name": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
+        "name": "Office_other_electricity",	
         "yearlyDemandElectricity_kWh": 600000.0	
       },	
-      {
-        "category": "STORAGE",
-	"type": "ELECTRIC_VEHICLE",
-	"etm_key": "",
-        "name": "EHGV",
-	"stateOfCharge_r": 1.0,
-	"storageCapacity_kWh": 500.0,
- 	"capacityElectricity_kW": 100.0,
-	"energyConsumption_kWhpkm": 1.3,
-	"vehicleScaling": 0.01
-      },
-      {
-        "category": "STORAGE",
-	"type": "ELECTRIC_VEHICLE",
-	"etm_key": "",
-        "name": "EHGV",
-	"stateOfCharge_r": 1.0,
-	"storageCapacity_kWh": 500.0,
- 	"capacityElectricity_kW": 100.0,
-	"energyConsumption_kWhpkm": 1.3,
-	"vehicleScaling": 0.01
-      },
-      {
-        "category": "STORAGE",
-	"type": "ELECTRIC_VEHICLE",
-	"etm_key": "",
-        "name": "EHGV",
-	"stateOfCharge_r": 1.0,
-	"storageCapacity_kWh": 500.0,
- 	"capacityElectricity_kW": 100.0,
-	"energyConsumption_kWhpkm": 1.3,
-	"vehicleScaling": 0.01
-      },
-      {
-        "category": "STORAGE",
-	"type": "ELECTRIC_VEHICLE",
-	"etm_key": "",
-        "name": "EHGV",
-	"stateOfCharge_r": 1.0,
-	"storageCapacity_kWh": 500.0,
- 	"capacityElectricity_kW": 100.0,
-	"energyConsumption_kWhpkm": 1.3,
-	"vehicleScaling": 0.01
-      },
-      {
-        "category": "STORAGE",
-	"type": "ELECTRIC_VEHICLE",
-	"etm_key": "",
-        "name": "EHGV",
-	"stateOfCharge_r": 1.0,
-	"storageCapacity_kWh": 500.0,
- 	"capacityElectricity_kW": 100.0,
-	"energyConsumption_kWhpkm": 1.3,
-	"vehicleScaling": 0.01
-      },
       {
 	"category": "CONVERSION",
 	"type": "DIESEL_VEHICLE",
@@ -147,7 +92,7 @@
       },
       {
         "category": "CONSUMPTION",	
-	"type": "ELECTRICITY_CONSUMPTION_PROFILE",
+	"type": "ELECTRICITY_DEMAND",
         "etm_key": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
         "name": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
         "yearlyDemandElectricity_kWh": 600000.0	
