@@ -71,24 +71,24 @@ def calculateAreaCosts(api_experiment):
     #pd.set_option("display.expand_frame_repr", True)
     #pd.set_option('display.width', 1000)
 
-    print('calculate area-costs holon_config', experiment_inputs)
-    print('calculate area-costs holon_config', experiment_outputs)
+    #print('calculate area-costs holon_config', experiment_inputs)
+    #print('calculate area-costs holon_config', experiment_outputs)
 
-    print(experiment_outputs['APIOutputTotalCostData'])
+    #print(experiment_outputs['APIOutputTotalCostData'])
     #experiment_outputs = experiment_outputs['APIOutputTotalCostData']
     experiment_outputs = experiment_outputs['APIOutputTotalCostData'].values.tolist()
     #experiment_outputs.type()
     real_inputs = holon_config()
 
-    print('expected type', type(real_inputs))
-    print('offered type', type(experiment_inputs))
+    #print('expected type', type(real_inputs))
+    #print('offered type', type(experiment_inputs))
  
-    print('real inputs ', real_inputs)
-    print('offered inputs ', experiment_inputs)
+    #print('real inputs ', real_inputs)
+    #print('offered inputs ', experiment_inputs)
 
     #experiment_inputs2 = experiment_inputs.replace("null", "None")  
     experiment_inputs2 = json.loads(experiment_inputs)
-    print('offered inputs2 ', experiment_inputs2)
+    #print('offered inputs2 ', experiment_inputs2)
 
     print(COSTS_SCENARIO_ID)
     print(ETM_CONFIG_PATH)

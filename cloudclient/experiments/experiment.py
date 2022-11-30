@@ -12,7 +12,7 @@ class Experiment:
     config_from_jsons: bool
     model_name: str
     config_file: str
-    timestep_hours: float = 0.25
+    timestep_hours: float
     force_uncached: bool = True
     show_progress: bool = False
     parallelize: bool = True
@@ -40,7 +40,8 @@ class Experiment:
             yield "P parallelize", self.parallelize
         yield "P import local config jsons", False
         yield "B add kpi visuals", False
-
+        yield "P time step h", self.timestep_hours
+        
     def config_json_for(self, sheet_name):
         '''Returns a JSON containing the config information'''
         if(self.config_from_jsons):

@@ -27,7 +27,7 @@
 	"type": "ELECTRICITY_CONSUMPTION_PROFILE",
         "etm_key": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
         "name": "INDUSTRY_OTHER_ELECTRICITY_DEMAND",	
-        "yearlyDemandElectricity_kWh": 6000000.0	
+        "yearlyDemandElectricity_kWh": 600000.0	
       },	
       {
         "category": "STORAGE",
