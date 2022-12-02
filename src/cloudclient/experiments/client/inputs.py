@@ -4,6 +4,8 @@ from anylogiccloudclient.client.cloud_error import CloudError
 class Inputs:
     @property
     def inputs(self):
+        if self.experiment.use_datamodel is True:
+            self._set_model_config()
         return self._inputs
 
     @inputs.setter
