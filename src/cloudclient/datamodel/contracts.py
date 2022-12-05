@@ -3,9 +3,12 @@ from enum import Enum
 
 
 class ContractTypeEnum(Enum):
+    # Contracts to energysupplier
     default = "DEFAULT"
+    fixed = "FIXED"
     variable = "VARIABLE"
     dynanmicdayahead = "DYNANMICDAYAHEAD"
+    # Contracts to gridoperator
     gopacs = "GOPACS"
     nonfirm = "NONFIRM"
     nodalpricing = "NODALPRICING"
