@@ -68,14 +68,15 @@
       },
       {
         "type": "DIESEL_VEHICLE",
-        "eta_r": 0.95,
+        "eta_r": 1.0,
         "name": "Diesel_Truck",
         "category": "CONVERSION",
-        "energyConsumption_kWhpkm": 1.3
+        "energyConsumption_kWhpkm": 3.0,
+        "vehicleScaling": 20
       },
       {
         "type": "STORAGE_ELECTRIC",
-        "stateOfCharge_r": 1.0,
+        "stateOfCharge_r": 0.5,
         "name": "Grid_battery_7MWh",
         "category": "STORAGE",
         "capacityElectricity_kW": 1000.0,
@@ -185,7 +186,7 @@
     "assets": [
       {
         "type": "STORAGE_ELECTRIC",
-        "stateOfCharge_r": 1.0,
+        "stateOfCharge_r": 0.5,
         "name": "Grid_battery_10MWh",
         "category": "STORAGE",
         "capacityElectricity_kW": 2000.0,
