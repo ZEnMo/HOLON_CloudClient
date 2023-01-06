@@ -110,8 +110,8 @@ EHGV = VehicleElectricStorageAsset(
     stateOfCharge_r=1.0,
     storageCapacity_kWh=500,
     capacityElectricity_kW=100,
-    energyConsumption_kWhpkm=1.3,
-    vehicleScaling=5,
+    energyConsumption_kWhpkm=1.1,
+    vehicleScaling=10,
 )
 District_Heating_heat_buffer_HT_S = HeatStorageAsset(
     name="District_Heating_heat_buffer_HT_S",

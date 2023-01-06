@@ -1,5 +1,7 @@
 import json
 
+# import numpy
+
 
 class Outcomes:
     @property
@@ -37,15 +39,17 @@ class Outcomes:
         ) as outfile:
             if formatted:
                 outfile.write(
-                    json.dumps(
-                        json.loads(
-                            self.outcomes[outcome["human_key"]].to_json(
-                                orient="records"
-                            )
-                        ),
-                        indent=2,
-                    )
+                    # json.dumps(
+                    #     json.loads(
+                    #         self.outcomes[outcome["human_key"]].to_json(
+                    #             orient="records"
+                    #         )
+                    #     ),
+                    #     indent=2,
+                    # )
+                    json.dumps(self.outcomes[outcome["human_key"]])
                 )
+
                 # print("_write jsons exported")
             else:
                 outfile.writelines(

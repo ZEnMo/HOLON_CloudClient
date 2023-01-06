@@ -1,4 +1,6 @@
 from pydantic import BaseModel, Extra
+
+from typing import Optional
 from enum import Enum
 
 
@@ -10,7 +12,7 @@ class ContractTypeEnum(Enum):
     dynanmicdayahead = "DYNANMICDAYAHEAD"
     # Contracts to gridoperator
     gopacs = "GOPACS"
-    nonfirm = "NONFIRM"
+    nonfirmato = "NONFIRMATO"
     nodalpricing = "NODALPRICING"
 
 
@@ -21,6 +23,9 @@ class ContractScopeEnum(Enum):
     administrativeholon = "ADMINISTRATIVEHOLON"
 
 
-class Contract(BaseModel, extra=Extra.forbid):
+class Contract(BaseModel, extra=Extra.allow):
     type: ContractTypeEnum
     contract_scope: ContractScopeEnum
+    # nfATO_capacity_kW: Optional[float]
+    # nfATO_starttime_h: Optional[float]
+    # nfATO_endtime_h: Optional[float]

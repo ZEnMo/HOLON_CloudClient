@@ -32,16 +32,16 @@ House_hot_water = HeatConsumptionAsset(
 )
 House_other_electricity = ElectricConsumptionAsset(
     name="House_other_electricity",
-    type="OTHER_ELECTRICITY_CONSUMPTION",
+    type="ELECTRICITY_DEMAND",
     yearlyDemandElectricity_kWh=2479,
 )
 Office_other_electricity = ElectricConsumptionAsset(
     name="Office_other_electricity",
-    type="OTHER_ELECTRICITY_CONSUMPTION",
+    type="ELECTRICITY_DEMAND",
     yearlyDemandElectricity_kWh=120000,
 )
 Store_other_electricity = ElectricConsumptionAsset(
     name="Store_other_electricity",
-    type="OTHER_ELECTRICITY_CONSUMPTION",
+    type="ELECTRICITY_DEMAND",
     yearlyDemandElectricity_kWh=35000,
 )
