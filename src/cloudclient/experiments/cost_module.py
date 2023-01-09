@@ -9,6 +9,7 @@ ETM_MAPPING = {
     "depreciation_costs_buildings_gas_burner_per_kw": ("BUILDING", "GAS_BURNER"),
     "depreciation_costs_industry_solar_panels_per_kw": ("INDUSTRY", "PHOTOVOLTAIC"),
     "depreciation_costs_industry_gas_burner_per_kw": ("INDUSTRY", "GAS_BURNER"),
+    "depreciation_costs_wind_farm_per_kw": ("WINDFARM", "WINDMILL"),
     "hourly_price_of_electricity_per_mwh": (
         "SystemHourlyElectricity",
         "",
@@ -32,14 +33,18 @@ ETM_MAPPING = {
 
 
 def calculate_total_costs(
-    etm_inputs: dict, holon_config_gridconnections: list, holon_outputs: list
+    etm_inputs: dict,
+    holon_config_gridconnections: list,
+    holon_outputs: list,
+    hourly_curves: list,
 ) -> float:
     """Calculates the costs KPI's - if we need it they can be reported back per category as well"""
     categories = Categories()
     categories.add_connections(holon_config_gridconnections)
     categories.add_carriers_and_infra(
-        holon_outputs[0]
+        holon_outputs
     )  # NOTE: is this indeed a list with one dict?
+    categories.add_carriers_and_infra(hourly_curves)
     categories.set_prices(etm_inputs)
 
     return categories.total_costs()
@@ -84,6 +89,9 @@ class Category:
                 if cost_item.match(*val):
                     # NOTE: if etm_key is not available, we set costs to zero
                     cost_item.set_price(etm_inputs.get(key, 0))
+                    print(
+                        "Cost item key: ", key, ", cost item costs: ", cost_item.costs
+                    )
                     self.total_costs += cost_item.costs
                     break
 
@@ -95,7 +103,7 @@ class Categories:
         "buildings_and_installations": ["BUILDING", "INDUSTRY"],
         "infrastructure": ["HSMSPeakLoadElectricity_kW", "MSLSPeakLoadElectricity_kW"],
         "flexibility": ["totalBatteryInstalledCapacity_MWh:Grid_battery_10MWh"],
-        "energy_production": ["SOLARFARM"],
+        "energy_production": ["SOLARFARM", "WINDFARM"],
         "carriers": [
             "SystemHourlyElectricity",
             "totalMethane",
@@ -135,10 +143,17 @@ class Categories:
     def _add_carriers(self, holon_output):
         """Bit hardcoded with the import and export, but yeah.."""
         for carrier in self.CATEGORIES["carriers"]:
-            imp = format(holon_output.get(f"{carrier}Import_MWh", 0))
-            exp = format(holon_output.get(f"{carrier}Export_MWh", 0))
-
-            self.categories["carriers"].add_cost_item(carrier, value=imp - exp)
+            # imp = format(holon_output.get(f"{carrier}Import_MWh", 0))
+            # exp = format(holon_output.get(f"{carrier}Export_MWh", 0))
+            carrierimport = format(holon_output.get(f"{carrier}Import_MWh"))
+            carrierexport = format(holon_output.get(f"{carrier}Export_MWh"))
+            if not (carrierimport is None) and not (carrierexport is None):
+                # if abs(imp) > 0 or abs(exp) > 0:
+                self.categories["carriers"].add_cost_item(
+                    carrier, value=carrierimport - carrierexport
+                )
+            elif not (carrierimport is None):
+                self.categories["carriers"].add_cost_item(carrier, value=carrierimport)
 
     def _add_from_output(self, holon_output, category):
         """Yeah.. if it's not there just don't include it."""
