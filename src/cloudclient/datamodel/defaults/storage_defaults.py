@@ -149,24 +149,11 @@ District_Heating_network_MT_S = HeatStorageAsset(
     heatCapacity_JpK=10000000.0,
     ambientTempType="GROUND",
 )
-Grid_battery_1MW = ElectricStorageAsset(
-    name="Grid_battery_1MW",
-    type="STORAGE_ELECTRIC",
-    capacityElectricity_kW=1000,
-    stateOfCharge_r=0.5,
-    storageCapacity_kWh=1000,
-)
-Grid_battery_10MWh = ElectricStorageAsset(
+
+Grid_battery = ElectricStorageAsset(
     name="Grid_battery_10MWh",
     type="STORAGE_ELECTRIC",
     capacityElectricity_kW=2000,
     stateOfCharge_r=0.5,
     storageCapacity_kWh=10000,
-)
-Grid_battery_7MWh = ElectricStorageAsset(
-    name="Grid_battery_7MWh",
-    type="STORAGE_ELECTRIC",
-    capacityElectricity_kW=1000,
-    stateOfCharge_r=0.5,
-    storageCapacity_kWh=7000,
 )

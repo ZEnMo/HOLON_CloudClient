@@ -125,9 +125,10 @@ def etm_output():
         "hourly_price_of_electricity_per_mwh": [1] * 8760,
         "price_of_natural_gas_per_mwh": 20,
         "price_of_hydrogen_per_mwh": 10,
+        "price_of_diesel_per_mwh": 15,
         "electricity_grid_expansion_costs_lv_mv_trafo_per_kw": 5,
         "electricity_grid_expansion_costs_mv_hv_trafo_per_kw": 6,
-        "depreciation_costs_grid_battery_per_mwh": 10,
+        "depreciation_costs_grid_battery_per_mwh": 50,
     }
 
 

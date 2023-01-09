@@ -78,7 +78,7 @@ from cloudclient.datamodel.defaults import (
     Diesel_Truck,
     EHGV,
     Solarpanels_1MW,
-    Grid_battery_10MWh,
+    Grid_battery,
     Industry_other_heat_demand,
     Windmill_3MW,
     Building_solarpanels_10kWp,
@@ -171,7 +171,7 @@ gridconnections = [
         battery_mode="BALANCE",
         id="b4",
         capacity_kw=10000,
-        assets=[Grid_battery_10MWh],
+        assets=[Grid_battery],
     ),
 ]
 

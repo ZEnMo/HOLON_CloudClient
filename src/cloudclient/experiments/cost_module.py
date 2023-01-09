@@ -26,7 +26,7 @@ ETM_MAPPING = {
         "",
     ),
     "depreciation_costs_grid_battery_per_mwh": (
-        "totalBatteryInstalledCapacity_MWh:Grid_battery",
+        "totalBatteryInstalledCapacity_MWh:Grid_battery_10MWh",
         "",
     ),
 }
@@ -48,6 +48,24 @@ def calculate_total_costs(
     categories.set_prices(etm_inputs)
 
     return categories.total_costs()
+
+
+def calculate_total_costs_split(
+    etm_inputs: dict,
+    holon_config_gridconnections: list,
+    holon_outputs: list,
+    hourly_curves: list,
+) -> float:
+    """Calculates the costs KPI's - if we need it they can be reported back per category as well"""
+    categories = Categories()
+    categories.add_connections(holon_config_gridconnections)
+    categories.add_carriers_and_infra(
+        holon_outputs
+    )  # NOTE: is this indeed a list with one dict?
+    categories.add_carriers_and_infra(hourly_curves)
+    categories.set_prices(etm_inputs)
+
+    return categories.split_costs()
 
 
 def format(output):
@@ -117,6 +135,18 @@ class Categories:
 
     def total_costs(self):
         return sum((cat.total_costs for cat in self.categories.values()))
+
+    def split_costs(self):
+        costs_per_category = dict()
+        for cat in self.categories.values():
+            costs_per_category[cat.name] = cat.total_costs
+
+            # print( cat.name)
+            # print( cat.total_costs)
+        costs_per_category["total"] = sum(
+            (cat.total_costs for cat in self.categories.values())
+        )
+        return costs_per_category
 
     def add_connections(self, gridconnections):
         """"""
