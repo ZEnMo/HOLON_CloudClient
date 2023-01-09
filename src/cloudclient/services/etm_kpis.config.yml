@@ -22,6 +22,12 @@ national_kpi_self_sufficiency:
     data: value
     etm_key: kpi_self_sufficiency_local_production_of_primary_demand
 
+national_renewability:
+  value:
+    type: query
+    data: value
+    etm_key: dashboard_renewability
+
 # This one is used for determining local results
 CO2_curve:
   value:
