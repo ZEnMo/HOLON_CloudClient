@@ -2,8 +2,8 @@ from .anylogic_experiment import AnyLogicExperiment
 from .experiment_settings import ExperimentSettings
 from .experiment import Experiment
 
+# from .ETM_dummy_data import etm_output
 from .cost_module import *
-from .ETM_dummy_data import etm_output
 import etm_service
 from pathlib import Path
 import json
@@ -102,8 +102,18 @@ def calculateAllKPIs(api_experiment):
     print("\nExperiment output categories:", experiment_outputs[0].keys())
     # print("Hourly curves categories:", hourly_curves[0].keys())
     # result = calculate_total_costs(etm_output(), holon_config(), holon_output())
+
+    # areaCosts_kEur = calculate_total_costs_split(
+    #     etm_output(), grid_connection_config, experiment_outputs[0], hourly_curves[0]
+    # )
+
     areaCosts_kEur = calculate_total_costs_split(
-        etm_output(), grid_connection_config, experiment_outputs[0], hourly_curves[0]
+        etm_service.retrieve_results(
+            COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_COSTS
+        ),
+        grid_connection_config,
+        experiment_outputs[0],
+        hourly_curves[0],
     )
     print("Total area costs: ", areaCosts_kEur, " kEur  ")
 

@@ -108,7 +108,12 @@ class Category:
                     # NOTE: if etm_key is not available, we set costs to zero
                     cost_item.set_price(etm_inputs.get(key, 0))
                     print(
-                        "Cost item key: ", key, ", cost item costs: ", cost_item.costs
+                        "Cost item key: ",
+                        key,
+                        ", cost item costs: ",
+                        cost_item.costs,
+                        ", price: ",
+                        etm_inputs.get(key, 0),
                     )
                     self.total_costs += cost_item.costs
                     break
