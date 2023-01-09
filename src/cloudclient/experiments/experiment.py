@@ -46,3 +46,6 @@ class Experiment:
     def config_json_for(self, sheet_name):
         """Returns a JSON containing the config information"""
         return InputJSON(self.name, self.path, sheet_name, self.config_file).as_json()
+
+    def get_experiment(self):
+        return self
