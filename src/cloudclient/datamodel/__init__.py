@@ -1,4 +1,4 @@
-from .actors import Actor
+from .actors import Actor, NonFirmActor
 from .gridconnections import (
     GridConnection,
     DistrictHeatingGridConnection,

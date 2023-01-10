@@ -31,7 +31,12 @@ class Outcomes:
         )
 
     def _write_outcomeJSON(self, outcome, formatted: bool = True):
-
+        # print("\noutcome[" "human_key" "]: ", outcome["human_key"])
+        # print(
+        #     "self.outcomes[outcome[" "human_key" "]]:",
+        #     self.outcomes[outcome["human_key"]],
+        # )
+        # print("Outcome object type: ", type(self.outcomes[outcome["human_key"]]))
         with open(
             self._output_folder()
             / f"{outcome['human_key']}_{self.experiment.name}.json",

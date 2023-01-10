@@ -66,8 +66,6 @@ depreciation_costs_industry_solar_panels_per_kw:
     data: value
     etm_key: depreciation_costs_industry_solar_panels_per_kw
 
-
-
 depreciation_costs_industry_gas_burner_per_kw:
   value:
     type: query

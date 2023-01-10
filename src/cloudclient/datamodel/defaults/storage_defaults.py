@@ -157,3 +157,19 @@ Grid_battery = ElectricStorageAsset(
     stateOfCharge_r=0.5,
     storageCapacity_kWh=10000,
 )
+
+Grid_battery_7MWh = ElectricStorageAsset(
+    name="Grid_battery_10MWh",
+    type="STORAGE_ELECTRIC",
+    capacityElectricity_kW=2000,
+    stateOfCharge_r=0.5,
+    storageCapacity_kWh=7000,
+)
+
+Grid_battery_10MWh = ElectricStorageAsset(
+    name="Grid_battery_10MWh",
+    type="STORAGE_ELECTRIC",
+    capacityElectricity_kW=2000,
+    stateOfCharge_r=0.5,
+    storageCapacity_kWh=10000,
+)

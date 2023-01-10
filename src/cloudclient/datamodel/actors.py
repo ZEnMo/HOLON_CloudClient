@@ -24,7 +24,7 @@ class Actor(BaseModel, extra=Extra.forbid):
     contracts: Optional[List[Contract]]
 
 
-# class NonFirmActor(Actor):
-#     nfATO_capacity_kw: float
-#     nfATO_starttime: float
-#     nfATO_endtime: float
+class NonFirmActor(Actor):
+    nfATO_capacity_kw: float
+    nfATO_starttime: float
+    nfATO_endtime: float

@@ -2,7 +2,7 @@ from .anylogic_experiment import AnyLogicExperiment
 from .experiment_settings import ExperimentSettings
 from .experiment import Experiment
 
-# from .ETM_dummy_data import etm_output
+# from .ETM_costs_data import etm_costs
 from .cost_module import *
 import etm_service
 from pathlib import Path
@@ -79,6 +79,9 @@ def calculateAllKPIs(api_experiment):
 
     experiment_outputs = api_experiment.outcomes.get("APIOutputTotalCostData")
     hourly_curves = api_experiment.outcomes.get("APIOutputHourlyCurvesData")
+    print("\nExperiment output categories:", experiment_outputs[0].keys())
+    print("\n")
+
     # pd.set_option("display.max_rows", 50000)
     # pd.set_option("display.expand_frame_repr", True)
     # pd.set_option('display.width', 1000)
@@ -99,23 +102,25 @@ def calculateAllKPIs(api_experiment):
 
     # print("offered inputs2 ", grid_connection_config)
     # print("Hourly curves type:", type(hourly_curves[0]))
-    print("\nExperiment output categories:", experiment_outputs[0].keys())
+
     # print("Hourly curves categories:", hourly_curves[0].keys())
     # result = calculate_total_costs(etm_output(), holon_config(), holon_output())
 
     # areaCosts_kEur = calculate_total_costs_split(
     #     etm_output(), grid_connection_config, experiment_outputs[0], hourly_curves[0]
     # )
+    etm_costs_stored = np.load("ETM_costs.npy", allow_pickle=True).tolist()
 
     areaCosts_kEur = calculate_total_costs_split(
-        etm_service.retrieve_results(
-            COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_COSTS
-        ),
+        # etm_service.retrieve_results(
+        #     COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_COSTS
+        # ),
+        etm_costs_stored,
         grid_connection_config,
         experiment_outputs[0],
         hourly_curves[0],
     )
-    print("Total area costs: ", areaCosts_kEur, " kEur  ")
+    print("\nTotal area costs: ", areaCosts_kEur, " kEur  ")
 
     area_KPI_results = calculate_holon_kpis(
         total_cost_data=experiment_outputs[0],
@@ -127,7 +132,7 @@ def calculateAllKPIs(api_experiment):
             api_experiment.client.inputs.get_input("P grid node config JSON")
         ),
     )
-    print("gebieds-kpi's: ")
+    print("\n Gebieds-kpi's: ")
     print(area_KPI_results)
 
     # try ETM upscaling to national level. Need to
@@ -137,7 +142,7 @@ def calculateAllKPIs(api_experiment):
     )
     slider_value = 2
     etm_slider_settings.update({slider_etm_key: slider_value})
-    print("ETM slider settings:", etm_slider_settings)
+    # print("ETM slider settings:", etm_slider_settings)
     holon_output = {}
     try:
         holon_output = {
@@ -160,10 +165,10 @@ def calculateAllKPIs(api_experiment):
         etm_upscale_scenario_id, ETM_CONFIG_PATH, ETM_CONFIG_FILE_GET_KPIS
     )
 
-    print("ETM upscale results: ", etm_upscale_results)
+    # print("\nETM upscale results: ", etm_upscale_results)
 
     results = {
-        "national": {
+        "ETM national KPIs": {
             "netload": round(etm_upscale_results["national_kpi_network_load"], 1),
             "costs": round(
                 etm_upscale_results["national_total_costs"], -8

@@ -326,9 +326,9 @@
         {
           "type": "NONFIRMATO",
           "contract_scope": "GRIDOPERATOR",
-          "nfATO_starttime_h": 16.0,
           "nfATO_capacity_kW": 1500.0,
-          "nfATO_endtime_h": 7.0
+          "nfATO_endtime_h": 7.0,
+          "nfATO_starttime_h": 16.0
         }
       ]
     },
