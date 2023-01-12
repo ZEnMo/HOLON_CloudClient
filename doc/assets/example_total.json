@@ -368,6 +368,10 @@
         {
           "type": "DEFAULT",
           "contract_scope": "ENERGYHOLON"
+        },
+        {
+          "type": "VARIABLE",
+          "contract_scope": "ENERGYSUPPLIER"
         }
       ]
     },
@@ -451,6 +455,13 @@
         {
           "type": "VARIABLE",
           "contract_scope": "ENERGYSUPPLIER"
+        },
+        {
+          "type": "NONFIRMATO",
+          "contract_scope": "GRIDOPERATOR",
+          "nfATO_capacity_kW": 5000.0,
+          "nfATO_endtime_h": 7.0,
+          "nfATO_starttime_h": 16.0
         }
       ]
     },
@@ -541,5 +552,13 @@
       "unit": "minutes",
       "comment": "Time_buffer_for_spread_charging, Integer value"
     }
-  ]
+  ],
+  "etm_upscale_sliders": {
+    "share_of_electric_trucks": 50,
+    "installed_energy_grid_battery": 0
+  },
+  "etm_upscale_curve_labels": {
+    "totalEHGVHourlyChargingProfile_kWh": "totalEHGVHourlyChargingProfile_kWh",
+    "totalGridBatteryHourlyChargingProfile_kWh": "totalBatteryHourlyChargingProfile_kWh"
+  }
 }

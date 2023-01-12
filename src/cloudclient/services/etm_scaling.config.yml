@@ -49,6 +49,7 @@ totalEHGVHourlyChargingProfile_kWh:
     type: curve
     data: curve
     etm_key: electric_trucks
+    
 # # hourly profile electric cars
 # totalEVHourlyChargingProfile_kWh:
 #   value:

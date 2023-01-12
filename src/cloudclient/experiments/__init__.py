@@ -69,7 +69,7 @@ def start_experiment(settings):
     calculateAllKPIs(api_experiment)
 
 
-def calculateAllKPIs(api_experiment):
+def calculateAllKPIs(api_experiment: AnyLogicExperiment):
     grid_connection_config = json.loads(
         api_experiment.client.inputs.get_input("P grid connection config JSON")
     )
@@ -81,23 +81,6 @@ def calculateAllKPIs(api_experiment):
     hourly_curves = api_experiment.outcomes.get("APIOutputHourlyCurvesData")
     print("\nExperiment output categories:", experiment_outputs[0].keys())
     print("\n")
-
-    # pd.set_option("display.max_rows", 50000)
-    # pd.set_option("display.expand_frame_repr", True)
-    # pd.set_option('display.width', 1000)
-    # print("expected type", type(real_inputs))
-    # print("offered type", type(experiment_inputs))
-
-    # print("real inputs ", real_inputs)
-    # print("offered inputs ", experiment_inputs)
-
-    # experiment_inputs2 = experiment_inputs.replace("null", "None")
-
-    # print("offered inputs2 ", grid_connection_config)
-    # print("Hourly curves type:", type(hourly_curves[0]))
-
-    # print("Hourly curves categories:", hourly_curves[0].keys())
-    # result = calculate_total_costs(etm_output(), holon_config(), holon_output())
 
     etm_costs_stored = np.load("ETM_costs.npy", allow_pickle=True).tolist()
 
@@ -131,28 +114,45 @@ def calculateAllKPIs(api_experiment):
     print("\n Gebieds-kpi's: ")
     print(area_KPI_results)
 
+    # print(
+    #     "\nETM upscale sliders dict: ",
+    #     api_experiment.client.payload.etm_upscale_sliders,
+    # )
+
+    # api_experiment.client.payload.etm_upscale_curve_labels.keys(): hourly_curves[0][
+    #     api_experiment.client.payload.etm_upscale_curve_labels.values()
+    # ]
+
+    # print(holon_curves_for_upscaling)
+
     if api_experiment.experiment.upscale_ETM:
         # ETM upscaling to national level
-        etm_slider_settings = {}
-        # slider_etm_key = (
-        #     ,
-        #     "",  # "transport_truck_using_electricity_share"
+        # etm_slider_settings = {}  # This dict should come from the case definition!
+        # etm_slider_settings.update(
+        #     {
+        #         "share_of_electric_trucks": 100,
+        #         "installed_energy_grid_battery": 0,
+        #     }
         # )
-        # slider_value = (50, 50)
-        etm_slider_settings.update(
-            {"share_of_electric_trucks": 100, "installed_energy_grid_battery": 0}
-        )
         # print("ETM slider settings:", etm_slider_settings)
         holon_curves_for_upscaling = {}
         try:
-            holon_curves_for_upscaling = {
-                "totalEHGVHourlyChargingProfile_kWh": hourly_curves[0][
-                    "totalEHGVHourlyChargingProfile_kWh"
-                ],
-                "totalGridBatteryHourlyChargingProfile_kWh": hourly_curves[0][
-                    "totalBatteryHourlyChargingProfile_kWh"
-                ],
-            }
+            for key in api_experiment.client.payload.etm_upscale_curve_labels.keys():
+                holon_curves_for_upscaling.update(
+                    {
+                        key: hourly_curves[0][
+                            api_experiment.client.payload.etm_upscale_curve_labels[key]
+                        ]
+                    }
+                )
+            # holon_curves_for_upscaling = {
+            #     "totalEHGVHourlyChargingProfile_kWh": hourly_curves[0][
+            #         "totalEHGVHourlyChargingProfile_kWh"
+            #     ],
+            #     "totalGridBatteryHourlyChargingProfile_kWh": hourly_curves[0][
+            #         "totalBatteryHourlyChargingProfile_kWh"
+            #     ],
+            # }
         except KeyError:
             print("etm_kpi_holon_output: Resolving to empty values for this key!")
 
@@ -160,7 +160,8 @@ def calculateAllKPIs(api_experiment):
 
         etm_upscale_scenario_id = etm_service.scale_copy_and_send(
             COSTS_SCENARIO_ID,
-            etm_slider_settings | holon_curves_for_upscaling,
+            api_experiment.client.payload.etm_upscale_sliders
+            | holon_curves_for_upscaling,
             ETM_CONFIG_PATH,
             ETM_CONFIG_FILE_SCALING,
         )
@@ -186,3 +187,21 @@ def calculateAllKPIs(api_experiment):
 
         print("\n ETM nationale KPIs:")
         print(results)
+
+
+# pd.set_option("display.max_rows", 50000)
+# pd.set_option("display.expand_frame_repr", True)
+# pd.set_option('display.width', 1000)
+# print("expected type", type(real_inputs))
+# print("offered type", type(experiment_inputs))
+
+# print("real inputs ", real_inputs)
+# print("offered inputs ", experiment_inputs)
+
+# experiment_inputs2 = experiment_inputs.replace("null", "None")
+
+# print("offered inputs2 ", grid_connection_config)
+# print("Hourly curves type:", type(hourly_curves[0]))
+
+# print("Hourly curves categories:", hourly_curves[0].keys())
+# result = calculate_total_costs(etm_output(), holon_config(), holon_output())

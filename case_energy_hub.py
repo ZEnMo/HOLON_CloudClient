@@ -17,7 +17,7 @@ actors = [
             #     nfATO_starttime_h=16.0,
             #     nfATO_endtime_h=8.0,
             # ),
-            # Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
+            Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
         ],
     ),
     Actor(
@@ -76,13 +76,13 @@ actors = [
         contracts=[
             Contract(type="NODALPRICING", contract_scope="GRIDOPERATOR"),
             Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
-            # Contract(
-            #     type="NONFIRMATO",
-            #     contract_scope="GRIDOPERATOR",
-            #     nfATO_capacity_kW=5000.0,
-            #     nfATO_starttime_h=16.0,
-            #     nfATO_endtime_h=7.0,
-            # ),
+            Contract(
+                type="NONFIRMATO",
+                contract_scope="GRIDOPERATOR",
+                nfATO_capacity_kW=5000.0,
+                nfATO_starttime_h=16.0,
+                nfATO_endtime_h=7.0,
+            ),
         ],
     ),
     Actor(
@@ -329,12 +329,23 @@ policies = [
     ),
 ]
 
+etm_slider_settings = {
+    "share_of_electric_trucks": 50,
+    "installed_energy_grid_battery": 0,
+}
+
+curve_mapping_for_upscaling = {
+    "totalEHGVHourlyChargingProfile_kWh": "totalEHGVHourlyChargingProfile_kWh",
+    "totalGridBatteryHourlyChargingProfile_kWh": "totalBatteryHourlyChargingProfile_kWh",
+}
 
 payload = Payload(
     actors=actors,
     gridconnections=gridconnections,
     gridnodes=gridnodes,
     policies=policies,
+    etm_upscale_sliders=etm_slider_settings,
+    etm_upscale_curve_labels=curve_mapping_for_upscaling,
 )
 import json
 
