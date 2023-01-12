@@ -33,6 +33,7 @@ class GridConnection(BaseModel, extra=Extra.forbid):
     charging_mode: Optional[ChargingModeEnum]
     battery_mode: Optional[BatteryModeEnum]
 
+
 class InsulationLabelEnum(Enum):
     a = "A"
     b = "B"

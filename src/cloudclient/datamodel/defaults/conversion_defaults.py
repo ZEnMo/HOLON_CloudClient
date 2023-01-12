@@ -3,6 +3,7 @@ from cloudclient.datamodel import (
     ChemicalHeatConversionAsset,
     TransportHeatConversionAsset,
     VehicleConversionAsset,
+    ConversionAssetTypeEnum,
 )
 
 House_heatpump_MT_S = TransportHeatConversionAsset(
@@ -102,13 +103,14 @@ Industrial_hydrogen_furnace = ChemicalHeatConversionAsset(
     deliveryTemp_degc=120,
 )
 
-Building_gas_burner_60kW = ChemicalHeatConversionAsset(
-    name="Building_gas_burner_60kW",
-    type="GAS_BURNER",
-    capacityHeat_kW=60,
-    eta_r=0.95,
-    deliveryTemp_degc=90,
-)
+
+class Building_gas_burner(ChemicalHeatConversionAsset):
+    name = "Building_gas_burner"
+    type = ConversionAssetTypeEnum.gas_burner
+    capacityHeat_kW = 60.0
+    eta_r = 0.95
+    deliveryTemp_degc = 90.0
+
 
 Building_heatpump_20kW = TransportHeatConversionAsset(
     name="Building_heatpump_20kW",

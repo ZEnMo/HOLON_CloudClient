@@ -2,6 +2,7 @@ from cloudclient.datamodel import (
     HeatStorageAsset,
     ElectricStorageAsset,
     VehicleElectricStorageAsset,
+    StorageAssetTypeEnum,
 )
 
 House_battery = ElectricStorageAsset(
@@ -150,16 +151,20 @@ District_Heating_network_MT_S = HeatStorageAsset(
     ambientTempType="GROUND",
 )
 
-Grid_battery = ElectricStorageAsset(
-    name="Grid_battery_10MWh",
-    type="STORAGE_ELECTRIC",
-    capacityElectricity_kW=2000,
-    stateOfCharge_r=0.5,
-    storageCapacity_kWh=10000,
-)
+
+class Grid_battery(ElectricStorageAsset):
+    # capacityElectricity_kW: float
+    storageCapacity_kWh = 10000.0
+    capacityElectricity_kW = storageCapacity_kWh * 0.2
+    name = "Grid_battery"
+    type = StorageAssetTypeEnum.storage_electric
+    # capacityElectricity_kW = (2000,)
+    stateOfCharge_r = 0.5
+    # storageCapacity_kWh=10000,
+
 
 Grid_battery_7MWh = ElectricStorageAsset(
-    name="Grid_battery_10MWh",
+    name="Grid_battery_7MWh",
     type="STORAGE_ELECTRIC",
     capacityElectricity_kW=2000,
     stateOfCharge_r=0.5,

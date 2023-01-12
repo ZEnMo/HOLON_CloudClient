@@ -9,15 +9,32 @@ actors = [
         id="com1",
         parent_actor="hol1",
         contracts=[
-            Contract(
-                type="NONFIRMATO",
-                contract_scope="GRIDOPERATOR",
-                nfATO_capacity_kW=1500.0,
-                nfATO_starttime_h=16.0,
-                nfATO_endtime_h=7.0,
-            ),
-            # Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+            Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+            # Contract(
+            #     type="NONFIRMATO",
+            #     contract_scope="GRIDOPERATOR",
+            #     nfATO_capacity_kW=1750.0,
+            #     nfATO_starttime_h=16.0,
+            #     nfATO_endtime_h=8.0,
+            # ),
             # Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
+        ],
+    ),
+    Actor(
+        category="CONNECTIONOWNER",
+        type="commercial",
+        id="com5",
+        parent_actor="hol1",
+        contracts=[
+            Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+            # Contract(
+            #     type="NONFIRMATO",
+            #     contract_scope="GRIDOPERATOR",
+            #     nfATO_capacity_kW=1750.0,
+            #     nfATO_starttime_h=16.0,
+            #     nfATO_endtime_h=8.0,
+            # ),
+            Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
         ],
     ),
     Actor(
@@ -42,7 +59,10 @@ actors = [
         type="commercial",
         id="com4",
         parent_actor="hol1",
-        contracts=[Contract(type="DEFAULT", contract_scope="ENERGYHOLON")],
+        contracts=[
+            Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+            Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
+        ],
     ),
     Actor(
         category="ENERGYSUPPLIER",
@@ -55,6 +75,7 @@ actors = [
         parent_actor="sup1",
         contracts=[
             Contract(type="NODALPRICING", contract_scope="GRIDOPERATOR"),
+            Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
             # Contract(
             #     type="NONFIRMATO",
             #     contract_scope="GRIDOPERATOR",
@@ -63,9 +84,6 @@ actors = [
             #     nfATO_endtime_h=7.0,
             # ),
         ],
-        # nfATO_capacity_kw=900.0,
-        # nfATO_starttime=18.0,
-        # nfATO_endtime=7.0,
     ),
     Actor(
         category="GRIDOPERATOR",
@@ -77,12 +95,13 @@ actors = [
 from cloudclient.datamodel.defaults import (
     Diesel_Truck,
     EHGV,
-    Solarpanels_1MW,
+    Solarpanel_farm,
+    Solarpanel_building,
     Grid_battery,
     Industry_other_heat_demand,
-    Windmill_3MW,
-    Building_solarpanels_10kWp,
-    Building_gas_burner_60kW,
+    Windmill_onshore,
+    # Building_solarpanels_10kWp,
+    Building_gas_burner,
     Office_other_electricity,
 )
 
@@ -103,44 +122,53 @@ gridconnections = [
         parent_electric="E2",
         id="b1",
         capacity_kw=1750,
-        charging_mode="MAX_POWER",
+        charging_mode="CHEAP",
         battery_mode="BALANCE",
         assets=[
             *[EHGV] * 5,
             # Diesel_Truck,
-            Building_solarpanels_10kWp,
+            Building_gas_burner(capacityHeat_kW=200),
+            Solarpanel_building(capacityElectricity_kW=500),
+            Grid_battery(storageCapacity_kWh=0),
+            # Building_solarpanels_10kWp,
         ],
     ),
     BuildingGridConnection(
         insulation_label="NONE",
         heating_type="GASBURNER",
         type="LOGISTICS",
-        owner_actor="com1",
+        owner_actor="com5",
         parent_electric="E2",
         id="b5",
         capacity_kw=1750,
-        charging_mode="MAX_POWER",
+        charging_mode="CHEAP",
         battery_mode="BALANCE",
         assets=[
             *[EHGV] * 5,
             # Diesel_Truck,
-            Building_solarpanels_10kWp,
+            Building_gas_burner(capacityHeat_kW=200),
+            Solarpanel_building(capacityElectricity_kW=500),
+            Grid_battery(storageCapacity_kWh=0),
+            # Building_solarpanels_10kWp,
         ],
     ),
     BuildingGridConnection(
         insulation_label="NONE",
         heating_type="GASBURNER",
         type="LOGISTICS",
-        owner_actor="com1",
+        owner_actor="com5",
         parent_electric="E2",
         id="b6",
         capacity_kw=1750,
-        charging_mode="MAX_POWER",
+        charging_mode="CHEAP",
         battery_mode="BALANCE",
         assets=[
             *[EHGV] * 5,
             # Diesel_Truck,
-            Building_solarpanels_10kWp,
+            Building_gas_burner(capacityHeat_kW=200),
+            Solarpanel_building(capacityElectricity_kW=500),
+            Grid_battery(storageCapacity_kWh=0),
+            # Building_solarpanels_10kWp,
         ],
     ),
     IndustryGridConnection(
@@ -152,7 +180,7 @@ gridconnections = [
         capacity_kw=3000,
         assets=[
             Industry_other_heat_demand,
-            Building_gas_burner_60kW,
+            Building_gas_burner(capacityHeat_kW=100),
             Office_other_electricity,
         ],
     ),
@@ -161,17 +189,34 @@ gridconnections = [
         owner_actor="com3",
         parent_electric="E2",
         id="b3",
-        capacity_kw=7000,
-        assets=[Solarpanels_1MW, Solarpanels_1MW, Windmill_3MW],
+        capacity_kw=8000,
+        assets=[
+            Windmill_onshore(capacityElectricity_kW=6000),
+            Solarpanel_farm(capacityElectricity_kW=2000),
+        ],
     ),
+    # ProductionGridConnection(
+    #     category="SOLARFARM",
+    #     owner_actor="com3",
+    #     parent_electric="E2",
+    #     id="b3",
+    #     capacity_kw=7000,
+    #     assets=[Solarpanel_farm(capacityElectricity_kW=2000)],
+    # ),
     ProductionGridConnection(
         category="GRIDBATTERY",
         owner_actor="com4",
         parent_electric="E2",
-        battery_mode="BALANCE",
+        battery_mode="PRICE",
         id="b4",
-        capacity_kw=10000,
-        assets=[Grid_battery],
+        capacity_kw=8000,
+        assets=[
+            Grid_battery(
+                storageCapacity_kWh=30000,
+                capacityElectricity_kW=10000,
+                stateOfCharge_r=0.2,
+            )
+        ],
     ),
 ]
 
@@ -198,12 +243,12 @@ gridnodes = [
 from cloudclient.datamodel.policies import Policy
 
 policies = [
-    Policy(
-        parameter="EV_charging_attitude_standard",
-        value="CHEAP",
-        unit=None,
-        comment="charging behaviour not contingent on holon",
-    ),
+    # Policy(
+    #     parameter="EV_charging_attitude_standard",
+    #     value="CHEAP",
+    #     unit=None,
+    #     comment="charging behaviour not contingent on holon",
+    # ),
     Policy(
         parameter="Grid_MS_congestion_allowance_level_kW",
         value="0",

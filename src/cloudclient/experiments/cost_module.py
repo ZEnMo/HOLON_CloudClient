@@ -6,6 +6,7 @@ import numpy as np
 ETM_MAPPING = {
     "depreciation_costs_buildings_solar_panels_per_kw": ("BUILDING", "PHOTOVOLTAIC"),
     "depreciation_costs_solar_farm_per_kw": ("SOLARFARM", "PHOTOVOLTAIC"),
+    "depreciation_costs_solar_farm_per_kw": ("WINDFARM", "PHOTOVOLTAIC"),
     "depreciation_costs_buildings_gas_burner_per_kw": ("BUILDING", "GAS_BURNER"),
     "depreciation_costs_industry_solar_panels_per_kw": ("INDUSTRY", "PHOTOVOLTAIC"),
     "depreciation_costs_industry_gas_burner_per_kw": ("INDUSTRY", "GAS_BURNER"),
@@ -26,7 +27,7 @@ ETM_MAPPING = {
         "",
     ),
     "depreciation_costs_grid_battery_per_mwh": (
-        "totalBatteryInstalledCapacity_MWh:Grid_battery_10MWh",
+        "totalBatteryInstalledCapacity_MWh:Grid_battery",
         "",
     ),
 }
@@ -125,7 +126,7 @@ class Categories:
     CATEGORIES = {
         "buildings_and_installations": ["BUILDING", "INDUSTRY"],
         "infrastructure": ["HSMSPeakLoadElectricity_kW", "MSLSPeakLoadElectricity_kW"],
-        "flexibility": ["totalBatteryInstalledCapacity_MWh:Grid_battery_10MWh"],
+        "flexibility": ["totalBatteryInstalledCapacity_MWh:Grid_battery"],
         "energy_production": ["SOLARFARM", "WINDFARM"],
         "carriers": [
             "SystemHourlyElectricity",
@@ -196,7 +197,7 @@ class Categories:
             value = self._value_for(cost_item, holon_output)
 
             if value:
-                self.categories[category].add_cost_item(cost_item, value=value)
+                self.categories[category].add_cost_item(cost_item, value=abs(value))
 
     def _value_for(self, cost_item: str, holon_output: dict):
         """

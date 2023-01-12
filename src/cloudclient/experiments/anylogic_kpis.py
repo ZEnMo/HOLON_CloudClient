@@ -65,14 +65,14 @@ def calculate_holon_kpis(
     MSLS_capacity_kW = sum(
         [gn["capacity_kw"] for gn in gridnode_config if gn["type"] == "MSLS"]
     )
-    netOverload_pct = (
-        max(0, total_cost_data["MSLSPeakLoadElectricity_kW"]) / MSLS_capacity_kW
+    net_load_pct = (
+        (total_cost_data["MSLSPeakLoadElectricity_kW"]) / MSLS_capacity_kW
     ) * 100
 
     KPIs = {
         "sustainability": round(Sustainability_pct, 1),
         "self_sufficiency": round(total_cost_data["totalSelfSufficiency_fr"] * 100, 1),
-        "netload": round(netOverload_pct, 1),
+        "netload": round(net_load_pct, 1),
     }
 
     return KPIs

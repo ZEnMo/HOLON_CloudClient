@@ -55,3 +55,10 @@ totalEHGVHourlyChargingProfile_kWh:
 #     type: curve
 #     data: curve
 #     etm_key: electric_vehicle_profile_1
+
+# hourly profile grid batteries
+totalGridBatteryHourlyChargingProfile_kWh:
+  value:
+    type: curve
+    data: curve
+    etm_key: batteries

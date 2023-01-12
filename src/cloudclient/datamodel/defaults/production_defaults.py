@@ -1,4 +1,4 @@
-from cloudclient.datamodel import ElectricProductionAsset
+from cloudclient.datamodel import ElectricProductionAsset, ProductionAssetTypeEnum
 
 
 House_solarpanels_S = ElectricProductionAsset(
@@ -16,6 +16,14 @@ House_solarpanels_L = ElectricProductionAsset(
     type="PHOTOVOLTAIC",
     capacityElectricity_kW=3.0,
 )
+
+
+class Windmill_onshore(ElectricProductionAsset):
+    name = "Windmill_onshore"
+    type = ProductionAssetTypeEnum.windmill
+    capacityElectricity_kW = 3000.0
+
+
 Windmill_3MW = ElectricProductionAsset(
     name="Windmill_3MW",
     type="WINDMILL",
@@ -31,6 +39,20 @@ Windmill_7MW = ElectricProductionAsset(
     type="WINDMILL",
     capacityElectricity_kW=7000.0,
 )
+
+
+class Solarpanel_farm(ElectricProductionAsset):
+    name = "Solarpanels_farm"
+    type = ProductionAssetTypeEnum.photovoltaic
+    capacityElectricity_kW = 1000.0
+
+
+class Solarpanel_building(ElectricProductionAsset):
+    name = "Solarpanels_building"
+    type = ProductionAssetTypeEnum.photovoltaic
+    capacityElectricity_kW = 10.0
+
+
 Solarpanels_0MW = ElectricProductionAsset(
     name="Solarpanels_0MW",
     type="PHOTOVOLTAIC",

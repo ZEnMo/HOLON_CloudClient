@@ -19,6 +19,7 @@ class Experiment:
     log_exceptions: bool = False
     outcomes: list = field(default_factory=list)
     inputs: list = field(default_factory=list)
+    upscale_ETM: bool = False
 
     def __repr__(self):
         return (

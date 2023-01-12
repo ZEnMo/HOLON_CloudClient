@@ -6,11 +6,24 @@
     "parent_actor": "hol1",
     "contracts": [
       {
-        "type": "NONFIRMATO",
-        "contract_scope": "GRIDOPERATOR",
-        "nfATO_capacity_kW": 1500.0,
-        "nfATO_endtime_h": 7.0,
-        "nfATO_starttime_h": 16.0
+        "type": "DEFAULT",
+        "contract_scope": "ENERGYHOLON"
+      }
+    ]
+  },
+  {
+    "category": "CONNECTIONOWNER",
+    "type": "commercial",
+    "id": "com5",
+    "parent_actor": "hol1",
+    "contracts": [
+      {
+        "type": "DEFAULT",
+        "contract_scope": "ENERGYHOLON"
+      },
+      {
+        "type": "VARIABLE",
+        "contract_scope": "ENERGYSUPPLIER"
       }
     ]
   },
@@ -51,6 +64,10 @@
       {
         "type": "DEFAULT",
         "contract_scope": "ENERGYHOLON"
+      },
+      {
+        "type": "VARIABLE",
+        "contract_scope": "ENERGYSUPPLIER"
       }
     ]
   },
@@ -70,6 +87,10 @@
       {
         "type": "NODALPRICING",
         "contract_scope": "GRIDOPERATOR"
+      },
+      {
+        "type": "VARIABLE",
+        "contract_scope": "ENERGYSUPPLIER"
       }
     ]
   },

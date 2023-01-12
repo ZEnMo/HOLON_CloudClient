@@ -91,13 +91,6 @@ def calculateAllKPIs(api_experiment):
     # print("real inputs ", real_inputs)
     # print("offered inputs ", experiment_inputs)
 
-    # print(COSTS_SCENARIO_ID)
-    # print(ETM_CONFIG_PATH)
-    # print(ETM_CONFIG_FILE_COSTS)
-    # etm_service.retrieve_results(
-    #     COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_COSTS
-    # )
-
     # experiment_inputs2 = experiment_inputs.replace("null", "None")
 
     # print("offered inputs2 ", grid_connection_config)
@@ -106,9 +99,6 @@ def calculateAllKPIs(api_experiment):
     # print("Hourly curves categories:", hourly_curves[0].keys())
     # result = calculate_total_costs(etm_output(), holon_config(), holon_output())
 
-    # areaCosts_kEur = calculate_total_costs_split(
-    #     etm_output(), grid_connection_config, experiment_outputs[0], hourly_curves[0]
-    # )
     etm_costs_stored = np.load("ETM_costs.npy", allow_pickle=True).tolist()
 
     areaCosts_kEur = calculate_total_costs_split(
@@ -120,14 +110,20 @@ def calculateAllKPIs(api_experiment):
         experiment_outputs[0],
         hourly_curves[0],
     )
-    print("\nTotal area costs: ", areaCosts_kEur, " kEur  ")
+    print("\nTotal area costs:")
+    print(areaCosts_kEur, " kEur")
+
+    etm_production_data_stored = np.load(
+        "ETM_production_data.npy", allow_pickle=True
+    ).tolist()
 
     area_KPI_results = calculate_holon_kpis(
         total_cost_data=experiment_outputs[0],
         hourly_curves=hourly_curves[0],
-        etm_data=etm_service.retrieve_results(
-            COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_GET_KPIS
-        ),
+        etm_data=etm_production_data_stored,
+        # etm_data=etm_service.retrieve_results(
+        #     COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_GET_KPIS
+        # ),
         gridnode_config=json.loads(
             api_experiment.client.inputs.get_input("P grid node config JSON")
         ),
@@ -135,40 +131,46 @@ def calculateAllKPIs(api_experiment):
     print("\n Gebieds-kpi's: ")
     print(area_KPI_results)
 
-    # try ETM upscaling to national level. Need to
-    etm_slider_settings = {}
-    slider_etm_key = (
-        "share_of_electric_trucks"  # "transport_truck_using_electricity_share"
-    )
-    slider_value = 2
-    etm_slider_settings.update({slider_etm_key: slider_value})
-    # print("ETM slider settings:", etm_slider_settings)
-    holon_output = {}
-    try:
-        holon_output = {
-            "totalEHGVHourlyChargingProfile_kWh": hourly_curves[0][
-                "totalEHGVHourlyChargingProfile_kWh"
-            ]
-        }
-    except KeyError:
-        print("pepe.etm_kpi_holon_output: Resolving to empty values for this key!")
+    if api_experiment.experiment.upscale_ETM:
+        # ETM upscaling to national level
+        etm_slider_settings = {}
+        # slider_etm_key = (
+        #     ,
+        #     "",  # "transport_truck_using_electricity_share"
+        # )
+        # slider_value = (50, 50)
+        etm_slider_settings.update(
+            {"share_of_electric_trucks": 100, "installed_energy_grid_battery": 0}
+        )
+        # print("ETM slider settings:", etm_slider_settings)
+        holon_curves_for_upscaling = {}
+        try:
+            holon_curves_for_upscaling = {
+                "totalEHGVHourlyChargingProfile_kWh": hourly_curves[0][
+                    "totalEHGVHourlyChargingProfile_kWh"
+                ],
+                "totalGridBatteryHourlyChargingProfile_kWh": hourly_curves[0][
+                    "totalBatteryHourlyChargingProfile_kWh"
+                ],
+            }
+        except KeyError:
+            print("etm_kpi_holon_output: Resolving to empty values for this key!")
 
-    # print("holon_output: ", holon_output)  # , " and size: ", size(holon_output))
+        # print("holon_output: ", holon_output)  # , " and size: ", size(holon_output))
 
-    etm_upscale_scenario_id = etm_service.scale_copy_and_send(
-        COSTS_SCENARIO_ID,
-        etm_slider_settings | holon_output,
-        ETM_CONFIG_PATH,
-        ETM_CONFIG_FILE_SCALING,
-    )
-    etm_upscale_results = etm_service.retrieve_results(
-        etm_upscale_scenario_id, ETM_CONFIG_PATH, ETM_CONFIG_FILE_GET_KPIS
-    )
+        etm_upscale_scenario_id = etm_service.scale_copy_and_send(
+            COSTS_SCENARIO_ID,
+            etm_slider_settings | holon_curves_for_upscaling,
+            ETM_CONFIG_PATH,
+            ETM_CONFIG_FILE_SCALING,
+        )
+        etm_upscale_results = etm_service.retrieve_results(
+            etm_upscale_scenario_id, ETM_CONFIG_PATH, ETM_CONFIG_FILE_GET_KPIS
+        )
 
-    # print("\nETM upscale results: ", etm_upscale_results)
+        # print("\nETM upscale results: ", etm_upscale_results)
 
-    results = {
-        "ETM national KPIs": {
+        results = {
             "netload": round(etm_upscale_results["national_kpi_network_load"], 1),
             "costs": round(
                 etm_upscale_results["national_total_costs"], -8
@@ -181,12 +183,6 @@ def calculateAllKPIs(api_experiment):
                 etm_upscale_results["national_kpi_self_sufficiency"], 1
             ),
         }
-    }
-    # ,
-    #     "local": {
-    #         "costs": round(self.total_costs, -3),  # reduce significance
-    #         area_KPI_results,
-    #     },
-    # }
 
-    print(results)
+        print("\n ETM nationale KPIs:")
+        print(results)
