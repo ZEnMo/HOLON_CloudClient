@@ -27,7 +27,7 @@ class GridConnection(BaseModel, extra=Extra.forbid):
     capacity_kw: float
     parent_electric: str
     parent_heat: Optional[str]
-    assets: Optional[List[EnergyAsset]]
+    assets = []
     category = "GENERIC"
     # TODO: Technical debt to match AnyLogic
     charging_mode: Optional[ChargingModeEnum]

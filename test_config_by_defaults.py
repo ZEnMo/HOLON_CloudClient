@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from cloudclient.datamodel import Payload, Actor, Contract
+from cloudclient.datamodel import Payload, Actor, Contract, defaults
 
 actors = [
     Actor(
@@ -103,123 +103,189 @@ from cloudclient.datamodel.defaults import (
     # Building_solarpanels_10kWp,
     Building_gas_burner,
     Office_other_electricity,
+    House_default,
+    Office_default, 
+    Logistics_default
 )
 
-# from cloudclient.datamodel.defaults import *
+# from cloudclient.datamodel.defaults.gridConnection_defaults import (
+#     House_default,
+#     Office_default
+# )
 
+# from cloudclient.datamodel.defaults import ()
+
+#for extensive way of defining gridConnections
 from cloudclient.datamodel.gridconnections import (
-    IndustryGridConnection,
-    BuildingGridConnection,
-    ProductionGridConnection,
+     HouseGridConnection,
+     IndustryGridConnection,
+     BuildingGridConnection,
+     ProductionGridConnection,
 )
 
 
-gridconnections = [
-    BuildingGridConnection(
-        insulation_label="NONE",
-        heating_type="GASBURNER",
-        type="LOGISTICS",
-        owner_actor="com1",
-        parent_electric="E2",
-        id="b1",
-        capacity_kw=1750,
-        charging_mode="CHEAP",
-        battery_mode="BALANCE",
-        assets=[
-            *[EHGV] * 5,
-            # Diesel_Truck,
-            Building_gas_burner(capacityHeat_kW=200),
-            Solarpanel_building(capacityElectricity_kW=500),
-            Grid_battery(storageCapacity_kWh=0),
-            # Building_solarpanels_10kWp,
-        ],
-    ),
-    BuildingGridConnection(
-        insulation_label="NONE",
-        heating_type="GASBURNER",
-        type="LOGISTICS",
-        owner_actor="com5",
-        parent_electric="E2",
-        id="b5",
-        capacity_kw=1750,
-        charging_mode="CHEAP",
-        battery_mode="BALANCE",
-        assets=[
-            *[EHGV] * 5,
-            # Diesel_Truck,
-            Building_gas_burner(capacityHeat_kW=200),
-            Solarpanel_building(capacityElectricity_kW=500),
-            Grid_battery(storageCapacity_kWh=0),
-            # Building_solarpanels_10kWp,
-        ],
-    ),
-    BuildingGridConnection(
-        insulation_label="NONE",
-        heating_type="GASBURNER",
-        type="LOGISTICS",
-        owner_actor="com5",
-        parent_electric="E2",
-        id="b6",
-        capacity_kw=1750,
-        charging_mode="CHEAP",
-        battery_mode="BALANCE",
-        assets=[
-            *[EHGV] * 5,
-            # Diesel_Truck,
-            Building_gas_burner(capacityHeat_kW=200),
-            Solarpanel_building(capacityElectricity_kW=500),
-            Grid_battery(storageCapacity_kWh=0),
-            # Building_solarpanels_10kWp,
-        ],
-    ),
-    IndustryGridConnection(
-        heating_type="GASBURNER",
-        type="INDUSTRY_OTHER",
-        owner_actor="com2",
-        parent_electric="E2",
-        id="b2",
-        capacity_kw=3000,
-        assets=[
-            Industry_other_heat_demand,
-            Building_gas_burner(capacityHeat_kW=100),
-            Office_other_electricity,
-        ],
-    ),
-    ProductionGridConnection(
-        category="WINDFARM",
-        owner_actor="com3",
-        parent_electric="E2",
-        id="b3",
-        capacity_kw=8000,
-        assets=[
-            Windmill_onshore(capacityElectricity_kW=6000),
-            Solarpanel_farm(capacityElectricity_kW=2000),
-        ],
-    ),
+config_list= [
+  House_default(amount = 200, parent_electric="E2"),
+  House_default(amount = 100, parent_electric="E3"),
+  Office_default(amount = 100, parent_electric="E4"),
+  Logistics_default(amount = 50, parent_electric="E4"),
+]
+
+
+print("CONFIG LIST",config_list)
+gridconnections = []
+
+for item in config_list:
+    #object_type = key
+    #data = config_list[key]
+    #####print("key: ",key,"datarow: ", data)
+    print(item)
+    for i in range(0, item.amount):
+        #print(key,i)
+        
+        id = ""
+        owneractor = ""
+
+        print("class naaaaaame ",item.__class__.__bases__[0].__name__)
+        x_ = getattr(defaults, str(item.__class__.__bases__[0].__name__))
+        category = x_.__name__
+        
+        gridconnections.append(x_(id=item.id, owner_actor=item.owner_actor, capacity_kw=item.capacity_kw, insulation_label=item.insulation_label, assets=item.assets, heating_type=item.heating_type, type=item.type, parent_electric=item.parent_electric))
+
+## Force unique id's for gridconnections    
+number_of_houses = 0
+number_of_buildings = 0
+
+for i in gridconnections:  
+    print("caaataagory ",i.category)
+    print("ifff",i.id)
+    if i.category == "HOUSE" and i.id == "":
+        number_of_houses = number_of_houses + 1
+        id = "h"+str(number_of_houses)
+        owner_actor = "a"+str(number_of_houses)
+    elif i.category == "BUILDING" and i.id == "":
+        number_of_buildings = number_of_buildings + 1
+        id = "b"+str(number_of_buildings)
+        owner_actor = "com"+str(number_of_buildings)
+    else:
+        id = "extra"
+        owner_actor = "extra"
+    i.id = id
+    i.owner_actor = owner_actor
+
+
+# gridconnections.append(House_default(id="h98",owner_actor="a98"))
+# gridconnections.append(House_default(id="h99",owner_actor="a99"))
+# gridconnections.append(Office_default())
+
+
+    #*[Office_default] * 2
+ 
+    # BuildingGridConnection(
+    #     insulation_label="NONE",
+    #     heating_type="GASBURNER",
+    #     type="LOGISTICS",
+    #     owner_actor="com1",
+    #     parent_electric="E2",
+    #     id="b1",
+    #     capacity_kw=1750,
+    #     charging_mode="CHEAP",
+    #     battery_mode="BALANCE",
+    #     assets=[
+    #         *[EHGV] * 5,
+    #         # Diesel_Truck,
+    #         Building_gas_burner(capacityHeat_kW=200),
+    #         Solarpanel_building(capacityElectricity_kW=500),
+    #         Grid_battery(storageCapacity_kWh=0),
+    #         # Building_solarpanels_10kWp,
+    #     ],
+    # ),
+    # BuildingGridConnection(
+    #     insulation_label="NONE",
+    #     heating_type="GASBURNER",
+    #     type="LOGISTICS",
+    #     owner_actor="com5",
+    #     parent_electric="E2",
+    #     id="b5",
+    #     capacity_kw=1750,
+    #     charging_mode="CHEAP",
+    #     battery_mode="BALANCE",
+    #     assets=[
+    #         *[EHGV] * 5,
+    #         # Diesel_Truck,
+    #         Building_gas_burner(capacityHeat_kW=200),
+    #         Solarpanel_building(capacityElectricity_kW=500),
+    #         Grid_battery(storageCapacity_kWh=0),
+    #         # Building_solarpanels_10kWp,
+    #     ],
+    # ),
+    # BuildingGridConnection(
+    #     insulation_label="NONE",
+    #     heating_type="GASBURNER",
+    #     type="LOGISTICS",
+    #     owner_actor="com5",
+    #     parent_electric="E2",
+    #     id="b6",
+    #     capacity_kw=1750,
+    #     charging_mode="CHEAP",
+    #     battery_mode="BALANCE",
+    #     assets=[
+    #         *[EHGV] * 5,
+    #         # Diesel_Truck,
+    #         Building_gas_burner(capacityHeat_kW=200),
+    #         Solarpanel_building(capacityElectricity_kW=500),
+    #         Grid_battery(storageCapacity_kWh=0),
+    #         # Building_solarpanels_10kWp,
+    #     ],
+    # ),
+    # IndustryGridConnection(
+    #     heating_type="GASBURNER",
+    #     type="INDUSTRY_OTHER",
+    #     owner_actor="com2",
+    #     parent_electric="E2",
+    #     id="b2",
+    #     capacity_kw=3000,
+    #     assets=[
+    #         Industry_other_heat_demand,
+    #         Building_gas_burner(capacityHeat_kW=100),
+    #         Office_other_electricity,
+    #     ],
+    # ),
     # ProductionGridConnection(
-    #     category="SOLARFARM",
+    #     category="WINDFARM",
     #     owner_actor="com3",
     #     parent_electric="E2",
     #     id="b3",
-    #     capacity_kw=7000,
-    #     assets=[Solarpanel_farm(capacityElectricity_kW=2000)],
+    #     capacity_kw=8000,
+    #     assets=[
+    #         Windmill_onshore(capacityElectricity_kW=6000),
+    #         Solarpanel_farm(capacityElectricity_kW=2000),
+    #     ],
     # ),
-    ProductionGridConnection(
-        category="GRIDBATTERY",
-        owner_actor="com4",
-        parent_electric="E2",
-        battery_mode="PRICE",
-        id="b4",
-        capacity_kw=8000,
-        assets=[
-            Grid_battery(
-                storageCapacity_kWh=30000,
-                capacityElectricity_kW=10000,
-                stateOfCharge_r=0.2,
-            )
-        ],
-    ),
-]
+    # # ProductionGridConnection(
+    # #     category="SOLARFARM",
+    # #     owner_actor="com3",
+    # #     parent_electric="E2",
+    # #     id="b3",
+    # #     capacity_kw=7000,
+    # #     assets=[Solarpanel_farm(capacityElectricity_kW=2000)],
+    # # ),
+    # ProductionGridConnection(
+    #     category="GRIDBATTERY",
+    #     owner_actor="com4",
+    #     parent_electric="E2",
+    #     battery_mode="PRICE",
+    #     id="b4",
+    #     capacity_kw=8000,
+    #     assets=[
+    #         Grid_battery(
+    #             storageCapacity_kWh=30000,
+    #             capacityElectricity_kW=10000,
+    #             stateOfCharge_r=0.2,
+    #         )
+    #     ],
+    # ),
+#]
 
 from cloudclient.datamodel.gridnodes import ElectricGridNode
 
