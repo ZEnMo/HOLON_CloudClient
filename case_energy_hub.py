@@ -113,6 +113,7 @@ from cloudclient.datamodel.gridconnections import (
     ProductionGridConnection,
 )
 
+
 gridconnections = [
     BuildingGridConnection(
         insulation_label="NONE",
