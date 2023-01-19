@@ -24,6 +24,17 @@ class Office_default(BuildingGridConnection):
     type = BuildingTypeEnum.office
     assets = [Building_gas_burner(capacityHeat_kW= 200.0)]
 
+class Store_default(BuildingGridConnection):
+    amount: Optional[int]
+    owner_actor = ""
+    id = ""
+    capacity_kw = 30.0
+    parent_electric=""
+    insulation_label = InsulationLabelEnum.c
+    heating_type = HeatingTypeEnum.gasburner
+    type = BuildingTypeEnum.store
+    assets = [Solarpanel_building(capacityElectricity_kW = 100)]
+
 class Logistics_default(BuildingGridConnection):
     amount: Optional[int]
     owner_actor = ""
@@ -34,3 +45,4 @@ class Logistics_default(BuildingGridConnection):
     heating_type = HeatingTypeEnum.gasburner
     type = BuildingTypeEnum.logistics
     assets = [*[EHGV]*5, Solarpanel_building(capacityElectricity_kW = 100)]
+
