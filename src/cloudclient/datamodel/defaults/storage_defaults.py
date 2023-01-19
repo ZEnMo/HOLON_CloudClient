@@ -99,10 +99,10 @@ House_heatmodel_G = HeatStorageAsset(
 EV = VehicleElectricStorageAsset(
     name="EV",
     type="ELECTRIC_VEHICLE",
-    capacityElectricity_kW=11,
+    capacityElectricity_kW=5.0,
     stateOfCharge_r=1.0,
-    storageCapacity_kWh=50,
-    energyConsumption_kWhpkm=0.2,
+    storageCapacity_kWh=60.0,
+    energyConsumption_kWhpkm=0.3,
     vehicleScaling=1,
 )
 EHGV = VehicleElectricStorageAsset(

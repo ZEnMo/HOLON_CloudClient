@@ -2,111 +2,119 @@ from pathlib import Path
 
 from cloudclient.datamodel import Payload, Actor, Contract, defaults
 
-actors = [
-    Actor(
-        category="CONNECTIONOWNER",
-        type="commercial",
-        id="com1",
-        parent_actor="hol1",
-        contracts=[
-            Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
-            # Contract(
-            #     type="NONFIRMATO",
-            #     contract_scope="GRIDOPERATOR",
-            #     nfATO_capacity_kW=1750.0,
-            #     nfATO_starttime_h=16.0,
-            #     nfATO_endtime_h=8.0,
-            # ),
-            Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
-        ],
-    ),
-    Actor(
-        category="CONNECTIONOWNER",
-        type="commercial",
-        id="com5",
-        parent_actor="hol1",
-        contracts=[
-            Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
-            # Contract(
-            #     type="NONFIRMATO",
-            #     contract_scope="GRIDOPERATOR",
-            #     nfATO_capacity_kW=1750.0,
-            #     nfATO_starttime_h=16.0,
-            #     nfATO_endtime_h=8.0,
-            # ),
-            Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
-        ],
-    ),
-    Actor(
-        category="CONNECTIONOWNER",
-        type="commercial",
-        id="com2",
-        parent_actor="hol1",
-        contracts=[
-            Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
-            Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
-        ],
-    ),
-    Actor(
-        category="CONNECTIONOWNER",
-        type="commercial",
-        id="com3",
-        parent_actor="hol1",
-        contracts=[Contract(type="DEFAULT", contract_scope="ENERGYHOLON")],
-    ),
-    Actor(
-        category="CONNECTIONOWNER",
-        type="commercial",
-        id="com4",
-        parent_actor="hol1",
-        contracts=[
-            Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
-            Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
-        ],
-    ),
-    Actor(
-        category="ENERGYSUPPLIER",
-        id="sup1",
-        parent_actor="nat",
-    ),
-    Actor(
-        category="ENERGYHOLON",
-        id="hol1",
-        parent_actor="sup1",
-        contracts=[
-            Contract(type="NODALPRICING", contract_scope="GRIDOPERATOR"),
-            Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
-            Contract(
-                type="NONFIRMATO",
-                contract_scope="GRIDOPERATOR",
-                nfATO_capacity_kW=5000.0,
-                nfATO_starttime_h=16.0,
-                nfATO_endtime_h=7.0,
-            ),
-        ],
-    ),
-    Actor(
-        category="GRIDOPERATOR",
-        id="o1",
-        parent_actor="nat",
-    ),
-]
+# actors = [
+#     Actor(
+#         category="CONNECTIONOWNER",
+#         type="commercial",
+#         id="com1",
+#         parent_actor="hol1",
+#         contracts=[
+#             Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+#             # Contract(
+#             #     type="NONFIRMATO",
+#             #     contract_scope="GRIDOPERATOR",
+#             #     nfATO_capacity_kW=1750.0,
+#             #     nfATO_starttime_h=16.0,
+#             #     nfATO_endtime_h=8.0,
+#             # ),
+#             Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
+#         ],
+#     ),
+#     Actor(
+#         category="CONNECTIONOWNER",
+#         type="commercial",
+#         id="com5",
+#         parent_actor="hol1",
+#         contracts=[
+#             Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+#             # Contract(
+#             #     type="NONFIRMATO",
+#             #     contract_scope="GRIDOPERATOR",
+#             #     nfATO_capacity_kW=1750.0,
+#             #     nfATO_starttime_h=16.0,
+#             #     nfATO_endtime_h=8.0,
+#             # ),
+#             Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
+#         ],
+#     ),
+#     Actor(
+#         category="CONNECTIONOWNER",
+#         type="commercial",
+#         id="com2",
+#         parent_actor="hol1",
+#         contracts=[
+#             Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+#             Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
+#         ],
+#     ),
+#     Actor(
+#         category="CONNECTIONOWNER",
+#         type="commercial",
+#         id="com3",
+#         parent_actor="hol1",
+#         contracts=[Contract(type="DEFAULT", contract_scope="ENERGYHOLON")],
+#     ),
+#     Actor(
+#         category="CONNECTIONOWNER",
+#         type="commercial",
+#         id="com4",
+#         parent_actor="hol1",
+#         contracts=[
+#             Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+#             Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
+#         ],
+#     ),
+#     Actor(
+#         category="ENERGYSUPPLIER",
+#         id="sup1",
+#         parent_actor="nat",
+#     ),
+#     Actor(
+#         category="ENERGYHOLON",
+#         id="hol1",
+#         parent_actor="sup1",
+#         contracts=[
+#             Contract(type="NODALPRICING", contract_scope="GRIDOPERATOR"),
+#             Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
+#             Contract(
+#                 type="NONFIRMATO",
+#                 contract_scope="GRIDOPERATOR",
+#                 nfATO_capacity_kW=5000.0,
+#                 nfATO_starttime_h=16.0,
+#                 nfATO_endtime_h=7.0,
+#             ),
+#         ],
+#     ),
+#     Actor(
+#         category="GRIDOPERATOR",
+#         id="o1",
+#         parent_actor="nat",
+#     ),
+# ]
 
-from cloudclient.datamodel.defaults import (
-    Diesel_Truck,
-    EHGV,
-    Solarpanel_farm,
-    Solarpanel_building,
-    Grid_battery,
-    Industry_other_heat_demand,
-    Windmill_onshore,
-    # Building_solarpanels_10kWp,
-    Building_gas_burner,
-    Office_other_electricity,
-    House_default,
-    Office_default, 
-    Logistics_default
-)
+# from cloudclient.datamodel.defaults import (
+#     Diesel_Truck,
+#     EHGV,
+#     Solarpanel_farm,
+#     Solarpanel_building,
+#     Grid_battery,
+#     Industry_other_heat_demand,
+#     Windmill_onshore,
+#     # Building_solarpanels_10kWp,
+#     Building_gas_burner,
+#     Office_other_electricity,
+#     House_default,
+#     House_hybridheatpump,
+#     Office_default, 
+#     Logistics_default,
+#     Gridoperator_default,
+#     Energysupplier_default,
+#     Energyholon_default,
+#     Household_default,
+#     Commercial_default
+# )
+
+from cloudclient.datamodel.defaults import *
 
 # from cloudclient.datamodel.defaults.gridConnection_defaults import (
 #     House_default,
@@ -123,19 +131,31 @@ from cloudclient.datamodel.gridconnections import (
      ProductionGridConnection,
 )
 
-
-config_list= [
-  House_default(amount = 200, parent_electric="E2"),
-  House_default(amount = 100, parent_electric="E3"),
-  Office_default(amount = 100, parent_electric="E4"),
-  Logistics_default(amount = 50, parent_electric="E4"),
+config_gridconnection_list= [
+  House_hybridheatpump(amount = 9, parent_electric="E2"),
+  #House_hybridheatpump(amount = 5, parent_electric="E3"),
+  #Office_default(amount = 25, parent_electric="E4"),
+  #Store_default(amount = 3, parent_electric="E3"),
+  Industry_other_default(amount =1, parent_electric = "E3"),
+  Logistics_default(amount = 1, parent_electric="E3"),
 ]
 
+config_actors_list = [
+    Gridoperator_default(amount = 1, id="o1"),
+    Energysupplier_default(amount = 1, id="sup1"),
+    Energysupplier_default(amount = 1, id="sup2"),
+    Energyholon_default(amount = 1, id="hol1", parent_actor = "sup1"),
 
-print("CONFIG LIST",config_list)
+    Household_default(amount=5, parent_actor = "sup1"),
+    Household_default(amount=4, parent_actor = "hol1"),
+    Commercial_default(amount=2, parent_actor = "sup1"),
+    #Commercial_default(amount=25, parent_actor = "hol1")
+]
+
+print("CONFIG LIST",config_gridconnection_list)
 gridconnections = []
 
-for item in config_list:
+for item in config_gridconnection_list:
     #object_type = key
     #data = config_list[key]
     #####print("key: ",key,"datarow: ", data)
@@ -150,7 +170,12 @@ for item in config_list:
         x_ = getattr(defaults, str(item.__class__.__bases__[0].__name__))
         category = x_.__name__
         
-        gridconnections.append(x_(id=item.id, owner_actor=item.owner_actor, capacity_kw=item.capacity_kw, insulation_label=item.insulation_label, assets=item.assets, heating_type=item.heating_type, type=item.type, parent_electric=item.parent_electric))
+        if( x_.__name__ == "IndustryGridConnection"):
+            gridconnections.append(x_(id=item.id, owner_actor=item.owner_actor, capacity_kw=item.capacity_kw, assets=item.assets, heating_type=item.heating_type, type=item.type, parent_electric=item.parent_electric))
+        else:
+            gridconnections.append(x_(id=item.id, owner_actor=item.owner_actor, capacity_kw=item.capacity_kw, insulation_label=item.insulation_label, assets=item.assets, heating_type=item.heating_type, type=item.type, parent_electric=item.parent_electric))
+            
+
 
 ## Force unique id's for gridconnections    
 number_of_houses = 0
@@ -162,8 +187,8 @@ for i in gridconnections:
     if i.category == "HOUSE" and i.id == "":
         number_of_houses = number_of_houses + 1
         id = "h"+str(number_of_houses)
-        owner_actor = "a"+str(number_of_houses)
-    elif i.category == "BUILDING" and i.id == "":
+        owner_actor = "hh"+str(number_of_houses)
+    elif i.category == "BUILDING" or "INDUSTRY" and i.id == "":
         number_of_buildings = number_of_buildings + 1
         id = "b"+str(number_of_buildings)
         owner_actor = "com"+str(number_of_buildings)
@@ -172,12 +197,6 @@ for i in gridconnections:
         owner_actor = "extra"
     i.id = id
     i.owner_actor = owner_actor
-
-
-# gridconnections.append(House_default(id="h98",owner_actor="a98"))
-# gridconnections.append(House_default(id="h99",owner_actor="a99"))
-# gridconnections.append(Office_default())
-
 
     #*[Office_default] * 2
  
@@ -287,11 +306,69 @@ for i in gridconnections:
     # ),
 #]
 
+## actors generated new style: ##
+
+from cloudclient.datamodel.defaults import (
+    actors_defaults
+)
+
+from cloudclient.datamodel.actors import *
+actors = []
+
+for item in config_actors_list:
+    #object_type = key
+    #data = config_list[key]
+    #####print("key: ",key,"datarow: ", data)
+    print(item)
+    for i in range(0, item.amount):
+        #print(key,i)
+        
+        #print("class naaaaaame ",item.__class__.__bases__[0].__name__)
+        x_ = getattr(defaults, str(item.__class__.__bases__[0].__name__))
+        category = x_.__name__
+        
+        actors.append(x_(category = item.category, type = item.type, id = item.id, parent_actor = item.parent_actor, contracts = item.contracts))
+
+number_of_households = 0
+number_of_commercials = 0
+
+for i in actors:
+    print("caaataagory ",i.category)
+    print("ifff",i.id)
+    if i.category == ActorTypeEnum.connectionowner and i.type == None:
+        number_of_households = number_of_households + 1
+        id = "hh"+str(number_of_households)
+        #owner_actor = "a"+str(number_of_households)
+        i.id = id
+    elif i.category == ActorTypeEnum.connectionowner and i.type == SubTypeEnum.commercial:
+        number_of_commercials = number_of_commercials + 1
+        id = "com"+str(number_of_commercials)
+        #owner_actor = "com"+str(number_of_commercials)
+        i.id = id
+    elif i.id == None:
+        id = "extra"
+        owner_actor = "extra"
+        i.id = id
+    
+    #i.owner_actor = owner_actor
+
+print(actors)
+
+
+## gridnodes
 from cloudclient.datamodel.gridnodes import ElectricGridNode
 
 gridnodes = [
     ElectricGridNode(
         id="E2",
+        parent="E1",
+        owner_actor="o1",
+        capacity_kw=5000,
+        category="ELECTRICITY",
+        type="MSLS",
+    ),
+    ElectricGridNode(
+        id="E3",
         parent="E1",
         owner_actor="o1",
         capacity_kw=5000,

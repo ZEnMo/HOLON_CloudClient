@@ -1,0 +1,647 @@
+[
+  {
+    "owner_actor": "hh1",
+    "id": "h1",
+    "capacity_kw": 17.0,
+    "parent_electric": "E2",
+    "parent_heat": null,
+    "charging_mode": null,
+    "battery_mode": null,
+    "assets": [
+      {
+        "type": "ELECTRICITY_DEMAND",
+        "name": "House_other_electricity",
+        "category": "CONSUMPTION",
+        "yearlyDemandElectricity_kWh": 11000.0
+      },
+      {
+        "type": "HOT_WATER_CONSUMPTION",
+        "name": "House_hot_water",
+        "category": "CONSUMPTION",
+        "yearlyDemandHeat_kWh": 200.0
+      },
+      {
+        "type": "HEAT_PUMP_AIR",
+        "eta_r": 0.6,
+        "name": "House_heatpump_MT_M",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 60.0,
+        "capacityElectricity_kW": 6.0,
+        "ambientTempType": null
+      },
+      {
+        "type": "GAS_BURNER",
+        "eta_r": 0.95,
+        "name": "House_gas_burner",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 90.0,
+        "capacityHeat_kW": 30.0
+      },
+      {
+        "type": "PHOTOVOLTAIC",
+        "name": "Solarpanels_building",
+        "category": "PRODUCTION",
+        "capacityElectricity_kW": 3.0
+      },
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 5.0,
+        "storageCapacity_kWh": 60.0,
+        "energyConsumption_kWhpkm": 0.3,
+        "vehicleScaling": 1
+      }
+    ],
+    "category": "HOUSE",
+    "insulation_label": "C",
+    "heating_type": "HEATPUMP_GASPEAK",
+    "type": "DETACHED"
+  },
+  {
+    "owner_actor": "hh2",
+    "id": "h2",
+    "capacity_kw": 17.0,
+    "parent_electric": "E2",
+    "parent_heat": null,
+    "charging_mode": null,
+    "battery_mode": null,
+    "assets": [
+      {
+        "type": "ELECTRICITY_DEMAND",
+        "name": "House_other_electricity",
+        "category": "CONSUMPTION",
+        "yearlyDemandElectricity_kWh": 11000.0
+      },
+      {
+        "type": "HOT_WATER_CONSUMPTION",
+        "name": "House_hot_water",
+        "category": "CONSUMPTION",
+        "yearlyDemandHeat_kWh": 200.0
+      },
+      {
+        "type": "HEAT_PUMP_AIR",
+        "eta_r": 0.6,
+        "name": "House_heatpump_MT_M",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 60.0,
+        "capacityElectricity_kW": 6.0,
+        "ambientTempType": null
+      },
+      {
+        "type": "GAS_BURNER",
+        "eta_r": 0.95,
+        "name": "House_gas_burner",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 90.0,
+        "capacityHeat_kW": 30.0
+      },
+      {
+        "type": "PHOTOVOLTAIC",
+        "name": "Solarpanels_building",
+        "category": "PRODUCTION",
+        "capacityElectricity_kW": 3.0
+      },
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 5.0,
+        "storageCapacity_kWh": 60.0,
+        "energyConsumption_kWhpkm": 0.3,
+        "vehicleScaling": 1
+      }
+    ],
+    "category": "HOUSE",
+    "insulation_label": "C",
+    "heating_type": "HEATPUMP_GASPEAK",
+    "type": "DETACHED"
+  },
+  {
+    "owner_actor": "hh3",
+    "id": "h3",
+    "capacity_kw": 17.0,
+    "parent_electric": "E2",
+    "parent_heat": null,
+    "charging_mode": null,
+    "battery_mode": null,
+    "assets": [
+      {
+        "type": "ELECTRICITY_DEMAND",
+        "name": "House_other_electricity",
+        "category": "CONSUMPTION",
+        "yearlyDemandElectricity_kWh": 11000.0
+      },
+      {
+        "type": "HOT_WATER_CONSUMPTION",
+        "name": "House_hot_water",
+        "category": "CONSUMPTION",
+        "yearlyDemandHeat_kWh": 200.0
+      },
+      {
+        "type": "HEAT_PUMP_AIR",
+        "eta_r": 0.6,
+        "name": "House_heatpump_MT_M",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 60.0,
+        "capacityElectricity_kW": 6.0,
+        "ambientTempType": null
+      },
+      {
+        "type": "GAS_BURNER",
+        "eta_r": 0.95,
+        "name": "House_gas_burner",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 90.0,
+        "capacityHeat_kW": 30.0
+      },
+      {
+        "type": "PHOTOVOLTAIC",
+        "name": "Solarpanels_building",
+        "category": "PRODUCTION",
+        "capacityElectricity_kW": 3.0
+      },
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 5.0,
+        "storageCapacity_kWh": 60.0,
+        "energyConsumption_kWhpkm": 0.3,
+        "vehicleScaling": 1
+      }
+    ],
+    "category": "HOUSE",
+    "insulation_label": "C",
+    "heating_type": "HEATPUMP_GASPEAK",
+    "type": "DETACHED"
+  },
+  {
+    "owner_actor": "hh4",
+    "id": "h4",
+    "capacity_kw": 17.0,
+    "parent_electric": "E2",
+    "parent_heat": null,
+    "charging_mode": null,
+    "battery_mode": null,
+    "assets": [
+      {
+        "type": "ELECTRICITY_DEMAND",
+        "name": "House_other_electricity",
+        "category": "CONSUMPTION",
+        "yearlyDemandElectricity_kWh": 11000.0
+      },
+      {
+        "type": "HOT_WATER_CONSUMPTION",
+        "name": "House_hot_water",
+        "category": "CONSUMPTION",
+        "yearlyDemandHeat_kWh": 200.0
+      },
+      {
+        "type": "HEAT_PUMP_AIR",
+        "eta_r": 0.6,
+        "name": "House_heatpump_MT_M",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 60.0,
+        "capacityElectricity_kW": 6.0,
+        "ambientTempType": null
+      },
+      {
+        "type": "GAS_BURNER",
+        "eta_r": 0.95,
+        "name": "House_gas_burner",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 90.0,
+        "capacityHeat_kW": 30.0
+      },
+      {
+        "type": "PHOTOVOLTAIC",
+        "name": "Solarpanels_building",
+        "category": "PRODUCTION",
+        "capacityElectricity_kW": 3.0
+      },
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 5.0,
+        "storageCapacity_kWh": 60.0,
+        "energyConsumption_kWhpkm": 0.3,
+        "vehicleScaling": 1
+      }
+    ],
+    "category": "HOUSE",
+    "insulation_label": "C",
+    "heating_type": "HEATPUMP_GASPEAK",
+    "type": "DETACHED"
+  },
+  {
+    "owner_actor": "hh5",
+    "id": "h5",
+    "capacity_kw": 17.0,
+    "parent_electric": "E2",
+    "parent_heat": null,
+    "charging_mode": null,
+    "battery_mode": null,
+    "assets": [
+      {
+        "type": "ELECTRICITY_DEMAND",
+        "name": "House_other_electricity",
+        "category": "CONSUMPTION",
+        "yearlyDemandElectricity_kWh": 11000.0
+      },
+      {
+        "type": "HOT_WATER_CONSUMPTION",
+        "name": "House_hot_water",
+        "category": "CONSUMPTION",
+        "yearlyDemandHeat_kWh": 200.0
+      },
+      {
+        "type": "HEAT_PUMP_AIR",
+        "eta_r": 0.6,
+        "name": "House_heatpump_MT_M",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 60.0,
+        "capacityElectricity_kW": 6.0,
+        "ambientTempType": null
+      },
+      {
+        "type": "GAS_BURNER",
+        "eta_r": 0.95,
+        "name": "House_gas_burner",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 90.0,
+        "capacityHeat_kW": 30.0
+      },
+      {
+        "type": "PHOTOVOLTAIC",
+        "name": "Solarpanels_building",
+        "category": "PRODUCTION",
+        "capacityElectricity_kW": 3.0
+      },
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 5.0,
+        "storageCapacity_kWh": 60.0,
+        "energyConsumption_kWhpkm": 0.3,
+        "vehicleScaling": 1
+      }
+    ],
+    "category": "HOUSE",
+    "insulation_label": "C",
+    "heating_type": "HEATPUMP_GASPEAK",
+    "type": "DETACHED"
+  },
+  {
+    "owner_actor": "hh6",
+    "id": "h6",
+    "capacity_kw": 17.0,
+    "parent_electric": "E2",
+    "parent_heat": null,
+    "charging_mode": null,
+    "battery_mode": null,
+    "assets": [
+      {
+        "type": "ELECTRICITY_DEMAND",
+        "name": "House_other_electricity",
+        "category": "CONSUMPTION",
+        "yearlyDemandElectricity_kWh": 11000.0
+      },
+      {
+        "type": "HOT_WATER_CONSUMPTION",
+        "name": "House_hot_water",
+        "category": "CONSUMPTION",
+        "yearlyDemandHeat_kWh": 200.0
+      },
+      {
+        "type": "HEAT_PUMP_AIR",
+        "eta_r": 0.6,
+        "name": "House_heatpump_MT_M",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 60.0,
+        "capacityElectricity_kW": 6.0,
+        "ambientTempType": null
+      },
+      {
+        "type": "GAS_BURNER",
+        "eta_r": 0.95,
+        "name": "House_gas_burner",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 90.0,
+        "capacityHeat_kW": 30.0
+      },
+      {
+        "type": "PHOTOVOLTAIC",
+        "name": "Solarpanels_building",
+        "category": "PRODUCTION",
+        "capacityElectricity_kW": 3.0
+      },
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 5.0,
+        "storageCapacity_kWh": 60.0,
+        "energyConsumption_kWhpkm": 0.3,
+        "vehicleScaling": 1
+      }
+    ],
+    "category": "HOUSE",
+    "insulation_label": "C",
+    "heating_type": "HEATPUMP_GASPEAK",
+    "type": "DETACHED"
+  },
+  {
+    "owner_actor": "hh7",
+    "id": "h7",
+    "capacity_kw": 17.0,
+    "parent_electric": "E2",
+    "parent_heat": null,
+    "charging_mode": null,
+    "battery_mode": null,
+    "assets": [
+      {
+        "type": "ELECTRICITY_DEMAND",
+        "name": "House_other_electricity",
+        "category": "CONSUMPTION",
+        "yearlyDemandElectricity_kWh": 11000.0
+      },
+      {
+        "type": "HOT_WATER_CONSUMPTION",
+        "name": "House_hot_water",
+        "category": "CONSUMPTION",
+        "yearlyDemandHeat_kWh": 200.0
+      },
+      {
+        "type": "HEAT_PUMP_AIR",
+        "eta_r": 0.6,
+        "name": "House_heatpump_MT_M",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 60.0,
+        "capacityElectricity_kW": 6.0,
+        "ambientTempType": null
+      },
+      {
+        "type": "GAS_BURNER",
+        "eta_r": 0.95,
+        "name": "House_gas_burner",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 90.0,
+        "capacityHeat_kW": 30.0
+      },
+      {
+        "type": "PHOTOVOLTAIC",
+        "name": "Solarpanels_building",
+        "category": "PRODUCTION",
+        "capacityElectricity_kW": 3.0
+      },
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 5.0,
+        "storageCapacity_kWh": 60.0,
+        "energyConsumption_kWhpkm": 0.3,
+        "vehicleScaling": 1
+      }
+    ],
+    "category": "HOUSE",
+    "insulation_label": "C",
+    "heating_type": "HEATPUMP_GASPEAK",
+    "type": "DETACHED"
+  },
+  {
+    "owner_actor": "hh8",
+    "id": "h8",
+    "capacity_kw": 17.0,
+    "parent_electric": "E2",
+    "parent_heat": null,
+    "charging_mode": null,
+    "battery_mode": null,
+    "assets": [
+      {
+        "type": "ELECTRICITY_DEMAND",
+        "name": "House_other_electricity",
+        "category": "CONSUMPTION",
+        "yearlyDemandElectricity_kWh": 11000.0
+      },
+      {
+        "type": "HOT_WATER_CONSUMPTION",
+        "name": "House_hot_water",
+        "category": "CONSUMPTION",
+        "yearlyDemandHeat_kWh": 200.0
+      },
+      {
+        "type": "HEAT_PUMP_AIR",
+        "eta_r": 0.6,
+        "name": "House_heatpump_MT_M",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 60.0,
+        "capacityElectricity_kW": 6.0,
+        "ambientTempType": null
+      },
+      {
+        "type": "GAS_BURNER",
+        "eta_r": 0.95,
+        "name": "House_gas_burner",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 90.0,
+        "capacityHeat_kW": 30.0
+      },
+      {
+        "type": "PHOTOVOLTAIC",
+        "name": "Solarpanels_building",
+        "category": "PRODUCTION",
+        "capacityElectricity_kW": 3.0
+      },
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 5.0,
+        "storageCapacity_kWh": 60.0,
+        "energyConsumption_kWhpkm": 0.3,
+        "vehicleScaling": 1
+      }
+    ],
+    "category": "HOUSE",
+    "insulation_label": "C",
+    "heating_type": "HEATPUMP_GASPEAK",
+    "type": "DETACHED"
+  },
+  {
+    "owner_actor": "hh9",
+    "id": "h9",
+    "capacity_kw": 17.0,
+    "parent_electric": "E2",
+    "parent_heat": null,
+    "charging_mode": null,
+    "battery_mode": null,
+    "assets": [
+      {
+        "type": "ELECTRICITY_DEMAND",
+        "name": "House_other_electricity",
+        "category": "CONSUMPTION",
+        "yearlyDemandElectricity_kWh": 11000.0
+      },
+      {
+        "type": "HOT_WATER_CONSUMPTION",
+        "name": "House_hot_water",
+        "category": "CONSUMPTION",
+        "yearlyDemandHeat_kWh": 200.0
+      },
+      {
+        "type": "HEAT_PUMP_AIR",
+        "eta_r": 0.6,
+        "name": "House_heatpump_MT_M",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 60.0,
+        "capacityElectricity_kW": 6.0,
+        "ambientTempType": null
+      },
+      {
+        "type": "GAS_BURNER",
+        "eta_r": 0.95,
+        "name": "House_gas_burner",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 90.0,
+        "capacityHeat_kW": 30.0
+      },
+      {
+        "type": "PHOTOVOLTAIC",
+        "name": "Solarpanels_building",
+        "category": "PRODUCTION",
+        "capacityElectricity_kW": 3.0
+      },
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 5.0,
+        "storageCapacity_kWh": 60.0,
+        "energyConsumption_kWhpkm": 0.3,
+        "vehicleScaling": 1
+      }
+    ],
+    "category": "HOUSE",
+    "insulation_label": "C",
+    "heating_type": "HEATPUMP_GASPEAK",
+    "type": "DETACHED"
+  },
+  {
+    "owner_actor": "com1",
+    "id": "b1",
+    "capacity_kw": 1000.0,
+    "parent_electric": "E3",
+    "parent_heat": null,
+    "charging_mode": null,
+    "battery_mode": null,
+    "assets": [
+      {
+        "type": "HEAT_DEMAND",
+        "name": "INDUSTRY_OTHER_HEAT_DEMAND",
+        "category": "CONSUMPTION",
+        "yearlyDemandHeat_kWh": 600000.0
+      },
+      {
+        "type": "ELECTRICITY_DEMAND",
+        "name": "Office_other_electricity",
+        "category": "CONSUMPTION",
+        "yearlyDemandElectricity_kWh": 3500000.0
+      },
+      {
+        "type": "GAS_BURNER",
+        "eta_r": 0.95,
+        "name": "Building_gas_burner",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 90.0,
+        "capacityHeat_kW": 190.0
+      }
+    ],
+    "category": "INDUSTRY",
+    "heating_type": "GASBURNER",
+    "type": "INDUSTRY_OTHER"
+  },
+  {
+    "owner_actor": "com2",
+    "id": "b2",
+    "capacity_kw": 30.0,
+    "parent_electric": "E3",
+    "parent_heat": null,
+    "charging_mode": null,
+    "battery_mode": null,
+    "assets": [
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EHGV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 100.0,
+        "storageCapacity_kWh": 500.0,
+        "energyConsumption_kWhpkm": 1.1,
+        "vehicleScaling": 10
+      },
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EHGV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 100.0,
+        "storageCapacity_kWh": 500.0,
+        "energyConsumption_kWhpkm": 1.1,
+        "vehicleScaling": 10
+      },
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EHGV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 100.0,
+        "storageCapacity_kWh": 500.0,
+        "energyConsumption_kWhpkm": 1.1,
+        "vehicleScaling": 10
+      },
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EHGV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 100.0,
+        "storageCapacity_kWh": 500.0,
+        "energyConsumption_kWhpkm": 1.1,
+        "vehicleScaling": 10
+      },
+      {
+        "type": "ELECTRIC_VEHICLE",
+        "stateOfCharge_r": 1.0,
+        "name": "EHGV",
+        "category": "STORAGE",
+        "capacityElectricity_kW": 100.0,
+        "storageCapacity_kWh": 500.0,
+        "energyConsumption_kWhpkm": 1.1,
+        "vehicleScaling": 10
+      },
+      {
+        "type": "PHOTOVOLTAIC",
+        "name": "Solarpanels_building",
+        "category": "PRODUCTION",
+        "capacityElectricity_kW": 100.0
+      }
+    ],
+    "category": "BUILDING",
+    "insulation_label": "C",
+    "heating_type": "GASBURNER",
+    "type": "LOGISTICS"
+  }
+]

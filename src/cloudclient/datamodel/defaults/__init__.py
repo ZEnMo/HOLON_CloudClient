@@ -4,3 +4,6 @@ from .production_defaults import *
 from .storage_defaults import *
 from .houses_defaults import *
 from .buildings_defaults import *
+from .industry_defaults import *
+from .actors_defaults import *
+from .contracts_defaults import *
