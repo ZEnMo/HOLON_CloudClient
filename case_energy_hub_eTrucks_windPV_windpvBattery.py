@@ -125,8 +125,8 @@ gridconnections = [
         charging_mode="MAX_POWER",
         # battery_mode="BALANCE",
         assets=[
-            *[EHGV] * 0,
-            *[Diesel_Truck] * 5,
+            *[EHGV] * 5,
+            # *[Diesel_Truck] * 5,
             Building_gas_burner(capacityHeat_kW=200),
             Solarpanel_building(capacityElectricity_kW=500),
             # Grid_battery(storageCapacity_kWh=0),
@@ -144,8 +144,8 @@ gridconnections = [
         charging_mode="MAX_POWER",
         # battery_mode="BALANCE",
         assets=[
-            # *[EHGV] * 5,
-            *[Diesel_Truck] * 5,
+            *[EHGV] * 5,
+            # *[Diesel_Truck] * 5,
             Building_gas_burner(capacityHeat_kW=200),
             Solarpanel_building(capacityElectricity_kW=500),
             # Grid_battery(storageCapacity_kWh=0),
@@ -163,8 +163,8 @@ gridconnections = [
         charging_mode="MAX_POWER",
         # battery_mode="BALANCE",
         assets=[
-            # *[EHGV] * 5,
-            *[Diesel_Truck] * 5,
+            *[EHGV] * 5,
+            # *[Diesel_Truck] * 5,
             Building_gas_burner(capacityHeat_kW=200),
             Solarpanel_building(capacityElectricity_kW=500),
             # Grid_battery(storageCapacity_kWh=0),
@@ -188,21 +188,19 @@ gridconnections = [
         category="WINDFARM",
         owner_actor="com3",
         parent_electric="E2",
+        battery_mode="PRICE",
         id="b3",
         capacity_kw=8000,
         assets=[
-            # Windmill_onshore(capacityElectricity_kW=6000),
-            # Solarpanel_farm(capacityElectricity_kW=2000),
+            Windmill_onshore(capacityElectricity_kW=6000),
+            Solarpanel_farm(capacityElectricity_kW=2000),
+            Grid_battery(
+                storageCapacity_kWh=0,
+                capacityElectricity_kW=10000,
+                stateOfCharge_r=0.2,
+            ),
         ],
     ),
-    # ProductionGridConnection(
-    #     category="SOLARFARM",
-    #     owner_actor="com3",
-    #     parent_electric="E2",
-    #     id="b3",
-    #     capacity_kw=7000,
-    #     assets=[Solarpanel_farm(capacityElectricity_kW=2000)],
-    # ),
     ProductionGridConnection(
         category="GRIDBATTERY",
         owner_actor="com4",
@@ -212,7 +210,7 @@ gridconnections = [
         capacity_kw=8000,
         assets=[
             Grid_battery(
-                storageCapacity_kWh=0 * 30000,
+                storageCapacity_kWh=30000,
                 capacityElectricity_kW=10000,
                 stateOfCharge_r=0.2,
             )
@@ -331,8 +329,9 @@ policies = [
 
 etm_upscale_slider_settings = {
     "share_of_electric_trucks": 100,  # Impacts costs, HV netload, sustainability and selfsufficiency
-    "installed_energy_grid_battery": 0,
-    "share_of_buildings_with_solar_panels": 80,
+    "installed_energy_grid_battery": 100,  # Welke eenheid??
+    "share_of_buildings_with_solar_panels": 100,
+    "share of wind onshore": 100,  # Deze bestaat niet denk ik...
     # "fooled_you": -100,  # so you can just add any silly etm_key, it will just be ignored...
 }
 

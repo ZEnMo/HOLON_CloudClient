@@ -37,7 +37,7 @@ Diesel_Truck = VehicleConversionAsset(
     eta_r=1,
     name="Diesel_Truck",
     energyConsumption_kWhpkm=3,
-    vehicleScaling=20,
+    vehicleScaling=10,
 )
 House_gas_burner = ChemicalHeatConversionAsset(
     name="House_gas_burner",

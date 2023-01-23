@@ -11,6 +11,8 @@ ETM_MAPPING = {
     "depreciation_costs_industry_solar_panels_per_kw": ("INDUSTRY", "PHOTOVOLTAIC"),
     "depreciation_costs_industry_gas_burner_per_kw": ("INDUSTRY", "GAS_BURNER"),
     "depreciation_costs_wind_farm_per_kw": ("WINDFARM", "WINDMILL"),
+    "depreciation_etruck_per_truck": ("BUILDING", "ELECTRIC_VEHICLE"),
+    "depreciation_dieseltruck_per_truck": ("BUILDING", "DIESEL_VEHICLE"),
     "hourly_price_of_electricity_per_mwh": (
         "SystemHourlyElectricity",
         "",
@@ -111,10 +113,10 @@ class Category:
                     print(
                         "Cost item key: ",
                         key,
+                        ", unit price: ",
+                        etm_inputs.get(key, 0),
                         ", cost item costs: ",
                         cost_item.costs,
-                        ", price: ",
-                        etm_inputs.get(key, 0),
                     )
                     self.total_costs += cost_item.costs
                     break
@@ -197,7 +199,9 @@ class Categories:
             value = self._value_for(cost_item, holon_output)
 
             if value:
-                self.categories[category].add_cost_item(cost_item, value=abs(value))
+                self.categories[category].add_cost_item(
+                    cost_item, value=abs(value)
+                )  # abs() added here to deal with negative gridloads. What does this do to export of electricity?
 
     def _value_for(self, cost_item: str, holon_output: dict):
         """
@@ -219,8 +223,9 @@ class CostItem:
         self.subcategory = subcategory
         self.cost_item_type = params.get("type", "")
         self.costs = None
-
-        if "capacityElectricity_kW" in params:
+        if "vehicleScaling" in params:
+            self.value = params["vehicleScaling"]
+        elif "capacityElectricity_kW" in params:
             self.value = params["capacityElectricity_kW"]
         elif "capacityHeat_kW" in params:
             self.value = params["capacityHeat_kW"]

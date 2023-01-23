@@ -1,0 +1,1 @@
+[{"timeStep_h": "0.25", "timeStepsElapsed": "35041", "modelHoursElapsed_h": "8760.0", "modelStartUpDuration_s": "0.205", "modelRunDuration_s": "1.742", "nGridNodes": "2", "nGridConnections": "6", "nEnergyAssets": "27", "nConnectionOwners": "5", "nEnergySuppliers": "1", "nEnergyHolons": "1", "nAdministrativeHolons": "0", "nGridOperators": "1", "nNationalEnergyMarket": "1"}]

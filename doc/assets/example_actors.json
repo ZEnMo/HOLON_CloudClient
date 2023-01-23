@@ -10,8 +10,11 @@
         "contract_scope": "ENERGYHOLON"
       },
       {
-        "type": "VARIABLE",
-        "contract_scope": "ENERGYSUPPLIER"
+        "type": "NONFIRMATO",
+        "contract_scope": "GRIDOPERATOR",
+        "nfATO_starttime_h": 20.0,
+        "nfATO_capacity_kW": 1000.0,
+        "nfATO_endtime_h": 8.0
       }
     ]
   },
@@ -26,8 +29,11 @@
         "contract_scope": "ENERGYHOLON"
       },
       {
-        "type": "VARIABLE",
-        "contract_scope": "ENERGYSUPPLIER"
+        "type": "NONFIRMATO",
+        "contract_scope": "GRIDOPERATOR",
+        "nfATO_starttime_h": 20.0,
+        "nfATO_capacity_kW": 1000.0,
+        "nfATO_endtime_h": 8.0
       }
     ]
   },
@@ -40,10 +46,6 @@
       {
         "type": "DEFAULT",
         "contract_scope": "ENERGYHOLON"
-      },
-      {
-        "type": "VARIABLE",
-        "contract_scope": "ENERGYSUPPLIER"
       }
     ]
   },
@@ -68,10 +70,6 @@
       {
         "type": "DEFAULT",
         "contract_scope": "ENERGYHOLON"
-      },
-      {
-        "type": "VARIABLE",
-        "contract_scope": "ENERGYSUPPLIER"
       }
     ]
   },
@@ -99,9 +97,9 @@
       {
         "type": "NONFIRMATO",
         "contract_scope": "GRIDOPERATOR",
+        "nfATO_starttime_h": 20.0,
         "nfATO_capacity_kW": 5000.0,
-        "nfATO_endtime_h": 7.0,
-        "nfATO_starttime_h": 16.0
+        "nfATO_endtime_h": 7.0
       }
     ]
   },

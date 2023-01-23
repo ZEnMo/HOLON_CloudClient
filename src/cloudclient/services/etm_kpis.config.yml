@@ -10,11 +10,17 @@ national_CO2_emissions_percentage:
     data: value
     etm_key: dashboard_co2_emissions_versus_start_year
 
-national_kpi_network_load:
+national_kpi_hv_network_load:
   value:
     type: query
     data: value
     etm_key: kpi_required_additional_hv_network_percentage
+
+national_kpi_mv_network_load:
+  value:
+    type: query
+    data: value
+    etm_key: kpi_required_additional_mv_network_percentage
 
 national_kpi_self_sufficiency:
   value:
@@ -27,76 +33,3 @@ national_renewability:
     type: query
     data: value
     etm_key: dashboard_renewability
-
-# This one is used for determining local results
-CO2_curve:
-  value:
-    type: query
-    data: curve
-    etm_key: hourly_co2_emissions_of_electricity_production
-
-hourly_supply_electricity_from_biogas:
-  value:
-    type: query
-    data: curve
-    etm_key: hourly_supply_electricity_from_biogas
-
-hourly_supply_electricity_from_biomass:
-  value:
-    type: query
-    data: curve
-    etm_key: hourly_supply_electricity_from_biomass
-
-hourly_supply_electricity_from_geothermal:
-  value:
-    type: query
-    data: curve
-    etm_key: hourly_supply_electricity_from_geothermal
-
-hourly_supply_electricity_from_greengas:
-  value:
-    type: query
-    data: curve
-    etm_key: hourly_supply_electricity_from_greengas
-
-hourly_supply_electricity_from_hydro:
-  value:
-    type: query
-    data: curve
-    etm_key: hourly_supply_electricity_from_hydro
-
-hourly_supply_electricity_from_hydrogen:
-  value:
-    type: query
-    data: curve
-    etm_key: hourly_supply_electricity_from_hydrogen
-
-hourly_supply_electricity_from_solar:
-  value:
-    type: query
-    data: curve
-    etm_key: hourly_supply_electricity_from_solar
-
-hourly_supply_electricity_from_uranium:
-  value:
-    type: query
-    data: curve
-    etm_key: hourly_supply_electricity_from_uranium
-
-hourly_supply_electricity_from_waste:
-  value:
-    type: query
-    data: curve
-    etm_key: hourly_supply_electricity_from_waste
-
-hourly_supply_electricity_from_wind:
-  value:
-    type: query
-    data: curve
-    etm_key: hourly_supply_electricity_from_wind
-
-hourly_production_electricity:
-  value:
-    type: query
-    data: curve
-    etm_key: hourly_production_electricity

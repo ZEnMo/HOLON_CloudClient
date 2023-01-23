@@ -3,30 +3,10 @@
     {
       "owner_actor": "com1",
       "id": "b1",
-      "capacity_kw": 1750.0,
+      "capacity_kw": 1100.0,
       "parent_electric": "E2",
       "parent_heat": null,
       "assets": [
-        {
-          "type": "ELECTRIC_VEHICLE",
-          "stateOfCharge_r": 1.0,
-          "name": "EHGV",
-          "category": "STORAGE",
-          "capacityElectricity_kW": 100.0,
-          "storageCapacity_kWh": 500.0,
-          "energyConsumption_kWhpkm": 1.1,
-          "vehicleScaling": 10
-        },
-        {
-          "type": "ELECTRIC_VEHICLE",
-          "stateOfCharge_r": 1.0,
-          "name": "EHGV",
-          "category": "STORAGE",
-          "capacityElectricity_kW": 100.0,
-          "storageCapacity_kWh": 500.0,
-          "energyConsumption_kWhpkm": 1.1,
-          "vehicleScaling": 10
-        },
         {
           "type": "ELECTRIC_VEHICLE",
           "stateOfCharge_r": 1.0,
@@ -64,24 +44,10 @@
           "category": "CONVERSION",
           "deliveryTemp_degc": 90.0,
           "capacityHeat_kW": 200.0
-        },
-        {
-          "type": "PHOTOVOLTAIC",
-          "name": "Solarpanels_building",
-          "category": "PRODUCTION",
-          "capacityElectricity_kW": 500.0
-        },
-        {
-          "type": "STORAGE_ELECTRIC",
-          "stateOfCharge_r": 0.5,
-          "name": "Grid_battery",
-          "category": "STORAGE",
-          "capacityElectricity_kW": 2000.0,
-          "storageCapacity_kWh": 0.0
         }
       ],
-      "charging_mode": "CHEAP",
-      "battery_mode": "BALANCE",
+      "charging_mode": "MAX_POWER",
+      "battery_mode": null,
       "category": "BUILDING",
       "insulation_label": "NONE",
       "heating_type": "GASBURNER",
@@ -90,30 +56,10 @@
     {
       "owner_actor": "com5",
       "id": "b5",
-      "capacity_kw": 1750.0,
+      "capacity_kw": 1100.0,
       "parent_electric": "E2",
       "parent_heat": null,
       "assets": [
-        {
-          "type": "ELECTRIC_VEHICLE",
-          "stateOfCharge_r": 1.0,
-          "name": "EHGV",
-          "category": "STORAGE",
-          "capacityElectricity_kW": 100.0,
-          "storageCapacity_kWh": 500.0,
-          "energyConsumption_kWhpkm": 1.1,
-          "vehicleScaling": 10
-        },
-        {
-          "type": "ELECTRIC_VEHICLE",
-          "stateOfCharge_r": 1.0,
-          "name": "EHGV",
-          "category": "STORAGE",
-          "capacityElectricity_kW": 100.0,
-          "storageCapacity_kWh": 500.0,
-          "energyConsumption_kWhpkm": 1.1,
-          "vehicleScaling": 10
-        },
         {
           "type": "ELECTRIC_VEHICLE",
           "stateOfCharge_r": 1.0,
@@ -151,24 +97,10 @@
           "category": "CONVERSION",
           "deliveryTemp_degc": 90.0,
           "capacityHeat_kW": 200.0
-        },
-        {
-          "type": "PHOTOVOLTAIC",
-          "name": "Solarpanels_building",
-          "category": "PRODUCTION",
-          "capacityElectricity_kW": 500.0
-        },
-        {
-          "type": "STORAGE_ELECTRIC",
-          "stateOfCharge_r": 0.5,
-          "name": "Grid_battery",
-          "category": "STORAGE",
-          "capacityElectricity_kW": 2000.0,
-          "storageCapacity_kWh": 0.0
         }
       ],
-      "charging_mode": "CHEAP",
-      "battery_mode": "BALANCE",
+      "charging_mode": "MAX_POWER",
+      "battery_mode": null,
       "category": "BUILDING",
       "insulation_label": "NONE",
       "heating_type": "GASBURNER",
@@ -177,30 +109,10 @@
     {
       "owner_actor": "com5",
       "id": "b6",
-      "capacity_kw": 1750.0,
+      "capacity_kw": 1100.0,
       "parent_electric": "E2",
       "parent_heat": null,
       "assets": [
-        {
-          "type": "ELECTRIC_VEHICLE",
-          "stateOfCharge_r": 1.0,
-          "name": "EHGV",
-          "category": "STORAGE",
-          "capacityElectricity_kW": 100.0,
-          "storageCapacity_kWh": 500.0,
-          "energyConsumption_kWhpkm": 1.1,
-          "vehicleScaling": 10
-        },
-        {
-          "type": "ELECTRIC_VEHICLE",
-          "stateOfCharge_r": 1.0,
-          "name": "EHGV",
-          "category": "STORAGE",
-          "capacityElectricity_kW": 100.0,
-          "storageCapacity_kWh": 500.0,
-          "energyConsumption_kWhpkm": 1.1,
-          "vehicleScaling": 10
-        },
         {
           "type": "ELECTRIC_VEHICLE",
           "stateOfCharge_r": 1.0,
@@ -238,24 +150,10 @@
           "category": "CONVERSION",
           "deliveryTemp_degc": 90.0,
           "capacityHeat_kW": 200.0
-        },
-        {
-          "type": "PHOTOVOLTAIC",
-          "name": "Solarpanels_building",
-          "category": "PRODUCTION",
-          "capacityElectricity_kW": 500.0
-        },
-        {
-          "type": "STORAGE_ELECTRIC",
-          "stateOfCharge_r": 0.5,
-          "name": "Grid_battery",
-          "category": "STORAGE",
-          "capacityElectricity_kW": 2000.0,
-          "storageCapacity_kWh": 0.0
         }
       ],
-      "charging_mode": "CHEAP",
-      "battery_mode": "BALANCE",
+      "charging_mode": "MAX_POWER",
+      "battery_mode": null,
       "category": "BUILDING",
       "insulation_label": "NONE",
       "heating_type": "GASBURNER",
@@ -301,20 +199,7 @@
       "capacity_kw": 8000.0,
       "parent_electric": "E2",
       "parent_heat": null,
-      "assets": [
-        {
-          "type": "WINDMILL",
-          "name": "Windmill_onshore",
-          "category": "PRODUCTION",
-          "capacityElectricity_kW": 6000.0
-        },
-        {
-          "type": "PHOTOVOLTAIC",
-          "name": "Solarpanels_farm",
-          "category": "PRODUCTION",
-          "capacityElectricity_kW": 2000.0
-        }
-      ],
+      "assets": [],
       "charging_mode": null,
       "battery_mode": null,
       "category": "WINDFARM"
@@ -332,11 +217,11 @@
           "name": "Grid_battery",
           "category": "STORAGE",
           "capacityElectricity_kW": 10000.0,
-          "storageCapacity_kWh": 30000.0
+          "storageCapacity_kWh": 0.0
         }
       ],
       "charging_mode": null,
-      "battery_mode": "PRICE",
+      "battery_mode": "BALANCE",
       "category": "GRIDBATTERY"
     }
   ],
@@ -370,8 +255,11 @@
           "contract_scope": "ENERGYHOLON"
         },
         {
-          "type": "VARIABLE",
-          "contract_scope": "ENERGYSUPPLIER"
+          "type": "NONFIRMATO",
+          "contract_scope": "GRIDOPERATOR",
+          "nfATO_starttime_h": 20.0,
+          "nfATO_capacity_kW": 1000.0,
+          "nfATO_endtime_h": 8.0
         }
       ]
     },
@@ -386,8 +274,11 @@
           "contract_scope": "ENERGYHOLON"
         },
         {
-          "type": "VARIABLE",
-          "contract_scope": "ENERGYSUPPLIER"
+          "type": "NONFIRMATO",
+          "contract_scope": "GRIDOPERATOR",
+          "nfATO_starttime_h": 20.0,
+          "nfATO_capacity_kW": 1000.0,
+          "nfATO_endtime_h": 8.0
         }
       ]
     },
@@ -400,10 +291,6 @@
         {
           "type": "DEFAULT",
           "contract_scope": "ENERGYHOLON"
-        },
-        {
-          "type": "VARIABLE",
-          "contract_scope": "ENERGYSUPPLIER"
         }
       ]
     },
@@ -428,10 +315,6 @@
         {
           "type": "DEFAULT",
           "contract_scope": "ENERGYHOLON"
-        },
-        {
-          "type": "VARIABLE",
-          "contract_scope": "ENERGYSUPPLIER"
         }
       ]
     },
@@ -459,9 +342,9 @@
         {
           "type": "NONFIRMATO",
           "contract_scope": "GRIDOPERATOR",
+          "nfATO_starttime_h": 20.0,
           "nfATO_capacity_kW": 5000.0,
-          "nfATO_endtime_h": 7.0,
-          "nfATO_starttime_h": 16.0
+          "nfATO_endtime_h": 7.0
         }
       ]
     },
@@ -554,8 +437,9 @@
     }
   ],
   "etm_upscale_sliders": {
-    "share_of_electric_trucks": 50,
-    "installed_energy_grid_battery": 0
+    "share_of_electric_trucks": 100,
+    "installed_energy_grid_battery": 0,
+    "share_of_buildings_with_solar_panels": 0
   },
   "etm_upscale_curve_labels": {
     "totalEHGVHourlyChargingProfile_kWh": "totalEHGVHourlyChargingProfile_kWh",

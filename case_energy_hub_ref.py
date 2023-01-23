@@ -125,10 +125,10 @@ gridconnections = [
         charging_mode="MAX_POWER",
         # battery_mode="BALANCE",
         assets=[
-            *[EHGV] * 0,
+            # *[EHGV] * 5,
             *[Diesel_Truck] * 5,
             Building_gas_burner(capacityHeat_kW=200),
-            Solarpanel_building(capacityElectricity_kW=500),
+            # Solarpanel_building(capacityElectricity_kW=500),
             # Grid_battery(storageCapacity_kWh=0),
             # Building_solarpanels_10kWp,
         ],
@@ -147,7 +147,7 @@ gridconnections = [
             # *[EHGV] * 5,
             *[Diesel_Truck] * 5,
             Building_gas_burner(capacityHeat_kW=200),
-            Solarpanel_building(capacityElectricity_kW=500),
+            # Solarpanel_building(capacityElectricity_kW=500),
             # Grid_battery(storageCapacity_kWh=0),
             # Building_solarpanels_10kWp,
         ],
@@ -166,7 +166,7 @@ gridconnections = [
             # *[EHGV] * 5,
             *[Diesel_Truck] * 5,
             Building_gas_burner(capacityHeat_kW=200),
-            Solarpanel_building(capacityElectricity_kW=500),
+            # Solarpanel_building(capacityElectricity_kW=500),
             # Grid_battery(storageCapacity_kWh=0),
             # Building_solarpanels_10kWp,
         ],
@@ -330,9 +330,9 @@ policies = [
 ]
 
 etm_upscale_slider_settings = {
-    "share_of_electric_trucks": 100,  # Impacts costs, HV netload, sustainability and selfsufficiency
+    "share_of_electric_trucks": 1,  # Impacts costs, HV netload, sustainability and selfsufficiency
     "installed_energy_grid_battery": 0,
-    "share_of_buildings_with_solar_panels": 80,
+    "share_of_buildings_with_solar_panels": 0,
     # "fooled_you": -100,  # so you can just add any silly etm_key, it will just be ignored...
 }
 

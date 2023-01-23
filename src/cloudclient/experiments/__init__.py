@@ -61,7 +61,7 @@ def start_experiment(settings):
 
     # Run experiment in AnyLogic Cloud
     api_experiment = AnyLogicExperiment(experiment)
-
+    print("Running experiment named: ", experiment.name)
     if experiment.query_api:
         api_experiment.runSimulation()
     print("\nDuration: ", api_experiment.duration_s, " seconds\n")
@@ -77,10 +77,10 @@ def calculateAllKPIs(api_experiment: AnyLogicExperiment):
         api_experiment.client.inputs.get_input("P grid node config JSON")
     )
 
-    experiment_outputs = api_experiment.outcomes.get("APIOutputTotalCostData")
+    experiment_outputs = api_experiment.outcomes.get("APIOutputSimulationResults")
     hourly_curves = api_experiment.outcomes.get("APIOutputHourlyCurvesData")
-    print("\nExperiment output categories:", experiment_outputs[0].keys())
-    print("\n")
+    # print("\nExperiment output categories:", experiment_outputs[0].keys())
+    # print("\n")
 
     etm_costs_stored = np.load("ETM_costs.npy", allow_pickle=True).tolist()
 
@@ -101,15 +101,16 @@ def calculateAllKPIs(api_experiment: AnyLogicExperiment):
     ).tolist()
 
     area_KPI_results = calculate_holon_kpis(
-        total_cost_data=experiment_outputs[0],
+        simulation_results=experiment_outputs[0],
         hourly_curves=hourly_curves[0],
-        etm_data=etm_production_data_stored,
         # etm_data=etm_service.retrieve_results(
         #     COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_GET_KPIS
         # ),
-        gridnode_config=json.loads(
-            api_experiment.client.inputs.get_input("P grid node config JSON")
-        ),
+        etm_data=etm_production_data_stored,
+        gridnode_config=gridnode_config,
+        # gridnode_config=json.loads(
+        #     api_experiment.client.inputs.get_input("P grid node config JSON")
+        # ),
     )
     print("\n Gebieds-kpi's: ")
     print(area_KPI_results)
@@ -127,14 +128,7 @@ def calculateAllKPIs(api_experiment: AnyLogicExperiment):
 
     if api_experiment.experiment.upscale_ETM:
         # ETM upscaling to national level
-        # etm_slider_settings = {}  # This dict should come from the case definition!
-        # etm_slider_settings.update(
-        #     {
-        #         "share_of_electric_trucks": 100,
-        #         "installed_energy_grid_battery": 0,
-        #     }
-        # )
-        # print("ETM slider settings:", etm_slider_settings)
+
         holon_curves_for_upscaling = {}
         try:
             for key in api_experiment.client.payload.etm_upscale_curve_labels.keys():
@@ -145,14 +139,6 @@ def calculateAllKPIs(api_experiment: AnyLogicExperiment):
                         ]
                     }
                 )
-            # holon_curves_for_upscaling = {
-            #     "totalEHGVHourlyChargingProfile_kWh": hourly_curves[0][
-            #         "totalEHGVHourlyChargingProfile_kWh"
-            #     ],
-            #     "totalGridBatteryHourlyChargingProfile_kWh": hourly_curves[0][
-            #         "totalBatteryHourlyChargingProfile_kWh"
-            #     ],
-            # }
         except KeyError:
             print("etm_kpi_holon_output: Resolving to empty values for this key!")
 
@@ -172,7 +158,8 @@ def calculateAllKPIs(api_experiment: AnyLogicExperiment):
         # print("\nETM upscale results: ", etm_upscale_results)
 
         results = {
-            "netload": round(etm_upscale_results["national_kpi_network_load"], 1),
+            "netload HV": round(etm_upscale_results["national_kpi_hv_network_load"], 1),
+            "netload MV": round(etm_upscale_results["national_kpi_mv_network_load"], 1),
             "costs": round(
                 etm_upscale_results["national_total_costs"], -8
             ),  # reduce significance
