@@ -19,9 +19,9 @@ etm_cost_data = etm_service.retrieve_results(
 
 ## Manual overrides of specific values!
 etm_cost_data["depreciation_costs_grid_battery_per_mwh"] = 30000
-etm_cost_data["depreciation_costs_wind_farm_per_kw"] = 25
-# etm_cost_data["depreciation_etruck_per_truck"] = 15000
-# etm_cost_data["depreciation_diesel_per_truck"] = 10000
+# etm_cost_data["depreciation_costs_wind_farm_per_kw"] = 25
+etm_cost_data["depreciation_etruck_per_truck"] = 27000
+etm_cost_data["depreciation_diesel_per_truck"] = 15000
 print(etm_cost_data)
 
 # Save to file
