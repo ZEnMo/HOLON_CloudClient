@@ -32,7 +32,7 @@ class House_default(HouseGridConnection):
     id=""
     capacity_kw = 17.0
     parent_electric = ""
-    insulation_label = InsulationLabelEnum.c
+    insulation_label = InsulationLabelEnum.a
     heating_type = HeatingTypeEnum.gasburner
     #charging_mode = "SIMPLE"
     assets = [
@@ -50,12 +50,13 @@ class House_electrified(HouseGridConnection):
     capacity_kw = 17.0
     parent_electric = ""
     insulation_label = InsulationLabelEnum.c
-    heating_type = HeatingTypeEnum.gasburner
+    heating_type = HeatingTypeEnum.heatpump_air
     assets = [
         House_other_electricity,
-        #Electric_hob,
         House_hot_water,
-        House_gas_burner(capacityHeat_kW=30),
+        Electric_hob,
+        House_heatpump_MT_M,
+        House_heat_buffer,
         Solarpanel_building(capacityElectricity_kW=3),
         EV,
     ]

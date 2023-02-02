@@ -77,9 +77,11 @@ def calculateAllKPIs(api_experiment: AnyLogicExperiment):
         api_experiment.client.inputs.get_input("P grid node config JSON")
     )
 
-    experiment_outputs = api_experiment.outcomes.get("APIOutputTotalCostData")
+    #experiment_outputs = api_experiment.outcomes.get("APIOutputTotalCostData")
+    experiment_outputs = api_experiment.outcomes.get("APIOutputSimulationResults")
     hourly_curves = api_experiment.outcomes.get("APIOutputHourlyCurvesData")
     print("\nExperiment output categories:", experiment_outputs[0].keys())
+    #print("\nExperiment output categories:", experiment_outputs)
     print("\n")
 
     etm_costs_stored = np.load("ETM_costs.npy", allow_pickle=True).tolist()

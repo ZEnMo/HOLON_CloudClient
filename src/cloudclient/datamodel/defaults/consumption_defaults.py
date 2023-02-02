@@ -48,8 +48,7 @@ class Office_other_electricity(ElectricConsumptionAsset):
     type = ConsumptionAssetTypeEnum.electricity_demand
     yearlyDemandElectricity_kWh = 12000000.0
 
-Store_other_electricity = ElectricConsumptionAsset(
-    name="Store_other_electricity",
-    type="ELECTRICITY_DEMAND",
-    yearlyDemandElectricity_kWh=35000,
-)
+class Store_other_electricity(ElectricConsumptionAsset):
+    name="Store_other_electricity"
+    type=ConsumptionAssetTypeEnum.electricity_demand
+    yearlyDemandElectricity_kWh = 35000.0
