@@ -212,8 +212,10 @@ class Categories:
             return holon_output[cost_item]
 
         if cost_item.split(":")[0] in holon_output:
-            top_item, sub_item = cost_item.split(":")
-            return holon_output[top_item][sub_item]
+            print("Looking for:", cost_item.split(":")[1])
+            if cost_item.split(":")[1] in holon_output[cost_item.split(":")[0]]:
+                top_item, sub_item = cost_item.split(":")
+                return holon_output[top_item][sub_item]
 
         return None
 

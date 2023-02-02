@@ -8,7 +8,8 @@ from cloudclient.datamodel.defaults import (
     Windmill_onshore,
     # Building_solarpanels_10kWp,
     Building_gas_burner,
-    Office_other_electricity
+    Office_other_electricity,
+    Store_other_electricity
 )
 
 from cloudclient.datamodel.gridconnections import *
@@ -22,7 +23,7 @@ class Office_default(BuildingGridConnection):
     insulation_label = InsulationLabelEnum.c
     heating_type = HeatingTypeEnum.gasburner
     type = BuildingTypeEnum.office
-    assets = [Building_gas_burner(capacityHeat_kW= 200.0)]
+    assets = [Office_other_electricity(), Building_gas_burner(capacityHeat_kW= 200.0)]
 
 class Store_default(BuildingGridConnection):
     amount: Optional[int]
@@ -33,7 +34,7 @@ class Store_default(BuildingGridConnection):
     insulation_label = InsulationLabelEnum.c
     heating_type = HeatingTypeEnum.gasburner
     type = BuildingTypeEnum.store
-    assets = [Solarpanel_building(capacityElectricity_kW = 100)]
+    assets = [Store_other_electricity(), Solarpanel_building(capacityElectricity_kW = 100)]
 
 class Logistics_default(BuildingGridConnection):
     amount: Optional[int]

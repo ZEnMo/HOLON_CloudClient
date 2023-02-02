@@ -132,12 +132,14 @@ from cloudclient.datamodel.gridconnections import (
 )
 
 config_gridconnection_list= [
-  House_hybridheatpump(amount = 9, parent_electric="E2"),
+  #House_hybridheatpump(amount = 140, parent_electric="E2"),
+  #House_electrified(amount = 400, parent_electric="E2"),
+  House_default(amount=200, parent_electric="E2"),
   #House_hybridheatpump(amount = 5, parent_electric="E3"),
-  #Office_default(amount = 25, parent_electric="E4"),
-  #Store_default(amount = 3, parent_electric="E3"),
-  Industry_other_default(amount =1, parent_electric = "E3"),
-  Logistics_default(amount = 1, parent_electric="E3"),
+  #Office_default(amount = 5, parent_electric="E2"),
+  #Store_default(amount = 10, parent_electric="E3"),
+  #Industry_other_default(amount =1, parent_electric = "E3"),
+  #Logistics_default(amount = 1, parent_electric="E3")
 ]
 
 config_actors_list = [
@@ -146,27 +148,27 @@ config_actors_list = [
     Energysupplier_default(amount = 1, id="sup2"),
     Energyholon_default(amount = 1, id="hol1", parent_actor = "sup1"),
 
-    Household_default(amount=5, parent_actor = "sup1"),
-    Household_default(amount=4, parent_actor = "hol1"),
-    Commercial_default(amount=2, parent_actor = "sup1"),
+    Household_default(amount=200, parent_actor = "sup1"),
+    #Household_default(amount=200, parent_actor = "hol1"),
+    #Commercial_default(amount=16, parent_actor = "sup1"),
     #Commercial_default(amount=25, parent_actor = "hol1")
 ]
 
-print("CONFIG LIST",config_gridconnection_list)
+#print("CONFIG LIST",config_gridconnection_list)
 gridconnections = []
 
 for item in config_gridconnection_list:
     #object_type = key
     #data = config_list[key]
     #####print("key: ",key,"datarow: ", data)
-    print(item)
+    #print(item)
     for i in range(0, item.amount):
         #print(key,i)
         
         id = ""
         owneractor = ""
 
-        print("class naaaaaame ",item.__class__.__bases__[0].__name__)
+        #print("class naaaaaame ",item.__class__.__bases__[0].__name__)
         x_ = getattr(defaults, str(item.__class__.__bases__[0].__name__))
         category = x_.__name__
         
@@ -182,8 +184,8 @@ number_of_houses = 0
 number_of_buildings = 0
 
 for i in gridconnections:  
-    print("caaataagory ",i.category)
-    print("ifff",i.id)
+    #print("caaataagory ",i.category)
+    #print("ifff",i.id)
     if i.category == "HOUSE" and i.id == "":
         number_of_houses = number_of_houses + 1
         id = "h"+str(number_of_houses)
@@ -319,7 +321,7 @@ for item in config_actors_list:
     #object_type = key
     #data = config_list[key]
     #####print("key: ",key,"datarow: ", data)
-    print(item)
+    #print(item)
     for i in range(0, item.amount):
         #print(key,i)
         
@@ -333,8 +335,8 @@ number_of_households = 0
 number_of_commercials = 0
 
 for i in actors:
-    print("caaataagory ",i.category)
-    print("ifff",i.id)
+    #print("caaataagory ",i.category)
+    #print("ifff",i.id)
     if i.category == ActorTypeEnum.connectionowner and i.type == None:
         number_of_households = number_of_households + 1
         id = "hh"+str(number_of_households)
@@ -352,7 +354,7 @@ for i in actors:
     
     #i.owner_actor = owner_actor
 
-print(actors)
+#print(actors)
 
 
 ## gridnodes
