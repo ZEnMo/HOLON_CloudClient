@@ -1,4 +1,5 @@
 from pathlib import Path
+import numpy
 
 from cloudclient.datamodel import Payload, Actor, Contract, defaults
 
@@ -132,10 +133,9 @@ from cloudclient.datamodel.gridconnections import (
 )
 
 config_gridconnection_list= [
-  #House_hybridheatpump(amount = 140, parent_electric="E2"),
-  #House_electrified(amount = 400, parent_electric="E2"),
-  House_default(amount=200, parent_electric="E2"),
-  #House_hybridheatpump(amount = 5, parent_electric="E3"),
+  #House_electrified(amount = 40, parent_electric="E2"),
+  #House_default(amount=40, parent_electric="E2"),
+  House_hybridheatpump(amount = 40, parent_electric="E3"),
   #Office_default(amount = 5, parent_electric="E2"),
   #Store_default(amount = 10, parent_electric="E3"),
   #Industry_other_default(amount =1, parent_electric = "E3"),
@@ -145,17 +145,32 @@ config_gridconnection_list= [
 config_actors_list = [
     Gridoperator_default(amount = 1, id="o1"),
     Energysupplier_default(amount = 1, id="sup1"),
-    Energysupplier_default(amount = 1, id="sup2"),
+    #Energysupplier_default(amount = 1, id="sup2"),
     Energyholon_default(amount = 1, id="hol1", parent_actor = "sup1"),
 
-    Household_default(amount=200, parent_actor = "sup1"),
+    Household_default(amount=40, parent_actor = "hol1"),
     #Household_default(amount=200, parent_actor = "hol1"),
     #Commercial_default(amount=16, parent_actor = "sup1"),
     #Commercial_default(amount=25, parent_actor = "hol1")
 ]
 
+numpy.random.seed(0)
+
+def stochasticValue(average: float, stdev: float) -> float:
+    value = numpy.random.normal(average, stdev, 1)
+    value = numpy.round(value, 3)
+    return value
+
+
 #print("CONFIG LIST",config_gridconnection_list)
 gridconnections = []
+
+pricelevel_low_dif_from_avg_eurpkWh_mean = 0.02
+pricelevel_low_dif_from_avg_eurpkWh_stdev = 0.002
+pricelevel_high_dif_from_avg_eurpkWh_mean = 0.01
+pricelevel_high_dif_from_avg_eurpkWh_stdev = 0.001
+
+
 
 for item in config_gridconnection_list:
     #object_type = key
@@ -175,7 +190,7 @@ for item in config_gridconnection_list:
         if( x_.__name__ == "IndustryGridConnection"):
             gridconnections.append(x_(id=item.id, owner_actor=item.owner_actor, capacity_kw=item.capacity_kw, assets=item.assets, heating_type=item.heating_type, type=item.type, parent_electric=item.parent_electric))
         else:
-            gridconnections.append(x_(id=item.id, owner_actor=item.owner_actor, capacity_kw=item.capacity_kw, insulation_label=item.insulation_label, assets=item.assets, heating_type=item.heating_type, type=item.type, parent_electric=item.parent_electric))
+            gridconnections.append(x_(id=item.id, owner_actor=item.owner_actor, capacity_kw=item.capacity_kw, insulation_label=item.insulation_label, assets=item.assets, heating_type=item.heating_type, type=item.type, parent_electric=item.parent_electric, charging_mode = item.charging_mode, smart_assets = item.smart_assets, pricelevel_low_dif_from_avg_eurpkWh = stochasticValue(pricelevel_low_dif_from_avg_eurpkWh_mean, pricelevel_low_dif_from_avg_eurpkWh_stdev), pricelevel_high_dif_from_avg_eurpkWh = stochasticValue(pricelevel_high_dif_from_avg_eurpkWh_mean, pricelevel_high_dif_from_avg_eurpkWh_stdev)))
             
 
 
@@ -472,6 +487,24 @@ policies = [
         value="60",
         unit="minutes",
         comment="Time_buffer_for_spread_charging, Integer value",
+    ),
+    Policy(
+        parameter="Salderen",
+        value="false",
+        unit="boolean",
+        comment="switch for salderen",
+    ),
+    Policy(
+        parameter="Capacitypricing_households_kW",
+        value="5",
+        unit="int",
+        comment="power level at which capacity pricing kicks in",
+    ),
+    Policy(
+        parameter="Capacitypricing_households_eur",
+        value="0.5",
+        unit="float",
+        comment="capacity price value for households",
     ),
 ]
 

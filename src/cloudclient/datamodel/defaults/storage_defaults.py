@@ -107,7 +107,7 @@ House_heatmodel_G = HeatStorageAsset(
 EV = VehicleElectricStorageAsset(
     name="EV",
     type="ELECTRIC_VEHICLE",
-    capacityElectricity_kW=5.0,
+    capacityElectricity_kW=7.0,
     stateOfCharge_r=1.0,
     storageCapacity_kWh=60.0,
     energyConsumption_kWhpkm=0.3,
@@ -124,11 +124,11 @@ EHGV = VehicleElectricStorageAsset(
 )
 
 House_heat_buffer = HeatStorageAsset(
-    name="House heat buffer",
+    name="Household heat buffer",
     type="STORAGE_HEAT",
     capacityHeat_kW=4.0,
     #stateOfCharge_r=0.75,
-    initial_temperature_degC=60,
+    initial_temperature_degC=70,
     minTemp_degC=55,
     maxTemp_degC=80,
     setTemp_degC=60,

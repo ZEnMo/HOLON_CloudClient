@@ -89,13 +89,6 @@
     "contracts": []
   },
   {
-    "category": "ENERGYSUPPLIER",
-    "type": null,
-    "id": "sup2",
-    "parent_actor": "nat",
-    "contracts": []
-  },
-  {
     "category": "ENERGYHOLON",
     "type": null,
     "id": "hol1",
@@ -118,7 +111,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh1",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -130,7 +123,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh2",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -142,7 +135,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh3",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -154,7 +147,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh4",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -166,7 +159,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh5",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
