@@ -32,16 +32,20 @@ class House_default(HouseGridConnection):
     id=""
     capacity_kw = 17.0
     parent_electric = ""
-    insulation_label = InsulationLabelEnum.a
+    insulation_label = InsulationLabelEnum.c
     heating_type = HeatingTypeEnum.gasburner
-    #charging_mode = "SIMPLE"
+    charging_mode = ChargingModeEnum.simple
+    smart_assets = SmartAssetsEnum.false
+    pricelevel_low_dif_from_avg_eurpkWh = 0.02
+    pricelevel_high_dif_from_avg_eurpkWh = 0.01
     assets = [
         House_other_electricity,
         House_hot_water,
         House_gas_burner(capacityHeat_kW=30),
+        Diesel_Vehicle,
         #Solarpanel_building(capacityElectricity_kW=3),
     ]
-    type = HousingTypeEnum.detached
+    type = HousingTypeEnum.semidetached
 
 class House_electrified(HouseGridConnection):
     amount: Optional[int]
@@ -51,6 +55,10 @@ class House_electrified(HouseGridConnection):
     parent_electric = ""
     insulation_label = InsulationLabelEnum.c
     heating_type = HeatingTypeEnum.heatpump_air
+    charging_mode = ChargingModeEnum.cheap
+    smart_assets = SmartAssetsEnum.true
+    price_level_low_dif_from_avg_eurpkWh = 0.02
+    price_level_high_dif_from_avg_eurpkWh = 0.01
     assets = [
         House_other_electricity,
         House_hot_water,
@@ -60,7 +68,7 @@ class House_electrified(HouseGridConnection):
         Solarpanel_building(capacityElectricity_kW=3),
         EV,
     ]
-    type = HousingTypeEnum.detached
+    type = HousingTypeEnum.semidetached
 
 class House_hybridheatpump(HouseGridConnection):
     amount: Optional[int]
@@ -70,6 +78,10 @@ class House_hybridheatpump(HouseGridConnection):
     parent_electric = ""
     insulation_label = InsulationLabelEnum.c
     heating_type = HeatingTypeEnum.heatpump_gaspeak
+    charging_mode = ChargingModeEnum.cheap
+    smart_assets = SmartAssetsEnum.true
+    price_level_low_dif_from_avg_eurpkWh = 0.02
+    price_level_high_dif_from_avg_eurpkWh = 0.01
     assets = [
         House_other_electricity,
         House_hot_water,
@@ -78,7 +90,7 @@ class House_hybridheatpump(HouseGridConnection):
         Solarpanel_building(capacityElectricity_kW=3),
         EV,
     ]
-    type = HousingTypeEnum.detached
+    type = HousingTypeEnum.semidetached
 
 
 

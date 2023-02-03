@@ -55,6 +55,13 @@ class HeatingTypeEnum(Enum):
     hydrogenfired = "HYDROGENFIRED"
     none = "NONE"
 
+class ChargingModeEnum(Enum):
+    simple = "SIMPLE"
+    cheap = "CHEAP"
+
+class SmartAssetsEnum(Enum):
+    true = "TRUE"
+    false = "FALSE"
 
 class BuiltEnvironmentGridConnection(GridConnection):
     category = "BUILT_ENVIRONMENT"
@@ -76,6 +83,10 @@ class HousingTypeEnum(Enum):
 class HouseGridConnection(BuiltEnvironmentGridConnection):
     category = "HOUSE"
     type: HousingTypeEnum
+    charging_mode: ChargingModeEnum
+    smart_assets = SmartAssetsEnum.false
+    pricelevel_low_dif_from_avg_eurpkWh = 0.02
+    pricelevel_high_dif_from_avg_eurpkWh = 0.01
 
 
 class BuildingTypeEnum(Enum):

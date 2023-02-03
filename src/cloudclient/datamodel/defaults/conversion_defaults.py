@@ -40,6 +40,14 @@ Diesel_Truck = VehicleConversionAsset(
     vehicleScaling=20,
 )
 
+Diesel_Vehicle = VehicleConversionAsset(
+    type="DIESEL_VEHICLE",
+    eta_r=1,
+    name="Diesel_Vehicle",
+    energyConsumption_kWhpkm=0.7,
+    vehicleScaling=1,
+)
+
 class House_gas_burner(ChemicalHeatConversionAsset):
     name = "House_gas_burner"
     type = ConversionAssetTypeEnum.gas_burner

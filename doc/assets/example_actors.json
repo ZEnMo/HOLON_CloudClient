@@ -14,13 +14,6 @@
     "contracts": []
   },
   {
-    "category": "ENERGYSUPPLIER",
-    "type": null,
-    "id": "sup2",
-    "parent_actor": "nat",
-    "contracts": []
-  },
-  {
     "category": "ENERGYHOLON",
     "type": null,
     "id": "hol1",
@@ -36,7 +29,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh1",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -48,7 +41,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh2",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -60,7 +53,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh3",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -72,7 +65,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh4",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -84,7 +77,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh5",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -96,7 +89,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh6",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -108,7 +101,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh7",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -120,7 +113,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh8",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -132,7 +125,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh9",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -144,7 +137,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh10",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -156,7 +149,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh11",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -168,7 +161,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh12",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -180,7 +173,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh13",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -192,7 +185,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh14",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -204,7 +197,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh15",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -216,7 +209,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh16",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -228,7 +221,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh17",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -240,7 +233,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh18",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -252,7 +245,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh19",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -264,7 +257,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh20",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -276,7 +269,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh21",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -288,7 +281,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh22",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -300,7 +293,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh23",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -312,7 +305,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh24",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -324,7 +317,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh25",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -336,7 +329,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh26",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -348,7 +341,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh27",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -360,7 +353,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh28",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -372,7 +365,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh29",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -384,7 +377,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh30",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -396,7 +389,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh31",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -408,7 +401,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh32",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -420,7 +413,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh33",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -432,7 +425,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh34",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -444,7 +437,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh35",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -456,7 +449,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh36",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -468,7 +461,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh37",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -480,7 +473,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh38",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -492,7 +485,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh39",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",
@@ -504,1927 +497,7 @@
     "category": "CONNECTIONOWNER",
     "type": null,
     "id": "hh40",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh41",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh42",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh43",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh44",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh45",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh46",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh47",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh48",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh49",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh50",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh51",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh52",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh53",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh54",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh55",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh56",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh57",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh58",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh59",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh60",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh61",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh62",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh63",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh64",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh65",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh66",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh67",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh68",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh69",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh70",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh71",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh72",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh73",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh74",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh75",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh76",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh77",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh78",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh79",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh80",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh81",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh82",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh83",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh84",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh85",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh86",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh87",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh88",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh89",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh90",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh91",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh92",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh93",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh94",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh95",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh96",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh97",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh98",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh99",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh100",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh101",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh102",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh103",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh104",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh105",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh106",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh107",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh108",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh109",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh110",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh111",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh112",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh113",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh114",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh115",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh116",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh117",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh118",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh119",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh120",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh121",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh122",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh123",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh124",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh125",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh126",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh127",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh128",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh129",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh130",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh131",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh132",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh133",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh134",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh135",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh136",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh137",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh138",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh139",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh140",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh141",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh142",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh143",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh144",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh145",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh146",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh147",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh148",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh149",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh150",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh151",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh152",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh153",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh154",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh155",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh156",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh157",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh158",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh159",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh160",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh161",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh162",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh163",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh164",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh165",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh166",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh167",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh168",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh169",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh170",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh171",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh172",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh173",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh174",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh175",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh176",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh177",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh178",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh179",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh180",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh181",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh182",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh183",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh184",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh185",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh186",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh187",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh188",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh189",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh190",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh191",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh192",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh193",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh194",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh195",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh196",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh197",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh198",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh199",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh200",
-    "parent_actor": "sup1",
+    "parent_actor": "hol1",
     "contracts": [
       {
         "type": "FIXED",

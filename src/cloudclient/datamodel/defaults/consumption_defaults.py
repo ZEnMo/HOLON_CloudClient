@@ -29,7 +29,7 @@ Industry_other_heat_demand = HeatConsumptionAsset(
 House_hot_water = HeatConsumptionAsset(
     name="House_hot_water",
     type="HOT_WATER_CONSUMPTION",
-    yearlyDemandHeat_kWh=200,
+    yearlyDemandHeat_kWh=2000,
 )
 House_other_electricity = ElectricConsumptionAsset(
     name="House_other_electricity",
