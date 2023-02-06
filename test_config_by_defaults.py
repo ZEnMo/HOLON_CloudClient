@@ -133,9 +133,9 @@ from cloudclient.datamodel.gridconnections import (
 )
 
 config_gridconnection_list= [
-  #House_electrified(amount = 40, parent_electric="E2"),
+  House_electrified(amount = 40, parent_electric="E2"),
   #House_default(amount=40, parent_electric="E2"),
-  House_hybridheatpump(amount = 40, parent_electric="E3"),
+  #House_hybridheatpump(amount = 40, parent_electric="E3"),
   #Office_default(amount = 5, parent_electric="E2"),
   #Store_default(amount = 10, parent_electric="E3"),
   #Industry_other_default(amount =1, parent_electric = "E3"),

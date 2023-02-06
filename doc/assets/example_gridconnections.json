@@ -3,7 +3,7 @@
     "owner_actor": "hh1",
     "id": "h1",
     "capacity_kw": 17.0,
-    "parent_electric": "E3",
+    "parent_electric": "E2",
     "parent_heat": null,
     "charging_mode": "CHEAP",
     "battery_mode": null,
@@ -19,6 +19,12 @@
         "name": "House_hot_water",
         "category": "CONSUMPTION",
         "yearlyDemandHeat_kWh": 2000.0
+      },
+      {
+        "type": "ELECTRIC_HOB",
+        "name": "Electric hob",
+        "category": "CONSUMPTION",
+        "capacity_kW": 5.0
       },
       {
         "type": "HEAT_PUMP_AIR",
@@ -72,7 +78,7 @@
     "owner_actor": "hh2",
     "id": "h2",
     "capacity_kw": 17.0,
-    "parent_electric": "E3",
+    "parent_electric": "E2",
     "parent_heat": null,
     "charging_mode": "CHEAP",
     "battery_mode": null,
@@ -88,6 +94,12 @@
         "name": "House_hot_water",
         "category": "CONSUMPTION",
         "yearlyDemandHeat_kWh": 2000.0
+      },
+      {
+        "type": "ELECTRIC_HOB",
+        "name": "Electric hob",
+        "category": "CONSUMPTION",
+        "capacity_kW": 5.0
       },
       {
         "type": "HEAT_PUMP_AIR",
@@ -141,7 +153,7 @@
     "owner_actor": "hh3",
     "id": "h3",
     "capacity_kw": 17.0,
-    "parent_electric": "E3",
+    "parent_electric": "E2",
     "parent_heat": null,
     "charging_mode": "CHEAP",
     "battery_mode": null,
@@ -157,6 +169,12 @@
         "name": "House_hot_water",
         "category": "CONSUMPTION",
         "yearlyDemandHeat_kWh": 2000.0
+      },
+      {
+        "type": "ELECTRIC_HOB",
+        "name": "Electric hob",
+        "category": "CONSUMPTION",
+        "capacity_kW": 5.0
       },
       {
         "type": "HEAT_PUMP_AIR",
@@ -210,7 +228,7 @@
     "owner_actor": "hh4",
     "id": "h4",
     "capacity_kw": 17.0,
-    "parent_electric": "E3",
+    "parent_electric": "E2",
     "parent_heat": null,
     "charging_mode": "CHEAP",
     "battery_mode": null,
@@ -226,6 +244,12 @@
         "name": "House_hot_water",
         "category": "CONSUMPTION",
         "yearlyDemandHeat_kWh": 2000.0
+      },
+      {
+        "type": "ELECTRIC_HOB",
+        "name": "Electric hob",
+        "category": "CONSUMPTION",
+        "capacity_kW": 5.0
       },
       {
         "type": "HEAT_PUMP_AIR",
@@ -279,7 +303,7 @@
     "owner_actor": "hh5",
     "id": "h5",
     "capacity_kw": 17.0,
-    "parent_electric": "E3",
+    "parent_electric": "E2",
     "parent_heat": null,
     "charging_mode": "CHEAP",
     "battery_mode": null,
@@ -295,6 +319,12 @@
         "name": "House_hot_water",
         "category": "CONSUMPTION",
         "yearlyDemandHeat_kWh": 2000.0
+      },
+      {
+        "type": "ELECTRIC_HOB",
+        "name": "Electric hob",
+        "category": "CONSUMPTION",
+        "capacity_kW": 5.0
       },
       {
         "type": "HEAT_PUMP_AIR",
@@ -348,7 +378,7 @@
     "owner_actor": "hh6",
     "id": "h6",
     "capacity_kw": 17.0,
-    "parent_electric": "E3",
+    "parent_electric": "E2",
     "parent_heat": null,
     "charging_mode": "CHEAP",
     "battery_mode": null,
@@ -364,6 +394,12 @@
         "name": "House_hot_water",
         "category": "CONSUMPTION",
         "yearlyDemandHeat_kWh": 2000.0
+      },
+      {
+        "type": "ELECTRIC_HOB",
+        "name": "Electric hob",
+        "category": "CONSUMPTION",
+        "capacity_kW": 5.0
       },
       {
         "type": "HEAT_PUMP_AIR",
@@ -417,7 +453,7 @@
     "owner_actor": "hh7",
     "id": "h7",
     "capacity_kw": 17.0,
-    "parent_electric": "E3",
+    "parent_electric": "E2",
     "parent_heat": null,
     "charging_mode": "CHEAP",
     "battery_mode": null,
@@ -433,6 +469,12 @@
         "name": "House_hot_water",
         "category": "CONSUMPTION",
         "yearlyDemandHeat_kWh": 2000.0
+      },
+      {
+        "type": "ELECTRIC_HOB",
+        "name": "Electric hob",
+        "category": "CONSUMPTION",
+        "capacity_kW": 5.0
       },
       {
         "type": "HEAT_PUMP_AIR",
@@ -486,7 +528,7 @@
     "owner_actor": "hh8",
     "id": "h8",
     "capacity_kw": 17.0,
-    "parent_electric": "E3",
+    "parent_electric": "E2",
     "parent_heat": null,
     "charging_mode": "CHEAP",
     "battery_mode": null,
@@ -502,6 +544,12 @@
         "name": "House_hot_water",
         "category": "CONSUMPTION",
         "yearlyDemandHeat_kWh": 2000.0
+      },
+      {
+        "type": "ELECTRIC_HOB",
+        "name": "Electric hob",
+        "category": "CONSUMPTION",
+        "capacity_kW": 5.0
       },
       {
         "type": "HEAT_PUMP_AIR",
@@ -555,7 +603,7 @@
     "owner_actor": "hh9",
     "id": "h9",
     "capacity_kw": 17.0,
-    "parent_electric": "E3",
+    "parent_electric": "E2",
     "parent_heat": null,
     "charging_mode": "CHEAP",
     "battery_mode": null,
@@ -573,13 +621,10 @@
         "yearlyDemandHeat_kWh": 2000.0
       },
       {
-        "type": "HEAT_PUMP_AIR",
-        "eta_r": 0.6,
-        "name": "House_heatpump_MT_M",
-        "category": "CONVERSION",
-        "deliveryTemp_degC": 60.0,
-        "capacityElectricity_kW": 6.0,
-        "ambientTempType": null
+        "type": "ELECTRIC_HOB",
+        "name": "Electric hob",
+        "category": "CONSUMPTION",
+        "capacity_kW": 5.0
       },
       {
         "type": "HEAT_PUMP_AIR",
@@ -591,12 +636,26 @@
         "ambientTempType": null
       },
       {
-        "type": "GAS_BURNER",
-        "eta_r": 0.95,
-        "name": "House_gas_burner",
+        "type": "HEAT_PUMP_AIR",
+        "eta_r": 0.6,
+        "name": "House_heatpump_MT_M",
         "category": "CONVERSION",
-        "deliveryTemp_degC": 90.0,
-        "capacityHeat_kW": 30.0
+        "deliveryTemp_degC": 60.0,
+        "capacityElectricity_kW": 6.0,
+        "ambientTempType": null
+      },
+      {
+        "type": "STORAGE_HEAT",
+        "name": "Household heat buffer",
+        "category": "STORAGE",
+        "capacityHeat_kW": 4.0,
+        "initial_temperature_degC": 70.0,
+        "minTemp_degC": 55,
+        "maxTemp_degC": 80,
+        "setTemp_degC": 60,
+        "lossFactor_WpK": 0.0,
+        "heatCapacity_JpK": 1200000.0,
+        "ambientTempType": "AIR"
       },
       {
         "type": "PHOTOVOLTAIC",
