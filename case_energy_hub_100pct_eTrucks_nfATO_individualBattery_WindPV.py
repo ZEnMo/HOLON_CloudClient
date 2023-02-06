@@ -9,14 +9,14 @@ actors = [
         id="com1",
         parent_actor="hol1",
         contracts=[
-            # Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
-            # Contract(
-            #     type="NONFIRMATO",
-            #     contract_scope="GRIDOPERATOR",
-            #     nfATO_capacity_kW=1000.0,
-            #     nfATO_starttime_h=20.0,
-            #     nfATO_endtime_h=8.0,
-            # ),
+            Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+            Contract(
+                type="NONFIRMATO",
+                contract_scope="GRIDOPERATOR",
+                nfATO_capacity_kW=2000.0,
+                nfATO_starttime_h=20.0,
+                nfATO_endtime_h=7.0,
+            ),
             Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
         ],
     ),
@@ -26,14 +26,14 @@ actors = [
         id="com5",
         parent_actor="hol1",
         contracts=[
-            # Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
-            # Contract(
-            #     type="NONFIRMATO",
-            #     contract_scope="GRIDOPERATOR",
-            #     nfATO_capacity_kW=1000.0,
-            #     nfATO_starttime_h=20.0,
-            #     nfATO_endtime_h=8.0,
-            # ),
+            Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+            Contract(
+                type="NONFIRMATO",
+                contract_scope="GRIDOPERATOR",
+                nfATO_capacity_kW=2000.0,
+                nfATO_starttime_h=20.0,
+                nfATO_endtime_h=7.0,
+            ),
             Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
         ],
     ),
@@ -113,7 +113,7 @@ from cloudclient.datamodel.gridconnections import (
     ProductionGridConnection,
 )
 
-eTrucksPerGridConnection = 0
+eTrucksPerGridConnection = 10
 
 gridconnections = [
     BuildingGridConnection(
@@ -125,13 +125,13 @@ gridconnections = [
         id="b1",
         capacity_kw=1300,
         charging_mode="MAX_POWER",
-        # battery_mode="BALANCE",
+        battery_mode="BALANCE",
         assets=[
             *[EHGV] * eTrucksPerGridConnection,
             *[Diesel_Truck] * (10 - eTrucksPerGridConnection),
             Building_gas_burner(capacityHeat_kW=200),
-            # Solarpanel_building(capacityElectricity_kW=500),
-            # Grid_battery(storageCapacity_kWh=0),
+            Solarpanel_building(capacityElectricity_kW=500),
+            Grid_battery(storageCapacity_kWh=25000),
             # Building_solarpanels_10kWp,
         ],
     ),
@@ -144,35 +144,16 @@ gridconnections = [
         id="b5",
         capacity_kw=1300,
         charging_mode="MAX_POWER",
-        # battery_mode="BALANCE",
+        battery_mode="BALANCE",
         assets=[
             *[EHGV] * eTrucksPerGridConnection,
             *[Diesel_Truck] * (10 - eTrucksPerGridConnection),
             Building_gas_burner(capacityHeat_kW=200),
-            # Solarpanel_building(capacityElectricity_kW=500),
-            # Grid_battery(storageCapacity_kWh=0),
+            Solarpanel_building(capacityElectricity_kW=500),
+            Grid_battery(storageCapacity_kWh=25000),
             # Building_solarpanels_10kWp,
         ],
     ),
-    # BuildingGridConnection(
-    #     insulation_label="NONE",
-    #     heating_type="GASBURNER",
-    #     type="LOGISTICS",
-    #     owner_actor="com5",
-    #     parent_electric="E2",
-    #     id="b6",
-    #     capacity_kw=1000,
-    #     charging_mode="MAX_POWER",
-    #     # battery_mode="BALANCE",
-    #     assets=[
-    #         *[EHGV] * eTrucksPerGridConnection,
-    #         *[Diesel_Truck] * (5 - eTrucksPerGridConnection),
-    #         Building_gas_burner(capacityHeat_kW=200),
-    #         # Solarpanel_building(capacityElectricity_kW=500),
-    #         # Grid_battery(storageCapacity_kWh=0),
-    #         # Building_solarpanels_10kWp,
-    #     ],
-    # ),
     IndustryGridConnection(
         heating_type="GASBURNER",
         type="INDUSTRY_OTHER",
@@ -191,10 +172,10 @@ gridconnections = [
         owner_actor="com3",
         parent_electric="E2",
         id="b3",
-        capacity_kw=8000,
+        capacity_kw=5000,
         assets=[
-            # Windmill_onshore(capacityElectricity_kW=6000),
-            # Solarpanel_farm(capacityElectricity_kW=2000),
+            Windmill_onshore(capacityElectricity_kW=3000),
+            Solarpanel_farm(capacityElectricity_kW=2000),
         ],
     ),
     # ProductionGridConnection(
@@ -247,7 +228,7 @@ from cloudclient.datamodel.policies import Policy
 policies = [
     # Policy(
     #     parameter="EV_charging_attitude_standard",
-    #     value="MAX_POWER",
+    #     value="CHEAP",
     #     unit=None,
     #     comment="charging behaviour not contingent on holon",
     # ),

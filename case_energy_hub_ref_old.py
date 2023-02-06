@@ -9,15 +9,15 @@ actors = [
         id="com1",
         parent_actor="hol1",
         contracts=[
-            # Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
-            # Contract(
-            #     type="NONFIRMATO",
-            #     contract_scope="GRIDOPERATOR",
-            #     nfATO_capacity_kW=1000.0,
-            #     nfATO_starttime_h=20.0,
-            #     nfATO_endtime_h=8.0,
-            # ),
-            Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
+            Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+            Contract(
+                type="NONFIRMATO",
+                contract_scope="GRIDOPERATOR",
+                nfATO_capacity_kW=1750.0,
+                nfATO_starttime_h=16.0,
+                nfATO_endtime_h=8.0,
+            ),
+            # Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
         ],
     ),
     Actor(
@@ -26,15 +26,15 @@ actors = [
         id="com5",
         parent_actor="hol1",
         contracts=[
-            # Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
-            # Contract(
-            #     type="NONFIRMATO",
-            #     contract_scope="GRIDOPERATOR",
-            #     nfATO_capacity_kW=1000.0,
-            #     nfATO_starttime_h=20.0,
-            #     nfATO_endtime_h=8.0,
-            # ),
-            Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
+            Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+            Contract(
+                type="NONFIRMATO",
+                contract_scope="GRIDOPERATOR",
+                nfATO_capacity_kW=1750.0,
+                nfATO_starttime_h=16.0,
+                nfATO_endtime_h=8.0,
+            ),
+            # Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
         ],
     ),
     Actor(
@@ -80,7 +80,7 @@ actors = [
                 type="NONFIRMATO",
                 contract_scope="GRIDOPERATOR",
                 nfATO_capacity_kW=5000.0,
-                nfATO_starttime_h=20.0,
+                nfATO_starttime_h=16.0,
                 nfATO_endtime_h=7.0,
             ),
         ],
@@ -113,8 +113,6 @@ from cloudclient.datamodel.gridconnections import (
     ProductionGridConnection,
 )
 
-eTrucksPerGridConnection = 0
-
 gridconnections = [
     BuildingGridConnection(
         insulation_label="NONE",
@@ -123,12 +121,12 @@ gridconnections = [
         owner_actor="com1",
         parent_electric="E2",
         id="b1",
-        capacity_kw=1300,
+        capacity_kw=1750,
         charging_mode="MAX_POWER",
         # battery_mode="BALANCE",
         assets=[
-            *[EHGV] * eTrucksPerGridConnection,
-            *[Diesel_Truck] * (10 - eTrucksPerGridConnection),
+            # *[EHGV] * 5,
+            *[Diesel_Truck] * 5,
             Building_gas_burner(capacityHeat_kW=200),
             # Solarpanel_building(capacityElectricity_kW=500),
             # Grid_battery(storageCapacity_kWh=0),
@@ -142,37 +140,37 @@ gridconnections = [
         owner_actor="com5",
         parent_electric="E2",
         id="b5",
-        capacity_kw=1300,
+        capacity_kw=1750,
         charging_mode="MAX_POWER",
         # battery_mode="BALANCE",
         assets=[
-            *[EHGV] * eTrucksPerGridConnection,
-            *[Diesel_Truck] * (10 - eTrucksPerGridConnection),
+            # *[EHGV] * 5,
+            *[Diesel_Truck] * 5,
             Building_gas_burner(capacityHeat_kW=200),
             # Solarpanel_building(capacityElectricity_kW=500),
             # Grid_battery(storageCapacity_kWh=0),
             # Building_solarpanels_10kWp,
         ],
     ),
-    # BuildingGridConnection(
-    #     insulation_label="NONE",
-    #     heating_type="GASBURNER",
-    #     type="LOGISTICS",
-    #     owner_actor="com5",
-    #     parent_electric="E2",
-    #     id="b6",
-    #     capacity_kw=1000,
-    #     charging_mode="MAX_POWER",
-    #     # battery_mode="BALANCE",
-    #     assets=[
-    #         *[EHGV] * eTrucksPerGridConnection,
-    #         *[Diesel_Truck] * (5 - eTrucksPerGridConnection),
-    #         Building_gas_burner(capacityHeat_kW=200),
-    #         # Solarpanel_building(capacityElectricity_kW=500),
-    #         # Grid_battery(storageCapacity_kWh=0),
-    #         # Building_solarpanels_10kWp,
-    #     ],
-    # ),
+    BuildingGridConnection(
+        insulation_label="NONE",
+        heating_type="GASBURNER",
+        type="LOGISTICS",
+        owner_actor="com5",
+        parent_electric="E2",
+        id="b6",
+        capacity_kw=1750,
+        charging_mode="MAX_POWER",
+        # battery_mode="BALANCE",
+        assets=[
+            # *[EHGV] * 5,
+            *[Diesel_Truck] * 5,
+            Building_gas_burner(capacityHeat_kW=200),
+            # Solarpanel_building(capacityElectricity_kW=500),
+            # Grid_battery(storageCapacity_kWh=0),
+            # Building_solarpanels_10kWp,
+        ],
+    ),
     IndustryGridConnection(
         heating_type="GASBURNER",
         type="INDUSTRY_OTHER",
@@ -332,7 +330,7 @@ policies = [
 ]
 
 etm_upscale_slider_settings = {
-    "share_of_electric_trucks": 100,  # Impacts costs, HV netload, sustainability and selfsufficiency
+    "share_of_electric_trucks": 1,  # Impacts costs, HV netload, sustainability and selfsufficiency
     "installed_energy_grid_battery": 0,
     "share_of_buildings_with_solar_panels": 0,
     # "fooled_you": -100,  # so you can just add any silly etm_key, it will just be ignored...

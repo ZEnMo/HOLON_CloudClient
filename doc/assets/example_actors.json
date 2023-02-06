@@ -12,9 +12,13 @@
       {
         "type": "NONFIRMATO",
         "contract_scope": "GRIDOPERATOR",
-        "nfATO_endtime_h": 8.0,
-        "nfATO_starttime_h": 20.0,
-        "nfATO_capacity_kW": 1000.0
+        "nfATO_endtime_h": 7.0,
+        "nfATO_capacity_kW": 4000.0,
+        "nfATO_starttime_h": 20.0
+      },
+      {
+        "type": "VARIABLE",
+        "contract_scope": "ENERGYSUPPLIER"
       }
     ]
   },
@@ -31,9 +35,13 @@
       {
         "type": "NONFIRMATO",
         "contract_scope": "GRIDOPERATOR",
-        "nfATO_endtime_h": 8.0,
-        "nfATO_starttime_h": 20.0,
-        "nfATO_capacity_kW": 1000.0
+        "nfATO_endtime_h": 7.0,
+        "nfATO_capacity_kW": 4000.0,
+        "nfATO_starttime_h": 20.0
+      },
+      {
+        "type": "VARIABLE",
+        "contract_scope": "ENERGYSUPPLIER"
       }
     ]
   },
@@ -98,8 +106,8 @@
         "type": "NONFIRMATO",
         "contract_scope": "GRIDOPERATOR",
         "nfATO_endtime_h": 7.0,
-        "nfATO_starttime_h": 20.0,
-        "nfATO_capacity_kW": 5000.0
+        "nfATO_capacity_kW": 5000.0,
+        "nfATO_starttime_h": 20.0
       }
     ]
   },

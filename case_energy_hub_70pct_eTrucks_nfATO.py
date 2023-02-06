@@ -9,14 +9,14 @@ actors = [
         id="com1",
         parent_actor="hol1",
         contracts=[
-            # Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
-            # Contract(
-            #     type="NONFIRMATO",
-            #     contract_scope="GRIDOPERATOR",
-            #     nfATO_capacity_kW=1000.0,
-            #     nfATO_starttime_h=20.0,
-            #     nfATO_endtime_h=8.0,
-            # ),
+            Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+            Contract(
+                type="NONFIRMATO",
+                contract_scope="GRIDOPERATOR",
+                nfATO_capacity_kW=2000.0,
+                nfATO_starttime_h=20.0,
+                nfATO_endtime_h=7.0,
+            ),
             Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
         ],
     ),
@@ -26,14 +26,14 @@ actors = [
         id="com5",
         parent_actor="hol1",
         contracts=[
-            # Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
-            # Contract(
-            #     type="NONFIRMATO",
-            #     contract_scope="GRIDOPERATOR",
-            #     nfATO_capacity_kW=1000.0,
-            #     nfATO_starttime_h=20.0,
-            #     nfATO_endtime_h=8.0,
-            # ),
+            Contract(type="DEFAULT", contract_scope="ENERGYHOLON"),
+            Contract(
+                type="NONFIRMATO",
+                contract_scope="GRIDOPERATOR",
+                nfATO_capacity_kW=2000.0,
+                nfATO_starttime_h=20.0,
+                nfATO_endtime_h=7.0,
+            ),
             Contract(type="VARIABLE", contract_scope="ENERGYSUPPLIER"),
         ],
     ),
@@ -113,7 +113,7 @@ from cloudclient.datamodel.gridconnections import (
     ProductionGridConnection,
 )
 
-eTrucksPerGridConnection = 0
+eTrucksPerGridConnection = 7
 
 gridconnections = [
     BuildingGridConnection(

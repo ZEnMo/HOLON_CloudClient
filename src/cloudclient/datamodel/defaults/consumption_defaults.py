@@ -38,7 +38,7 @@ House_other_electricity = ElectricConsumptionAsset(
 Office_other_electricity = ElectricConsumptionAsset(
     name="Office_other_electricity",
     type="ELECTRICITY_DEMAND",
-    yearlyDemandElectricity_kWh=12000000.0,
+    yearlyDemandElectricity_kWh=10000000.0,
 )
 Store_other_electricity = ElectricConsumptionAsset(
     name="Store_other_electricity",
