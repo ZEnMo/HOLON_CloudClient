@@ -10,7 +10,7 @@ class Client(Inputs):
         self.client = CloudClient(
             config["anylogic_cloud"]["api_key"], config["anylogic_cloud"]["url"]
         )
-        
+
         # the order matters!
         self.experiment = experiment
         # init the data model if required:
@@ -34,6 +34,7 @@ class Client(Inputs):
         sys.path.append(str(input_path.parent.absolute()))
         payload = importlib.import_module(module).payload
         self.datamodel_payload = payload.to_json()
+        self.payload = payload
 
         # remove the appended path part
         _ = sys.path.pop(-1)

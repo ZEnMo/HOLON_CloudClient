@@ -1,5 +1,7 @@
 import json
 
+# import numpy
+
 
 class Outcomes:
     @property
@@ -29,7 +31,12 @@ class Outcomes:
         )
 
     def _write_outcomeJSON(self, outcome, formatted: bool = True):
-
+        # print("\noutcome[" "human_key" "]: ", outcome["human_key"])
+        # print(
+        #     "self.outcomes[outcome[" "human_key" "]]:",
+        #     self.outcomes[outcome["human_key"]],
+        # )
+        # print("Outcome object type: ", type(self.outcomes[outcome["human_key"]]))
         with open(
             self._output_folder()
             / f"{outcome['human_key']}_{self.experiment.name}.json",
@@ -37,15 +44,17 @@ class Outcomes:
         ) as outfile:
             if formatted:
                 outfile.write(
-                    json.dumps(
-                        json.loads(
-                            self.outcomes[outcome["human_key"]].to_json(
-                                orient="records"
-                            )
-                        ),
-                        indent=2,
-                    )
+                    # json.dumps(
+                    #     json.loads(
+                    #         self.outcomes[outcome["human_key"]].to_json(
+                    #             orient="records"
+                    #         )
+                    #     ),
+                    #     indent=2,
+                    # )
+                    json.dumps(self.outcomes[outcome["human_key"]])
                 )
+
                 # print("_write jsons exported")
             else:
                 outfile.writelines(

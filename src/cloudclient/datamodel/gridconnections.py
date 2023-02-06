@@ -13,6 +13,7 @@ class GridCategoryEnum(Enum):
 class ChargingModeEnum(Enum):
     max_power = "MAX_POWER"
     max_spread = "MAX_SPREAD"
+    cheap = "CHEAP"
 
 
 class BatteryModeEnum(Enum):
@@ -31,9 +32,6 @@ class GridConnection(BaseModel, extra=Extra.forbid):
     # TODO: Technical debt to match AnyLogic
     charging_mode: Optional[ChargingModeEnum]
     battery_mode: Optional[BatteryModeEnum]
-    nfATO_capacity_kw: Optional[float]
-    nfATO_starttime: Optional[float]
-    nfATO_endtime: Optional[float]
 
 
 class InsulationLabelEnum(Enum):
