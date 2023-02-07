@@ -5,9 +5,18 @@ import numpy as np
 # in the etm_costs.config.yml
 ETM_MAPPING = {
     "depreciation_costs_buildings_solar_panels_per_kw": ("BUILDING", "PHOTOVOLTAIC"),
-    "depreciation_costs_households_air_source_heat_pump_per_kw": ("HOUSE", "HEAT_PUMP_AIR"), #TODO: check this key
-    "depreciation_costs_households_air_source_hybrid_heat_pump_per_kw": ("HOUSE", "HYBRID_HEAT_PUMP_AIR"), #TODO: check this key
-    "depreciation_costs_households_gas_burner_per_kw": ("HOUSE", "GAS_BURNER"), #TODO: check this key
+    "depreciation_costs_households_air_source_heat_pump_per_kw": (
+        "HOUSE",
+        "HEAT_PUMP_AIR",
+    ),  # TODO: check this key
+    "depreciation_costs_households_air_source_hybrid_heat_pump_per_kw": (
+        "HOUSE",
+        "HYBRID_HEAT_PUMP_AIR",
+    ),  # TODO: check this key
+    "depreciation_costs_households_gas_burner_per_kw": (
+        "HOUSE",
+        "GAS_BURNER",
+    ),  # TODO: check this key
     "depreciation_costs_households_solar_panels_per_kw": ("HOUSE", "PHOTOVOLTAIC"),
     "depreciation_costs_solar_farm_per_kw": ("SOLARFARM", "PHOTOVOLTAIC"),
     "depreciation_costs_wind_farm_inland_per_kw": ("WINDFARM", "INLAND_WIND_TURBINE"),
@@ -21,16 +30,33 @@ ETM_MAPPING = {
         "SystemHourlyElectricity",
         "",
     ),  # TODO: check this key
-    "depreciation_costs_industry_electrolyser_per_kw": ("INDUSTRY", "ELECTROLYSER"), #TODO: check this key
-
-    "hourly_price_of_electricity_per_mwh": ("SystemHourlyElectricity", ""),  # TODO: check this key
+    "depreciation_costs_industry_electrolyser_per_kw": (
+        "INDUSTRY",
+        "ELECTROLYSER",
+    ),  # TODO: check this key
+    "hourly_price_of_electricity_per_mwh": (
+        "SystemHourlyElectricity",
+        "",
+    ),  # TODO: check this key
     "price_of_natural_gas_per_mwh": ("totalMethane", ""),
     "price_of_hydrogen_per_mwh": ("totalHydrogen", ""),
     "price_of_diesel_per_mwh": ("totalDiesel", ""),
-    "electricity_grid_expansion_costs_lv_mv_trafo_per_kw": ("MSLSPeakLoadElectricity_kW", ""),
-    "electricity_grid_expansion_costs_mv_hv_trafo_per_kw": ("HSMSPeakLoadElectricity_kW", ""),
-    "depreciation_costs_grid_battery_per_mwh": ("totalBatteryInstalledCapacity_MWh:Grid_battery",""),
-    "depreciation_costs_households_battery_per_kwh": ("totalBatteryInstalledCapacity_kWh:Households_battery","") # TODO: check this key
+    "electricity_grid_expansion_costs_lv_mv_trafo_per_kw": (
+        "MSLSPeakLoadElectricity_kW",
+        "",
+    ),
+    "electricity_grid_expansion_costs_mv_hv_trafo_per_kw": (
+        "HSMSPeakLoadElectricity_kW",
+        "",
+    ),
+    "depreciation_costs_grid_battery_per_mwh": (
+        "totalBatteryInstalledCapacity_MWh:Grid_battery",
+        "",
+    ),
+    "depreciation_costs_households_battery_per_kwh": (
+        "totalBatteryInstalledCapacity_kWh:Households_battery",
+        "",
+    ),  # TODO: check this key
 }
 
 
@@ -48,6 +74,7 @@ def calculate_total_costs(
 
     return categories.total_costs()
 
+
 def calculate_total_costs_split(
     etm_inputs: dict,
     holon_config_gridconnections: list,
@@ -64,6 +91,7 @@ def calculate_total_costs_split(
     categories.set_prices(etm_inputs)
 
     return categories.split_costs()
+
 
 def format(output):
     """

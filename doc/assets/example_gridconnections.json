@@ -955,7 +955,7 @@
       },
       {
         "type": "ELECTRICITY_DEMAND",
-        "name": "Office_other_electricity",
+        "name": "House_other_electricity",
         "category": "CONSUMPTION",
         "yearlyDemandElectricity_kWh": 10000000.0
       }
@@ -998,9 +998,35 @@
     "battery_mode": null,
     "assets": [
       {
-        "type": "STORAGE_ELECTRIC",
-        "stateOfCharge_r": 0.2,
-        "name": "Grid_battery",
+        "type": "ELECTRICITY_DEMAND",
+        "name": "House_other_electricity",
+        "category": "CONSUMPTION",
+        "yearlyDemandElectricity_kWh": 11000.0
+      },
+      {
+        "type": "HOT_WATER_CONSUMPTION",
+        "name": "House_hot_water",
+        "category": "CONSUMPTION",
+        "yearlyDemandHeat_kWh": 2000.0
+      },
+      {
+        "type": "ELECTRIC_HOB",
+        "name": "Electric hob",
+        "category": "CONSUMPTION",
+        "capacity_kW": 5.0
+      },
+      {
+        "type": "HEAT_PUMP_AIR",
+        "eta_r": 0.6,
+        "name": "House_heatpump_MT_M",
+        "category": "CONVERSION",
+        "deliveryTemp_degC": 60.0,
+        "capacityElectricity_kW": 6.0,
+        "ambientTempType": null
+      },
+      {
+        "type": "STORAGE_HEAT",
+        "name": "Household heat buffer",
         "category": "STORAGE",
         "capacityElectricity_kW": 10000.0,
         "storageCapacity_kWh": 35000.0
