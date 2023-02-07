@@ -27,7 +27,7 @@ class GridConnection(BaseModel, extra=Extra.forbid):
     capacity_kw: float
     parent_electric: str
     parent_heat: Optional[str]
-    assets: Optional[List[EnergyAsset]]
+    assets = []
     category = "GENERIC"
     # TODO: Technical debt to match AnyLogic
     charging_mode: Optional[ChargingModeEnum]
@@ -51,9 +51,17 @@ class HeatingTypeEnum(Enum):
     heatpump_gaspeak = "HEATPUMP_GASPEAK"
     districtheat = "DISTRICTHEAT"
     heatpump_boilerpeak = "HEATPUMP_BOILERPEAK"
+    heatpump_air = "HEATPUMP_AIR"
     hydrogenfired = "HYDROGENFIRED"
     none = "NONE"
 
+class ChargingModeEnum(Enum):
+    simple = "SIMPLE"
+    cheap = "CHEAP"
+
+class SmartAssetsEnum(Enum):
+    true = "TRUE"
+    false = "FALSE"
 
 class BuiltEnvironmentGridConnection(GridConnection):
     category = "BUILT_ENVIRONMENT"
@@ -75,6 +83,10 @@ class HousingTypeEnum(Enum):
 class HouseGridConnection(BuiltEnvironmentGridConnection):
     category = "HOUSE"
     type: HousingTypeEnum
+    charging_mode: ChargingModeEnum
+    smart_assets = SmartAssetsEnum.false
+    pricelevel_low_dif_from_avg_eurpkWh = 0.02
+    pricelevel_high_dif_from_avg_eurpkWh = 0.01
 
 
 class BuildingTypeEnum(Enum):
