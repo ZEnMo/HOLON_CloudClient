@@ -32,7 +32,7 @@ class ElectricCoversionAsset(ConversionAsset):
 
 
 class HeatConversionAsset(ConversionAsset):
-    deliveryTemp_degC: float
+    deliveryTemp_degc: float
 
 
 class ChemicalHeatConversionAsset(HeatConversionAsset):
@@ -44,7 +44,7 @@ class ElectricHeatConversionAsset(HeatConversionAsset):
 
 
 class TransportHeatConversionAsset(ElectricHeatConversionAsset):
-    ambientTempType: Optional[AmbientTempTypeEnum]
+    ambientTempType: AmbientTempTypeEnum
 
 
 class HybridHeatCoversionAsset(

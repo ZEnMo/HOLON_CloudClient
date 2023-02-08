@@ -21,7 +21,7 @@ class Actor(BaseModel, extra=Extra.forbid):
     type: Optional[SubTypeEnum]
     id: str
     parent_actor: str
-    contracts = []  #Optional[List[Contract]]
+    contracts: Optional[List[Contract]]
 
 
 class NonFirmActor(Actor):

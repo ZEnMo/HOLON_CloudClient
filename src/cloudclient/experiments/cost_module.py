@@ -5,35 +5,14 @@ import numpy as np
 # in the etm_costs.config.yml
 ETM_MAPPING = {
     "depreciation_costs_buildings_solar_panels_per_kw": ("BUILDING", "PHOTOVOLTAIC"),
-    "depreciation_costs_households_air_source_heat_pump_per_kw": (
-        "HOUSE",
-        "HEAT_PUMP_AIR",
-    ),  # TODO: check this key
-    "depreciation_costs_households_air_source_hybrid_heat_pump_per_kw": (
-        "HOUSE",
-        "HYBRID_HEAT_PUMP_AIR",
-    ),  # TODO: check this key
-    "depreciation_costs_households_gas_burner_per_kw": (
-        "HOUSE",
-        "GAS_BURNER",
-    ),  # TODO: check this key
-    "depreciation_costs_households_solar_panels_per_kw": ("HOUSE", "PHOTOVOLTAIC"),
     "depreciation_costs_solar_farm_per_kw": ("SOLARFARM", "PHOTOVOLTAIC"),
-    "depreciation_costs_wind_farm_inland_per_kw": ("WINDFARM", "INLAND_WIND_TURBINE"),
+    "depreciation_costs_solar_farm_per_kw": ("WINDFARM", "PHOTOVOLTAIC"),
     "depreciation_costs_buildings_gas_burner_per_kw": ("BUILDING", "GAS_BURNER"),
     "depreciation_costs_industry_solar_panels_per_kw": ("INDUSTRY", "PHOTOVOLTAIC"),
     "depreciation_costs_industry_gas_burner_per_kw": ("INDUSTRY", "GAS_BURNER"),
     "depreciation_costs_wind_farm_per_kw": ("WINDFARM", "WINDMILL"),
     "depreciation_etruck_per_truck": ("BUILDING", "ELECTRIC_VEHICLE"),
     "depreciation_dieseltruck_per_truck": ("BUILDING", "DIESEL_VEHICLE"),
-    "hourly_price_of_electricity_per_mwh": (
-        "SystemHourlyElectricity",
-        "",
-    ),  # TODO: check this key
-    "depreciation_costs_industry_electrolyser_per_kw": (
-        "INDUSTRY",
-        "ELECTROLYSER",
-    ),  # TODO: check this key
     "hourly_price_of_electricity_per_mwh": (
         "SystemHourlyElectricity",
         "",
@@ -53,15 +32,14 @@ ETM_MAPPING = {
         "totalBatteryInstalledCapacity_MWh:Grid_battery",
         "",
     ),
-    "depreciation_costs_households_battery_per_kwh": (
-        "totalBatteryInstalledCapacity_kWh:Households_battery",
-        "",
-    ),  # TODO: check this key
 }
 
 
 def calculate_total_costs(
-    etm_inputs: dict, holon_config_gridconnections: list, holon_outputs: list
+    etm_inputs: dict,
+    holon_config_gridconnections: list,
+    holon_outputs: list,
+    hourly_curves: list,
 ) -> float:
     """Calculates the costs KPI's - if we need it they can be reported back per category as well"""
     categories = Categories()
@@ -234,10 +212,8 @@ class Categories:
             return holon_output[cost_item]
 
         if cost_item.split(":")[0] in holon_output:
-            print("Looking for:", cost_item.split(":")[1])
-            if cost_item.split(":")[1] in holon_output[cost_item.split(":")[0]]:
-                top_item, sub_item = cost_item.split(":")
-                return holon_output[top_item][sub_item]
+            top_item, sub_item = cost_item.split(":")
+            return holon_output[top_item][sub_item]
 
         return None
 
