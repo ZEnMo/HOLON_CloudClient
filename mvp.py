@@ -87,9 +87,9 @@ gridconnections = [
         capacity_kw=750,
         charging_mode="MAX_POWER",
         battery_mode="BALANCE",
-        # nfATO_capacity_kw=900.0,
-        # nfATO_starttime=18.0,
-        # nfATO_endtime=7.0,
+        nfATO_capacity_kw=900.0,
+        nfATO_starttime=18.0,
+        nfATO_endtime=7.0,
         assets=[
             *[EHGV] * 6,
             Diesel_Truck,

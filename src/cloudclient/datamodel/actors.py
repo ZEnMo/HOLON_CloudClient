@@ -15,14 +15,12 @@ class ActorTypeEnum(Enum):
 class SubTypeEnum(Enum):
     commercial = "commercial"
 
-
 class Actor(BaseModel, extra=Extra.forbid):
     category: ActorTypeEnum
     type: Optional[SubTypeEnum]
     id: str
     parent_actor: str
-    contracts: Optional[List[Contract]]
-
+    contracts : Optional[List[Contract]]
 
 class NonFirmActor(Actor):
     nfATO_capacity_kw: float

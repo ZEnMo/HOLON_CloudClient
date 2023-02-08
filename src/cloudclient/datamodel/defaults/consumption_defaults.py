@@ -23,7 +23,7 @@ Industry_steel_heat = HeatConsumptionAsset(
 Industry_other_heat_demand = HeatConsumptionAsset(
     name="INDUSTRY_OTHER_HEAT_DEMAND",
     type="HEAT_DEMAND",
-    yearlyDemandHeat_kWh=600000.0,
+    yearlyDemandHeat_kWh=600000,
 )
 House_hot_water = HeatConsumptionAsset(
     name="House_hot_water",
@@ -32,16 +32,16 @@ House_hot_water = HeatConsumptionAsset(
 )
 House_other_electricity = ElectricConsumptionAsset(
     name="House_other_electricity",
-    type="ELECTRICITY_DEMAND",
+    type="OTHER_ELECTRICITY_CONSUMPTION",
     yearlyDemandElectricity_kWh=2479,
 )
 Office_other_electricity = ElectricConsumptionAsset(
     name="Office_other_electricity",
-    type="ELECTRICITY_DEMAND",
-    yearlyDemandElectricity_kWh=10000000.0,
+    type="OTHER_ELECTRICITY_CONSUMPTION",
+    yearlyDemandElectricity_kWh=120000,
 )
 Store_other_electricity = ElectricConsumptionAsset(
     name="Store_other_electricity",
-    type="ELECTRICITY_DEMAND",
+    type="OTHER_ELECTRICITY_CONSUMPTION",
     yearlyDemandElectricity_kWh=35000,
 )

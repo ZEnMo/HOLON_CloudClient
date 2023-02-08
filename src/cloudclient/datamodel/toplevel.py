@@ -10,8 +10,6 @@ class Payload(BaseModel):
     gridnodes: List[GridNode]
     actors: List[Actor]
     policies: List[Policy]
-    etm_upscale_sliders: dict
-    etm_upscale_curve_labels: dict
 
     def to_json(self):
         return {

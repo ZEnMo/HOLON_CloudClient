@@ -2,7 +2,6 @@ from cloudclient.datamodel import (
     HeatStorageAsset,
     ElectricStorageAsset,
     VehicleElectricStorageAsset,
-    StorageAssetTypeEnum,
 )
 
 House_battery = ElectricStorageAsset(
@@ -111,8 +110,8 @@ EHGV = VehicleElectricStorageAsset(
     stateOfCharge_r=1.0,
     storageCapacity_kWh=500,
     capacityElectricity_kW=100,
-    energyConsumption_kWhpkm=1.1,
-    vehicleScaling=10,
+    energyConsumption_kWhpkm=1.3,
+    vehicleScaling=5,
 )
 District_Heating_heat_buffer_HT_S = HeatStorageAsset(
     name="District_Heating_heat_buffer_HT_S",
@@ -150,31 +149,24 @@ District_Heating_network_MT_S = HeatStorageAsset(
     heatCapacity_JpK=10000000.0,
     ambientTempType="GROUND",
 )
-
-
-class Grid_battery(ElectricStorageAsset):
-    # capacityElectricity_kW: float
-    storageCapacity_kWh = 10000.0
-    capacityElectricity_kW = storageCapacity_kWh * 0.2
-    name = "Grid_battery"
-    type = StorageAssetTypeEnum.storage_electric
-    # capacityElectricity_kW = (2000,)
-    stateOfCharge_r = 0.5
-    # storageCapacity_kWh=10000,
-
-
-Grid_battery_7MWh = ElectricStorageAsset(
-    name="Grid_battery_7MWh",
+Grid_battery_1MW = ElectricStorageAsset(
+    name="Grid_battery_1MW",
     type="STORAGE_ELECTRIC",
-    capacityElectricity_kW=2000,
+    capacityElectricity_kW=1000,
     stateOfCharge_r=0.5,
-    storageCapacity_kWh=7000,
+    storageCapacity_kWh=1000,
 )
-
 Grid_battery_10MWh = ElectricStorageAsset(
     name="Grid_battery_10MWh",
     type="STORAGE_ELECTRIC",
     capacityElectricity_kW=2000,
     stateOfCharge_r=0.5,
     storageCapacity_kWh=10000,
+)
+Grid_battery_7MWh = ElectricStorageAsset(
+    name="Grid_battery_7MWh",
+    type="STORAGE_ELECTRIC",
+    capacityElectricity_kW=1000,
+    stateOfCharge_r=0.5,
+    storageCapacity_kWh=7000,
 )
