@@ -12,7 +12,7 @@ House_heatpump_MT_S = TransportHeatConversionAsset(
     capacityElectricity_kW=4,
     eta_r=0.5,
     deliveryTemp_degC=60.0,
-    #ambientTempType="AIR",
+    # ambientTempType="AIR",
 )
 
 House_heatpump_MT_M = TransportHeatConversionAsset(
@@ -21,7 +21,7 @@ House_heatpump_MT_M = TransportHeatConversionAsset(
     capacityElectricity_kW=6,
     eta_r=0.6,
     deliveryTemp_degC=60.0,
-    #ambientTempType="AIR",
+    # ambientTempType="AIR",
 )
 
 House_heatpump_MT_L = TransportHeatConversionAsset(
@@ -30,7 +30,7 @@ House_heatpump_MT_L = TransportHeatConversionAsset(
     capacityElectricity_kW=11,
     eta_r=0.6,
     deliveryTemp_degC=60.0,
-    #ambientTempType="AIR",
+    # ambientTempType="AIR",
 )
 Diesel_Truck = VehicleConversionAsset(
     type="DIESEL_VEHICLE",
@@ -48,6 +48,7 @@ Diesel_Vehicle = VehicleConversionAsset(
     vehicleScaling=1,
 )
 
+
 class House_gas_burner(ChemicalHeatConversionAsset):
     name = "House_gas_burner"
     type = ConversionAssetTypeEnum.gas_burner
@@ -64,12 +65,13 @@ House_DH_heatdeliveryset = ChemicalHeatConversionAsset(
     deliveryTemp_degC=90.0,
 )
 
-Electrolyser = ElectricCoversionAsset(
-    name="Electrolyser",
-    type="ELECTROLYSER",
-    capacityElectricity_kW=100,
-    eta_r=0.6,
-)
+
+class Electrolyser(ElectricCoversionAsset):
+    name = "Electrolyser"
+    type = ConversionAssetTypeEnum.electrolyser
+    capacityElectricity_kW = 100.0
+    eta_r = 0.6
+
 
 DH_gas_burner_S = ChemicalHeatConversionAsset(
     name="DH_gas_burner_S",
@@ -85,7 +87,7 @@ DH_heat_pump_HT_S = TransportHeatConversionAsset(
     capacityElectricity_kW=100,
     eta_r=0.5,
     deliveryTemp_degC=90.0,
-    #ambientTempType="GROUND",
+    # ambientTempType="GROUND",
 )
 
 DH_boiler_L = ChemicalHeatConversionAsset(
@@ -127,5 +129,5 @@ Building_heatpump_20kW = TransportHeatConversionAsset(
     capacityElectricity_kW=20,
     eta_r=0.6,
     deliveryTemp_degC=60.0,
-    #ambientTempType="AIR",
+    # ambientTempType="AIR",
 )

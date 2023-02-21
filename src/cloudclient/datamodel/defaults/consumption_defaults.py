@@ -1,4 +1,8 @@
-from cloudclient.datamodel import HeatConsumptionAsset, ElectricConsumptionAsset, ElectricHob
+from cloudclient.datamodel import (
+    HeatConsumptionAsset,
+    ElectricConsumptionAsset,
+    ElectricHob,
+)
 from cloudclient.datamodel.assets.consumption import *
 
 Industry_steel_electricity = ElectricConsumptionAsset(
@@ -21,11 +25,14 @@ Industry_steel_heat = HeatConsumptionAsset(
     type="HEAT_DEMAND",
     yearlyDemandHeat_kWh=1000000,
 )
-Industry_other_heat_demand = HeatConsumptionAsset(
-    name="INDUSTRY_OTHER_HEAT_DEMAND",
-    type="HEAT_DEMAND",
-    yearlyDemandHeat_kWh=600000.0,
-)
+
+
+class Industry_other_heat_demand(HeatConsumptionAsset):
+    name = "INDUSTRY_OTHER_HEAT_DEMAND"
+    type = ConsumptionAssetTypeEnum.heat_demand
+    yearlyDemandHeat_kWh = 600000.0
+
+
 House_hot_water = HeatConsumptionAsset(
     name="House_hot_water",
     type="HOT_WATER_CONSUMPTION",
@@ -37,18 +44,16 @@ House_other_electricity = ElectricConsumptionAsset(
     yearlyDemandElectricity_kWh=11000,
 )
 
-Electric_hob = ElectricHob(
-    name = "Electric hob",
-    type = "ELECTRIC_HOB",
-    capacity_kW = 5.0
-)
+Electric_hob = ElectricHob(name="Electric hob", type="ELECTRIC_HOB", capacity_kW=5.0)
+
 
 class Office_other_electricity(ElectricConsumptionAsset):
     name = "Office_other_electricity"
     type = ConsumptionAssetTypeEnum.electricity_demand
     yearlyDemandElectricity_kWh = 12000000.0
 
+
 class Store_other_electricity(ElectricConsumptionAsset):
-    name="Store_other_electricity"
-    type=ConsumptionAssetTypeEnum.electricity_demand
+    name = "Store_other_electricity"
+    type = ConsumptionAssetTypeEnum.electricity_demand
     yearlyDemandElectricity_kWh = 35000.0

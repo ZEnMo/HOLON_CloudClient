@@ -1,242 +1,494 @@
 [
   {
     "category": "CONNECTIONOWNER",
-    "type": "commercial",
+    "group": "commercial",
     "id": "com1",
-    "parent_actor": "hol1",
     "contracts": [
       {
-        "type": "DEFAULT",
-        "contract_scope": "ENERGYHOLON"
+        "contractType": "DELIVERY",
+        "contractScope": "sup1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": "ELECTRICITY_VARIABLE",
+        "deliveryPrice_eurpkWh": 0.0,
+        "feedinPrice_eurpkWh": 0.0,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": null
       },
       {
-        "type": "NONFIRMATO",
-        "contract_scope": "GRIDOPERATOR",
+        "contractType": "CONNECTION",
+        "contractScope": "dso1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": 2000.0,
+        "nfATO_starttime_h": 20.0,
         "nfATO_endtime_h": 7.0,
-        "nfATO_capacity_kW": 4000.0,
-        "nfATO_starttime_h": 20.0
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": null,
+        "ConnectionContractType": "NFATO"
       },
       {
-        "type": "VARIABLE",
-        "contract_scope": "ENERGYSUPPLIER"
+        "contractType": "TRANSPORT",
+        "contractScope": "dso1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": "DEFAULT"
+      },
+      {
+        "contractType": "TAX",
+        "contractScope": "gov1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": "SALDEREN",
+        "taxDelivery_eurpkWh": 0.15,
+        "taxFeedin_eurpkWh": 0.15,
+        "proportionalTax_pct": null,
+        "transportContractType": null
       }
     ]
   },
   {
     "category": "CONNECTIONOWNER",
-    "type": "commercial",
+    "group": "commercial",
     "id": "com5",
-    "parent_actor": "hol1",
     "contracts": [
       {
-        "type": "DEFAULT",
-        "contract_scope": "ENERGYHOLON"
+        "contractType": "DELIVERY",
+        "contractScope": "sup1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": "ELECTRICITY_VARIABLE",
+        "deliveryPrice_eurpkWh": 0.0,
+        "feedinPrice_eurpkWh": 0.0,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": null
       },
       {
-        "type": "NONFIRMATO",
-        "contract_scope": "GRIDOPERATOR",
+        "contractType": "CONNECTION",
+        "contractScope": "dso1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": 2000.0,
+        "nfATO_starttime_h": 20.0,
         "nfATO_endtime_h": 7.0,
-        "nfATO_capacity_kW": 4000.0,
-        "nfATO_starttime_h": 20.0
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": null,
+        "ConnectionContractType": "NFATO"
       },
       {
-        "type": "VARIABLE",
-        "contract_scope": "ENERGYSUPPLIER"
+        "contractType": "TRANSPORT",
+        "contractScope": "dso1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": "DEFAULT"
+      },
+      {
+        "contractType": "TAX",
+        "contractScope": "gov1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": "SALDEREN",
+        "taxDelivery_eurpkWh": 0.15,
+        "taxFeedin_eurpkWh": 0.15,
+        "proportionalTax_pct": null,
+        "transportContractType": null
       }
     ]
   },
   {
     "category": "CONNECTIONOWNER",
-    "type": "commercial",
+    "group": "commercial",
     "id": "com2",
-    "parent_actor": "hol1",
     "contracts": [
       {
-        "type": "DEFAULT",
-        "contract_scope": "ENERGYHOLON"
+        "contractType": "DELIVERY",
+        "contractScope": "sup1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": "ELECTRICITY_VARIABLE",
+        "deliveryPrice_eurpkWh": 0.0,
+        "feedinPrice_eurpkWh": 0.0,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": null
+      },
+      {
+        "contractType": "CONNECTION",
+        "contractScope": "dso1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": null,
+        "ConnectionContractType": "DEFAULT"
+      },
+      {
+        "contractType": "TRANSPORT",
+        "contractScope": "dso1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": "DEFAULT"
+      },
+      {
+        "contractType": "TAX",
+        "contractScope": "gov1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": "SALDEREN",
+        "taxDelivery_eurpkWh": 0.15,
+        "taxFeedin_eurpkWh": 0.15,
+        "proportionalTax_pct": null,
+        "transportContractType": null
       }
     ]
   },
   {
     "category": "CONNECTIONOWNER",
-    "type": "commercial",
+    "group": "commercial",
     "id": "com3",
-    "parent_actor": "hol1",
     "contracts": [
       {
-        "type": "DEFAULT",
-        "contract_scope": "ENERGYHOLON"
+        "contractType": "DELIVERY",
+        "contractScope": "sup1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": "ELECTRICITY_VARIABLE",
+        "deliveryPrice_eurpkWh": 0.0,
+        "feedinPrice_eurpkWh": 0.0,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": null
+      },
+      {
+        "contractType": "CONNECTION",
+        "contractScope": "dso1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": null,
+        "ConnectionContractType": "DEFAULT"
+      },
+      {
+        "contractType": "TRANSPORT",
+        "contractScope": "dso1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": "DEFAULT"
+      },
+      {
+        "contractType": "TAX",
+        "contractScope": "gov1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": "SALDEREN",
+        "taxDelivery_eurpkWh": 0.15,
+        "taxFeedin_eurpkWh": 0.15,
+        "proportionalTax_pct": null,
+        "transportContractType": null
       }
     ]
   },
   {
     "category": "CONNECTIONOWNER",
-    "type": "commercial",
+    "group": "commercial",
     "id": "com4",
-    "parent_actor": "hol1",
     "contracts": [
       {
-        "type": "DEFAULT",
-        "contract_scope": "ENERGYHOLON"
+        "contractType": "DELIVERY",
+        "contractScope": "sup1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": "ELECTRICITY_VARIABLE",
+        "deliveryPrice_eurpkWh": 0.0,
+        "feedinPrice_eurpkWh": 0.0,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": null
+      },
+      {
+        "contractType": "CONNECTION",
+        "contractScope": "dso1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": null,
+        "ConnectionContractType": "DEFAULT"
+      },
+      {
+        "contractType": "TRANSPORT",
+        "contractScope": "dso1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": "DEFAULT"
+      },
+      {
+        "contractType": "TAX",
+        "contractScope": "gov1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": "SALDEREN",
+        "taxDelivery_eurpkWh": 0.15,
+        "taxFeedin_eurpkWh": 0.15,
+        "proportionalTax_pct": null,
+        "transportContractType": null
       }
     ]
   },
   {
     "category": "ENERGYSUPPLIER",
-    "type": null,
+    "group": "energysuppliers",
     "id": "sup1",
-    "parent_actor": "nat",
     "contracts": []
   },
   {
     "category": "ENERGYHOLON",
-    "type": null,
+    "group": "energyholons",
     "id": "hol1",
-    "parent_actor": "sup1",
     "contracts": [
       {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
+        "contractType": "DELIVERY",
+        "contractScope": "sup1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": "ELECTRICITY_VARIABLE",
+        "deliveryPrice_eurpkWh": 0.0,
+        "feedinPrice_eurpkWh": 0.0,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": null
       },
       {
-        "type": "NONFIRMATO",
-        "contract_scope": "GRIDOPERATOR",
-        "nfATO_endtime_h": 7.0,
-        "nfATO_capacity_kW": 5000.0,
-        "nfATO_starttime_h": 20.0
+        "contractType": "CONNECTION",
+        "contractScope": "dso1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": null,
+        "ConnectionContractType": "DEFAULT"
+      },
+      {
+        "contractType": "TRANSPORT",
+        "contractScope": "dso1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": null,
+        "taxDelivery_eurpkWh": null,
+        "taxFeedin_eurpkWh": null,
+        "proportionalTax_pct": null,
+        "transportContractType": "DEFAULT"
+      },
+      {
+        "contractType": "TAX",
+        "contractScope": "gov1",
+        "energyCarrier": "ELECTRICITY",
+        "DeliveryContractType": null,
+        "deliveryPrice_eurpkWh": null,
+        "feedinPrice_eurpkWh": null,
+        "annualFee_eur": 100.0,
+        "ConnectionContracType": null,
+        "nfATO_capacity_kW": null,
+        "nfATO_starttime_h": null,
+        "nfATO_endtime_h": null,
+        "taxContractType": "SALDEREN",
+        "taxDelivery_eurpkWh": 0.15,
+        "taxFeedin_eurpkWh": 0.15,
+        "proportionalTax_pct": null,
+        "transportContractType": null
       }
     ]
   },
   {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh1",
-    "parent_actor": "hol1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh2",
-    "parent_actor": "hol1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh3",
-    "parent_actor": "hol1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh4",
-    "parent_actor": "hol1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh5",
-    "parent_actor": "hol1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh6",
-    "parent_actor": "hol1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh7",
-    "parent_actor": "hol1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh8",
-    "parent_actor": "hol1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": null,
-    "id": "hh9",
-    "parent_actor": "hol1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": "commercial",
-    "id": "com1",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
-  },
-  {
-    "category": "CONNECTIONOWNER",
-    "type": "commercial",
-    "id": "com2",
-    "parent_actor": "sup1",
-    "contracts": [
-      {
-        "type": "FIXED",
-        "contract_scope": "ENERGYSUPPLIER"
-      }
-    ]
+    "category": "GRIDOPERATOR",
+    "group": "gridoperators",
+    "id": "dso1",
+    "contracts": []
   }
 ]

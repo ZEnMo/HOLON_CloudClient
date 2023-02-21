@@ -18,13 +18,13 @@ class SubTypeEnum(Enum):
 
 class Actor(BaseModel, extra=Extra.forbid):
     category: ActorTypeEnum
-    type: Optional[SubTypeEnum]
+    group: str
     id: str
-    parent_actor: str
-    contracts = []  #Optional[List[Contract]]
+    # parent_actor: str
+    contracts = []  # Optional[List[Contract]]
 
 
-class NonFirmActor(Actor):
-    nfATO_capacity_kw: float
-    nfATO_starttime: float
-    nfATO_endtime: float
+# class NonFirmActor(Actor):
+# nfATO_capacity_kw: float
+# nfATO_starttime: float
+# nfATO_endtime: float
