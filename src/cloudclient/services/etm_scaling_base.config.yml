@@ -20,6 +20,9 @@
 #                         converted with. E.g for 'divide' this is the value to be divided by.
 #                         This value has the same properties as the main 'value' field.
 
+
+# Sliders
+
 share_of_buildings_with_solar_panels: # deze HOLON-slidernaam moet nog worden geüpdatet, is nu nog onbekend
   value:
     type: input
@@ -41,7 +44,9 @@ installed_energy_grid_battery:
   convert_with_value:
     type: static
     value: 175 # divided by 100 since both the button and the slider will use this. Not 0 or 1 but a whole range is possible between 0 and 100
-    key: scaling_factor_grid_batteries
+    key: scaling_factor_grid_batteries # mandatory key for dict
+
+# Curves
 
 # hourly profile electric trucks
 totalEHGVHourlyChargingProfile_kWh:
@@ -62,4 +67,3 @@ totalGridBatteryHourlyChargingProfile_kWh:
   value:
     type: curve
     data: curve
-    etm_key: batteries

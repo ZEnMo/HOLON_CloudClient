@@ -1,0 +1,99 @@
+# Specify the ETM keys of what to set in the ETM.
+# You can add conversions based on static values.
+# The name of the item is how it will be expected to be called when input values are given:
+#
+# <ITEM_NAME>:
+#   value:                The main value on which conversions will be done
+#     type:               Which type of ETM request is needed. Right now only 'query', 'input' and
+#                         'node_property' are supported. In the future the curves endpoint
+#                         can be added as well.
+#     data:               What data to look for / expect. For queries this can be either
+#                         'value' or 'curve'. For node properties you can specify which
+#                         property of the node is needed. The path to the property should be
+#                         separated by dots ('.'), for example:
+#                         technical.electricity_output_conversion.future
+#                         For inputs this should always be 'value'
+#     etm_key:            The key of the query to send to the ETM, or the name of the node
+#   conversion:           If a conversion is nesccesary, please specify. Currently only 'divide'
+#                         and 'multiply' are supported.
+#   convert_with_value:   When conversion is set, specify with which ETM value the item should be
+#                         converted with. E.g for 'divide' this is the value to be divided by.
+#                         This value has the same properties as the main 'value' field.
+
+
+# Case specific scaling factor
+
+# E demand of buildings sector in 2019 / E demand of buildings in HOLON in base case
+factor_of_holon_to_national_buildings: 50.0 # placeholder value, TODO: update and check, see if it can/should be queried dynamically
+
+# Number of trucks allocated to buildings sector in 2019 / number of trucks national in 2019
+share_of_national_buildings_trucks_in_national_total_trucks: 0.60  # placeholder value, TODO: update and check, see if it can/should be queried dynamically
+
+# Sliders
+
+installed_capacity_wind_turbines_on_land: # needs to be additional to existing value, TODO: implement this option
+  value:
+    type: input
+    data: value
+    etm_key: capacity_of_energy_power_wind_turbine_inland
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: factor_of_holon_to_national_buildings
+    key: scaling_factor_energy_hub # mandatory key for dict, TODO: check if this can have duplicates
+
+installed_capacity_solar_on_land: # needs to be additional to existing value, TODO: implement this option
+  value:
+    type: input
+    data: value
+    etm_key: capacity_of_energy_power_solar_pv_solar_radiation
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: factor_of_holon_to_national_buildings
+    key: scaling_factor_energy_hub # mandatory key for dict, TODO: check if this can have duplicates
+
+installed_energy_grid_battery: # TODO check whether MWh or MW, update description (optional), check need for conversion
+  value:
+    type: input
+    data: value
+    etm_key: capacity_of_energy_flexibility_mv_batteries_electricity
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: factor_of_holon_to_national_buildings
+    key: scaling_factor_energy_hub # mandatory key for dict, TODO: check if this can have duplicates
+
+share_of_electric_trucks: # needs to be additional to existing value, TODO: implement this option
+  value:
+    type: input
+    data: value
+    etm_key: transport_truck_using_electricity_share
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: share_of_national_buildings_trucks_in_national_total_trucks
+    key: scaling_factor_energy_hub # mandatory key for dict, TODO: check if this can have duplicates
+
+
+# Curves
+
+# # hourly profile electric trucks
+# totalEHGVHourlyChargingProfile_kWh:
+#   value:
+#     type: curve
+#     data: curve
+#     etm_key: electric_trucks
+    
+# # # hourly profile electric cars
+# # totalEVHourlyChargingProfile_kWh:
+# #   value:
+# #     type: curve
+# #     data: curve
+# #     etm_key: electric_vehicle_profile_1
+
+# # hourly profile grid batteries
+# totalGridBatteryHourlyChargingProfile_kWh:
+#   value:
+#     type: curve
+#     data: curve
