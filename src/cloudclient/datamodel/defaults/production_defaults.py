@@ -1,4 +1,4 @@
-from cloudclient.datamodel import ElectricProductionAsset, ProductionAssetTypeEnum
+from cloudclient.datamodel import ElectricProductionAsset, HeatProductionAsset, ProductionAssetTypeEnum
 
 
 House_solarpanels_S = ElectricProductionAsset(
@@ -123,3 +123,16 @@ Building_solarpanels_10kWp = ElectricProductionAsset(
     type="PHOTOVOLTAIC",
     capacityElectricity_kW=10.0,
 )
+
+class ResidualHeat_HT(HeatProductionAsset):
+    name = "Residual_heat"
+    type = ProductionAssetTypeEnum.residualheatHT
+    deliveryTemp_degC = 95.0
+    capacityHeat_kW = 3000.0
+    
+
+class ResidualHeat_LT(HeatProductionAsset):
+    name = "Residual_heat"
+    type = ProductionAssetTypeEnum.residualheatLT
+    deliveryTemp_degC = 15.0
+    capacityHeat_kW = 3000.0

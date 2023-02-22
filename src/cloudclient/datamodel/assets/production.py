@@ -6,7 +6,11 @@ from typing import Optional
 class ProductionAssetTypeEnum(Enum):
     photovoltaic = "PHOTOVOLTAIC"
     windmill = "WINDMILL"
+    residualheatHT = "RESIDUALHEATHT"
+    residualheatLT = "RESIDUALHEATLT"
 
+
+    
 
 class ProductionAsset(EnergyAsset):
     category = "PRODUCTION"
@@ -20,6 +24,7 @@ class ElectricProductionAsset(ProductionAsset):
 
 class HeatProductionAsset(ProductionAsset):
     capacityHeat_kW: float
+    deliveryTemp_degC: float
 
 
 class HybridProductionAsset(ElectricProductionAsset, HeatProductionAsset):

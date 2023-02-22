@@ -5,5 +5,7 @@ from .storage_defaults import *
 from .houses_defaults import *
 from .buildings_defaults import *
 from .industry_defaults import *
+from .productionconnection_defaults import *
+from .DHGC_defaults import *
 from .actors_defaults import *
 from .contracts_defaults import *

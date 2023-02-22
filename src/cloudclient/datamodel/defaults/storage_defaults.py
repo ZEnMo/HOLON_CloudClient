@@ -140,16 +140,31 @@ House_heat_buffer = HeatStorageAsset(
 District_Heating_heat_buffer_HT_S = HeatStorageAsset(
     name="District_Heating_heat_buffer_HT_S",
     type="STORAGE_HEAT",
-    capacityHeat_kW=1000.0,
+    capacityHeat_kW=2000.0,
     #stateOfCharge_r=0.75,
-    initial_temperature_degC = 70,
-    minTemp_degC=10,
-    maxTemp_degC=90,
-    setTemp_degC=70,
-    lossFactor_WpK=300,
-    heatCapacity_JpK=10000000000.0,
+    initial_temperature_degC = 90,
+    minTemp_degC=70,
+    maxTemp_degC=100,
+    setTemp_degC=90,
+    lossFactor_WpK=3,
+    heatCapacity_JpK=120000000.0,
     ambientTempType="GROUND",
 )
+
+District_Heating_heat_buffer_MT_S = HeatStorageAsset(
+    name="District_Heating_heat_buffer_MT_S",
+    type="STORAGE_HEAT",
+    capacityHeat_kW=2000.0,
+    #stateOfCharge_r=0.75,
+    initial_temperature_degC = 50,
+    minTemp_degC=40,
+    maxTemp_degC=60,
+    setTemp_degC=50,
+    lossFactor_WpK=3,
+    heatCapacity_JpK=120000000.0,
+    ambientTempType="GROUND",
+)
+
 District_Heating_network_HT_S = HeatStorageAsset(
     name="District_Heating_network_HT_S",
     type="STORAGE_HEAT",
@@ -163,6 +178,35 @@ District_Heating_network_HT_S = HeatStorageAsset(
     heatCapacity_JpK=10000000.0,
     ambientTempType="GROUND",
 )
+
+District_Heating_network_HT_L = HeatStorageAsset(
+    name="District_Heating_network_HT_L",
+    type="STORAGE_HEAT",
+    capacityHeat_kW=1000.0,
+    #stateOfCharge_r=1.0,
+    initial_temperature_degC = 90,
+    minTemp_degC=70,
+    maxTemp_degC=100,
+    setTemp_degC=90,
+    lossFactor_WpK=10000,
+    heatCapacity_JpK=1000000000.0,
+    ambientTempType="GROUND",
+)
+
+District_Heating_network_LT_L = HeatStorageAsset(
+    name="District_Heating_network_LT_L",
+    type="STORAGE_HEAT",
+    capacityHeat_kW=1000.0,
+    #stateOfCharge_r=1.0,
+    initial_temperature_degC = 15,
+    minTemp_degC=10,
+    maxTemp_degC=30,
+    setTemp_degC=15,
+    lossFactor_WpK=10000,
+    heatCapacity_JpK=1000000000.0,
+    ambientTempType="GROUND",
+)
+
 District_Heating_network_MT_S = HeatStorageAsset(
     name="District_Heating_network_MT_S",
     type="STORAGE_HEAT",
