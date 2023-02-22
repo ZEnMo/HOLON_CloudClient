@@ -107,6 +107,23 @@ DH_boiler_M = ChemicalHeatConversionAsset(
     deliveryTemp_degC=90.0,
 )
 
+DH_heat_pump_MT_S = TransportHeatConversionAsset(
+    name="DH_heat_pump_HT_S",
+    type="HEAT_PUMP_GROUND",
+    capacityElectricity_kW=100,
+    eta_r=0.5,
+    deliveryTemp_degC=60.0,
+    #ambientTempType="GROUND",
+)
+
+DH_boiler_M = ChemicalHeatConversionAsset(
+    name="DH_boiler_M",
+    type="GAS_BURNER",
+    capacityHeat_kW=300,
+    eta_r=0.95,
+    deliveryTemp_degC=90.0,
+)
+
 DH_boiler_L = ChemicalHeatConversionAsset(
     name="DH_boiler_L",
     type="GAS_BURNER",
@@ -180,4 +197,29 @@ DH_heat_pump_water_MT_M = TransportHeatConversionAsset(
     eta_r=0.5,
     deliveryTemp_degC=60.0,
     # ambientTempType="GROUND",
+)
+
+Methane_CHP_M = ElectricCoversionAsset(
+    name="Methane_CHP_M",
+    type="METHANE_CHP",
+    capacityElectricity_kW=200,
+    eta_r=0.45,
+)
+
+House_water_heatpump_MT_M = TransportHeatConversionAsset(
+    name="House_water_heatpump_MT_M",
+    type="HEAT_PUMP_WATER",
+    capacityElectricity_kW=6,
+    eta_r=0.6,
+    deliveryTemp_degC=60.0,
+    #ambientTempType="GROUND",
+)
+
+DH_heat_pump_water_MT_M = TransportHeatConversionAsset(
+    name="DH_heat_pump_water_MT_M",
+    type="HEAT_PUMP_WATER",
+    capacityElectricity_kW=200,
+    eta_r=0.5,
+    deliveryTemp_degC=60.0,
+    #ambientTempType="GROUND",
 )
