@@ -13,6 +13,7 @@ class ConversionAssetTypeEnum(Enum):
     hydrogen_furnace = "HYDROGEN_FURNACE"
     methane_furnace = "METHANE_FURNACE"
     diesel_vehicle = "DIESEL_VEHICLE"
+    curtailer = "CURTAILER"
 
 
 class ConversionAsset(EnergyAsset):

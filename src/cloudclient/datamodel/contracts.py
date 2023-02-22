@@ -52,15 +52,15 @@ class TaxContractTypeEnum(Enum):
     nietsalderen = "NIETSALDEREN"
 
 
-class Contract(BaseModel, extra=Extra.allow):
+class Contract(BaseModel, extra=Extra.forbid):
     contractType: ContractTypeEnum
     contractScope: str
     energyCarrier: EnergyCarrierEnum
-    DeliveryContractType: Optional[DeliveryContractTypeEnum]
+    deliveryContractType: Optional[DeliveryContractTypeEnum]
     deliveryPrice_eurpkWh: Optional[float]
     feedinPrice_eurpkWh: Optional[float]
     annualFee_eur: Optional[float]
-    ConnectionContracType: Optional[ConnectionContractTypeEnum]
+    connectionContractType: Optional[ConnectionContractTypeEnum]
     nfATO_capacity_kW: Optional[float]
     nfATO_starttime_h: Optional[float]
     nfATO_endtime_h: Optional[float]
@@ -71,3 +71,5 @@ class Contract(BaseModel, extra=Extra.allow):
     proportionalTax_pct: Optional[float]
 
     transportContractType: Optional[TransportContractTypeEnum]
+    bandwidthTreshold_kW: Optional[float]
+    bandwidthTariff_eurpkWh: Optional[float]

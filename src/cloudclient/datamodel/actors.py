@@ -19,6 +19,7 @@ class SubTypeEnum(Enum):
 class Actor(BaseModel, extra=Extra.forbid):
     category: ActorTypeEnum
     group: str
+    subgroup = ""
     id: str
     # parent_actor: str
     contracts = []  # Optional[List[Contract]]

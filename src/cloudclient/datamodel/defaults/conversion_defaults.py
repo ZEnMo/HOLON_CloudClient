@@ -131,3 +131,10 @@ Building_heatpump_20kW = TransportHeatConversionAsset(
     deliveryTemp_degC=60.0,
     # ambientTempType="AIR",
 )
+
+
+class Curtailer(ElectricCoversionAsset):
+    name = "Curtailer"
+    type = ConversionAssetTypeEnum.curtailer
+    capacityElectricity_kW = 10000.0
+    eta_r = 0.0

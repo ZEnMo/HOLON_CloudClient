@@ -4,7 +4,7 @@ from cloudclient.datamodel.contracts import *
 
 class Contract_Energysupplier_default(Contract):
     contractType = ContractTypeEnum.delivery
-    DeliveryContractType = DeliveryContractTypeEnum.fixed
+    deliveryContractType = DeliveryContractTypeEnum.fixed
     contractScope = "sup1"
     energyCarrier = EnergyCarrierEnum.electricity
     deliveryPrice_eurpkWh = 0.15
@@ -13,7 +13,7 @@ class Contract_Energysupplier_default(Contract):
 
 class Contract_Energysupplier_variable(Contract):
     contractType = ContractTypeEnum.delivery
-    DeliveryContractType = DeliveryContractTypeEnum.variable
+    deliveryContractType = DeliveryContractTypeEnum.variable
     contractScope = "sup1"
     energyCarrier = EnergyCarrierEnum.electricity
     deliveryPrice_eurpkWh = 0.0
