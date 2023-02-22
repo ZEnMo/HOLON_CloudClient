@@ -27,6 +27,7 @@ class ElectricGridNode(GridNode):
 
 
 class HeatGridTypeEnum(Enum):
+    lt = "LT"
     mt = "MT"
     ht = "HT"
 
@@ -34,3 +35,4 @@ class HeatGridTypeEnum(Enum):
 class HeatGridNode(GridNode):
     type: HeatGridTypeEnum
     category = "HEAT"
+    assets = []

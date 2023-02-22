@@ -14,3 +14,4 @@ class EnergyAsset(BaseModel, extra=Extra.forbid):
 class AmbientTempTypeEnum(str, Enum):
     air = "AIR"
     ground = "GROUND"
+    water = "WATER"

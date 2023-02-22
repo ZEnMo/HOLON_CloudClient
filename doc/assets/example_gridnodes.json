@@ -14,5 +14,28 @@
     "parent": null,
     "type": "HSMS",
     "category": "ELECTRICITY"
+  },
+  {
+    "owner_actor": "o1",
+    "id": "H1",
+    "capacity_kw": 500000.0,
+    "parent": null,
+    "type": "LT",
+    "category": "HEAT",
+    "assets": [
+      {
+        "type": "STORAGE_HEAT",
+        "name": "District_Heating_network_LT_L",
+        "category": "STORAGE",
+        "capacityHeat_kW": 1000.0,
+        "initial_temperature_degC": 15.0,
+        "minTemp_degC": 10,
+        "maxTemp_degC": 30,
+        "setTemp_degC": 15,
+        "lossFactor_WpK": 10000.0,
+        "heatCapacity_JpK": 1000000000.0,
+        "ambientTempType": "GROUND"
+      }
+    ]
   }
 ]

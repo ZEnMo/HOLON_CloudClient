@@ -53,6 +53,8 @@ class HeatingTypeEnum(Enum):
     heatpump_boilerpeak = "HEATPUMP_BOILERPEAK"
     heatpump_air = "HEATPUMP_AIR"
     hydrogenfired = "HYDROGENFIRED"
+    gasfired_CHPpeak = "GASFIRED_CHPPEAK"
+    lt_residual_heatpump_gaspeak = "LT_RESIDUAL_HEATPUMP_GASPEAK"
     none = "NONE"
 
 class ChargingModeEnum(Enum):
@@ -72,12 +74,15 @@ class BuiltEnvironmentGridConnection(GridConnection):
 class UtilityGridConnection(GridConnection):
     category = "UTILITY"
     heating_type: HeatingTypeEnum
+    assets = []
 
 
 class HousingTypeEnum(Enum):
     semidetached = "SEMIDETACHED"
     terraced = "TERRACED"
     detached = "DETACHED"
+    appartment = "APPARTMENT"
+    highrise = "HIGHRISE"
 
 
 class HouseGridConnection(BuiltEnvironmentGridConnection):
@@ -104,6 +109,9 @@ class ProductionCategoryEnum(Enum):
     windfarm = "WINDFARM"
     solarfarm = "SOLARFARM"
     gridbattery = "GRIDBATTERY"
+    residualheat = "RESIDUALHEAT"
+    
+
 
 
 class ProductionGridConnection(GridConnection):
@@ -126,5 +134,5 @@ class DistrictHeatingTypeEnum(Enum):
 
 
 class DistrictHeatingGridConnection(UtilityGridConnection):
-    category = "DISTRICT_HEATING"
+    category = "DISTRICTHEATING"
     type: DistrictHeatingTypeEnum

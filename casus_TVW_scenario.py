@@ -117,10 +117,12 @@ from cloudclient.datamodel import Payload, Actor, Contract, defaults
 
 from cloudclient.datamodel.defaults import *
 
-# from cloudclient.datamodel.defaults.gridConnection_defaults import (
+#from cloudclient.datamodel.defaults.gridConnection_defaults import (
 #     House_default,
-#     Office_default
-# )
+#     Office_default,
+#
+#
+#)
 
 # from cloudclient.datamodel.defaults import ()
 
@@ -129,14 +131,29 @@ from cloudclient.datamodel.gridconnections import (
      HouseGridConnection,
      IndustryGridConnection,
      BuildingGridConnection,
-     ProductionGridConnection,
+     ProductionGridConnection,     
 )
 
-config_gridconnection_list= [
-  House_electrified(amount = 300, parent_electric="E2"),
-  #House_electrified_dieselcar(amount = 300, parent_electric="E2"),
+config_gridconnection_list_basic = [
+  #House_electrified(amount = 40, parent_electric="E2"),
+  Store_default(amount=20, parent_electric="E2"),
+  House_default(amount=20, parent_electric="E2", type=HousingTypeEnum.appartment, insulation_label= InsulationLabelEnum.d),
+  
+  House_default(amount=40, parent_electric="E3", type=HousingTypeEnum.semidetached, insulation_label= InsulationLabelEnum.b),
+  
+  House_default(amount=40, parent_electric="E4", type=HousingTypeEnum.appartment, insulation_label= InsulationLabelEnum.a),
+  
+  House_default(amount=40, parent_electric="E5", type=HousingTypeEnum.highrise, insulation_label= InsulationLabelEnum.c),
+  
+  House_default(amount=30, parent_electric="E6", type=HousingTypeEnum.terraced, insulation_label= InsulationLabelEnum.c),
+  House_default(amount=10, parent_electric="E6", type=HousingTypeEnum.semidetached, insulation_label= InsulationLabelEnum.c),
 
-  #House_default(amount=300, parent_electric="E2"),
+  House_default(amount=40, parent_electric="E7", type=HousingTypeEnum.detached, insulation_label= InsulationLabelEnum.f),
+
+  Industry_other_default(amount=1, parent_electric = "E8"),  ## HT heat producer, zelf ook verbruik/opwek stroom?
+  ResidualHeatProducer(amount = 1, parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1", type = "RESIDUALHEAT", assets=[ResidualHeat_HT(capacityHeat_kW = 3000)] ),
+  Industry_other_default(amount = 1, parent_electric = "E9")  ## RWZI heat producer, zelf ook verbruik/opwek stroom?
+
   #House_hybridheatpump(amount = 40, parent_electric="E3"),
   #Office_default(amount = 5, parent_electric="E2"),
   #Store_default(amount = 10, parent_electric="E3"),
@@ -144,15 +161,51 @@ config_gridconnection_list= [
   #Logistics_default(amount = 1, parent_electric="E3")
 ]
 
+config_gridconnection_list_DH = [
+  #House_electrified(amount = 40, parent_electric="E2"),
+  Store_default(amount=20, parent_electric="E2"),
+  House_heatnetwork_basic(amount=20, parent_heat="H1", parent_electric="E2", type=HousingTypeEnum.appartment, insulation_label= InsulationLabelEnum.d),
+  
+  House_heatnetwork_basic(amount=40, parent_heat="H1", parent_electric="E3", type=HousingTypeEnum.semidetached, insulation_label= InsulationLabelEnum.b),
+  
+  House_heatnetwork_basic(amount=40, parent_heat="H1", parent_electric="E4", type=HousingTypeEnum.appartment, insulation_label= InsulationLabelEnum.a),
+  
+  House_heatnetwork_basic(amount=40, parent_heat="H1", parent_electric="E5", type=HousingTypeEnum.highrise, insulation_label= InsulationLabelEnum.c),
+  
+  House_heatnetwork_basic(amount=30, parent_heat="H1", parent_electric="E6", type=HousingTypeEnum.terraced, insulation_label= InsulationLabelEnum.c),
+  House_heatnetwork_basic(amount=10, parent_heat="H1", parent_electric="E6", type=HousingTypeEnum.semidetached, insulation_label= InsulationLabelEnum.c),
+
+  House_heatnetwork_basic(amount=40, parent_heat="H1", parent_electric="E7", type=HousingTypeEnum.detached, insulation_label= InsulationLabelEnum.f),
+
+  Industry_other_default(amount=1, parent_electric = "E8"),  ## HT heat producer, zelf ook verbruik/opwek stroom?
+  #ResidualHeatProducer(amount = 1, parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1", type = "RESIDUALHEATHT", assets=[ResidualHeat_HT(capacityHeat_kW = 600)] ),
+  #ResidualHeatProducer(amount = 1, parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1", type = "RESIDUALHEATLT", assets=[ResidualHeat_LT(capacityHeat_kW = 600)] ),
+  #DistrictHeating_HT_Gasburner(amount = 1, heating_type = "GASFIRED_CHPPEAK", parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1", assets=[DH_boiler_L, Methane_CHP_M, District_Heating_heat_buffer_HT_S]),
+  #DistrictHeating_HT_Heatpump_gaspeak(amount = 1, parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1" ),
+  #DistrictHeating_HT_Heatpump_gaspeak(amount = 1, parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1" ),
+  DistrictHeating_MT_Heatpump_gaspeak(amount = 1, parent_heat = "H1", parent_electric = "E8", heating_type = "LT_RESIDUAL_HEATPUMP_GASPEAK", owner_actor = "sup1", assets=[ResidualHeat_LT(capacityHeat_kW = 600), DH_heat_pump_MT_S, District_Heating_heat_buffer_MT_S ]),
+
+  Industry_other_default(amount = 1, parent_electric = "E9")  ## RWZI heat producer, zelf ook verbruik/opwek stroom?
+
+  #House_hybridheatpump(amount = 40, parent_electric="E3"),
+  #Office_default(amount = 5, parent_electric="E2"),
+  #Store_default(amount = 10, parent_electric="E3"),
+  #Industry_other_default(amount =1, parent_electric = "E3"),
+  #Logistics_default(amount = 1, parent_electric="E3")
+]
+
+## select gridConnection list to use...
+config_gridconnection_list = config_gridconnection_list_DH
+
 config_actors_list = [
     Gridoperator_default(amount = 1, id="o1"),
     Energysupplier_default(amount = 1, id="sup1"),
     #Energysupplier_default(amount = 1, id="sup2"),
-    Energyholon_default(amount = 1, id="hol1", parent_actor = "sup1"),
+    #Energyholon_default(amount = 1, id="hol1", parent_actor = "sup1"),
 
-    Household_default(amount=300, parent_actor = "hol1"),
+    Household_default(amount=20+40+40+40+40+40, parent_actor = "sup1"),
     #Household_default(amount=200, parent_actor = "hol1"),
-    #Commercial_default(amount=16, parent_actor = "sup1"),
+    Commercial_default(amount=20, parent_actor = "sup1"),
     #Commercial_default(amount=25, parent_actor = "hol1")
 ]
 
@@ -179,6 +232,7 @@ for item in config_gridconnection_list:
     #data = config_list[key]
     #####print("key: ",key,"datarow: ", data)
     #print(item)
+    
     for i in range(0, item.amount):
         #print(key,i)
         
@@ -189,11 +243,17 @@ for item in config_gridconnection_list:
         x_ = getattr(defaults, str(item.__class__.__bases__[0].__name__))
         category = x_.__name__
         
-        if( x_.__name__ == "IndustryGridConnection"):
+        print("test******************", category)
+        if( category == "ProductionGridConnection"):
+            gridconnections.append(x_(id=item.id, category = item.category, owner_actor=item.owner_actor, capacity_kw=item.capacity_kw, assets=item.assets, parent_electric=item.parent_electric, parent_heat=item.parent_heat))
+        elif( category == "DistrictHeatingGridConnection"):
+            gridconnections.append(x_(id=item.id, category = item.category, owner_actor=item.owner_actor, capacity_kw=item.capacity_kw, assets=item.assets, parent_electric=item.parent_electric, parent_heat=item.parent_heat, heating_type = item.heating_type, type=item.type))
+        elif( category == "IndustryGridConnection"):
             gridconnections.append(x_(id=item.id, owner_actor=item.owner_actor, capacity_kw=item.capacity_kw, assets=item.assets, heating_type=item.heating_type, type=item.type, parent_electric=item.parent_electric))
+        elif( category == "BuildingGridConnection"):
+            gridconnections.append(x_(id=item.id, owner_actor=item.owner_actor, capacity_kw=item.capacity_kw, insulation_label=item.insulation_label, assets=item.assets, heating_type=item.heating_type, type=item.type, parent_electric=item.parent_electric, parent_heat=item.parent_heat, charging_mode = item.charging_mode))
         else:
-            gridconnections.append(x_(id=item.id, owner_actor=item.owner_actor, capacity_kw=item.capacity_kw, insulation_label=item.insulation_label, assets=item.assets, heating_type=item.heating_type, type=item.type, parent_electric=item.parent_electric, charging_mode = item.charging_mode, smart_assets = item.smart_assets, pricelevel_low_dif_from_avg_eurpkWh = stochasticValue(pricelevel_low_dif_from_avg_eurpkWh_mean, pricelevel_low_dif_from_avg_eurpkWh_stdev), pricelevel_high_dif_from_avg_eurpkWh = stochasticValue(pricelevel_high_dif_from_avg_eurpkWh_mean, pricelevel_high_dif_from_avg_eurpkWh_stdev)))
-            
+            gridconnections.append(x_(id=item.id, owner_actor=item.owner_actor, capacity_kw=item.capacity_kw, insulation_label=item.insulation_label, assets=item.assets, heating_type=item.heating_type, type=item.type, parent_electric=item.parent_electric, parent_heat=item.parent_heat, charging_mode = item.charging_mode, smart_assets = item.smart_assets, pricelevel_low_dif_from_avg_eurpkWh = stochasticValue(pricelevel_low_dif_from_avg_eurpkWh_mean, pricelevel_low_dif_from_avg_eurpkWh_stdev), pricelevel_high_dif_from_avg_eurpkWh = stochasticValue(pricelevel_high_dif_from_avg_eurpkWh_mean, pricelevel_high_dif_from_avg_eurpkWh_stdev)))
 
 
 ## Force unique id's for gridconnections    
@@ -203,19 +263,24 @@ number_of_buildings = 0
 for i in gridconnections:  
     #print("caaataagory ",i.category)
     #print("ifff",i.id)
+    #print("owner actor", i.owner_actor)
+
     if i.category == "HOUSE" and i.id == "":
         number_of_houses = number_of_houses + 1
         id = "h"+str(number_of_houses)
         owner_actor = "hh"+str(number_of_houses)
+        i.id = id
+        if i.owner_actor == "":
+            i.owner_actor = owner_actor
     elif i.category == "BUILDING" or "INDUSTRY" and i.id == "":
         number_of_buildings = number_of_buildings + 1
         id = "b"+str(number_of_buildings)
         owner_actor = "com"+str(number_of_buildings)
-    else:
-        id = "extra"
-        owner_actor = "extra"
-    i.id = id
-    i.owner_actor = owner_actor
+        i.id = id
+        if i.owner_actor == "":
+            i.owner_actor = owner_actor
+        
+
 
     #*[Office_default] * 2
  
@@ -375,7 +440,7 @@ for i in actors:
 
 
 ## gridnodes
-from cloudclient.datamodel.gridnodes import ElectricGridNode
+from cloudclient.datamodel.gridnodes import ElectricGridNode, HeatGridNode
 
 gridnodes = [
     ElectricGridNode(
@@ -395,11 +460,67 @@ gridnodes = [
         type="MSLS",
     ),
     ElectricGridNode(
+        id="E4",
+        parent="E1",
+        owner_actor="o1",
+        capacity_kw=5000,
+        category="ELECTRICITY",
+        type="MSLS",
+    ),
+    ElectricGridNode(
+        id="E5",
+        parent="E1",
+        owner_actor="o1",
+        capacity_kw=5000,
+        category="ELECTRICITY",
+        type="MSLS",
+    ),
+    ElectricGridNode(
+        id="E6",
+        parent="E1",
+        owner_actor="o1",
+        capacity_kw=5000,
+        category="ELECTRICITY",
+        type="MSLS",
+    ),
+    ElectricGridNode(
+        id="E7",
+        parent="E1",
+        owner_actor="o1",
+        capacity_kw=5000,
+        category="ELECTRICITY",
+        type="MSLS",
+    ),
+    ElectricGridNode(
+        id="E8",
+        parent="E1",
+        owner_actor="o1",
+        capacity_kw=5000,
+        category="ELECTRICITY",
+        type="MSLS",
+    ),    
+    ElectricGridNode(
+        id="E9",
+        parent="E1",
+        owner_actor="o1",
+        capacity_kw=5000,
+        category="ELECTRICITY",
+        type="MSLS",
+    ),
+    ElectricGridNode(
         id="E1",
         owner_actor="o1",
         capacity_kw=500000,
         category="ELECTRICITY",
         type="HSMS",
+    ),
+    HeatGridNode(
+        id="H1",
+        owner_actor="o1",
+        capacity_kw=500000,
+        category="HEAT",
+        type="LT",
+        assets=[District_Heating_network_LT_L],
     ),
 ]
 
