@@ -5,7 +5,7 @@ from cloudclient.datamodel.contracts import *
 class Contract_Energysupplier_default(Contract):
     contractType = ContractTypeEnum.delivery
     deliveryContractType = DeliveryContractTypeEnum.fixed
-    contractScope = "sup1"
+    contractScope = ""
     energyCarrier = EnergyCarrierEnum.electricity
     deliveryPrice_eurpkWh = 0.15
     feedinPrice_eurpkWh = 0.15
@@ -14,27 +14,36 @@ class Contract_Energysupplier_default(Contract):
 class Contract_Energysupplier_variable(Contract):
     contractType = ContractTypeEnum.delivery
     deliveryContractType = DeliveryContractTypeEnum.variable
-    contractScope = "sup1"
+    contractScope = ""
+    # contractScope = "sup1"
     energyCarrier = EnergyCarrierEnum.electricity
     deliveryPrice_eurpkWh = 0.0
     feedinPrice_eurpkWh = 0.0
 
 
-# class Contract_Gridoperator_nodal(Contract):
-#     type=ContractTypeEnum.nodalpricing
-#     contract_scope=ContractScopeEnum.gridoperator
+class Contract_Connection_default(Contract):
+    contractType = ContractTypeEnum.connection
+    contractScope = ""
+    # contractScope: str
+    energyCarrier = EnergyCarrierEnum.electricity
+    annualFee_eur = 100.0
+    connectionContractType = ConnectionContractTypeEnum.default
 
-# class Contract_NonfirmATO_night(Contract):
-#     type=ContractTypeEnum.nonfirmato
-#     contract_scope=ContractScopeEnum.gridoperator
-#     nfATO_capacity_kW=5000.0
-#     nfATO_starttime_h=16.0
-#     nfATO_endtime_h=7.0
 
-# class Contract_Holon_default(Contract):
-#     type=ContractTypeEnum.fixed
-#     contract_scope=ContractScopeEnum.energysupplier
+class Contract_Transport_default(Contract):
+    contractType = ContractTypeEnum.transport
+    contractScope = ""
+    # contractScope: str
+    energyCarrier = EnergyCarrierEnum.electricity
+    annualFee_eur = 100.0
+    transportContractType = TransportContractTypeEnum.default
 
-# class Contract_holon_nodal(Contract):
-#     type=ContractTypeEnum.nodalpricing
-#     contract_scope=ContractScopeEnum.gridoperator
+
+class Contract_Tax_default(Contract):
+    contractType = ContractTypeEnum.tax
+    contractScope = ""
+    energyCarrier = EnergyCarrierEnum.electricity
+    taxContractType = TaxContractTypeEnum.salderen
+    taxDelivery_eurpkWh = 0.12
+    taxFeedin_eurpkWh = 0.12
+    proportionalTax_pct = 0.21

@@ -164,7 +164,7 @@ config_gridconnection_list_basic = [
 config_gridconnection_list_DH = [
   #House_electrified(amount = 40, parent_electric="E2"),
   Store_default(amount=20, parent_electric="E2"),
-  House_heatnetwork_basic(amount=20, parent_heat="H1", parent_electric="E2", type=HousingTypeEnum.appartment, insulation_label= InsulationLabelEnum.d),
+  House_heatnetwork_basic(amount=20, parent_heat="H1", parent_electric="E2", type=HousingTypeEnum.appartment, insulation_label= InsulationLabelEnum.d, ),
   
   House_heatnetwork_basic(amount=40, parent_heat="H1", parent_electric="E3", type=HousingTypeEnum.semidetached, insulation_label= InsulationLabelEnum.b),
   
@@ -180,10 +180,11 @@ config_gridconnection_list_DH = [
   Industry_other_default(amount=1, parent_electric = "E8"),  ## HT heat producer, zelf ook verbruik/opwek stroom?
   #ResidualHeatProducer(amount = 1, parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1", type = "RESIDUALHEATHT", assets=[ResidualHeat_HT(capacityHeat_kW = 600)] ),
   #ResidualHeatProducer(amount = 1, parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1", type = "RESIDUALHEATLT", assets=[ResidualHeat_LT(capacityHeat_kW = 600)] ),
-  #DistrictHeating_HT_Gasburner(amount = 1, heating_type = "GASFIRED_CHPPEAK", parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1", assets=[DH_boiler_L, Methane_CHP_M, District_Heating_heat_buffer_HT_S]),
+  DistrictHeating_HT_Gasburner(amount = 1, heating_type = "GASFIRED_CHPPEAK", parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1", assets=[DH_boiler_L, Methane_CHP_M, District_Heating_heat_buffer_HT_S]),
   #DistrictHeating_HT_Heatpump_gaspeak(amount = 1, parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1" ),
   #DistrictHeating_HT_Heatpump_gaspeak(amount = 1, parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1" ),
-  DistrictHeating_MT_Heatpump_gaspeak(amount = 1, parent_heat = "H1", parent_electric = "E8", heating_type = "LT_RESIDUAL_HEATPUMP_GASPEAK", owner_actor = "sup1", assets=[ResidualHeat_LT(capacityHeat_kW = 600), DH_heat_pump_MT_S, District_Heating_heat_buffer_MT_S ]),
+  
+  #DistrictHeating_MT_Heatpump_gaspeak(amount = 1, parent_heat = "H1", parent_electric = "E8", heating_type = "LT_RESIDUAL_HEATPUMP_GASPEAK", owner_actor = "sup1", assets=[ResidualHeat_LT(capacityHeat_kW = 600), DH_heat_pump_MT_S, District_Heating_heat_buffer_MT_S ]),
 
   Industry_other_default(amount = 1, parent_electric = "E9")  ## RWZI heat producer, zelf ook verbruik/opwek stroom?
 
@@ -194,18 +195,25 @@ config_gridconnection_list_DH = [
   #Logistics_default(amount = 1, parent_electric="E3")
 ]
 
+config_gridconnection_list_small = [
+    #House_default(amount=2, parent_electric="E2", type=HousingTypeEnum.appartment, insulation_label= InsulationLabelEnum.d),
+    Industry_other_default(amount = 1, parent_electric = "E9")  ## RWZI heat producer, zelf ook verbruik/opwek stroom?
+                                    ]
+
 ## select gridConnection list to use...
 config_gridconnection_list = config_gridconnection_list_DH
+#config_gridconnection_list = config_gridconnection_list_small
 
 config_actors_list = [
     Gridoperator_default(amount = 1, id="o1"),
     Energysupplier_default(amount = 1, id="sup1"),
     #Energysupplier_default(amount = 1, id="sup2"),
-    #Energyholon_default(amount = 1, id="hol1", parent_actor = "sup1"),
+    #Energyholon_default(amount = 1, id="hol1"),
 
-    Household_default(amount=20+40+40+40+40+40, parent_actor = "sup1"),
-    #Household_default(amount=200, parent_actor = "hol1"),
-    Commercial_default(amount=20, parent_actor = "sup1"),
+    Household_default(amount=20+40+40+40+40+40,contracts = [Contract_Energysupplier_default( contractScope = "sup1" ), Contract_Connection_default( contractScope = "o1" ), Contract_Transport_default( contractScope = "o1" ), Contract_Tax_default( contractScope = "" )] ),
+    #Household_default(amount=2,contracts = [Contract_Energysupplier_default( contractScope = "sup1" ), Contract_Connection_default( contractScope = "o1" ), Contract_Transport_default( contractScope = "o1" ), Contract_Tax_default( contractScope = "" )] ),
+    Commercial_default(amount=22, contracts = [Contract_Energysupplier_default( contractScope = "sup1" ), Contract_Connection_default( contractScope = "o1" ), Contract_Transport_default( contractScope = "o1" ), Contract_Tax_default( contractScope = "" )] ),
+    
     #Commercial_default(amount=25, parent_actor = "hol1")
 ]
 
@@ -257,8 +265,9 @@ for item in config_gridconnection_list:
 
 
 ## Force unique id's for gridconnections    
-number_of_houses = 0
-number_of_buildings = 0
+#number_of_houses = 0
+#number_of_buildings = 0
+number_of_gridconnections = 0
 
 for i in gridconnections:  
     #print("caaataagory ",i.category)
@@ -266,16 +275,18 @@ for i in gridconnections:
     #print("owner actor", i.owner_actor)
 
     if i.category == "HOUSE" and i.id == "":
-        number_of_houses = number_of_houses + 1
-        id = "h"+str(number_of_houses)
-        owner_actor = "hh"+str(number_of_houses)
+        #number_of_houses = number_of_houses + 1
+        number_of_gridconnections = number_of_gridconnections + 1
+        id = "grc"+str(number_of_gridconnections)
+        owner_actor = "con"+str(number_of_gridconnections)
         i.id = id
         if i.owner_actor == "":
             i.owner_actor = owner_actor
     elif i.category == "BUILDING" or "INDUSTRY" and i.id == "":
-        number_of_buildings = number_of_buildings + 1
-        id = "b"+str(number_of_buildings)
-        owner_actor = "com"+str(number_of_buildings)
+        #number_of_buildings = number_of_buildings + 1
+        number_of_gridconnections = number_of_gridconnections + 1
+        id = "grc"+str(number_of_gridconnections)
+        owner_actor = "con"+str(number_of_gridconnections)
         i.id = id
         if i.owner_actor == "":
             i.owner_actor = owner_actor
@@ -411,24 +422,26 @@ for item in config_actors_list:
         x_ = getattr(defaults, str(item.__class__.__bases__[0].__name__))
         category = x_.__name__
         
-        actors.append(x_(category = item.category, type = item.type, id = item.id, parent_actor = item.parent_actor, contracts = item.contracts))
+        actors.append(x_(category = item.category, group = item.group, id = item.id, contracts = item.contracts))
 
 number_of_households = 0
 number_of_commercials = 0
+number_of_actors = 0
 
 for i in actors:
     #print("caaataagory ",i.category)
     #print("ifff",i.id)
-    if i.category == ActorTypeEnum.connectionowner and i.type == None:
-        number_of_households = number_of_households + 1
-        id = "hh"+str(number_of_households)
+    if i.category == ActorTypeEnum.connectionowner:
+        #number_of_households = number_of_households + 1
+        number_of_actors = number_of_actors + 1
+        id = "con"+str(number_of_actors)
         #owner_actor = "a"+str(number_of_households)
         i.id = id
-    elif i.category == ActorTypeEnum.connectionowner and i.type == SubTypeEnum.commercial:
-        number_of_commercials = number_of_commercials + 1
-        id = "com"+str(number_of_commercials)
-        #owner_actor = "com"+str(number_of_commercials)
-        i.id = id
+    #elif i.category == ActorTypeEnum.connectionowner and i.group == SubTypeEnum.commercial:
+     #   number_of_commercials = number_of_commercials + 1
+     #   id = "com"+str(number_of_commercials)
+     #   #owner_actor = "com"+str(number_of_commercials)
+     #   i.id = id
     elif i.id == None:
         id = "extra"
         owner_actor = "extra"
@@ -436,7 +449,7 @@ for i in actors:
     
     #i.owner_actor = owner_actor
 
-#print(actors)
+print(actors)
 
 
 ## gridnodes

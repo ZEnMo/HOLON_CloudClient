@@ -8,6 +8,7 @@ from cloudclient.datamodel.defaults.contracts_defaults import *
 class Energysupplier_default(Actor):
     amount: Optional[int]
     category = ActorTypeEnum.energysupplier
+    group = ""
     id = ""
     # parent_actor = "nat"
     contracts = []
@@ -16,6 +17,7 @@ class Energysupplier_default(Actor):
 class Gridoperator_default(Actor):
     amount: Optional[int]
     category = ActorTypeEnum.gridoperator
+    group = ""
     id = ""
     # parent_actor = "nat"
     contracts = []
@@ -24,6 +26,7 @@ class Gridoperator_default(Actor):
 class Energyholon_default(Actor):
     amount: Optional[int]
     category = ActorTypeEnum.energyholon
+    group = ""
     id = ""
     # parent_actor = ""
     # contracts = [Contract_Holon_default()]
@@ -33,15 +36,17 @@ class Energyholon_default(Actor):
 class Household_default(Actor):
     amount: Optional[int]
     category = ActorTypeEnum.connectionowner
+    group = "household"
     id = ""
     # parent_actor = ""
-    contracts = [Contract_Energysupplier_default()]
+    contracts = [Contract_Energysupplier_default() ]
 
 
 class Commercial_default(Actor):
     amount: Optional[int]
     type = SubTypeEnum.commercial
     category = ActorTypeEnum.connectionowner
+    group = "commercial"
     id = ""
     # parent_actor = ""
     contracts = [Contract_Energysupplier_default()]

@@ -22,6 +22,6 @@ class Industry_other_default(IndustryGridConnection):
     parent_heat = ""
     heating_type = HeatingTypeEnum.gasburner
     type = IndustryTypeEnum.industry_other
-    assets = [Industry_other_heat_demand, Office_other_electricity(yearlyDemandElectricity_kWh = 3500000.0), Building_gas_burner(capacityHeat_kW = 190)] 
+    assets = [Industry_other_heat_demand(), Office_other_electricity(yearlyDemandElectricity_kWh = 3500000.0), Building_gas_burner(capacityHeat_kW = 190)] 
 
   

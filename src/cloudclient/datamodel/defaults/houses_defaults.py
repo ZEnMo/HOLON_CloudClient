@@ -118,7 +118,7 @@ class House_hybridheatpump(HouseGridConnection):
 
 class House_heatnetwork_basic(HouseGridConnection):
     amount: Optional[int]
-    owner_actor="" 
+    owner_actor=""
     id=""
     capacity_kw = 17.0
     parent_electric = ""
