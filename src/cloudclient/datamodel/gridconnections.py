@@ -21,6 +21,12 @@ class BatteryModeEnum(Enum):
     price = "PRICE"
 
 
+class ElectrolyserModeEnum(Enum):
+    balance = "BALANCE"
+    price = "PRICE"
+    target = "TARGET"
+
+
 class GridConnection(BaseModel, extra=Extra.forbid):
     owner_actor: str
     id: str
@@ -32,6 +38,7 @@ class GridConnection(BaseModel, extra=Extra.forbid):
     # TODO: Technical debt to match AnyLogic
     charging_mode: Optional[ChargingModeEnum]
     battery_mode: Optional[BatteryModeEnum]
+    electrolyser_mode: Optional[ElectrolyserModeEnum]
 
 
 class InsulationLabelEnum(Enum):
@@ -57,13 +64,16 @@ class HeatingTypeEnum(Enum):
     lt_residual_heatpump_gaspeak = "LT_RESIDUAL_HEATPUMP_GASPEAK"
     none = "NONE"
 
+
 class ChargingModeEnum(Enum):
     simple = "SIMPLE"
     cheap = "CHEAP"
 
+
 class SmartAssetsEnum(Enum):
     true = "TRUE"
     false = "FALSE"
+
 
 class BuiltEnvironmentGridConnection(GridConnection):
     category = "BUILT_ENVIRONMENT"
@@ -110,8 +120,6 @@ class ProductionCategoryEnum(Enum):
     solarfarm = "SOLARFARM"
     gridbattery = "GRIDBATTERY"
     residualheat = "RESIDUALHEAT"
-    
-
 
 
 class ProductionGridConnection(GridConnection):

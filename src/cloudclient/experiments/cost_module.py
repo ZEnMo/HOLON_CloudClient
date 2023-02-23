@@ -23,7 +23,7 @@ ETM_MAPPING = {
     "depreciation_costs_buildings_gas_burner_per_kw": ("BUILDING", "GAS_BURNER"),
     "depreciation_costs_industry_solar_panels_per_kw": ("INDUSTRY", "PHOTOVOLTAIC"),
     "depreciation_costs_industry_gas_burner_per_kw": ("INDUSTRY", "GAS_BURNER"),
-    "depreciation_costs_wind_farm_per_kw": ("WINDFARM", "WINDMILL"),
+    "depreciation_costs_wind_onshore_per_kw": ("WINDFARM", "WINDMILL"),
     "depreciation_etruck_per_truck": ("BUILDING", "ELECTRIC_VEHICLE"),
     "depreciation_dieseltruck_per_truck": ("BUILDING", "DIESEL_VEHICLE"),
     "hourly_price_of_electricity_per_mwh": (
@@ -31,7 +31,7 @@ ETM_MAPPING = {
         "",
     ),  # TODO: check this key
     "depreciation_costs_industry_electrolyser_per_kw": (
-        "INDUSTRY",
+        "WINDFARM",
         "ELECTROLYSER",
     ),  # TODO: check this key
     "hourly_price_of_electricity_per_mwh": (
@@ -61,7 +61,10 @@ ETM_MAPPING = {
 
 
 def calculate_total_costs(
-    etm_inputs: dict, holon_config_gridconnections: list, holon_outputs: list
+    etm_inputs: dict,
+    holon_config_gridconnections: list,
+    holon_outputs: list,
+    hourly_curves: list,
 ) -> float:
     """Calculates the costs KPI's - if we need it they can be reported back per category as well"""
     categories = Categories()

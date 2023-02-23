@@ -1,7 +1,6 @@
 from cloudclient.datamodel import (
     HeatConsumptionAsset,
     ElectricConsumptionAsset,
-    ElectricHob,
 )
 from cloudclient.datamodel.assets.consumption import *
 
@@ -44,8 +43,6 @@ House_other_electricity = ElectricConsumptionAsset(
     yearlyDemandElectricity_kWh=11000,
 )
 
-Electric_hob = ElectricHob(name="Electric hob", type="ELECTRIC_HOB", capacity_kW=5.0)
-
 
 class Office_other_electricity(ElectricConsumptionAsset):
     name = "Office_other_electricity"
@@ -57,3 +54,19 @@ class Store_other_electricity(ElectricConsumptionAsset):
     name = "Store_other_electricity"
     type = ConsumptionAssetTypeEnum.electricity_demand
     yearlyDemandElectricity_kWh = 35000.0
+
+
+Diesel_Truck = DieselVehicleAsset(
+    # eta_r=1,
+    name="Diesel_Truck",
+    energyConsumption_kWhpkm=3,
+    vehicleScaling=10,
+)
+
+Diesel_Vehicle = DieselVehicleAsset(
+    # type=ConsumptionAssetTypeEnum.diesel_vehicle,
+    # eta_r=1,
+    name="Diesel_Vehicle",
+    energyConsumption_kWhpkm=0.8,
+    vehicleScaling=1,
+)

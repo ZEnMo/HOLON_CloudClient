@@ -64,7 +64,8 @@ def start_experiment(settings):
     print("Running experiment named: ", experiment.name)
     if experiment.query_api:
         api_experiment.runSimulation()
-    print("\nDuration: ", api_experiment.duration_s, " seconds\n")
+    print("\nDuration: ", api_experiment.duration_s, " seconds")
+    print("\nParalellize on? ", api_experiment.experiment.parallelize)
     # return api_experiment
     calculateAllKPIs(api_experiment)
 
@@ -94,7 +95,7 @@ def calculateAllKPIs(api_experiment: AnyLogicExperiment):
         hourly_curves[0],
     )
     print("\nTotal area costs:")
-    print(areaCosts_kEur, " kEur")
+    print(areaCosts_kEur, " Eur")
 
     etm_production_data_stored = np.load(
         "ETM_production_data.npy", allow_pickle=True

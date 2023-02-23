@@ -4,7 +4,7 @@ from typing import Optional
 
 
 class ConversionAssetTypeEnum(Enum):
-    boiler = "BOILER"
+    electric_heater = "BOILER"
     electrolyser = "ELECTROLYSER"
     gas_burner = "GAS_BURNER"
     heat_delivery_set = "HEAT_DELIVERY_SET"
@@ -13,7 +13,7 @@ class ConversionAssetTypeEnum(Enum):
     heat_pump_water = "HEAT_PUMP_WATER"
     hydrogen_furnace = "HYDROGEN_FURNACE"
     methane_furnace = "METHANE_FURNACE"
-    diesel_vehicle = "DIESEL_VEHICLE"
+    # diesel_vehicle = "DIESEL_VEHICLE"
     curtailer = "CURTAILER"
     methane_chp = "METHANE_CHP"
 
@@ -25,13 +25,12 @@ class ConversionAsset(EnergyAsset):
     name: str
 
 
-class VehicleConversionAsset(ConversionAsset):
-    energyConsumption_kWhpkm: float
-    vehicleScaling: int
+class ElectricConversionAsset(ConversionAsset):
+    capacityElectric_kW: float
 
 
-class ElectricCoversionAsset(ConversionAsset):
-    capacityElectricity_kW: float
+class ChemicalConversionAsset(ConversionAsset):
+    capacityMethane_kW: float
 
 
 class HeatConversionAsset(ConversionAsset):

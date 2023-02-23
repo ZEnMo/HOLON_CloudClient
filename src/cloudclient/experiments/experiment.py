@@ -13,9 +13,9 @@ class Experiment:
     config_file: str
     use_datamodel: bool
     timestep_hours: float
+    parallelize: bool = False
     force_uncached: bool = True
     show_progress: bool = False
-    parallelize: bool = True
     log_exceptions: bool = False
     outcomes: list = field(default_factory=list)
     inputs: list = field(default_factory=list)

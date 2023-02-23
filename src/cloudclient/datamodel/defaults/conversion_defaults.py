@@ -1,8 +1,9 @@
 from cloudclient.datamodel import (
-    ElectricCoversionAsset,
+    ElectricConversionAsset,
+    ChemicalConversionAsset,
     ChemicalHeatConversionAsset,
     TransportHeatConversionAsset,
-    VehicleConversionAsset,
+    # VehicleConversionAsset,
     ConversionAssetTypeEnum,
 )
 
@@ -32,21 +33,6 @@ House_heatpump_MT_L = TransportHeatConversionAsset(
     deliveryTemp_degC=60.0,
     # ambientTempType="AIR",
 )
-Diesel_Truck = VehicleConversionAsset(
-    type="DIESEL_VEHICLE",
-    eta_r=1,
-    name="Diesel_Truck",
-    energyConsumption_kWhpkm=3,
-    vehicleScaling=10,
-)
-
-Diesel_Vehicle = VehicleConversionAsset(
-    type="DIESEL_VEHICLE",
-    eta_r=1,
-    name="Diesel_Vehicle",
-    energyConsumption_kWhpkm=0.7,
-    vehicleScaling=1,
-)
 
 
 class House_gas_burner(ChemicalHeatConversionAsset):
@@ -66,7 +52,7 @@ House_DH_heatdeliveryset = ChemicalHeatConversionAsset(
 )
 
 
-class Electrolyser(ElectricCoversionAsset):
+class Electrolyser(ElectricConversionAsset):
     name = "Electrolyser"
     type = ConversionAssetTypeEnum.electrolyser
     capacityElectricity_kW = 100.0
@@ -113,7 +99,7 @@ DH_heat_pump_MT_S = TransportHeatConversionAsset(
     capacityElectricity_kW=100,
     eta_r=0.5,
     deliveryTemp_degC=60.0,
-    #ambientTempType="GROUND",
+    # ambientTempType="GROUND",
 )
 
 DH_boiler_M = ChemicalHeatConversionAsset(
@@ -140,13 +126,13 @@ Industrial_methane_furnace = ChemicalHeatConversionAsset(
     deliveryTemp_degC=120.0,
 )
 
-Industrial_hydrogen_furnace = ChemicalHeatConversionAsset(
-    name="Industrial_hydrogen_furnace",
-    type="HYDROGEN_FURNACE",
-    capacityHeat_kW=300,
-    eta_r=0.99,
-    deliveryTemp_degC=120.0,
-)
+
+class Industrial_hydrogen_furnace(ChemicalHeatConversionAsset):
+    name = "Industrial_hydrogen_furnace"
+    type = ConversionAssetTypeEnum.hydrogen_furnace
+    capacityHeat_kW = 300.0
+    eta_r = 0.99
+    deliveryTemp_degC = 120.0
 
 
 class Building_gas_burner(ChemicalHeatConversionAsset):
@@ -167,19 +153,38 @@ Building_heatpump_20kW = TransportHeatConversionAsset(
 )
 
 
-class Curtailer(ElectricCoversionAsset):
+class Curtailer(ElectricConversionAsset):
     name = "Curtailer"
     type = ConversionAssetTypeEnum.curtailer
-    capacityElectricity_kW = 10000.0
+    capacityElectric_kW = 10000.0
     eta_r = 0.0
 
 
-Methane_CHP_M = ElectricCoversionAsset(
+House_water_heatpump_MT_M = TransportHeatConversionAsset(
+    name="House_water_heatpump_MT_M",
+    type="HEAT_PUMP_WATER",
+    capacityElectricity_kW=6,
+    eta_r=0.6,
+    deliveryTemp_degC=60.0,
+    # ambientTempType="GROUND",
+)
+
+DH_heat_pump_water_MT_M = TransportHeatConversionAsset(
+    name="DH_heat_pump_water_MT_M",
+    type="HEAT_PUMP_WATER",
+    capacityElectricity_kW=200,
+    eta_r=0.5,
+    deliveryTemp_degC=60.0,
+    # ambientTempType="GROUND",
+)
+
+Methane_CHP_M = ChemicalConversionAsset(
     name="Methane_CHP_M",
     type="METHANE_CHP",
-    capacityElectricity_kW=200,
+    capacityMethane_kW=400,
     eta_r=0.45,
 )
+
 
 House_water_heatpump_MT_M = TransportHeatConversionAsset(
     name="House_water_heatpump_MT_M",
@@ -199,27 +204,10 @@ DH_heat_pump_water_MT_M = TransportHeatConversionAsset(
     # ambientTempType="GROUND",
 )
 
-Methane_CHP_M = ElectricCoversionAsset(
-    name="Methane_CHP_M",
-    type="METHANE_CHP",
-    capacityElectricity_kW=200,
-    eta_r=0.45,
-)
-
-House_water_heatpump_MT_M = TransportHeatConversionAsset(
-    name="House_water_heatpump_MT_M",
-    type="HEAT_PUMP_WATER",
-    capacityElectricity_kW=6,
-    eta_r=0.6,
-    deliveryTemp_degC=60.0,
-    #ambientTempType="GROUND",
-)
-
-DH_heat_pump_water_MT_M = TransportHeatConversionAsset(
-    name="DH_heat_pump_water_MT_M",
-    type="HEAT_PUMP_WATER",
-    capacityElectricity_kW=200,
-    eta_r=0.5,
-    deliveryTemp_degC=60.0,
-    #ambientTempType="GROUND",
+# Electric_hob = Electric_heater(name="Electric hob", type="ELECTRIC_HOB", capacity_kW=5.0)
+Electric_hob = ElectricConversionAsset(
+    type=ConversionAssetTypeEnum.electric_heater,
+    capacityElectric_kW=5.0,
+    name="Electric hob",
+    eta_r=0.7,
 )

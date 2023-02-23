@@ -7,7 +7,7 @@ from .consumption import (
 )
 from .conversion import (
     ConversionAsset,
-    ElectricCoversionAsset,
+    ElectricConversionAsset,
     ElectricHeatConversionAsset,
     ChemicalHeatConversionAsset,
     TransportHeatConversionAsset,
