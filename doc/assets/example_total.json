@@ -12017,6 +12017,25 @@
     {
       "owner_actor": "sup1",
       "id": "grc242",
+      "capacity_kw": 1000.0,
+      "parent_electric": "E8",
+      "parent_heat": "H1",
+      "charging_mode": null,
+      "battery_mode": null,
+      "assets": [
+        {
+          "type": "RESIDUALHEATHT",
+          "name": "Residual_heat",
+          "category": "PRODUCTION",
+          "capacityHeat_kW": 600.0,
+          "deliveryTemp_degC": 95.0
+        }
+      ],
+      "category": "RESIDUALHEAT"
+    },
+    {
+      "owner_actor": "sup1",
+      "id": "grc243",
       "capacity_kw": 30.0,
       "parent_electric": "E8",
       "parent_heat": "H1",
@@ -12057,8 +12076,8 @@
       "type": "HT"
     },
     {
-      "owner_actor": "con243",
-      "id": "grc243",
+      "owner_actor": "con244",
+      "id": "grc244",
       "capacity_kw": 1000.0,
       "parent_electric": "E9",
       "parent_heat": null,

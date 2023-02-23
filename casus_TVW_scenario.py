@@ -178,7 +178,7 @@ config_gridconnection_list_DH = [
   House_heatnetwork_basic(amount=40, parent_heat="H1", parent_electric="E7", type=HousingTypeEnum.detached, insulation_label= InsulationLabelEnum.f),
 
   Industry_other_default(amount=1, parent_electric = "E8"),  ## HT heat producer, zelf ook verbruik/opwek stroom?
-  #ResidualHeatProducer(amount = 1, parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1", type = "RESIDUALHEATHT", assets=[ResidualHeat_HT(capacityHeat_kW = 600)] ),
+  ResidualHeatProducer(amount = 1, parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1", type = "RESIDUALHEATHT", assets=[ResidualHeat_HT(capacityHeat_kW = 600)] ),
   #ResidualHeatProducer(amount = 1, parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1", type = "RESIDUALHEATLT", assets=[ResidualHeat_LT(capacityHeat_kW = 600)] ),
   DistrictHeating_HT_Gasburner(amount = 1, heating_type = "GASFIRED_CHPPEAK", parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1", assets=[DH_boiler_L, Methane_CHP_M, District_Heating_heat_buffer_HT_S]),
   #DistrictHeating_HT_Heatpump_gaspeak(amount = 1, parent_heat = "H1", parent_electric = "E8", owner_actor = "sup1" ),
@@ -211,10 +211,8 @@ config_actors_list = [
     #Energyholon_default(amount = 1, id="hol1"),
 
     Household_default(amount=20+40+40+40+40+40,contracts = [Contract_Energysupplier_default( contractScope = "sup1" ), Contract_Connection_default( contractScope = "o1" ), Contract_Transport_default( contractScope = "o1" ), Contract_Tax_default( contractScope = "" )] ),
-    #Household_default(amount=2,contracts = [Contract_Energysupplier_default( contractScope = "sup1" ), Contract_Connection_default( contractScope = "o1" ), Contract_Transport_default( contractScope = "o1" ), Contract_Tax_default( contractScope = "" )] ),
     Commercial_default(amount=22, contracts = [Contract_Energysupplier_default( contractScope = "sup1" ), Contract_Connection_default( contractScope = "o1" ), Contract_Transport_default( contractScope = "o1" ), Contract_Tax_default( contractScope = "" )] ),
-    
-    #Commercial_default(amount=25, parent_actor = "hol1")
+
 ]
 
 numpy.random.seed(0)
