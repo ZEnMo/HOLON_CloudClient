@@ -4,15 +4,10 @@ from typing import Optional
 from enum import Enum
 
 
-class ContractTypeEnum(Enum):
-    delivery = "DELIVERY"
-    transport = "TRANSPORT"
-    connection = "CONNECTION"
-    tax = "TAX"
-    # # Contracts to gridoperator
-    # gopacs = "GOPACS"
-    # nonfirmato = "NONFIRMATO"
-    # nodalpricing = "NODALPRICING"
+# # Contracts to gridoperator
+# gopacs = "GOPACS"
+# nonfirmato = "NONFIRMATO"
+# nodalpricing = "NODALPRICING"
 
 
 # class ContractScopeEnum(Enum):
@@ -30,9 +25,30 @@ class EnergyCarrierEnum(Enum):
     diesel = "DIESEL"
 
 
+class ContractTypeEnum(Enum):
+    delivery = "DELIVERY"
+    transport = "TRANSPORT"
+    connection = "CONNECTION"
+    tax = "TAX"
+
+
+class Contract(BaseModel, extra=Extra.forbid):
+    contractType: ContractTypeEnum
+    contractScope: str
+    energyCarrier: EnergyCarrierEnum
+    annualFee_eur = 0.0
+
+
 class DeliveryContractTypeEnum(Enum):
     fixed = "ELECTRICITY_FIXED"
     variable = "ELECTRICITY_VARIABLE"
+
+
+class DeliveryContract(Contract):
+    contractType = ContractTypeEnum.delivery
+    deliveryContractType: DeliveryContractTypeEnum
+    deliveryPrice_eurpkWh: float
+    feedinPrice_eurpkWh: float
 
 
 class ConnectionContractTypeEnum(Enum):
@@ -40,11 +56,12 @@ class ConnectionContractTypeEnum(Enum):
     nfATO = "NFATO"
 
 
-class TransportContractTypeEnum(Enum):
-    default = "DEFAULT"
-    nodalpricing = "NODALPRICING"
-    peak = "PEAK"
-    bandwidth = "BANDWIDTH"
+class ConnectionContract(Contract):
+    contractType = ContractTypeEnum.connection
+    connectionContractType: ConnectionContractTypeEnum
+    nfATO_capacity_kW = 0.0
+    nfATO_starttime_h = 0.0
+    nfATO_endtime_h = 0.0
 
 
 class TaxContractTypeEnum(Enum):
@@ -52,24 +69,22 @@ class TaxContractTypeEnum(Enum):
     nietsalderen = "NIETSALDEREN"
 
 
-class Contract(BaseModel, extra=Extra.forbid):
-    contractType: ContractTypeEnum
-    contractScope: str
-    energyCarrier: EnergyCarrierEnum
-    deliveryContractType: Optional[DeliveryContractTypeEnum]
-    deliveryPrice_eurpkWh: Optional[float]
-    feedinPrice_eurpkWh: Optional[float]
-    annualFee_eur: Optional[float]
-    connectionContractType: Optional[ConnectionContractTypeEnum]
-    nfATO_capacity_kW: Optional[float]
-    nfATO_starttime_h: Optional[float]
-    nfATO_endtime_h: Optional[float]
+class TaxContract(Contract):
+    contractType = ContractTypeEnum.tax
+    taxContractType: TaxContractTypeEnum
+    taxDelivery_eurpkWh: float
+    taxFeedin_eurpkWh: float
+    proportionalTax_pct: float
 
-    taxContractType: Optional[TaxContractTypeEnum]
-    taxDelivery_eurpkWh: Optional[float]
-    taxFeedin_eurpkWh: Optional[float]
-    proportionalTax_pct: Optional[float]
 
-    transportContractType: Optional[TransportContractTypeEnum]
-    bandwidthTreshold_kW: Optional[float]
-    bandwidthTariff_eurpkWh: Optional[float]
+class TransportContractTypeEnum(Enum):
+    default = "DEFAULT"
+    nodalpricing = "NODALPRICING"
+    bandwidth = "BANDWIDTH"
+
+
+class TransportContract(Contract):
+    contractType = ContractTypeEnum.transport
+    transportContractType: TransportContractTypeEnum
+    bandwidthTreshold_kW = 0.0
+    bandwidthTariff_eurpkWh = 0.0

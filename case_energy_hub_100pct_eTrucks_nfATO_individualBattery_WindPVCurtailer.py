@@ -1,6 +1,13 @@
 from pathlib import Path
 
-from cloudclient.datamodel import Payload, Actor, Contract
+from cloudclient.datamodel import (
+    Payload,
+    Actor,
+    DeliveryContract,
+    ConnectionContract,
+    TaxContract,
+    TransportContract,
+)
 from cloudclient.datamodel.contracts import *
 
 actors = [
@@ -9,8 +16,7 @@ actors = [
         group="commercial",
         id="com1",
         contracts=[
-            Contract(
-                contractType=ContractTypeEnum.delivery,
+            DeliveryContract(
                 contractScope="sup1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 deliveryContractType=DeliveryContractTypeEnum.variable,
@@ -18,25 +24,22 @@ actors = [
                 deliveryPrice_eurpkWh=0.0,
                 feedinPrice_eurpkWh=0.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.connection,
+            ConnectionContract(
                 contractScope="dso1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 connectionContractType=ConnectionContractTypeEnum.nfATO,
+                annualFee_eur=100.0,
                 nfATO_capacity_kW=2000.0,
                 nfATO_starttime_h=20.0,
                 nfATO_endtime_h=7.0,
-                annualFee_eur=100.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.transport,
+            TransportContract(
                 contractScope="dso1",
                 transportContractType=TransportContractTypeEnum.default,
                 energyCarrier=EnergyCarrierEnum.electricity,
                 annualFee_eur=100.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.tax,
+            TaxContract(
                 contractScope="gov1",
                 taxContractType=TaxContractTypeEnum.salderen,
                 energyCarrier=EnergyCarrierEnum.electricity,
@@ -54,8 +57,7 @@ actors = [
         id="com5",
         # parent_actor="hol1",
         contracts=[
-            Contract(
-                contractType=ContractTypeEnum.delivery,
+            DeliveryContract(
                 contractScope="sup1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 deliveryContractType=DeliveryContractTypeEnum.variable,
@@ -63,8 +65,7 @@ actors = [
                 deliveryPrice_eurpkWh=0.0,
                 feedinPrice_eurpkWh=0.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.connection,
+            ConnectionContract(
                 contractScope="dso1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 connectionContractType=ConnectionContractTypeEnum.nfATO,
@@ -73,15 +74,13 @@ actors = [
                 nfATO_endtime_h=7.0,
                 annualFee_eur=100.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.transport,
+            TransportContract(
                 contractScope="dso1",
                 transportContractType=TransportContractTypeEnum.default,
                 energyCarrier=EnergyCarrierEnum.electricity,
                 annualFee_eur=100.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.tax,
+            TaxContract(
                 contractScope="gov1",
                 taxContractType=TaxContractTypeEnum.salderen,
                 energyCarrier=EnergyCarrierEnum.electricity,
@@ -97,8 +96,7 @@ actors = [
         group="commercial",
         id="com2",
         contracts=[
-            Contract(
-                contractType=ContractTypeEnum.delivery,
+            DeliveryContract(
                 contractScope="sup1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 deliveryContractType=DeliveryContractTypeEnum.variable,
@@ -106,22 +104,19 @@ actors = [
                 deliveryPrice_eurpkWh=0.0,
                 feedinPrice_eurpkWh=0.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.connection,
+            ConnectionContract(
                 contractScope="dso1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 connectionContractType=ConnectionContractTypeEnum.default,
                 annualFee_eur=100.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.transport,
+            TransportContract(
                 contractScope="dso1",
                 transportContractType=TransportContractTypeEnum.default,
                 energyCarrier=EnergyCarrierEnum.electricity,
                 annualFee_eur=100.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.tax,
+            TaxContract(
                 contractScope="gov1",
                 taxContractType=TaxContractTypeEnum.salderen,
                 energyCarrier=EnergyCarrierEnum.electricity,
@@ -138,8 +133,7 @@ actors = [
         id="com3",
         # parent_actor="hol1",
         contracts=[
-            Contract(
-                contractType=ContractTypeEnum.delivery,
+            DeliveryContract(
                 contractScope="sup1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 deliveryContractType=DeliveryContractTypeEnum.variable,
@@ -147,22 +141,19 @@ actors = [
                 deliveryPrice_eurpkWh=0.0,
                 feedinPrice_eurpkWh=0.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.connection,
+            ConnectionContract(
                 contractScope="dso1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 connectionContractType=ConnectionContractTypeEnum.default,
                 annualFee_eur=100.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.transport,
+            TransportContract(
                 contractScope="dso1",
                 transportContractType=TransportContractTypeEnum.default,
                 energyCarrier=EnergyCarrierEnum.electricity,
                 annualFee_eur=100.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.tax,
+            TaxContract(
                 contractScope="gov1",
                 taxContractType=TaxContractTypeEnum.salderen,
                 energyCarrier=EnergyCarrierEnum.electricity,
@@ -179,8 +170,7 @@ actors = [
         id="com4",
         # parent_actor="hol1",
         contracts=[
-            Contract(
-                contractType=ContractTypeEnum.delivery,
+            DeliveryContract(
                 contractScope="sup1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 deliveryContractType=DeliveryContractTypeEnum.variable,
@@ -188,22 +178,19 @@ actors = [
                 deliveryPrice_eurpkWh=0.0,
                 feedinPrice_eurpkWh=0.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.connection,
+            ConnectionContract(
                 contractScope="dso1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 connectionContractType=ConnectionContractTypeEnum.default,
                 annualFee_eur=100.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.transport,
+            TransportContract(
                 contractScope="dso1",
                 transportContractType=TransportContractTypeEnum.default,
                 energyCarrier=EnergyCarrierEnum.electricity,
                 annualFee_eur=100.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.tax,
+            TaxContract(
                 contractScope="gov1",
                 taxContractType=TaxContractTypeEnum.salderen,
                 energyCarrier=EnergyCarrierEnum.electricity,
@@ -226,8 +213,7 @@ actors = [
         group="energyholons",
         # parent_actor="sup1",
         contracts=[
-            Contract(
-                contractType=ContractTypeEnum.delivery,
+            DeliveryContract(
                 contractScope="sup1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 deliveryContractType=DeliveryContractTypeEnum.variable,
@@ -235,22 +221,22 @@ actors = [
                 deliveryPrice_eurpkWh=0.0,
                 feedinPrice_eurpkWh=0.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.connection,
+            ConnectionContract(
                 contractScope="dso1",
                 energyCarrier=EnergyCarrierEnum.electricity,
-                connectionContractType=ConnectionContractTypeEnum.default,
+                connectionContractType=ConnectionContractTypeEnum.nfATO,
+                nfATO_capacity_kW=5000.0,
+                nfATO_starttime_h=20.0,
+                nfATO_endtime_h=7.0,
                 annualFee_eur=100.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.transport,
+            TransportContract(
                 contractScope="dso1",
                 transportContractType=TransportContractTypeEnum.default,
                 energyCarrier=EnergyCarrierEnum.electricity,
                 annualFee_eur=100.0,
             ),
-            Contract(
-                contractType=ContractTypeEnum.tax,
+            TaxContract(
                 contractScope="gov1",
                 taxContractType=TaxContractTypeEnum.salderen,
                 energyCarrier=EnergyCarrierEnum.electricity,
@@ -310,7 +296,7 @@ gridconnections = [
             *[Diesel_Truck] * (10 - eTrucksPerGridConnection),
             # Building_gas_burner(capacityHeat_kW=200),
             # Solarpanel_building(capacityElectricity_kW=500),
-            Grid_battery(storageCapacity_kWh=25000),
+            Grid_battery(storageCapacity_kWh=25000, stateOfCharge_r=0.2),
             # Building_solarpanels_10kWp,
         ],
     ),
@@ -329,7 +315,7 @@ gridconnections = [
             *[Diesel_Truck] * (10 - eTrucksPerGridConnection),
             # Building_gas_burner(capacityHeat_kW=200),
             # Solarpanel_building(capacityElectricity_kW=500),
-            Grid_battery(storageCapacity_kWh=25000),
+            Grid_battery(storageCapacity_kWh=25000, stateOfCharge_r=0.2),
             # Building_solarpanels_10kWp,
         ],
     ),
@@ -351,7 +337,7 @@ gridconnections = [
         owner_actor="com3",
         parent_electric="E2",
         id="b3",
-        capacity_kw=7000,
+        capacity_kw=6000,
         assets=[
             Windmill_onshore(capacityElectricity_kW=6000),
             Solarpanel_farm(capacityElectricity_kW=2000),

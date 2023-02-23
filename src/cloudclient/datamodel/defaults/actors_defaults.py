@@ -11,7 +11,7 @@ class Energysupplier_default(Actor):
     group = ""
     id = ""
     # parent_actor = "nat"
-    contracts = []
+    # contracts = []
 
 
 class Gridoperator_default(Actor):
@@ -20,7 +20,7 @@ class Gridoperator_default(Actor):
     group = ""
     id = ""
     # parent_actor = "nat"
-    contracts = []
+    # contracts = []
 
 
 class Energyholon_default(Actor):
@@ -30,7 +30,7 @@ class Energyholon_default(Actor):
     id = ""
     # parent_actor = ""
     # contracts = [Contract_Holon_default()]
-    contracts = []
+    # contracts = []
 
 
 class Household_default(Actor):
@@ -39,12 +39,12 @@ class Household_default(Actor):
     group = "household"
     id = ""
     # parent_actor = ""
-    contracts = [Contract_Energysupplier_default() ]
+    contracts = [Contract_Energysupplier_default()]
 
 
 class Commercial_default(Actor):
     amount: Optional[int]
-    type = SubTypeEnum.commercial
+    # type = SubTypeEnum.commercial
     category = ActorTypeEnum.connectionowner
     group = "commercial"
     id = ""
