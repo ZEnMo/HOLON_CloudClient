@@ -40,7 +40,7 @@ installed_capacity_wind_turbines_on_land: # needs to be additional to existing v
   convert_with_value:
     type: static
     value: factor_of_holon_to_national_buildings
-    key: scaling_factor_energy_hub # mandatory key for dict, TODO: check if this can have duplicates
+    key: scaling_energy_hub # mandatory key for dict, TODO: check if this can have duplicates
 
 installed_capacity_solar_on_land: # needs to be additional to existing value, TODO: implement this option
   value:
@@ -51,7 +51,7 @@ installed_capacity_solar_on_land: # needs to be additional to existing value, TO
   convert_with_value:
     type: static
     value: factor_of_holon_to_national_buildings
-    key: scaling_factor_energy_hub # mandatory key for dict, TODO: check if this can have duplicates
+    key: scaling_energy_hub # mandatory key for dict, TODO: check if this can have duplicates
 
 installed_energy_grid_battery: # TODO check whether MWh or MW, update description (optional), check need for conversion
   value:
@@ -62,7 +62,7 @@ installed_energy_grid_battery: # TODO check whether MWh or MW, update descriptio
   convert_with_value:
     type: static
     value: factor_of_holon_to_national_buildings
-    key: scaling_factor_energy_hub # mandatory key for dict, TODO: check if this can have duplicates
+    key: scaling_energy_hub # mandatory key for dict, TODO: check if this can have duplicates
 
 share_of_electric_trucks: # needs to be additional to existing value, TODO: implement this option
   value:
@@ -73,7 +73,7 @@ share_of_electric_trucks: # needs to be additional to existing value, TODO: impl
   convert_with_value:
     type: static
     value: share_of_national_buildings_trucks_in_national_total_trucks
-    key: scaling_factor_energy_hub # mandatory key for dict, TODO: check if this can have duplicates
+    key: scaling_energy_hub # mandatory key for dict, TODO: check if this can have duplicates
 
 
 # Curves
