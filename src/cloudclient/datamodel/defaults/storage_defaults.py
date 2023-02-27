@@ -15,7 +15,7 @@ House_battery = ElectricStorageAsset(
 
 House_heatmodel_A = HeatStorageAsset(
     name="House_heatmodel_A",
-    type="STORAGE_HEAT",
+    type="HEATMODEL",
     capacityHeat_kW=100.0,
     #stateOfCharge_r=0.5,
     initial_temperature_degC = 20,
@@ -28,7 +28,7 @@ House_heatmodel_A = HeatStorageAsset(
 )
 House_heatmodel_B = HeatStorageAsset(
     name="House_heatmodel_B",
-    type="STORAGE_HEAT",
+    type="HEATMODEL",
     capacityHeat_kW=100.0,
     #stateOfCharge_r=0.5,
     initial_temperature_degC = 20,
@@ -41,7 +41,7 @@ House_heatmodel_B = HeatStorageAsset(
 )
 House_heatmodel_C = HeatStorageAsset(
     name="House_heatmodel_C",
-    type="STORAGE_HEAT",
+    type="HEATMODEL",
     capacityHeat_kW=100.0,
     #stateOfCharge_r=0.5,
     initial_temperature_degC = 20,
@@ -54,7 +54,7 @@ House_heatmodel_C = HeatStorageAsset(
 )
 House_heatmodel_D = HeatStorageAsset(
     name="House_heatmodel_D",
-    type="STORAGE_HEAT",
+    type="HEATMODEL",
     capacityHeat_kW=100.0,
     #stateOfCharge_r=0.5,
     initial_temperature_degC = 20,
@@ -67,7 +67,7 @@ House_heatmodel_D = HeatStorageAsset(
 )
 House_heatmodel_E = HeatStorageAsset(
     name="House_heatmodel_E",
-    type="STORAGE_HEAT",
+    type="HEATMODEL",
     capacityHeat_kW=100.0,
     #stateOfCharge_r=0.5,
     initial_temperature_degC = 20,
@@ -80,7 +80,7 @@ House_heatmodel_E = HeatStorageAsset(
 )
 House_heatmodel_F = HeatStorageAsset(
     name="House_heatmodel_F",
-    type="STORAGE_HEAT",
+    type="HEATMODEL",
     capacityHeat_kW=100.0,
     #stateOfCharge_r=0.5,
     initial_temperature_degC = 20,
@@ -93,7 +93,7 @@ House_heatmodel_F = HeatStorageAsset(
 )
 House_heatmodel_G = HeatStorageAsset(
     name="House_heatmodel_G",
-    type="STORAGE_HEAT",
+    type="HEATMODEL",
     capacityHeat_kW=100.0,
     #stateOfCharge_r=0.5,
     initial_temperature_degC = 20,

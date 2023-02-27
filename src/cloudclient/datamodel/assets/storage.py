@@ -7,6 +7,7 @@ class StorageAssetTypeEnum(Enum):
     electric_vehicle = "ELECTRIC_VEHICLE"
     storage_electric = "STORAGE_ELECTRIC"
     storage_heat = "STORAGE_HEAT"
+    heatmodel = "HEATMODEL"
 
 
 class StorageAsset(EnergyAsset):
