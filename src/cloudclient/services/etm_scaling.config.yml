@@ -20,19 +20,32 @@
 #                         converted with. E.g for 'divide' this is the value to be divided by.
 #                         This value has the same properties as the main 'value' field.
 
-share_of_buildings_with_solar_panels: # deze HOLON-slidernaam moet nog worden geüpdatet, is nu nog onbekend
+
+# CASUS ENERGY HUB
+
+energy_hub_installed_capacity_wind_turbines_on_land:
   value:
     type: input
     data: value
-    etm_key: buildings_solar_pv_solar_radiation_market_penetration
+    etm_key: capacity_of_energy_power_wind_turbine_inland
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: 3437.0 # factor_of_holon_to_national_buildings
+    key: scaling_energy_hub
 
-share_of_electric_trucks:
+energy_hub_installed_capacity_solar_on_land:
   value:
     type: input
     data: value
-    etm_key: transport_truck_using_electricity_share
+    etm_key: capacity_of_energy_power_solar_pv_solar_radiation
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: 3437.0 # factor_of_holon_to_national_buildings
+    key: scaling_energy_hub
 
-installed_energy_grid_battery:
+energy_hub_installed_energy_grid_battery: # volume or capacity
   value:
     type: input
     data: value
@@ -40,26 +53,23 @@ installed_energy_grid_battery:
   conversion: multiply
   convert_with_value:
     type: static
-    value: 175 # divided by 100 since both the button and the slider will use this. Not 0 or 1 but a whole range is possible between 0 and 100
-    key: scaling_factor_grid_batteries
+    value: 3437.0 # factor_of_holon_to_national_buildings
+    key: scaling_energy_hub
 
-# hourly profile electric trucks
-totalEHGVHourlyChargingProfile_kWh:
+energy_hub_share_of_electric_trucks:
   value:
-    type: curve
-    data: curve
-    etm_key: electric_trucks
-    
-# # hourly profile electric cars
-# totalEVHourlyChargingProfile_kWh:
-#   value:
-#     type: curve
-#     data: curve
-#     etm_key: electric_vehicle_profile_1
+    type: input
+    data: value
+    etm_key: transport_truck_using_electricity_share
 
-# hourly profile grid batteries
-totalGridBatteryHourlyChargingProfile_kWh:
+energy_hub_installed_industry_electrolyser:
   value:
-    type: curve
-    data: curve
-    etm_key: batteries
+    type: input
+    data: value
+    etm_key: capacity_of_energy_hydrogen_flexibility_p2g_electricity
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: 3437.0 # factor_of_holon_to_national_buildings
+    key: scaling_energy_hub
+
