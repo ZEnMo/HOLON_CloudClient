@@ -23,6 +23,8 @@
 
 # CASUS ENERGY HUB
 
+# Assets
+
 energy_hub_installed_capacity_wind_turbines_on_land:
   value:
     type: input
@@ -72,4 +74,85 @@ energy_hub_installed_industry_electrolyser:
     type: static
     value: 3437.0 # factor_of_holon_to_national_buildings
     key: scaling_energy_hub
+
+# CASUS BUURTELEKTRIFICATIE
+
+# Assets
+
+buurtelektrificatie_share_of_electric_cars:
+  value:
+    type: input
+    data: value
+    etm_key: transport_car_using_electricity_share
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: 0.5 # PLACEHOLDER share_of_national_households_cars_in_national_total_cars
+    key: scaling_buurtelektrificatie
+
+buurtelektrificatie_share_of_households_heat_pumps:
+  value:
+    type: input
+    data: value
+    etm_key: households_heater_heatpump_air_water_electricity_share
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: 0.5 # PLACEHOLDER share_of_national_terraced_houses_in_national_total_houses
+    key: scaling_buurtelektrificatie
+
+buurtelektrifcatie_share_of_households_hybrid_heat_pumps:
+  value:
+    type: input
+    data: value
+    etm_key: households_heater_hybrid_heatpump_air_water_electricity_share
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: 0.5 # PLACEHOLDER share_of_national_terraced_houses_in_national_total_houses
+    key: scaling_buurtelektrificatie
+
+buurtelektrificatie_share_of_households_solar_panels:
+  value:
+    type: input
+    data: value
+    etm_key: households_solar_pv_solar_radiation_market_penetration
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: 0.5 # PLACEHOLDER share_of_national_terraced_houses_in_national_total_houses
+    key: scaling_buurtelektrificatie
+
+buurtelektrificatie_share_of_households_batteries:
+  value:
+    type: input
+    data: value
+    etm_key: households_flexibility_p2p_electricity_market_penetration
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: 0.5 # PLACEHOLDER share_of_national_terraced_houses_in_national_total_houses
+    key: scaling_buurtelektrificatie
+
+buurtelektrificatie_share_of_households_induction_cooking:
+  value:
+    type: input
+    data: value
+    etm_key: households_cooker_induction_electricity_share
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: 0.5 # PLACEHOLDER share_of_national_terraced_houses_in_national_total_houses
+    key: scaling_buurtelektrificatie
+
+buurtelektrificatie_installed_energy_grid_battery:
+  value:
+    type: input
+    data: value
+    etm_key: capacity_of_energy_flexibility_mv_batteries_electricity
+  conversion: multiply
+  convert_with_value:
+    type: static
+    value: 2.0 # factor_of_holon_to_national_households
+    key: scaling_buurtelektrificatie
 
