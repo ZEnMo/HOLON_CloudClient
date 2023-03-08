@@ -56,12 +56,12 @@ class Store_other_electricity(ElectricConsumptionAsset):
     yearlyDemandElectricity_kWh = 35000.0
 
 
-Diesel_Truck = DieselVehicleAsset(
+class Diesel_Truck(DieselVehicleAsset):
     # eta_r=1,
-    name="Diesel_Truck",
-    energyConsumption_kWhpkm=3,
-    vehicleScaling=10,
-)
+    name = "Diesel_Truck"
+    energyConsumption_kWhpkm = 3.0
+    vehicleScaling = 10
+
 
 Diesel_Vehicle = DieselVehicleAsset(
     # type=ConsumptionAssetTypeEnum.diesel_vehicle,

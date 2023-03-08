@@ -17,7 +17,7 @@ class StorageAsset(EnergyAsset):
 
 class HeatStorageAsset(StorageAsset):
     capacityHeat_kW: float
-    #stateOfCharge_r: float
+    # stateOfCharge_r: float
     initial_temperature_degC: float
     minTemp_degC: int
     maxTemp_degC: int
@@ -26,10 +26,12 @@ class HeatStorageAsset(StorageAsset):
     heatCapacity_JpK: float
     ambientTempType: AmbientTempTypeEnum
 
+
 class ElectricStorageAsset(StorageAsset):
     capacityElectricity_kW: float
     stateOfCharge_r: float
     storageCapacity_kWh: float
+
 
 class VehicleElectricStorageAsset(ElectricStorageAsset):
     energyConsumption_kWhpkm: float

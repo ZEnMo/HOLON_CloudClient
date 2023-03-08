@@ -27,7 +27,7 @@ actors = [
             ConnectionContract(
                 contractScope="dso1",
                 energyCarrier=EnergyCarrierEnum.electricity,
-                connectionContractType=ConnectionContractTypeEnum.nfATO,
+                connectionContractType=ConnectionContractTypeEnum.default,
                 annualFee_eur=100.0,
                 nfATO_capacity_kW=2000.0,
                 nfATO_starttime_h=20.0,
@@ -54,7 +54,7 @@ actors = [
     Actor(
         category="CONNECTIONOWNER",
         group="commercial",
-        id="com5",
+        id="com2",
         # parent_actor="hol1",
         contracts=[
             DeliveryContract(
@@ -68,7 +68,7 @@ actors = [
             ConnectionContract(
                 contractScope="dso1",
                 energyCarrier=EnergyCarrierEnum.electricity,
-                connectionContractType=ConnectionContractTypeEnum.nfATO,
+                connectionContractType=ConnectionContractTypeEnum.default,
                 nfATO_capacity_kW=2000.0,
                 nfATO_starttime_h=20.0,
                 nfATO_endtime_h=7.0,
@@ -94,44 +94,7 @@ actors = [
     Actor(
         category="CONNECTIONOWNER",
         group="commercial",
-        id="com2",
-        contracts=[
-            DeliveryContract(
-                contractScope="hol1",
-                energyCarrier=EnergyCarrierEnum.electricity,
-                deliveryContractType=DeliveryContractTypeEnum.variable,
-                annualFee_eur=100.0,
-                deliveryPrice_eurpkWh=0.0,
-                feedinPrice_eurpkWh=0.0,
-            ),
-            ConnectionContract(
-                contractScope="dso1",
-                energyCarrier=EnergyCarrierEnum.electricity,
-                connectionContractType=ConnectionContractTypeEnum.default,
-                annualFee_eur=100.0,
-            ),
-            TransportContract(
-                contractScope="dso1",
-                transportContractType=TransportContractTypeEnum.default,
-                energyCarrier=EnergyCarrierEnum.electricity,
-                annualFee_eur=100.0,
-            ),
-            TaxContract(
-                contractScope="gov1",
-                taxContractType=TaxContractTypeEnum.salderen,
-                energyCarrier=EnergyCarrierEnum.electricity,
-                taxDelivery_eurpkWh=0.15,
-                taxFeedin_eurpkWh=0.15,
-                proportionalTax_pct=0.0,
-                annualFee_eur=100.0,
-            ),
-        ],
-    ),
-    Actor(
-        category="CONNECTIONOWNER",
-        group="commercial",
         id="com3",
-        # parent_actor="hol1",
         contracts=[
             DeliveryContract(
                 contractScope="hol1",
@@ -202,6 +165,43 @@ actors = [
         ],
     ),
     Actor(
+        category="CONNECTIONOWNER",
+        group="commercial",
+        id="com5",
+        # parent_actor="hol1",
+        contracts=[
+            DeliveryContract(
+                contractScope="hol1",
+                energyCarrier=EnergyCarrierEnum.electricity,
+                deliveryContractType=DeliveryContractTypeEnum.variable,
+                annualFee_eur=100.0,
+                deliveryPrice_eurpkWh=0.0,
+                feedinPrice_eurpkWh=0.0,
+            ),
+            ConnectionContract(
+                contractScope="dso1",
+                energyCarrier=EnergyCarrierEnum.electricity,
+                connectionContractType=ConnectionContractTypeEnum.default,
+                annualFee_eur=100.0,
+            ),
+            TransportContract(
+                contractScope="dso1",
+                transportContractType=TransportContractTypeEnum.default,
+                energyCarrier=EnergyCarrierEnum.electricity,
+                annualFee_eur=100.0,
+            ),
+            TaxContract(
+                contractScope="gov1",
+                taxContractType=TaxContractTypeEnum.salderen,
+                energyCarrier=EnergyCarrierEnum.electricity,
+                taxDelivery_eurpkWh=0.15,
+                taxFeedin_eurpkWh=0.15,
+                proportionalTax_pct=0.0,
+                annualFee_eur=100.0,
+            ),
+        ],
+    ),
+    Actor(
         category="ENERGYSUPPLIER",
         id="sup1",
         group="energysuppliers",
@@ -224,7 +224,7 @@ actors = [
             ConnectionContract(
                 contractScope="dso1",
                 energyCarrier=EnergyCarrierEnum.electricity,
-                connectionContractType=ConnectionContractTypeEnum.nfATO,
+                connectionContractType=ConnectionContractTypeEnum.default,
                 nfATO_capacity_kW=5000.0,
                 nfATO_starttime_h=20.0,
                 nfATO_endtime_h=7.0,
@@ -279,7 +279,7 @@ from cloudclient.datamodel.gridconnections import (
     ProductionGridConnection,
 )
 
-eTrucksPerGridConnection = 10
+eTrucksPerGridConnection = 20
 
 gridconnections = [
     BuildingGridConnection(
@@ -289,75 +289,83 @@ gridconnections = [
         owner_actor="com1",
         parent_electric="E2",
         id="b1",
-        capacity_kw=1250,
+        capacity_kw=2700,
         charging_mode="MAX_POWER",
         battery_mode="BALANCE",
         assets=[
-            *[EHGV] * eTrucksPerGridConnection,
-            *[Diesel_Truck] * (10 - eTrucksPerGridConnection),
+            *[EHGV(vehicleScaling=5)] * eTrucksPerGridConnection,
+            *[Diesel_Truck(vehicleScaling=5)] * (20 - eTrucksPerGridConnection),
             # Building_gas_burner(capacityHeat_kW=200),
             Solarpanel_building(capacityElectricity_kW=500),
-            Grid_battery(storageCapacity_kWh=16000, stateOfCharge_r=0.2),
+            # Grid_battery(storageCapacity_kWh=17000, stateOfCharge_r=0.2),
+            # Building_solarpanels_10kWp,
         ],
     ),
     BuildingGridConnection(
         insulation_label="NONE",
         heating_type="GASBURNER",
         type="LOGISTICS",
-        owner_actor="com5",
+        owner_actor="com2",
         parent_electric="E2",
-        id="b5",
-        capacity_kw=1250,
+        id="b2",
+        capacity_kw=2700,
         charging_mode="MAX_POWER",
         battery_mode="BALANCE",
         assets=[
-            *[EHGV] * eTrucksPerGridConnection,
-            *[Diesel_Truck] * (10 - eTrucksPerGridConnection),
+            *[EHGV(vehicleScaling=5)] * eTrucksPerGridConnection,
+            *[Diesel_Truck(vehicleScaling=5)] * (20 - eTrucksPerGridConnection),
             # Building_gas_burner(capacityHeat_kW=200),
             Solarpanel_building(capacityElectricity_kW=500),
-            Grid_battery(storageCapacity_kWh=16000, stateOfCharge_r=0.2),
+            # Grid_battery(storageCapacity_kWh=17000, stateOfCharge_r=0.2),
+            # Building_solarpanels_10kWp,
         ],
     ),
     IndustryGridConnection(
         heating_type="GASBURNER",
         type="INDUSTRY_OTHER",
-        owner_actor="com2",
+        owner_actor="com3",
         parent_electric="E2",
-        id="b2",
+        id="b3",
         capacity_kw=3000,
         assets=[
-            Industry_other_heat_demand(yearlyDemandHeat_kWh=3000000),
-            Building_gas_burner(capacityHeat_kW=1000.0),
+            Industry_other_heat_demand(yearlyDemandHeat_kWh=6000000),
+            Building_gas_burner(capacityHeat_kW=1000),
             # Industrial_hydrogen_furnace(capacityHeat_kW=1000.0),
-            Solarpanel_building(capacityElectricity_kW=500),
             Office_other_electricity(yearlyDemandElectricity_kWh=9500000.0),
+            Solarpanel_building(capacityElectricity_kW=500),
         ],
     ),
     ProductionGridConnection(
         category="WINDFARM",
-        owner_actor="com3",
+        owner_actor="com4",
         parent_electric="E2",
-        id="b3",
-        capacity_kw=5000,
-        electrolyser_mode="BALANCE",
+        id="b4",
+        capacity_kw=12000,
+        battery_mode="BALANCE",
+        electrolyser_mode="PRICE",
         assets=[
-            # Windmill_onshore(capacityElectricity_kW=9000),
             Windmill_onshore(capacityElectricity_kW=6000),
+            # Windmill_onshore(capacityElectricity_kW=9000),
             Solarpanel_farm(capacityElectricity_kW=6000),
-            # Electrolyser(capacityElectricity_kW=2000),
+            # Electrolyser(capacityElectric_kW=4000),
+            Grid_battery(
+                storageCapacity_kWh=0 * 32000,
+                capacityElectricity_kW=8000,
+                stateOfCharge_r=0.2,
+            ),
             Curtailer(),
         ],
     ),
     ProductionGridConnection(
         category="GRIDBATTERY",
-        owner_actor="com4",
+        owner_actor="com5",
         parent_electric="E2",
         battery_mode="BALANCE",
-        id="b4",
-        capacity_kw=8000,
+        id="b5",
+        capacity_kw=10000,
         assets=[
             Grid_battery(
-                storageCapacity_kWh=0 * 40000,
+                storageCapacity_kWh=1 * 32000,
                 capacityElectricity_kW=10000,
                 stateOfCharge_r=0.2,
             )
@@ -475,9 +483,12 @@ policies = [
 ]
 
 etm_upscale_slider_settings = {
-    "share_of_electric_trucks": 100,  # Impacts costs, HV netload, sustainability and selfsufficiency
-    "installed_energy_grid_battery": 0,
-    "share_of_buildings_with_solar_panels": 0,
+    "energy_hub_share_of_electric_trucks": max(0.1, eTrucksPerGridConnection * 5),
+    "energy_hub_installed_capacity_wind_turbines_on_land": 6,
+    # "share_of_electric_trucks": 100,  # Impacts costs, HV netload, sustainability and selfsufficiency
+    "energy_hub_installed_energy_grid_battery": 32,
+    "energy_hub_installed_capacity_solar_on_land": 7.5,
+    "energy_hub_installed_industry_electrolyser": 0
     # "fooled_you": -100,  # so you can just add any silly etm_key, it will just be ignored...
 }
 

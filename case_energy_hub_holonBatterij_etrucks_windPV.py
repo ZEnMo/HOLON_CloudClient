@@ -268,6 +268,7 @@ from cloudclient.datamodel.defaults import (
     Office_other_electricity,
     Electrolyser,
     Curtailer,
+    Industrial_hydrogen_furnace,
 )
 
 # from cloudclient.datamodel.defaults import *
@@ -288,7 +289,7 @@ gridconnections = [
         owner_actor="com1",
         parent_electric="E2",
         id="b1",
-        capacity_kw=2600,
+        capacity_kw=2700,
         charging_mode="MAX_POWER",
         battery_mode="BALANCE",
         assets=[
@@ -296,7 +297,7 @@ gridconnections = [
             *[Diesel_Truck(vehicleScaling=5)] * (20 - eTrucksPerGridConnection),
             # Building_gas_burner(capacityHeat_kW=200),
             Solarpanel_building(capacityElectricity_kW=500),
-            Grid_battery(storageCapacity_kWh=17000, stateOfCharge_r=0.2),
+            # Grid_battery(storageCapacity_kWh=17000, stateOfCharge_r=0.2),
             # Building_solarpanels_10kWp,
         ],
     ),
@@ -307,7 +308,7 @@ gridconnections = [
         owner_actor="com5",
         parent_electric="E2",
         id="b5",
-        capacity_kw=2600,
+        capacity_kw=2700,
         charging_mode="MAX_POWER",
         battery_mode="BALANCE",
         assets=[
@@ -315,7 +316,7 @@ gridconnections = [
             *[Diesel_Truck(vehicleScaling=5)] * (20 - eTrucksPerGridConnection),
             # Building_gas_burner(capacityHeat_kW=200),
             Solarpanel_building(capacityElectricity_kW=500),
-            Grid_battery(storageCapacity_kWh=17000, stateOfCharge_r=0.2),
+            # Grid_battery(storageCapacity_kWh=17000, stateOfCharge_r=0.2),
             # Building_solarpanels_10kWp,
         ],
     ),
@@ -329,6 +330,7 @@ gridconnections = [
         assets=[
             Industry_other_heat_demand(yearlyDemandHeat_kWh=6000000),
             Building_gas_burner(capacityHeat_kW=1000),
+            # Industrial_hydrogen_furnace(capacityHeat_kW=1000.0),
             Office_other_electricity(yearlyDemandElectricity_kWh=9500000.0),
             Solarpanel_building(capacityElectricity_kW=500),
         ],
@@ -338,11 +340,19 @@ gridconnections = [
         owner_actor="com3",
         parent_electric="E2",
         id="b3",
-        capacity_kw=6000,
+        capacity_kw=6500,
+        battery_mode="BALANCE",
+        electrolyser_mode="PRICE",
         assets=[
             Windmill_onshore(capacityElectricity_kW=6000),
+            # Windmill_onshore(capacityElectricity_kW=9000),
             Solarpanel_farm(capacityElectricity_kW=4000),
-            # Electrolyser(capacityElectricity_kW=3000)
+            # Electrolyser(capacityElectric_kW=4000),
+            Grid_battery(
+                storageCapacity_kWh=1 * 32000,
+                capacityElectricity_kW=8000,
+                stateOfCharge_r=0.2,
+            ),
             Curtailer(),
         ],
     ),
@@ -352,7 +362,7 @@ gridconnections = [
         parent_electric="E2",
         battery_mode="BALANCE",
         id="b4",
-        capacity_kw=8000,
+        capacity_kw=10000,
         assets=[
             Grid_battery(
                 storageCapacity_kWh=0 * 32000,

@@ -17,7 +17,7 @@ actors = [
         id="com1",
         contracts=[
             DeliveryContract(
-                contractScope="hol1",
+                contractScope="sup1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 deliveryContractType=DeliveryContractTypeEnum.variable,
                 annualFee_eur=100.0,
@@ -58,7 +58,7 @@ actors = [
         # parent_actor="hol1",
         contracts=[
             DeliveryContract(
-                contractScope="hol1",
+                contractScope="sup1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 deliveryContractType=DeliveryContractTypeEnum.variable,
                 annualFee_eur=100.0,
@@ -97,7 +97,7 @@ actors = [
         id="com2",
         contracts=[
             DeliveryContract(
-                contractScope="hol1",
+                contractScope="sup1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 deliveryContractType=DeliveryContractTypeEnum.variable,
                 annualFee_eur=100.0,
@@ -134,7 +134,7 @@ actors = [
         # parent_actor="hol1",
         contracts=[
             DeliveryContract(
-                contractScope="hol1",
+                contractScope="sup1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 deliveryContractType=DeliveryContractTypeEnum.variable,
                 annualFee_eur=100.0,
@@ -171,7 +171,7 @@ actors = [
         # parent_actor="hol1",
         contracts=[
             DeliveryContract(
-                contractScope="hol1",
+                contractScope="sup1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 deliveryContractType=DeliveryContractTypeEnum.variable,
                 annualFee_eur=100.0,
@@ -224,7 +224,7 @@ actors = [
             ConnectionContract(
                 contractScope="dso1",
                 energyCarrier=EnergyCarrierEnum.electricity,
-                connectionContractType=ConnectionContractTypeEnum.default,
+                connectionContractType=ConnectionContractTypeEnum.nfATO,
                 nfATO_capacity_kW=5000.0,
                 nfATO_starttime_h=20.0,
                 nfATO_endtime_h=7.0,
@@ -278,7 +278,7 @@ from cloudclient.datamodel.gridconnections import (
     ProductionGridConnection,
 )
 
-eTrucksPerGridConnection = 20
+eTrucksPerGridConnection = 10
 
 gridconnections = [
     BuildingGridConnection(
@@ -288,15 +288,16 @@ gridconnections = [
         owner_actor="com1",
         parent_electric="E2",
         id="b1",
-        capacity_kw=2600,
+        capacity_kw=1250,
         charging_mode="MAX_POWER",
         battery_mode="BALANCE",
         assets=[
-            *[EHGV(vehicleScaling=5)] * eTrucksPerGridConnection,
+            *[EHGV(vehicleScaling=5, capacityElectricity_kW=50)]
+            * eTrucksPerGridConnection,
             *[Diesel_Truck(vehicleScaling=5)] * (20 - eTrucksPerGridConnection),
             # Building_gas_burner(capacityHeat_kW=200),
-            Solarpanel_building(capacityElectricity_kW=500),
-            Grid_battery(storageCapacity_kWh=17000, stateOfCharge_r=0.2),
+            # Solarpanel_building(capacityElectricity_kW=500),
+            # Grid_battery(storageCapacity_kWh=17000, stateOfCharge_r=0.2),
             # Building_solarpanels_10kWp,
         ],
     ),
@@ -307,15 +308,15 @@ gridconnections = [
         owner_actor="com5",
         parent_electric="E2",
         id="b5",
-        capacity_kw=2600,
+        capacity_kw=1250,
         charging_mode="MAX_POWER",
         battery_mode="BALANCE",
         assets=[
             *[EHGV(vehicleScaling=5)] * eTrucksPerGridConnection,
             *[Diesel_Truck(vehicleScaling=5)] * (20 - eTrucksPerGridConnection),
             # Building_gas_burner(capacityHeat_kW=200),
-            Solarpanel_building(capacityElectricity_kW=500),
-            Grid_battery(storageCapacity_kWh=17000, stateOfCharge_r=0.2),
+            # Solarpanel_building(capacityElectricity_kW=500),
+            # Grid_battery(storageCapacity_kWh=17000, stateOfCharge_r=0.2),
             # Building_solarpanels_10kWp,
         ],
     ),
@@ -330,7 +331,6 @@ gridconnections = [
             Industry_other_heat_demand(yearlyDemandHeat_kWh=6000000),
             Building_gas_burner(capacityHeat_kW=1000),
             Office_other_electricity(yearlyDemandElectricity_kWh=9500000.0),
-            Solarpanel_building(capacityElectricity_kW=500),
         ],
     ),
     ProductionGridConnection(
@@ -340,10 +340,10 @@ gridconnections = [
         id="b3",
         capacity_kw=6000,
         assets=[
-            Windmill_onshore(capacityElectricity_kW=6000),
-            Solarpanel_farm(capacityElectricity_kW=4000),
+            # Windmill_onshore(capacityElectricity_kW=6000),
+            # Solarpanel_farm(capacityElectricity_kW=2000),
             # Electrolyser(capacityElectricity_kW=3000)
-            Curtailer(),
+            # Curtailer(),
         ],
     ),
     ProductionGridConnection(
@@ -355,8 +355,8 @@ gridconnections = [
         capacity_kw=8000,
         assets=[
             Grid_battery(
-                storageCapacity_kWh=0 * 32000,
-                capacityElectricity_kW=6000,
+                storageCapacity_kWh=0 * 30000,
+                capacityElectricity_kW=10000,
                 stateOfCharge_r=0.2,
             )
         ],

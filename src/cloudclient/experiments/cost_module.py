@@ -19,6 +19,7 @@ ETM_MAPPING = {
     ),  # TODO: check this key
     "depreciation_costs_households_solar_panels_per_kw": ("HOUSE", "PHOTOVOLTAIC"),
     "depreciation_costs_solar_farm_per_kw": ("SOLARFARM", "PHOTOVOLTAIC"),
+    "depreciation_costs_solar_farm_per_kw": ("WINDFARM", "PHOTOVOLTAIC"),
     "depreciation_costs_wind_farm_inland_per_kw": ("WINDFARM", "INLAND_WIND_TURBINE"),
     "depreciation_costs_buildings_gas_burner_per_kw": ("BUILDING", "GAS_BURNER"),
     "depreciation_costs_industry_solar_panels_per_kw": ("INDUSTRY", "PHOTOVOLTAIC"),

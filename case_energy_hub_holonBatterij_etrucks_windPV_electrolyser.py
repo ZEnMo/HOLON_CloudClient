@@ -29,9 +29,9 @@ actors = [
                 energyCarrier=EnergyCarrierEnum.electricity,
                 connectionContractType=ConnectionContractTypeEnum.default,
                 annualFee_eur=100.0,
-                # nfATO_capacity_kW=2000.0,
-                # nfATO_starttime_h=20.0,
-                # nfATO_endtime_h=7.0,
+                nfATO_capacity_kW=2000.0,
+                nfATO_starttime_h=20.0,
+                nfATO_endtime_h=7.0,
             ),
             TransportContract(
                 contractScope="dso1",
@@ -69,9 +69,9 @@ actors = [
                 contractScope="dso1",
                 energyCarrier=EnergyCarrierEnum.electricity,
                 connectionContractType=ConnectionContractTypeEnum.default,
-                # nfATO_capacity_kW=2000.0,
-                # nfATO_starttime_h=20.0,
-                # nfATO_endtime_h=7.0,
+                nfATO_capacity_kW=2000.0,
+                nfATO_starttime_h=20.0,
+                nfATO_endtime_h=7.0,
                 annualFee_eur=100.0,
             ),
             TransportContract(
@@ -224,7 +224,7 @@ actors = [
             ConnectionContract(
                 contractScope="dso1",
                 energyCarrier=EnergyCarrierEnum.electricity,
-                connectionContractType=ConnectionContractTypeEnum.nfATO,
+                connectionContractType=ConnectionContractTypeEnum.default,
                 nfATO_capacity_kW=5000.0,
                 nfATO_starttime_h=20.0,
                 nfATO_endtime_h=7.0,
@@ -279,7 +279,7 @@ from cloudclient.datamodel.gridconnections import (
     ProductionGridConnection,
 )
 
-eTrucksPerGridConnection = 10
+eTrucksPerGridConnection = 20
 
 gridconnections = [
     BuildingGridConnection(
@@ -289,15 +289,17 @@ gridconnections = [
         owner_actor="com1",
         parent_electric="E2",
         id="b1",
-        capacity_kw=2500,
+        capacity_kw=2700,
         charging_mode="MAX_POWER",
         battery_mode="BALANCE",
         assets=[
-            *[EHGV] * eTrucksPerGridConnection,
-            *[Diesel_Truck] * (10 - eTrucksPerGridConnection),
+            *[EHGV(vehicleScaling=5, capacityElectricity_kW=100)]
+            * eTrucksPerGridConnection,
+            *[Diesel_Truck(vehicleScaling=5)] * (20 - eTrucksPerGridConnection),
             # Building_gas_burner(capacityHeat_kW=200),
             Solarpanel_building(capacityElectricity_kW=500),
-            # Grid_battery(storageCapacity_kWh=25000, stateOfCharge_r=0.2),
+            # Grid_battery(storageCapacity_kWh=17000, stateOfCharge_r=0.2),
+            # Building_solarpanels_10kWp,
         ],
     ),
     BuildingGridConnection(
@@ -307,15 +309,16 @@ gridconnections = [
         owner_actor="com5",
         parent_electric="E2",
         id="b5",
-        capacity_kw=2500,
+        capacity_kw=2700,
         charging_mode="MAX_POWER",
         battery_mode="BALANCE",
         assets=[
-            *[EHGV] * eTrucksPerGridConnection,
-            *[Diesel_Truck] * (10 - eTrucksPerGridConnection),
+            *[EHGV(vehicleScaling=5)] * eTrucksPerGridConnection,
+            *[Diesel_Truck(vehicleScaling=5)] * (20 - eTrucksPerGridConnection),
             # Building_gas_burner(capacityHeat_kW=200),
             Solarpanel_building(capacityElectricity_kW=500),
-            # Grid_battery(storageCapacity_kWh=25000, stateOfCharge_r=0.2),
+            # Grid_battery(storageCapacity_kWh=17000, stateOfCharge_r=0.2),
+            # Building_solarpanels_10kWp,
         ],
     ),
     IndustryGridConnection(
@@ -326,11 +329,11 @@ gridconnections = [
         id="b2",
         capacity_kw=3000,
         assets=[
-            Industry_other_heat_demand(yearlyDemandHeat_kWh=3000000),
+            Industry_other_heat_demand(yearlyDemandHeat_kWh=6000000),
             # Building_gas_burner(capacityHeat_kW=1000),
             Industrial_hydrogen_furnace(capacityHeat_kW=1000.0),
+            Office_other_electricity(yearlyDemandElectricity_kWh=9500000.0),
             Solarpanel_building(capacityElectricity_kW=500),
-            Office_other_electricity(yearlyDemandElectricity_kWh=10000000.0),
         ],
     ),
     ProductionGridConnection(
@@ -338,12 +341,18 @@ gridconnections = [
         owner_actor="com3",
         parent_electric="E2",
         id="b3",
-        capacity_kw=7000,
-        electrolyser_mode="BALANCE",
+        capacity_kw=6800,
+        electrolyser_mode="PRICE",
         assets=[
+            # Windmill_onshore(capacityElectricity_kW=6000),
             Windmill_onshore(capacityElectricity_kW=9000),
-            Solarpanel_farm(capacityElectricity_kW=2000),
-            Electrolyser(capacityElectricity_kW=2000),
+            Solarpanel_farm(capacityElectricity_kW=6000),
+            Electrolyser(capacityElectric_kW=3500),
+            # Grid_battery(
+            #     storageCapacity_kWh=1 * 32000,
+            #     capacityElectricity_kW=10000,
+            #     stateOfCharge_r=0.2,
+            # ),
             Curtailer(),
         ],
     ),
@@ -353,10 +362,10 @@ gridconnections = [
         parent_electric="E2",
         battery_mode="BALANCE",
         id="b4",
-        capacity_kw=8000,
+        capacity_kw=10000,
         assets=[
             Grid_battery(
-                storageCapacity_kWh=40000,
+                storageCapacity_kWh=1 * 32000,
                 capacityElectricity_kW=10000,
                 stateOfCharge_r=0.2,
             )
@@ -370,14 +379,14 @@ gridnodes = [
     ElectricGridNode(
         id="E2",
         parent="E1",
-        owner_actor="o1",
+        owner_actor="dso1",
         capacity_kw=5000,
         category="ELECTRICITY",
         type="MSLS",
     ),
     ElectricGridNode(
         id="E1",
-        owner_actor="o1",
+        owner_actor="dso1",
         capacity_kw=500000,
         category="ELECTRICITY",
         type="HSMS",
@@ -474,9 +483,12 @@ policies = [
 ]
 
 etm_upscale_slider_settings = {
-    "share_of_electric_trucks": 100,  # Impacts costs, HV netload, sustainability and selfsufficiency
-    "installed_energy_grid_battery": 0,
-    "share_of_buildings_with_solar_panels": 0,
+    "energy_hub_share_of_electric_trucks": max(0.1, eTrucksPerGridConnection * 5),
+    "energy_hub_installed_capacity_wind_turbines_on_land": 9,
+    # "share_of_electric_trucks": 100,  # Impacts costs, HV netload, sustainability and selfsufficiency
+    "energy_hub_installed_energy_grid_battery": 32,
+    "energy_hub_installed_capacity_solar_on_land": 6.5,
+    "energy_hub_installed_industry_electrolyser": 4
     # "fooled_you": -100,  # so you can just add any silly etm_key, it will just be ignored...
 }
 

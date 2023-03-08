@@ -31,7 +31,7 @@ energy_hub_installed_capacity_wind_turbines_on_land:
   conversion: multiply
   convert_with_value:
     type: static
-    value: 3437.0 # factor_of_holon_to_national_buildings
+    value: 1700.0 # factor_of_holon_to_national_buildings
     key: scaling_energy_hub
 
 energy_hub_installed_capacity_solar_on_land:
@@ -42,7 +42,7 @@ energy_hub_installed_capacity_solar_on_land:
   conversion: multiply
   convert_with_value:
     type: static
-    value: 3437.0 # factor_of_holon_to_national_buildings
+    value: 1700.0 # factor_of_holon_to_national_buildings
     key: scaling_energy_hub
 
 energy_hub_installed_energy_grid_battery: # volume or capacity
@@ -53,7 +53,7 @@ energy_hub_installed_energy_grid_battery: # volume or capacity
   conversion: multiply
   convert_with_value:
     type: static
-    value: 3437.0 # factor_of_holon_to_national_buildings
+    value: 1700.0 # factor_of_holon_to_national_buildings
     key: scaling_energy_hub
 
 energy_hub_share_of_electric_trucks:
@@ -70,6 +70,6 @@ energy_hub_installed_industry_electrolyser:
   conversion: multiply
   convert_with_value:
     type: static
-    value: 3437.0 # factor_of_holon_to_national_buildings
+    value: 1700.0 # factor_of_holon_to_national_buildings
     key: scaling_energy_hub
 

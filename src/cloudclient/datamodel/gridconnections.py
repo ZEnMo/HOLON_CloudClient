@@ -14,6 +14,7 @@ class ChargingModeEnum(Enum):
     max_power = "MAX_POWER"
     max_spread = "MAX_SPREAD"
     cheap = "CHEAP"
+    simple = "SIMPLE"
 
 
 class BatteryModeEnum(Enum):
