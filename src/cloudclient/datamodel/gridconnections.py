@@ -50,6 +50,7 @@ class HeatingTypeEnum(Enum):
     gasfired = "GASFIRED"
     heatpump_gaspeak = "HEATPUMP_GASPEAK"
     districtheat = "DISTRICTHEAT"
+    districtheatDecentral = "DISTRICTHEATDECENTRAL"
     heatpump_boilerpeak = "HEATPUMP_BOILERPEAK"
     heatpump_air = "HEATPUMP_AIR"
     hydrogenfired = "HYDROGENFIRED"

@@ -132,7 +132,7 @@ class House_heatnetwork_basic(HouseGridConnection):
         House_other_electricity,
         House_hot_water,
         House_DH_heatdeliveryset,
-        Electric_hob,
+        #Electric_hob,
         Solarpanel_building(capacityElectricity_kW=3),
         Diesel_Vehicle,
     ]
@@ -153,12 +153,37 @@ class House_heatnetwork_electrified(HouseGridConnection):
     assets = [
         House_other_electricity,
         House_hot_water,
-        Electric_hob,
+        #Electric_hob,
         House_DH_heatdeliveryset,
         Solarpanel_building(capacityElectricity_kW=3),
         EV,
     ]
     type = HousingTypeEnum.semidetached
+
+class House_heatnetwork_MT_electrified(HouseGridConnection):
+    amount: Optional[int]
+    owner_actor=""
+    id=""
+    capacity_kw = 17.0
+    parent_electric = ""
+    insulation_label = InsulationLabelEnum.c
+    heating_type = HeatingTypeEnum.districtheatDecentral
+    charging_mode = ChargingModeEnum.simple
+    smart_assets = SmartAssetsEnum.true
+    price_level_low_dif_from_avg_eurpkWh = 0.02
+    price_level_high_dif_from_avg_eurpkWh = 0.01
+    assets = [
+        House_other_electricity,
+        House_hot_water,
+        #Electric_hob,
+        House_DH_heatdeliveryset_MT,
+        House_heatpump_water_MT_S,
+        House_heat_buffer,
+        Solarpanel_building(capacityElectricity_kW=3),
+        EV,
+    ]
+    type = HousingTypeEnum.semidetached
+
 
 # House_default_1 = HouseGridConnection( 
 #     owner_actor = "",

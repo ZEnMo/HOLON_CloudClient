@@ -1,8 +1,10 @@
 from cloudclient.datamodel import (
     ElectricCoversionAsset,
+    ElectricHeatConversionAsset,
     ChemicalHeatConversionAsset,
     TransportHeatConversionAsset,
     VehicleConversionAsset,
+    ElectricHob,
     ConversionAssetTypeEnum,
 )
 
@@ -11,8 +13,17 @@ House_heatpump_MT_S = TransportHeatConversionAsset(
     type="HEAT_PUMP_AIR",
     capacityElectricity_kW=4,
     eta_r=0.5,
-    deliveryTemp_degC=60.0,
+    deliveryTemp_degC=65.0,
     # ambientTempType="AIR",
+)
+
+House_heatpump_water_MT_S = TransportHeatConversionAsset(
+    name="House_heatpump_water_MT_S",
+    type="HEAT_PUMP_WATER",
+    capacityElectricity_kW=2,
+    eta_r=0.5,
+    deliveryTemp_degC=65.0,
+    ambientTempType="WATER",
 )
 
 House_heatpump_MT_M = TransportHeatConversionAsset(
@@ -20,7 +31,7 @@ House_heatpump_MT_M = TransportHeatConversionAsset(
     type="HEAT_PUMP_AIR",
     capacityElectricity_kW=6,
     eta_r=0.6,
-    deliveryTemp_degC=60.0,
+    deliveryTemp_degC=65.0,
     # ambientTempType="AIR",
 )
 
@@ -61,7 +72,23 @@ House_DH_heatdeliveryset = ChemicalHeatConversionAsset(
     name="House_DH_heatdeliveryset",
     type="HEAT_DELIVERY_SET",
     capacityHeat_kW=30,
-    eta_r=0.99,
+    eta_r=1.0,
+    deliveryTemp_degC=90.0,
+)
+
+House_DH_heatdeliveryset_MT = ChemicalHeatConversionAsset(
+    name="House_DH_heatdeliveryset_MT",
+    type="HEAT_DELIVERY_SET",
+    capacityHeat_kW=30,
+    eta_r=1.0,
+    deliveryTemp_degC=50.0,
+)
+
+House_eboiler_M = ElectricHeatConversionAsset(
+    name="House_eboiler_M",
+    type="BOILER",
+    capacityElectricity_kW=20,
+    eta_r=1.0,
     deliveryTemp_degC=90.0,
 )
 
@@ -87,7 +114,7 @@ DH_heat_pump_HT_S = TransportHeatConversionAsset(
     capacityElectricity_kW=100,
     eta_r=0.5,
     deliveryTemp_degC=90.0,
-    # ambientTempType="GROUND",
+    ambientTempType="GROUND",
 )
 
 DH_heat_pump_MT_S = TransportHeatConversionAsset(
@@ -96,7 +123,7 @@ DH_heat_pump_MT_S = TransportHeatConversionAsset(
     capacityElectricity_kW=100,
     eta_r=0.5,
     deliveryTemp_degC=60.0,
-    # ambientTempType="GROUND",
+    ambientTempType="GROUND",
 )
 
 DH_boiler_M = ChemicalHeatConversionAsset(
@@ -113,7 +140,7 @@ DH_heat_pump_MT_S = TransportHeatConversionAsset(
     capacityElectricity_kW=100,
     eta_r=0.5,
     deliveryTemp_degC=60.0,
-    #ambientTempType="GROUND",
+    ambientTempType="GROUND",
 )
 
 DH_boiler_M = ChemicalHeatConversionAsset(
@@ -163,7 +190,7 @@ Building_heatpump_20kW = TransportHeatConversionAsset(
     capacityElectricity_kW=20,
     eta_r=0.6,
     deliveryTemp_degC=60.0,
-    # ambientTempType="AIR",
+    ambientTempType="AIR",
 )
 
 
@@ -187,7 +214,7 @@ House_water_heatpump_MT_M = TransportHeatConversionAsset(
     capacityElectricity_kW=6,
     eta_r=0.6,
     deliveryTemp_degC=60.0,
-    # ambientTempType="GROUND",
+    ambientTempType="WATER",
 )
 
 DH_heat_pump_water_MT_M = TransportHeatConversionAsset(
@@ -196,14 +223,15 @@ DH_heat_pump_water_MT_M = TransportHeatConversionAsset(
     capacityElectricity_kW=200,
     eta_r=0.5,
     deliveryTemp_degC=60.0,
-    # ambientTempType="GROUND",
+    ambientTempType="WATER",
 )
 
-Methane_CHP_M = ElectricCoversionAsset(
+Methane_CHP_M = ElectricHeatConversionAsset(
     name="Methane_CHP_M",
     type="METHANE_CHP",
     capacityElectricity_kW=200,
     eta_r=0.45,
+    deliveryTemp_degC = 90.0,
 )
 
 House_water_heatpump_MT_M = TransportHeatConversionAsset(
@@ -212,7 +240,7 @@ House_water_heatpump_MT_M = TransportHeatConversionAsset(
     capacityElectricity_kW=6,
     eta_r=0.6,
     deliveryTemp_degC=60.0,
-    #ambientTempType="GROUND",
+    ambientTempType="WATER",
 )
 
 DH_heat_pump_water_MT_M = TransportHeatConversionAsset(
@@ -221,5 +249,11 @@ DH_heat_pump_water_MT_M = TransportHeatConversionAsset(
     capacityElectricity_kW=200,
     eta_r=0.5,
     deliveryTemp_degC=60.0,
-    #ambientTempType="GROUND",
+    ambientTempType="WATER",
 )
+
+Electric_hob = ElectricHob(
+    name="Electric hob", 
+    type="ELECTRIC_HOB", 
+    eta_r=0.3,
+    capacityElectricity_kW=5.0)

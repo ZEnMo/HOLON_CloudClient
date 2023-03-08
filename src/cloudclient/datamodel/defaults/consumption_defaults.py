@@ -44,8 +44,6 @@ House_other_electricity = ElectricConsumptionAsset(
     yearlyDemandElectricity_kWh=11000,
 )
 
-Electric_hob = ElectricHob(name="Electric hob", type="ELECTRIC_HOB", capacity_kW=5.0)
-
 
 class Office_other_electricity(ElectricConsumptionAsset):
     name = "Office_other_electricity"

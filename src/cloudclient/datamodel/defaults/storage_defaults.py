@@ -156,10 +156,10 @@ District_Heating_heat_buffer_MT_S = HeatStorageAsset(
     type="STORAGE_HEAT",
     capacityHeat_kW=2000.0,
     #stateOfCharge_r=0.75,
-    initial_temperature_degC = 50,
-    minTemp_degC=40,
-    maxTemp_degC=60,
-    setTemp_degC=50,
+    initial_temperature_degC = 70,
+    minTemp_degC=60,
+    maxTemp_degC=80,
+    setTemp_degC=70,
     lossFactor_WpK=3,
     heatCapacity_JpK=120000000.0,
     ambientTempType="GROUND",
@@ -221,6 +221,19 @@ District_Heating_network_MT_S = HeatStorageAsset(
     ambientTempType="GROUND",
 )
 
+District_Heating_network_MT_L = HeatStorageAsset(
+    name="District_Heating_network_MT_S",
+    type="STORAGE_HEAT",
+    capacityHeat_kW=1000.0,
+    #stateOfCharge_r=1.0,
+    initial_temperature_degC = 70,
+    minTemp_degC=60,
+    maxTemp_degC=80,
+    setTemp_degC=70,
+    lossFactor_WpK=10000,
+    heatCapacity_JpK=1000000000.0,
+    ambientTempType="GROUND",
+)
 
 class Grid_battery(ElectricStorageAsset):
     # capacityElectricity_kW: float

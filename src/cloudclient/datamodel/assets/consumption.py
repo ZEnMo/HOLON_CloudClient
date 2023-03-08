@@ -24,8 +24,6 @@ class HeatConsumptionAsset(ConsumptionAsset):
 class ElectricConsumptionAsset(ConsumptionAsset):
     yearlyDemandElectricity_kWh = 0.0
 
-class ElectricHob(ConsumptionAsset):
-    capacity_kW: float
 
 class HybridConsumptionAsset(ElectricConsumptionAsset, HeatConsumptionAsset):
     pass
