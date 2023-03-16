@@ -79,6 +79,7 @@ def calculate_holon_kpis(
     MSLS_capacity_kW = sum(
         [gn["capacity_kw"] for gn in gridnode_config if gn["type"] == "MSLS"]
     )
+    print("MXLX capacity: ", MSLS_capacity_kW)
     netload_mv_pos_pct = (
         (simulation_results["MSLSnodePeakPositiveLoadElectricity_kW"])
         / MSLS_capacity_kW
@@ -97,5 +98,5 @@ def calculate_holon_kpis(
         "+ netload MV": round(netload_mv_pos_pct, 1),
         "- netload MV": round(netload_mv_neg_pct, 1),
     }
-    print("version: anylogic_kpis_new")
+    print("version: anylogic_kpis_oud")
     return KPIs
