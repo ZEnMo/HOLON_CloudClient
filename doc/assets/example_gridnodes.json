@@ -89,7 +89,7 @@
         "maxTemp_degC": 100,
         "setTemp_degC": 90,
         "lossFactor_WpK": 100.0,
-        "heatCapacity_JpK": 16000000.0,
+        "heatCapacity_JpK": 10000000.0,
         "ambientTempType": "GROUND"
       }
     ]

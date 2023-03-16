@@ -1,8 +1,8 @@
 from cloudclient.datamodel import (
     HeatConsumptionAsset,
     ElectricConsumptionAsset,
-    ElectricHob,
 )
+
 from cloudclient.datamodel.assets.consumption import *
 
 Industry_steel_electricity = ElectricConsumptionAsset(
@@ -78,12 +78,4 @@ Diesel_Vehicle = DieselVehicleAsset(
     name="Diesel_Vehicle",
     energyConsumption_kWhpkm=0.8,
     vehicleScaling=1,
-)
-
-Electric_hob = ElectricHob(
-    type= "ELECTRIC_HOB",
-    name= "Electric hob", # name can be anything
-    category= "CONSUMPTION",
-    #eta_r= 0.95,  #fixed value
-    capacityElectricity_kW= 5.0, #//fixed value
 )

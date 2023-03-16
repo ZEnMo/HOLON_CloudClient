@@ -5,11 +5,11 @@ from cloudclient.datamodel.contracts import Contract
 
 
 class ActorTypeEnum(Enum):
-    gridoperator = "GRIDOPERATOR"
-    administrativeholon = "ADMINISTRATIVEHOLON"
-    energyholon = "ENERGYHOLON"
+    operatorgrid = "OPERATORGRID"
+    govholon = "GOVHOLON"
+    holonenergy = "HOLONENERGY"
     connectionowner = "CONNECTIONOWNER"
-    energysupplier = "ENERGYSUPPLIER"
+    supplierenergy = "SUPPLIERENERGY"
 
 
 class Actor(BaseModel):

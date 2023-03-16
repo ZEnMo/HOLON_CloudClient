@@ -365,8 +365,8 @@ config_gridconnection_list_small = [
 
 config_gridconnection_buurt1 = [
     ## 0) gasburners default:
-    #House_default(amount=20, parent_electric="E2", type=HousingTypeEnum.appartment, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.d, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
-    #Store_default(amount=20, parent_electric="E2"),
+    House_default(amount=20, parent_electric="E2", type=HousingTypeEnum.appartment, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.d, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    Store_default(amount=20, parent_electric="E2"),
     ## 1) All-electric:
     #House_electrified(amount=20, parent_electric="E2", type=HousingTypeEnum.appartment, heating_type = HeatingTypeEnum.heatpump_air, insulation_label= InsulationLabelEnum.d, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     #Store_heatpump(amount=20, parent_electric="E2"),
@@ -375,8 +375,8 @@ config_gridconnection_buurt1 = [
     #Store_hybridheatpump(amount=20, parent_electric="E2", heating_type = HeatingTypeEnum.heatpump_gaspeak,),
 
     ## 3) HT district heating:
-    House_heatnetwork_electrified(amount=20, parent_heat="H1", parent_electric="E2", type=HousingTypeEnum.appartment, heating_type = HeatingTypeEnum.districtheatDecentral, insulation_label= InsulationLabelEnum.d, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
-    Store_heatnetwork(amount=20, parent_electric="E2", parent_heat="H1"),
+    #House_heatnetwork_electrified(amount=20, parent_heat="H1", parent_electric="E2", type=HousingTypeEnum.appartment, heating_type = HeatingTypeEnum.districtheatDecentral, insulation_label= InsulationLabelEnum.d, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    #Store_heatnetwork(amount=20, parent_electric="E2", parent_heat="H1"),
     
     ## 4) MT district heating with LT-source:
     #House_heatnetwork_MT_electrified(amount=20, parent_heat="H2", parent_electric="E2", type=HousingTypeEnum.appartment, heating_type = HeatingTypeEnum.districtheatDecentral, insulation_label= InsulationLabelEnum.d, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
@@ -385,47 +385,47 @@ config_gridconnection_buurt1 = [
 
 config_gridconnection_buurt2 = [ 
     ## 0) gasburner default:
-    #House_default(amount=40, parent_electric="E3", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.b, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    House_default(amount=40, parent_electric="E3", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.b, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 1) heatpump:
     #House_electrified(amount=40, parent_electric="E3", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.heatpump_air, insulation_label= InsulationLabelEnum.b, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 2) hybrid heatpump:
     #House_hybridheatpump(amount=40, parent_electric="E3", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.heatpump_gaspeak, insulation_label= InsulationLabelEnum.b, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 3) HT district heating:
-    House_heatnetwork_electrified(amount=40, parent_heat="H1", parent_electric="E3", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.districtheat, insulation_label= InsulationLabelEnum.b, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    #House_heatnetwork_electrified(amount=40, parent_heat="H1", parent_electric="E3", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.districtheat, insulation_label= InsulationLabelEnum.b, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 4) MT district heating:
     #House_heatnetwork_MT_electrified(amount=40, parent_heat="H2", parent_electric="E3", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.districtheatDecentral, insulation_label= InsulationLabelEnum.b, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
 ]
  
 config_gridconnection_buurt3 = [
     ## 0) gasburner default
-    #House_default(amount=40, parent_electric="E4", type=HousingTypeEnum.appartment, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.a, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    House_default(amount=40, parent_electric="E4", type=HousingTypeEnum.appartment, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.a, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 1) heatpump
     #House_electrified(amount=40, parent_electric="E4", type=HousingTypeEnum.appartment, heating_type = HeatingTypeEnum.heatpump_air, insulation_label= InsulationLabelEnum.a, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 2) hybrid heatpump
     #House_hybridheatpump(amount=40, parent_electric="E4", type=HousingTypeEnum.appartment, heating_type = HeatingTypeEnum.heatpump_gaspeak, insulation_label= InsulationLabelEnum.a, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 3) HT district heating
-    House_heatnetwork_electrified(amount=40, parent_heat="H1", parent_electric="E4", type=HousingTypeEnum.appartment, heating_type = HeatingTypeEnum.districtheat, insulation_label= InsulationLabelEnum.a, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    #House_heatnetwork_electrified(amount=40, parent_heat="H1", parent_electric="E4", type=HousingTypeEnum.appartment, heating_type = HeatingTypeEnum.districtheat, insulation_label= InsulationLabelEnum.a, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 4) MT district heating
     #House_heatnetwork_MT_electrified(amount=40, parent_heat="H2", parent_electric="E4", type=HousingTypeEnum.appartment, heating_type = HeatingTypeEnum.districtheatDecentral, insulation_label= InsulationLabelEnum.a, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
 ]
 
 config_gridconnection_buurt4 = [
     ## 0) gasburner default
-    #House_default(amount=40, parent_electric="E5", type=HousingTypeEnum.highrise, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    House_default(amount=40, parent_electric="E5", type=HousingTypeEnum.highrise, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 1) heatpump
     #House_electrified(amount=40, parent_electric="E5", type=HousingTypeEnum.highrise, heating_type = HeatingTypeEnum.heatpump_air, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 2) hybrid heatpump
     #House_hybridheatpump(amount=40, parent_electric="E5", type=HousingTypeEnum.highrise, heating_type = HeatingTypeEnum.heatpump_gaspeak, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 3) HT district heating
-    House_heatnetwork_electrified(amount=40, parent_heat="H1", parent_electric="E5", type=HousingTypeEnum.highrise, heating_type = HeatingTypeEnum.districtheat, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    #House_heatnetwork_electrified(amount=40, parent_heat="H1", parent_electric="E5", type=HousingTypeEnum.highrise, heating_type = HeatingTypeEnum.districtheat, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 4) MT district heating
     #House_heatnetwork_MT_electrified(amount=40, parent_heat="H2", parent_electric="E5", type=HousingTypeEnum.highrise, heating_type = HeatingTypeEnum.districtheatDecentral, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
   ]
 
 config_gridconnection_buurt5 = [
     ## 0) gasburner default
-    #House_default(amount=30, parent_electric="E6", type=HousingTypeEnum.terraced, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
-    #House_default(amount=10, parent_electric="E6", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    House_default(amount=30, parent_electric="E6", type=HousingTypeEnum.terraced, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    House_default(amount=10, parent_electric="E6", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 1) heatpump
     #House_electrified(amount=30, parent_electric="E6", type=HousingTypeEnum.terraced, heating_type = HeatingTypeEnum.heatpump_air, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     #House_electrified(amount=10, parent_electric="E6", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.heatpump_air, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
@@ -433,8 +433,8 @@ config_gridconnection_buurt5 = [
     #House_hybridheatpump(amount=30, parent_electric="E6", type=HousingTypeEnum.terraced, heating_type = HeatingTypeEnum.heatpump_gaspeak, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     #House_hybridheatpump(amount=10, parent_electric="E6", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.heatpump_gaspeak, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 3) HT district heating
-    House_heatnetwork_electrified(amount=30, parent_heat="H1", parent_electric="E6", type=HousingTypeEnum.terraced, heating_type = HeatingTypeEnum.districtheat, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
-    House_heatnetwork_electrified(amount=10, parent_heat="H1", parent_electric="E6", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.districtheat, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    #House_heatnetwork_electrified(amount=30, parent_heat="H1", parent_electric="E6", type=HousingTypeEnum.terraced, heating_type = HeatingTypeEnum.districtheat, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    #House_heatnetwork_electrified(amount=10, parent_heat="H1", parent_electric="E6", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.districtheat, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 4) MT district heating
     #House_heatnetwork_MT_electrified(amount=30, parent_heat="H2", parent_electric="E6", type=HousingTypeEnum.terraced, heating_type = HeatingTypeEnum.districtheatDecentral, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     #House_heatnetwork_MT_electrified(amount=10, parent_heat="H2", parent_electric="E6", type=HousingTypeEnum.semidetached, heating_type = HeatingTypeEnum.districtheatDecentral, insulation_label= InsulationLabelEnum.c, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),  
@@ -442,13 +442,13 @@ config_gridconnection_buurt5 = [
 
 config_gridconnection_buurt6 = [
     ## 0) gasburner default
-    #House_default(amount=40, parent_electric="E7", type=HousingTypeEnum.detached, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.f, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    House_default(amount=40, parent_electric="E7", type=HousingTypeEnum.detached, heating_type = HeatingTypeEnum.gasburner, insulation_label= InsulationLabelEnum.f, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 1) heatpump
     #House_electrified(amount=40, parent_electric="E7", type=HousingTypeEnum.detached, heating_type = HeatingTypeEnum.heatpump_air, insulation_label= InsulationLabelEnum.f, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 2) hybrid heatpump
     #House_hybridheatpump(amount=40, parent_electric="E7", type=HousingTypeEnum.detached, heating_type = HeatingTypeEnum.heatpump_gaspeak, insulation_label= InsulationLabelEnum.f, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 3) HT district heating
-    House_heatnetwork_electrified(amount=40, parent_heat="H1", parent_electric="E7", type=HousingTypeEnum.detached, heating_type = HeatingTypeEnum.districtheat, insulation_label= InsulationLabelEnum.f, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
+    #House_heatnetwork_electrified(amount=40, parent_heat="H1", parent_electric="E7", type=HousingTypeEnum.detached, heating_type = HeatingTypeEnum.districtheat, insulation_label= InsulationLabelEnum.f, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
     ## 4) MT district heating
     #House_heatnetwork_MT_electrified(amount=40, parent_heat="H2", parent_electric="E7", type=HousingTypeEnum.detached, heating_type = HeatingTypeEnum.districtheatDecentral, insulation_label= InsulationLabelEnum.f, charging_mode = ChargingModeEnum.cheap, smart_assets = SmartAssetsEnum.false),
 ]
@@ -465,7 +465,9 @@ config_gridconnection_buurt8 = [
     DistrictHeating_MT_Heatpump_gaspeak(amount = 1, parent_heat = "H2", parent_electric = "E9", heating_type = "LT_RESIDUAL_HEATPUMP_GASPEAK", assets=[ResidualHeat_LT(capacityHeat_kW = 300), DH_heat_pump_water_MT_M, DH_boiler_L, District_Heating_heat_buffer_MT_S ]), #DH_heat_pump_water_MT_M,
 ]
 
-gridnodes[9].assets[0].heatCapacity_JpK += 6 * 1000000
+## HT-heatnetwork dimensioning upscaling
+gridnodes[9].assets[0].heatCapacity_JpK += 0 * 1000000
+## MT-heatnetwork dimensioning upscaling
 gridnodes[10].assets[0].heatCapacity_JpK += 0 * 1000000
 
 print(gridnodes[9].assets[0].heatCapacity_JpK)

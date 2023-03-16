@@ -7,7 +7,7 @@ from .cost_module import *
 import etm_service
 from pathlib import Path
 import json
-from .anylogic_kpis import calculate_holon_kpis
+from .anylogic_kpis_new import calculate_holon_kpis
 
 """TODO: install pandas and check if everything works!"""
 ETM_CONFIG_PATH = Path(__file__).resolve().parents[1] / "services"
@@ -79,6 +79,7 @@ def calculateAllKPIs(api_experiment: AnyLogicExperiment):
 
     experiment_outputs = api_experiment.outcomes.get("APIOutputSimulationResults")
     hourly_curves = api_experiment.outcomes.get("APIOutputHourlyCurvesData")
+    
     # print("\nExperiment output categories:", experiment_outputs[0].keys())
     # print("\n")
 
@@ -106,8 +107,8 @@ def calculateAllKPIs(api_experiment: AnyLogicExperiment):
         # etm_data=etm_service.retrieve_results(
         #     COSTS_SCENARIO_ID, ETM_CONFIG_PATH, ETM_CONFIG_FILE_GET_KPIS
         # ),
-        etm_data=etm_production_data_stored,
-        gridnode_config=gridnode_config,
+        #etm_data=etm_production_data_stored,
+        #gridnode_config=gridnode_config,
         # gridnode_config=json.loads(
         #     api_experiment.client.inputs.get_input("P grid node config JSON")
         # ),

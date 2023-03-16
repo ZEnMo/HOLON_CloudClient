@@ -51,6 +51,7 @@ class ElectricHeatConversionAsset(HeatConversionAsset):
 class TransportHeatConversionAsset(ElectricHeatConversionAsset):
     ambientTempType: Optional[AmbientTempTypeEnum]
 
+
 class CombinedHeatPowerAsset(ElectricHeatConversionAsset, ChemicalHeatConversionAsset):
 
     pass

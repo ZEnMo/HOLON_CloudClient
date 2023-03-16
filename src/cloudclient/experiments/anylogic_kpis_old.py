@@ -1,5 +1,16 @@
 import numpy as np
+import csv
 
+ETM_share_of_renewable_electricity = {}
+ETM_CO2_intensity_of_electricity = {}
+
+for i in range(8760):
+    key = str(i)
+    value1 = 0.5
+    value2 = 0.6
+    ETM_share_of_renewable_electricity[key] = value1
+    ETM_CO2_intensity_of_electricity[key] = value2
+    
 
 def determine_share_of_renewables(etm_data: dict) -> np.ndarray:
     # TODO: move this to the ETsource repo as a gquery
@@ -19,7 +30,7 @@ def determine_share_of_renewables(etm_data: dict) -> np.ndarray:
         ]
     ).sum(axis=0)
     total = np.array(etm_data["hourly_production_electricity"])
-
+    
     return renewables / total
 
 
@@ -45,6 +56,10 @@ def calculate_holon_kpis(
     # )
     #
     share_of_renewables = determine_share_of_renewables(etm_data=etm_data)
+    print("form of ETM-data")
+    print(share_of_renewables)
+
+    np.savetxt('share_of_renewables.csv', share_of_renewables, delimiter=',')
 
     UnsustainableImportedElectricity_MWh = np.inner(
         1 - share_of_renewables, import_curve_MWh
@@ -82,5 +97,5 @@ def calculate_holon_kpis(
         "+ netload MV": round(netload_mv_pos_pct, 1),
         "- netload MV": round(netload_mv_neg_pct, 1),
     }
-
+    print("version: anylogic_kpis_new")
     return KPIs

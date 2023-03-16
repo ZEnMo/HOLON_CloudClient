@@ -5,7 +5,6 @@ from cloudclient.datamodel import (
     TransportHeatConversionAsset,
     VehicleConversionAsset,
     CombinedHeatPowerAsset,
-    ElectricHob,
     ConversionAssetTypeEnum,
 )
 
@@ -122,6 +121,14 @@ Gas_pit = ChemicalHeatConversionAsset(
     eta_r= 0.75,  #fixed value
     category="CONVERSION",
     capacityHeat_kW= 8.0, #fixed value,
+)
+
+Electric_hob = ElectricCoversionAsset(
+    type= "ELECTRIC_HOB",
+    name= "Electric hob", # name can be anything
+    category= "CONVERSION",
+    eta_r= 0.95,  #fixed value
+    capacityElectricity_kW= 5.0, #//fixed value
 )
 
 DH_heat_pump_HT_S = TransportHeatConversionAsset(

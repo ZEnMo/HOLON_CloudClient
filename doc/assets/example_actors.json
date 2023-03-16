@@ -1,6 +1,6 @@
 [
   {
-    "category": "GRIDOPERATOR",
+    "category": "OPERATORGRID",
     "group": "",
     "id": "o1",
     "subgroup": "",
@@ -8,7 +8,7 @@
     "node": ""
   },
   {
-    "category": "ENERGYSUPPLIER",
+    "category": "SUPPLIERENERGY",
     "group": "",
     "id": "sup1",
     "subgroup": "",
@@ -16,7 +16,7 @@
     "node": ""
   },
   {
-    "category": "ENERGYHOLON",
+    "category": "HOLONENERGY",
     "group": "",
     "id": "hol1",
     "subgroup": "",
@@ -63,7 +63,7 @@
     "node": ""
   },
   {
-    "category": "ENERGYHOLON",
+    "category": "HOLONENERGY",
     "group": "",
     "id": "hol2",
     "subgroup": "",
@@ -110,7 +110,7 @@
     "node": ""
   },
   {
-    "category": "ENERGYHOLON",
+    "category": "HOLONENERGY",
     "group": "",
     "id": "hol3",
     "subgroup": "",
@@ -157,7 +157,7 @@
     "node": ""
   },
   {
-    "category": "ENERGYHOLON",
+    "category": "HOLONENERGY",
     "group": "",
     "id": "hol4",
     "subgroup": "",
@@ -204,7 +204,7 @@
     "node": ""
   },
   {
-    "category": "ENERGYHOLON",
+    "category": "HOLONENERGY",
     "group": "",
     "id": "hol5",
     "subgroup": "",
@@ -251,7 +251,7 @@
     "node": ""
   },
   {
-    "category": "ENERGYHOLON",
+    "category": "HOLONENERGY",
     "group": "",
     "id": "hol6",
     "subgroup": "",
@@ -298,7 +298,7 @@
     "node": ""
   },
   {
-    "category": "ENERGYHOLON",
+    "category": "HOLONENERGY",
     "group": "",
     "id": "hol7",
     "subgroup": "",
@@ -345,7 +345,7 @@
     "node": ""
   },
   {
-    "category": "ENERGYHOLON",
+    "category": "HOLONENERGY",
     "group": "",
     "id": "hol8",
     "subgroup": "",

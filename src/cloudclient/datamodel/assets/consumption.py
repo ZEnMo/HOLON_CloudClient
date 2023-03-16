@@ -10,8 +10,7 @@ class ConsumptionAssetTypeEnum(Enum):
     hot_water_consumption = "HOT_WATER_CONSUMPTION"
     other_electricity_consumption = "OTHER_ELECTRICITY_CONSUMPTION"
     diesel_vehicle = "DIESEL_VEHICLE"
-    electric_hob = "ELECTRIC_HOB"
-
+ 
 
 class ConsumptionAsset(EnergyAsset):
     category = "CONSUMPTION"
@@ -34,6 +33,3 @@ class DieselVehicleAsset(ConsumptionAsset):
     energyConsumption_kWhpkm = 0.8
     type = ConsumptionAssetTypeEnum.diesel_vehicle
     vehicleScaling = 1
-
-class ElectricHob(ElectricConsumptionAsset):
-    capacityElectricity_kW: float
