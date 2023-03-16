@@ -1,19 +1,19 @@
 [
   {
     "parameter": "Grid_MS_congestion_allowance_level_kW",
-    "value": "0",
+    "value": "0.0",
     "unit": "kW",
     "comment": "gridOperator policy variable"
   },
   {
     "parameter": "Grid_MS_congestion_price_eurpkWh",
-    "value": "0.2",
+    "value": "10.0",
     "unit": "eurpkWh",
     "comment": "gridOperator policy value"
   },
   {
     "parameter": "Grid_MS_congestion_threshold_fr",
-    "value": "0.5",
+    "value": "0.1",
     "unit": "fr",
     "comment": "gridOperator policy value"
   },

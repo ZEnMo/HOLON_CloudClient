@@ -28,6 +28,7 @@ class Energyholon_default(Actor):
     category = ActorTypeEnum.energyholon
     group = ""
     id = ""
+    node = ""
     # parent_actor = ""
     # contracts = [Contract_Holon_default()]
     # contracts = []

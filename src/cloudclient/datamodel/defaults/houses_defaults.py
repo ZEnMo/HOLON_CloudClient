@@ -41,6 +41,7 @@ class House_default(HouseGridConnection):
     assets = [
         House_other_electricity,
         House_hot_water,
+        Gas_pit,
         House_gas_burner(capacityHeat_kW=30),
         Diesel_Vehicle,
         #Solarpanel_building(capacityElectricity_kW=3),
@@ -109,6 +110,7 @@ class House_hybridheatpump(HouseGridConnection):
     assets = [
         House_other_electricity,
         House_hot_water,
+        Electric_hob,
         House_heatpump_MT_M,
         House_gas_burner(capacityHeat_kW=30),
         Solarpanel_building(capacityElectricity_kW=3),
@@ -132,7 +134,7 @@ class House_heatnetwork_basic(HouseGridConnection):
         House_other_electricity,
         House_hot_water,
         House_DH_heatdeliveryset,
-        #Electric_hob,
+        Electric_hob,
         Solarpanel_building(capacityElectricity_kW=3),
         Diesel_Vehicle,
     ]
@@ -153,7 +155,7 @@ class House_heatnetwork_electrified(HouseGridConnection):
     assets = [
         House_other_electricity,
         House_hot_water,
-        #Electric_hob,
+        Electric_hob,
         House_DH_heatdeliveryset,
         Solarpanel_building(capacityElectricity_kW=3),
         EV,
@@ -175,8 +177,9 @@ class House_heatnetwork_MT_electrified(HouseGridConnection):
     assets = [
         House_other_electricity,
         House_hot_water,
-        #Electric_hob,
+        Electric_hob,
         House_DH_heatdeliveryset_MT,
+        #House_eboiler_M,
         House_heatpump_water_MT_S,
         House_heat_buffer,
         Solarpanel_building(capacityElectricity_kW=3),

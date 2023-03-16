@@ -132,7 +132,7 @@ House_heat_buffer = HeatStorageAsset(
     minTemp_degC=55,
     maxTemp_degC=80,
     setTemp_degC=60,
-    lossFactor_WpK=0.0,
+    lossFactor_WpK=10.0,
     heatCapacity_JpK=1200000.0,
     ambientTempType="AIR",
 )
@@ -165,6 +165,20 @@ District_Heating_heat_buffer_MT_S = HeatStorageAsset(
     ambientTempType="GROUND",
 )
 
+District_Heating_heat_buffer_MT_S_Perfect = HeatStorageAsset(
+    name="District_Heating_heat_buffer_MT_S",
+    type="STORAGE_HEAT",
+    capacityHeat_kW=1000.0,
+    #stateOfCharge_r=0.75,
+    initial_temperature_degC = 70,
+    minTemp_degC=60,
+    maxTemp_degC=80,
+    setTemp_degC=70,
+    lossFactor_WpK=0.0,
+    heatCapacity_JpK=120000000.0,
+    ambientTempType="GROUND",
+)
+
 District_Heating_network_HT_S = HeatStorageAsset(
     name="District_Heating_network_HT_S",
     type="STORAGE_HEAT",
@@ -176,6 +190,20 @@ District_Heating_network_HT_S = HeatStorageAsset(
     setTemp_degC=90,
     lossFactor_WpK=100,
     heatCapacity_JpK=10000000.0,
+    ambientTempType="GROUND",
+)
+
+District_Heating_network_HT_M = HeatStorageAsset(
+    name="District_Heating_network_HT_M",
+    type="STORAGE_HEAT",
+    capacityHeat_kW=1000.0,
+    #stateOfCharge_r=1.0,
+    initial_temperature_degC = 90,
+    minTemp_degC=70,
+    maxTemp_degC=100,
+    setTemp_degC=90,
+    lossFactor_WpK=10000,
+    heatCapacity_JpK=100000000.0,
     ambientTempType="GROUND",
 )
 
@@ -221,8 +249,22 @@ District_Heating_network_MT_S = HeatStorageAsset(
     ambientTempType="GROUND",
 )
 
-District_Heating_network_MT_L = HeatStorageAsset(
+District_Heating_network_MT_S_Perfect = HeatStorageAsset(
     name="District_Heating_network_MT_S",
+    type="STORAGE_HEAT",
+    capacityHeat_kW=1000.0,
+    #stateOfCharge_r=1.0,
+    initial_temperature_degC = 70,
+    minTemp_degC=60,
+    maxTemp_degC=80,
+    setTemp_degC=70,
+    lossFactor_WpK=0.0,
+    heatCapacity_JpK=10000000.0,
+    ambientTempType="GROUND",
+)
+
+District_Heating_network_MT_L = HeatStorageAsset(
+    name="District_Heating_network_MT_L",
     type="STORAGE_HEAT",
     capacityHeat_kW=1000.0,
     #stateOfCharge_r=1.0,
@@ -232,6 +274,20 @@ District_Heating_network_MT_L = HeatStorageAsset(
     setTemp_degC=70,
     lossFactor_WpK=10000,
     heatCapacity_JpK=1000000000.0,
+    ambientTempType="GROUND",
+)
+
+District_Heating_network_MT_M = HeatStorageAsset(
+    name="District_Heating_network_MT_M",
+    type="STORAGE_HEAT",
+    capacityHeat_kW=1000.0,
+    #stateOfCharge_r=1.0,
+    initial_temperature_degC = 70,
+    minTemp_degC=60,
+    maxTemp_degC=80,
+    setTemp_degC=70,
+    lossFactor_WpK=100,
+    heatCapacity_JpK=100000000.0,
     ambientTempType="GROUND",
 )
 

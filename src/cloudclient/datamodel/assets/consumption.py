@@ -6,10 +6,11 @@ from cloudclient.datamodel.assets.energy import EnergyAsset
 
 class ConsumptionAssetTypeEnum(Enum):
     electricity_demand = "ELECTRICITY_DEMAND"
-    electric_hob = "ELECTRIC_HOB"
     heat_demand = "HEAT_DEMAND"
     hot_water_consumption = "HOT_WATER_CONSUMPTION"
     other_electricity_consumption = "OTHER_ELECTRICITY_CONSUMPTION"
+    diesel_vehicle = "DIESEL_VEHICLE"
+    electric_hob = "ELECTRIC_HOB"
 
 
 class ConsumptionAsset(EnergyAsset):
@@ -27,3 +28,12 @@ class ElectricConsumptionAsset(ConsumptionAsset):
 
 class HybridConsumptionAsset(ElectricConsumptionAsset, HeatConsumptionAsset):
     pass
+
+class DieselVehicleAsset(ConsumptionAsset):
+    name : str
+    energyConsumption_kWhpkm = 0.8
+    type = ConsumptionAssetTypeEnum.diesel_vehicle
+    vehicleScaling = 1
+
+class ElectricHob(ElectricConsumptionAsset):
+    capacityElectricity_kW: float

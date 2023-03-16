@@ -127,7 +127,7 @@ Building_solarpanels_10kWp = ElectricProductionAsset(
 class ResidualHeat_HT(HeatProductionAsset):
     name = "Residual_heat"
     type = ProductionAssetTypeEnum.residualheatHT
-    deliveryTemp_degC = 95.0
+    deliveryTemp_degC = 100.0
     capacityHeat_kW = 3000.0
     
 

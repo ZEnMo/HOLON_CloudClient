@@ -12,12 +12,13 @@ class ActorTypeEnum(Enum):
     energysupplier = "ENERGYSUPPLIER"
 
 
-class Actor(BaseModel, extra=Extra.forbid):
+class Actor(BaseModel):
     category: ActorTypeEnum
     group: str
     subgroup = ""
     id: str
     contracts = []  # Optional[List[Contract]]
+    node = ""
 
 
 # class SubTypeEnum(Enum):

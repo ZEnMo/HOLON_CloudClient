@@ -15,8 +15,10 @@ class ConversionAssetTypeEnum(Enum):
     methane_furnace = "METHANE_FURNACE"
     diesel_vehicle = "DIESEL_VEHICLE"
     curtailer = "CURTAILER"
+    curtailer_heat = "CURTAILER_HEAT"
     methane_chp = "METHANE_CHP"
     electric_hob = "ELECTRIC_HOB"
+    gas_pit = "GAS_PIT"
 
 
 class ConversionAsset(EnergyAsset):
@@ -36,7 +38,7 @@ class ElectricCoversionAsset(ConversionAsset):
 
 
 class HeatConversionAsset(ConversionAsset):
-    deliveryTemp_degC: float
+    deliveryTemp_degC: Optional[float]
 
 
 class ChemicalHeatConversionAsset(HeatConversionAsset):
@@ -49,8 +51,9 @@ class ElectricHeatConversionAsset(HeatConversionAsset):
 class TransportHeatConversionAsset(ElectricHeatConversionAsset):
     ambientTempType: Optional[AmbientTempTypeEnum]
 
-class ElectricHob(ElectricCoversionAsset):
-    capacityElectricity_kW: float
+class CombinedHeatPowerAsset(ElectricHeatConversionAsset, ChemicalHeatConversionAsset):
+
+    pass
 
 class HybridHeatCoversionAsset(
     TransportHeatConversionAsset, ChemicalHeatConversionAsset

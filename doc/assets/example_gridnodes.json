@@ -66,7 +66,7 @@
   {
     "owner_actor": "o1",
     "id": "E1",
-    "capacity_kw": 500000.0,
+    "capacity_kw": 5000.0,
     "parent": null,
     "type": "HSMS",
     "category": "ELECTRICITY"
@@ -74,6 +74,29 @@
   {
     "owner_actor": "o1",
     "id": "H1",
+    "capacity_kw": 500000.0,
+    "parent": null,
+    "type": "HT",
+    "category": "HEAT",
+    "assets": [
+      {
+        "type": "STORAGE_HEAT",
+        "name": "District_Heating_network_HT_M",
+        "category": "STORAGE",
+        "capacityHeat_kW": 1000.0,
+        "initial_temperature_degC": 90.0,
+        "minTemp_degC": 70,
+        "maxTemp_degC": 100,
+        "setTemp_degC": 90,
+        "lossFactor_WpK": 100.0,
+        "heatCapacity_JpK": 16000000.0,
+        "ambientTempType": "GROUND"
+      }
+    ]
+  },
+  {
+    "owner_actor": "o1",
+    "id": "H2",
     "capacity_kw": 500000.0,
     "parent": null,
     "type": "MT",
@@ -88,8 +111,8 @@
         "minTemp_degC": 60,
         "maxTemp_degC": 80,
         "setTemp_degC": 70,
-        "lossFactor_WpK": 10000.0,
-        "heatCapacity_JpK": 1000000000.0,
+        "lossFactor_WpK": 100.0,
+        "heatCapacity_JpK": 10000000.0,
         "ambientTempType": "GROUND"
       }
     ]

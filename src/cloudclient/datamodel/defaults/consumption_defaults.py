@@ -55,3 +55,35 @@ class Store_other_electricity(ElectricConsumptionAsset):
     name = "Store_other_electricity"
     type = ConsumptionAssetTypeEnum.electricity_demand
     yearlyDemandElectricity_kWh = 35000.0
+
+class Store_heat_demand(HeatConsumptionAsset):
+    name = "Building_heat_demand"
+    type = ConsumptionAssetTypeEnum.heat_demand
+    yearlyDemandHeat_kWh = 25000.0    # ca 300 m2 bij 66 kWh/m2 voor <1976 bouw (UMGO Maatlat 4.33)
+
+class Office_heat_demand(HeatConsumptionAsset):
+    name = "Building_heat_demand"
+    type = ConsumptionAssetTypeEnum.heat_demand
+    yearlyDemandHeat_kWh = 50000.0    # ca 500 m2 bij ca 100 kWh/m2 voor <1976 bouw (UMGO Maatlat 4.33)
+
+Diesel_Truck = DieselVehicleAsset(
+    type="DIESEL_VEHICLE",
+    name="Diesel_Truck",
+    energyConsumption_kWhpkm=3,
+    vehicleScaling=10,
+)
+
+Diesel_Vehicle = DieselVehicleAsset(
+    type="DIESEL_VEHICLE",
+    name="Diesel_Vehicle",
+    energyConsumption_kWhpkm=0.8,
+    vehicleScaling=1,
+)
+
+Electric_hob = ElectricHob(
+    type= "ELECTRIC_HOB",
+    name= "Electric hob", # name can be anything
+    category= "CONSUMPTION",
+    #eta_r= 0.95,  #fixed value
+    capacityElectricity_kW= 5.0, #//fixed value
+)
