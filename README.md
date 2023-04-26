@@ -1,10 +1,17 @@
-# Experiments module
+# HOLON cloudclient module
+
+This repo contains the (legacy) AnyLogic cloudclient implementation of the HOLON project. This repo and other repos are licensed under the [MIT license](LICENSE.md). Other repos are:
+
+1. [AnyLogic](https://github.com/ZEnMo/HOLON)
+2. [ETM service](https://github.com/ZEnMo/HOLON-ETM)
+3. [webapp](https://github.com/ZEnMo/HOLON-webapp)
+
 (works better at the [Github Pages](https://zenmo.github.io/HOLON-cloudclient/))
 
 The experiments module allows you to define your experiment in a config file and run one or
 multiple experiments sequentially. No more adjusting classes! Based on the existing scripts.
 
-- [Experiments module](#experiments-module)
+- [HOLON cloudclient module](#holon-cloudclient-module)
   - [Installation](#installation)
     - [Development](#development)
     - [Production](#production)
@@ -17,7 +24,9 @@ multiple experiments sequentially. No more adjusting classes! Based on the exist
 ## Installation
 
 ### Development
+
 Uses editable wheel build.
+
 ```bash
 git clone https://github.com/ZEnMo/HOLON-cloudclient.git
 cd HOLON-cloudclient
@@ -26,30 +35,36 @@ pip install -e .
 cloudclient_init --target-folder .
 ```
 
-
 ### Production
+
 **Direct**
+
 ```bash
 pip install git+https://github.com/ZEnMo/HOLON-cloudclient@main#egg=cloudclient
 cloudclient_init --target-folder folder/for/clouclient/config --get-api-key # asumes "AL_API_KEY" in env vars
 ```
+
 **Via requirements.txt**
+
 ```
 git+https://github.com/ZEnMo/HOLON-cloudclient@main#egg=cloudclient
 ```
 
 ## Starting up
 
-The `cloudclient_init` command that you issued during installation links the `cloudclient` package to your project configuration folder `.cloudclient`. This folder contains the information that is used by the package to run experiments on the AnyLogic private cloud. 
+The `cloudclient_init` command that you issued during installation links the `cloudclient` package to your project configuration folder `.cloudclient`. This folder contains the information that is used by the package to run experiments on the AnyLogic private cloud.
 
 Go to the `config` folder and open `config.yml`. Specify your secret API key to connect to the AnyLogic Cloud there.
+
 ```yaml
 anylogic_cloud:
   api_key: 7a3563c1-ea1c-41d6-8009-b7abfd93f7ba
   url: https://engine.holontool.nl
 ```
+
 Go to the `config` folder and open `experiments.yml`. Specify
 your experiments there.
+
 ```yaml
 <experiment_name>:
   model_name:     name of the anylogic model to connect to
@@ -66,12 +81,12 @@ your experiments there.
                   - anylogic_key: <key>
                     file: <sheetname> or <datamodel.Payload attribute> to submit to the key
                     write: True | False
-                    
+
   outcome:        list, name all the outcoems that should be taken from the model.
                   They become accesible and will be saved under their human_key
                   Specify if they should be written to a file, or printed out.
                   Also allows for actions on the data. Currently only normalise is
-                  avaibale. 
+                  avaibale.
 ```
 
 ## Running the module
@@ -84,7 +99,6 @@ specifying its name or all experiments by using the keyword `ALL`.
 
 There is also support for pipenv now for the ones that are interested. There is a shortcut to
 run the experiments: `pipenv run experiments {experiment_name}`.
-
 
 Happy experimenting!
 
