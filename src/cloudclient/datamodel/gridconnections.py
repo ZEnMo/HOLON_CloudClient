@@ -83,6 +83,8 @@ class BuildingTypeEnum(Enum):
     store = "STORE"
     office = "OFFICE"
     logistics = "LOGISTICS"
+    farm = "FARM"
+    village = "VILLAGE"
 
 
 class BuildingGridConnection(BuiltEnvironmentGridConnection):
